@@ -8,7 +8,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex bg-slate-50 min-h-screen text-slate-800 font-sans relative">
+    <div className="flex bg-slate-50 h-screen overflow-hidden text-slate-800 font-sans relative">
       {/* Backdrop overlay for mobile */}
       {sidebarOpen && (
         <div
@@ -21,7 +21,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <AdminSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       {/* Main Layout Area */}
-      <div className="flex-1 flex flex-col min-h-screen overflow-hidden">
+      <div className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Navbar */}
         <AdminNavbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 

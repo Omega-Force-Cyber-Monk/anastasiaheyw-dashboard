@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { LatestPost } from "~/app/_components/post";
 import { LoginForm } from "~/app/_components/login-form";
 import { auth, signIn, signOut } from "~/server/auth";
