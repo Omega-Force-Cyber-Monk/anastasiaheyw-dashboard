@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 interface LoginFormProps {
@@ -77,26 +78,29 @@ export function LoginForm({ onDiscordSignIn }: LoginFormProps) {
             </button>
           </div>
         </div>
-
-        <button
+<Link href="/admin/dashboard">
+<button
           type="submit"
+
           disabled={loading}
           className="w-full py-3 cursor-pointer px-4 rounded-lg bg-[#062c1a] hover:bg-[#0c472c] text-white font-semibold shadow-md transition-all duration-200 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
+</Link>
+
       </form>
 
-      <div className="relative my-6">
+      {/* <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-slate-200"></div>
         </div>
         <div className="relative flex justify-center text-sm">
           <span className="bg-white px-2 text-slate-400">or</span>
         </div>
-      </div>
+      </div> */}
 
-      <button
+      {/* <button
         type="button"
         onClick={onDiscordSignIn}
         className="w-full flex items-center justify-center gap-3 bg-[#5865F2] hover:bg-[#4752C4] active:scale-[0.98] text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-all duration-200"
@@ -105,7 +109,7 @@ export function LoginForm({ onDiscordSignIn }: LoginFormProps) {
           <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.43-5c.87-.64,1.72-1.31,2.53-2a75.46,75.46,0,0,0,72.63,0c.81.7,1.66,1.37,2.53,2a68.86,68.86,0,0,1-10.43,5,80.21,80.21,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31-18.83C129,54.65,122.52,31.58,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/>
         </svg>
         Sign in with Discord
-      </button>
+      </button> */}
     </div>
   );
 }
