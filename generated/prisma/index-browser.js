@@ -166,6 +166,64 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.ArthurTokenScalarFieldEnum = {
+  id: 'id',
+  accessToken: 'accessToken',
+  refreshToken: 'refreshToken',
+  expiresAt: 'expiresAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArthurPropertyScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  address: 'address',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArthurUnitScalarFieldEnum = {
+  id: 'id',
+  propertyId: 'propertyId',
+  name: 'name',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArthurTenancyScalarFieldEnum = {
+  id: 'id',
+  unitId: 'unitId',
+  status: 'status',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  rent: 'rent',
+  rentVal: 'rentVal',
+  deposit: 'deposit',
+  depositVal: 'depositVal',
+  lodged: 'lodged',
+  received: 'received',
+  tenants: 'tenants',
+  phone: 'phone',
+  email: 'email',
+  lettingType: 'lettingType',
+  rentStatus: 'rentStatus',
+  commentary: 'commentary',
+  address: 'address',
+  code: 'code',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdminProfileScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  role: 'role',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -187,7 +245,12 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Session: 'Session',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  ArthurToken: 'ArthurToken',
+  ArthurProperty: 'ArthurProperty',
+  ArthurUnit: 'ArthurUnit',
+  ArthurTenancy: 'ArthurTenancy',
+  AdminProfile: 'AdminProfile'
 };
 
 /**

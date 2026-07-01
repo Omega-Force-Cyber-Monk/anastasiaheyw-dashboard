@@ -17,6 +17,10 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    ARTHUR_CLIENT_ID: z.string(),
+    ARTHUR_CLIENT_SECRET: z.string(),
+    ARTHUR_ENTITY_ID: z.string(),
+    ARTHUR_REDIRECT_URI: z.string(),
   },
 
   /**
@@ -38,6 +42,10 @@ export const env = createEnv({
     AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
+    ARTHUR_CLIENT_ID: process.env.ARTHUR_CLIENT_ID,
+    ARTHUR_CLIENT_SECRET: process.env.ARTHUR_CLIENT_SECRET,
+    ARTHUR_ENTITY_ID: process.env.ARTHUR_ENTITY_ID,
+    ARTHUR_REDIRECT_URI: process.env.ARTHUR_REDIRECT_URI,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -38,6 +38,31 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model ArthurToken
+ * 
+ */
+export type ArthurToken = $Result.DefaultSelection<Prisma.$ArthurTokenPayload>
+/**
+ * Model ArthurProperty
+ * 
+ */
+export type ArthurProperty = $Result.DefaultSelection<Prisma.$ArthurPropertyPayload>
+/**
+ * Model ArthurUnit
+ * 
+ */
+export type ArthurUnit = $Result.DefaultSelection<Prisma.$ArthurUnitPayload>
+/**
+ * Model ArthurTenancy
+ * 
+ */
+export type ArthurTenancy = $Result.DefaultSelection<Prisma.$ArthurTenancyPayload>
+/**
+ * Model AdminProfile
+ * 
+ */
+export type AdminProfile = $Result.DefaultSelection<Prisma.$AdminProfilePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -206,6 +231,56 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.arthurToken`: Exposes CRUD operations for the **ArthurToken** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArthurTokens
+    * const arthurTokens = await prisma.arthurToken.findMany()
+    * ```
+    */
+  get arthurToken(): Prisma.ArthurTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.arthurProperty`: Exposes CRUD operations for the **ArthurProperty** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArthurProperties
+    * const arthurProperties = await prisma.arthurProperty.findMany()
+    * ```
+    */
+  get arthurProperty(): Prisma.ArthurPropertyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.arthurUnit`: Exposes CRUD operations for the **ArthurUnit** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArthurUnits
+    * const arthurUnits = await prisma.arthurUnit.findMany()
+    * ```
+    */
+  get arthurUnit(): Prisma.ArthurUnitDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.arthurTenancy`: Exposes CRUD operations for the **ArthurTenancy** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArthurTenancies
+    * const arthurTenancies = await prisma.arthurTenancy.findMany()
+    * ```
+    */
+  get arthurTenancy(): Prisma.ArthurTenancyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.adminProfile`: Exposes CRUD operations for the **AdminProfile** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdminProfiles
+    * const adminProfiles = await prisma.adminProfile.findMany()
+    * ```
+    */
+  get adminProfile(): Prisma.AdminProfileDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -651,7 +726,12 @@ export namespace Prisma {
     Account: 'Account',
     Session: 'Session',
     User: 'User',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    ArthurToken: 'ArthurToken',
+    ArthurProperty: 'ArthurProperty',
+    ArthurUnit: 'ArthurUnit',
+    ArthurTenancy: 'ArthurTenancy',
+    AdminProfile: 'AdminProfile'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +750,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "account" | "session" | "user" | "verificationToken"
+      modelProps: "post" | "account" | "session" | "user" | "verificationToken" | "arthurToken" | "arthurProperty" | "arthurUnit" | "arthurTenancy" | "adminProfile"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1044,6 +1124,376 @@ export namespace Prisma {
           }
         }
       }
+      ArthurToken: {
+        payload: Prisma.$ArthurTokenPayload<ExtArgs>
+        fields: Prisma.ArthurTokenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ArthurTokenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ArthurTokenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>
+          }
+          findFirst: {
+            args: Prisma.ArthurTokenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ArthurTokenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>
+          }
+          findMany: {
+            args: Prisma.ArthurTokenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>[]
+          }
+          create: {
+            args: Prisma.ArthurTokenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>
+          }
+          createMany: {
+            args: Prisma.ArthurTokenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ArthurTokenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>[]
+          }
+          delete: {
+            args: Prisma.ArthurTokenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>
+          }
+          update: {
+            args: Prisma.ArthurTokenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>
+          }
+          deleteMany: {
+            args: Prisma.ArthurTokenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ArthurTokenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ArthurTokenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>[]
+          }
+          upsert: {
+            args: Prisma.ArthurTokenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTokenPayload>
+          }
+          aggregate: {
+            args: Prisma.ArthurTokenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateArthurToken>
+          }
+          groupBy: {
+            args: Prisma.ArthurTokenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ArthurTokenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ArthurTokenCountArgs<ExtArgs>
+            result: $Utils.Optional<ArthurTokenCountAggregateOutputType> | number
+          }
+        }
+      }
+      ArthurProperty: {
+        payload: Prisma.$ArthurPropertyPayload<ExtArgs>
+        fields: Prisma.ArthurPropertyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ArthurPropertyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ArthurPropertyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>
+          }
+          findFirst: {
+            args: Prisma.ArthurPropertyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ArthurPropertyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>
+          }
+          findMany: {
+            args: Prisma.ArthurPropertyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>[]
+          }
+          create: {
+            args: Prisma.ArthurPropertyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>
+          }
+          createMany: {
+            args: Prisma.ArthurPropertyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ArthurPropertyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>[]
+          }
+          delete: {
+            args: Prisma.ArthurPropertyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>
+          }
+          update: {
+            args: Prisma.ArthurPropertyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>
+          }
+          deleteMany: {
+            args: Prisma.ArthurPropertyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ArthurPropertyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ArthurPropertyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>[]
+          }
+          upsert: {
+            args: Prisma.ArthurPropertyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurPropertyPayload>
+          }
+          aggregate: {
+            args: Prisma.ArthurPropertyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateArthurProperty>
+          }
+          groupBy: {
+            args: Prisma.ArthurPropertyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ArthurPropertyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ArthurPropertyCountArgs<ExtArgs>
+            result: $Utils.Optional<ArthurPropertyCountAggregateOutputType> | number
+          }
+        }
+      }
+      ArthurUnit: {
+        payload: Prisma.$ArthurUnitPayload<ExtArgs>
+        fields: Prisma.ArthurUnitFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ArthurUnitFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ArthurUnitFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>
+          }
+          findFirst: {
+            args: Prisma.ArthurUnitFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ArthurUnitFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>
+          }
+          findMany: {
+            args: Prisma.ArthurUnitFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>[]
+          }
+          create: {
+            args: Prisma.ArthurUnitCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>
+          }
+          createMany: {
+            args: Prisma.ArthurUnitCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ArthurUnitCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>[]
+          }
+          delete: {
+            args: Prisma.ArthurUnitDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>
+          }
+          update: {
+            args: Prisma.ArthurUnitUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>
+          }
+          deleteMany: {
+            args: Prisma.ArthurUnitDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ArthurUnitUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ArthurUnitUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>[]
+          }
+          upsert: {
+            args: Prisma.ArthurUnitUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurUnitPayload>
+          }
+          aggregate: {
+            args: Prisma.ArthurUnitAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateArthurUnit>
+          }
+          groupBy: {
+            args: Prisma.ArthurUnitGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ArthurUnitGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ArthurUnitCountArgs<ExtArgs>
+            result: $Utils.Optional<ArthurUnitCountAggregateOutputType> | number
+          }
+        }
+      }
+      ArthurTenancy: {
+        payload: Prisma.$ArthurTenancyPayload<ExtArgs>
+        fields: Prisma.ArthurTenancyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ArthurTenancyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ArthurTenancyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>
+          }
+          findFirst: {
+            args: Prisma.ArthurTenancyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ArthurTenancyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>
+          }
+          findMany: {
+            args: Prisma.ArthurTenancyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>[]
+          }
+          create: {
+            args: Prisma.ArthurTenancyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>
+          }
+          createMany: {
+            args: Prisma.ArthurTenancyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ArthurTenancyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>[]
+          }
+          delete: {
+            args: Prisma.ArthurTenancyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>
+          }
+          update: {
+            args: Prisma.ArthurTenancyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>
+          }
+          deleteMany: {
+            args: Prisma.ArthurTenancyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ArthurTenancyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ArthurTenancyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>[]
+          }
+          upsert: {
+            args: Prisma.ArthurTenancyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArthurTenancyPayload>
+          }
+          aggregate: {
+            args: Prisma.ArthurTenancyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateArthurTenancy>
+          }
+          groupBy: {
+            args: Prisma.ArthurTenancyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ArthurTenancyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ArthurTenancyCountArgs<ExtArgs>
+            result: $Utils.Optional<ArthurTenancyCountAggregateOutputType> | number
+          }
+        }
+      }
+      AdminProfile: {
+        payload: Prisma.$AdminProfilePayload<ExtArgs>
+        fields: Prisma.AdminProfileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdminProfileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdminProfileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>
+          }
+          findFirst: {
+            args: Prisma.AdminProfileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdminProfileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>
+          }
+          findMany: {
+            args: Prisma.AdminProfileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>[]
+          }
+          create: {
+            args: Prisma.AdminProfileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>
+          }
+          createMany: {
+            args: Prisma.AdminProfileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AdminProfileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>[]
+          }
+          delete: {
+            args: Prisma.AdminProfileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>
+          }
+          update: {
+            args: Prisma.AdminProfileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>
+          }
+          deleteMany: {
+            args: Prisma.AdminProfileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdminProfileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AdminProfileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>[]
+          }
+          upsert: {
+            args: Prisma.AdminProfileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminProfilePayload>
+          }
+          aggregate: {
+            args: Prisma.AdminProfileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdminProfile>
+          }
+          groupBy: {
+            args: Prisma.AdminProfileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdminProfileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdminProfileCountArgs<ExtArgs>
+            result: $Utils.Optional<AdminProfileCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1145,6 +1595,11 @@ export namespace Prisma {
     session?: SessionOmit
     user?: UserOmit
     verificationToken?: VerificationTokenOmit
+    arthurToken?: ArthurTokenOmit
+    arthurProperty?: ArthurPropertyOmit
+    arthurUnit?: ArthurUnitOmit
+    arthurTenancy?: ArthurTenancyOmit
+    adminProfile?: AdminProfileOmit
   }
 
   /* Types for Logging */
@@ -1266,6 +1721,68 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PostWhereInput
+  }
+
+
+  /**
+   * Count Type ArthurPropertyCountOutputType
+   */
+
+  export type ArthurPropertyCountOutputType = {
+    units: number
+  }
+
+  export type ArthurPropertyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    units?: boolean | ArthurPropertyCountOutputTypeCountUnitsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ArthurPropertyCountOutputType without action
+   */
+  export type ArthurPropertyCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurPropertyCountOutputType
+     */
+    select?: ArthurPropertyCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ArthurPropertyCountOutputType without action
+   */
+  export type ArthurPropertyCountOutputTypeCountUnitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArthurUnitWhereInput
+  }
+
+
+  /**
+   * Count Type ArthurUnitCountOutputType
+   */
+
+  export type ArthurUnitCountOutputType = {
+    tenancies: number
+  }
+
+  export type ArthurUnitCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenancies?: boolean | ArthurUnitCountOutputTypeCountTenanciesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ArthurUnitCountOutputType without action
+   */
+  export type ArthurUnitCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnitCountOutputType
+     */
+    select?: ArthurUnitCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ArthurUnitCountOutputType without action
+   */
+  export type ArthurUnitCountOutputTypeCountTenanciesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArthurTenancyWhereInput
   }
 
 
@@ -6706,6 +7223,5472 @@ export namespace Prisma {
 
 
   /**
+   * Model ArthurToken
+   */
+
+  export type AggregateArthurToken = {
+    _count: ArthurTokenCountAggregateOutputType | null
+    _min: ArthurTokenMinAggregateOutputType | null
+    _max: ArthurTokenMaxAggregateOutputType | null
+  }
+
+  export type ArthurTokenMinAggregateOutputType = {
+    id: string | null
+    accessToken: string | null
+    refreshToken: string | null
+    expiresAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurTokenMaxAggregateOutputType = {
+    id: string | null
+    accessToken: string | null
+    refreshToken: string | null
+    expiresAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurTokenCountAggregateOutputType = {
+    id: number
+    accessToken: number
+    refreshToken: number
+    expiresAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ArthurTokenMinAggregateInputType = {
+    id?: true
+    accessToken?: true
+    refreshToken?: true
+    expiresAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurTokenMaxAggregateInputType = {
+    id?: true
+    accessToken?: true
+    refreshToken?: true
+    expiresAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurTokenCountAggregateInputType = {
+    id?: true
+    accessToken?: true
+    refreshToken?: true
+    expiresAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ArthurTokenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurToken to aggregate.
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTokens to fetch.
+     */
+    orderBy?: ArthurTokenOrderByWithRelationInput | ArthurTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ArthurTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ArthurTokens
+    **/
+    _count?: true | ArthurTokenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArthurTokenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArthurTokenMaxAggregateInputType
+  }
+
+  export type GetArthurTokenAggregateType<T extends ArthurTokenAggregateArgs> = {
+        [P in keyof T & keyof AggregateArthurToken]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateArthurToken[P]>
+      : GetScalarType<T[P], AggregateArthurToken[P]>
+  }
+
+
+
+
+  export type ArthurTokenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArthurTokenWhereInput
+    orderBy?: ArthurTokenOrderByWithAggregationInput | ArthurTokenOrderByWithAggregationInput[]
+    by: ArthurTokenScalarFieldEnum[] | ArthurTokenScalarFieldEnum
+    having?: ArthurTokenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ArthurTokenCountAggregateInputType | true
+    _min?: ArthurTokenMinAggregateInputType
+    _max?: ArthurTokenMaxAggregateInputType
+  }
+
+  export type ArthurTokenGroupByOutputType = {
+    id: string
+    accessToken: string
+    refreshToken: string
+    expiresAt: Date
+    updatedAt: Date
+    _count: ArthurTokenCountAggregateOutputType | null
+    _min: ArthurTokenMinAggregateOutputType | null
+    _max: ArthurTokenMaxAggregateOutputType | null
+  }
+
+  type GetArthurTokenGroupByPayload<T extends ArthurTokenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ArthurTokenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ArthurTokenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ArthurTokenGroupByOutputType[P]>
+            : GetScalarType<T[P], ArthurTokenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ArthurTokenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    expiresAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["arthurToken"]>
+
+  export type ArthurTokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    expiresAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["arthurToken"]>
+
+  export type ArthurTokenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    expiresAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["arthurToken"]>
+
+  export type ArthurTokenSelectScalar = {
+    id?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    expiresAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ArthurTokenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "accessToken" | "refreshToken" | "expiresAt" | "updatedAt", ExtArgs["result"]["arthurToken"]>
+
+  export type $ArthurTokenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ArthurToken"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      accessToken: string
+      refreshToken: string
+      expiresAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["arthurToken"]>
+    composites: {}
+  }
+
+  type ArthurTokenGetPayload<S extends boolean | null | undefined | ArthurTokenDefaultArgs> = $Result.GetResult<Prisma.$ArthurTokenPayload, S>
+
+  type ArthurTokenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ArthurTokenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ArthurTokenCountAggregateInputType | true
+    }
+
+  export interface ArthurTokenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ArthurToken'], meta: { name: 'ArthurToken' } }
+    /**
+     * Find zero or one ArthurToken that matches the filter.
+     * @param {ArthurTokenFindUniqueArgs} args - Arguments to find a ArthurToken
+     * @example
+     * // Get one ArthurToken
+     * const arthurToken = await prisma.arthurToken.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ArthurTokenFindUniqueArgs>(args: SelectSubset<T, ArthurTokenFindUniqueArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ArthurToken that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ArthurTokenFindUniqueOrThrowArgs} args - Arguments to find a ArthurToken
+     * @example
+     * // Get one ArthurToken
+     * const arthurToken = await prisma.arthurToken.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ArthurTokenFindUniqueOrThrowArgs>(args: SelectSubset<T, ArthurTokenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurToken that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenFindFirstArgs} args - Arguments to find a ArthurToken
+     * @example
+     * // Get one ArthurToken
+     * const arthurToken = await prisma.arthurToken.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ArthurTokenFindFirstArgs>(args?: SelectSubset<T, ArthurTokenFindFirstArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurToken that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenFindFirstOrThrowArgs} args - Arguments to find a ArthurToken
+     * @example
+     * // Get one ArthurToken
+     * const arthurToken = await prisma.arthurToken.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ArthurTokenFindFirstOrThrowArgs>(args?: SelectSubset<T, ArthurTokenFindFirstOrThrowArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ArthurTokens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ArthurTokens
+     * const arthurTokens = await prisma.arthurToken.findMany()
+     * 
+     * // Get first 10 ArthurTokens
+     * const arthurTokens = await prisma.arthurToken.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const arthurTokenWithIdOnly = await prisma.arthurToken.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ArthurTokenFindManyArgs>(args?: SelectSubset<T, ArthurTokenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ArthurToken.
+     * @param {ArthurTokenCreateArgs} args - Arguments to create a ArthurToken.
+     * @example
+     * // Create one ArthurToken
+     * const ArthurToken = await prisma.arthurToken.create({
+     *   data: {
+     *     // ... data to create a ArthurToken
+     *   }
+     * })
+     * 
+     */
+    create<T extends ArthurTokenCreateArgs>(args: SelectSubset<T, ArthurTokenCreateArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ArthurTokens.
+     * @param {ArthurTokenCreateManyArgs} args - Arguments to create many ArthurTokens.
+     * @example
+     * // Create many ArthurTokens
+     * const arthurToken = await prisma.arthurToken.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ArthurTokenCreateManyArgs>(args?: SelectSubset<T, ArthurTokenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ArthurTokens and returns the data saved in the database.
+     * @param {ArthurTokenCreateManyAndReturnArgs} args - Arguments to create many ArthurTokens.
+     * @example
+     * // Create many ArthurTokens
+     * const arthurToken = await prisma.arthurToken.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ArthurTokens and only return the `id`
+     * const arthurTokenWithIdOnly = await prisma.arthurToken.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ArthurTokenCreateManyAndReturnArgs>(args?: SelectSubset<T, ArthurTokenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ArthurToken.
+     * @param {ArthurTokenDeleteArgs} args - Arguments to delete one ArthurToken.
+     * @example
+     * // Delete one ArthurToken
+     * const ArthurToken = await prisma.arthurToken.delete({
+     *   where: {
+     *     // ... filter to delete one ArthurToken
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ArthurTokenDeleteArgs>(args: SelectSubset<T, ArthurTokenDeleteArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ArthurToken.
+     * @param {ArthurTokenUpdateArgs} args - Arguments to update one ArthurToken.
+     * @example
+     * // Update one ArthurToken
+     * const arthurToken = await prisma.arthurToken.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ArthurTokenUpdateArgs>(args: SelectSubset<T, ArthurTokenUpdateArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ArthurTokens.
+     * @param {ArthurTokenDeleteManyArgs} args - Arguments to filter ArthurTokens to delete.
+     * @example
+     * // Delete a few ArthurTokens
+     * const { count } = await prisma.arthurToken.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ArthurTokenDeleteManyArgs>(args?: SelectSubset<T, ArthurTokenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ArthurTokens
+     * const arthurToken = await prisma.arthurToken.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ArthurTokenUpdateManyArgs>(args: SelectSubset<T, ArthurTokenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurTokens and returns the data updated in the database.
+     * @param {ArthurTokenUpdateManyAndReturnArgs} args - Arguments to update many ArthurTokens.
+     * @example
+     * // Update many ArthurTokens
+     * const arthurToken = await prisma.arthurToken.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ArthurTokens and only return the `id`
+     * const arthurTokenWithIdOnly = await prisma.arthurToken.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ArthurTokenUpdateManyAndReturnArgs>(args: SelectSubset<T, ArthurTokenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ArthurToken.
+     * @param {ArthurTokenUpsertArgs} args - Arguments to update or create a ArthurToken.
+     * @example
+     * // Update or create a ArthurToken
+     * const arthurToken = await prisma.arthurToken.upsert({
+     *   create: {
+     *     // ... data to create a ArthurToken
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ArthurToken we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ArthurTokenUpsertArgs>(args: SelectSubset<T, ArthurTokenUpsertArgs<ExtArgs>>): Prisma__ArthurTokenClient<$Result.GetResult<Prisma.$ArthurTokenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ArthurTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenCountArgs} args - Arguments to filter ArthurTokens to count.
+     * @example
+     * // Count the number of ArthurTokens
+     * const count = await prisma.arthurToken.count({
+     *   where: {
+     *     // ... the filter for the ArthurTokens we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArthurTokenCountArgs>(
+      args?: Subset<T, ArthurTokenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ArthurTokenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ArthurToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArthurTokenAggregateArgs>(args: Subset<T, ArthurTokenAggregateArgs>): Prisma.PrismaPromise<GetArthurTokenAggregateType<T>>
+
+    /**
+     * Group by ArthurToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTokenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ArthurTokenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ArthurTokenGroupByArgs['orderBy'] }
+        : { orderBy?: ArthurTokenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ArthurTokenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArthurTokenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ArthurToken model
+   */
+  readonly fields: ArthurTokenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ArthurToken.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ArthurTokenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ArthurToken model
+   */
+  interface ArthurTokenFieldRefs {
+    readonly id: FieldRef<"ArthurToken", 'String'>
+    readonly accessToken: FieldRef<"ArthurToken", 'String'>
+    readonly refreshToken: FieldRef<"ArthurToken", 'String'>
+    readonly expiresAt: FieldRef<"ArthurToken", 'DateTime'>
+    readonly updatedAt: FieldRef<"ArthurToken", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ArthurToken findUnique
+   */
+  export type ArthurTokenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which ArthurToken to fetch.
+     */
+    where: ArthurTokenWhereUniqueInput
+  }
+
+  /**
+   * ArthurToken findUniqueOrThrow
+   */
+  export type ArthurTokenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which ArthurToken to fetch.
+     */
+    where: ArthurTokenWhereUniqueInput
+  }
+
+  /**
+   * ArthurToken findFirst
+   */
+  export type ArthurTokenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which ArthurToken to fetch.
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTokens to fetch.
+     */
+    orderBy?: ArthurTokenOrderByWithRelationInput | ArthurTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurTokens.
+     */
+    cursor?: ArthurTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurTokens.
+     */
+    distinct?: ArthurTokenScalarFieldEnum | ArthurTokenScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurToken findFirstOrThrow
+   */
+  export type ArthurTokenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which ArthurToken to fetch.
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTokens to fetch.
+     */
+    orderBy?: ArthurTokenOrderByWithRelationInput | ArthurTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurTokens.
+     */
+    cursor?: ArthurTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurTokens.
+     */
+    distinct?: ArthurTokenScalarFieldEnum | ArthurTokenScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurToken findMany
+   */
+  export type ArthurTokenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which ArthurTokens to fetch.
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTokens to fetch.
+     */
+    orderBy?: ArthurTokenOrderByWithRelationInput | ArthurTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ArthurTokens.
+     */
+    cursor?: ArthurTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTokens.
+     */
+    skip?: number
+    distinct?: ArthurTokenScalarFieldEnum | ArthurTokenScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurToken create
+   */
+  export type ArthurTokenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ArthurToken.
+     */
+    data: XOR<ArthurTokenCreateInput, ArthurTokenUncheckedCreateInput>
+  }
+
+  /**
+   * ArthurToken createMany
+   */
+  export type ArthurTokenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ArthurTokens.
+     */
+    data: ArthurTokenCreateManyInput | ArthurTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ArthurToken createManyAndReturn
+   */
+  export type ArthurTokenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * The data used to create many ArthurTokens.
+     */
+    data: ArthurTokenCreateManyInput | ArthurTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ArthurToken update
+   */
+  export type ArthurTokenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ArthurToken.
+     */
+    data: XOR<ArthurTokenUpdateInput, ArthurTokenUncheckedUpdateInput>
+    /**
+     * Choose, which ArthurToken to update.
+     */
+    where: ArthurTokenWhereUniqueInput
+  }
+
+  /**
+   * ArthurToken updateMany
+   */
+  export type ArthurTokenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ArthurTokens.
+     */
+    data: XOR<ArthurTokenUpdateManyMutationInput, ArthurTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurTokens to update
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * Limit how many ArthurTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurToken updateManyAndReturn
+   */
+  export type ArthurTokenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * The data used to update ArthurTokens.
+     */
+    data: XOR<ArthurTokenUpdateManyMutationInput, ArthurTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurTokens to update
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * Limit how many ArthurTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurToken upsert
+   */
+  export type ArthurTokenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ArthurToken to update in case it exists.
+     */
+    where: ArthurTokenWhereUniqueInput
+    /**
+     * In case the ArthurToken found by the `where` argument doesn't exist, create a new ArthurToken with this data.
+     */
+    create: XOR<ArthurTokenCreateInput, ArthurTokenUncheckedCreateInput>
+    /**
+     * In case the ArthurToken was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ArthurTokenUpdateInput, ArthurTokenUncheckedUpdateInput>
+  }
+
+  /**
+   * ArthurToken delete
+   */
+  export type ArthurTokenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+    /**
+     * Filter which ArthurToken to delete.
+     */
+    where: ArthurTokenWhereUniqueInput
+  }
+
+  /**
+   * ArthurToken deleteMany
+   */
+  export type ArthurTokenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurTokens to delete
+     */
+    where?: ArthurTokenWhereInput
+    /**
+     * Limit how many ArthurTokens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurToken without action
+   */
+  export type ArthurTokenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurToken
+     */
+    select?: ArthurTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurToken
+     */
+    omit?: ArthurTokenOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ArthurProperty
+   */
+
+  export type AggregateArthurProperty = {
+    _count: ArthurPropertyCountAggregateOutputType | null
+    _min: ArthurPropertyMinAggregateOutputType | null
+    _max: ArthurPropertyMaxAggregateOutputType | null
+  }
+
+  export type ArthurPropertyMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    address: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurPropertyMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    address: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurPropertyCountAggregateOutputType = {
+    id: number
+    name: number
+    address: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ArthurPropertyMinAggregateInputType = {
+    id?: true
+    name?: true
+    address?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurPropertyMaxAggregateInputType = {
+    id?: true
+    name?: true
+    address?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurPropertyCountAggregateInputType = {
+    id?: true
+    name?: true
+    address?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ArthurPropertyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurProperty to aggregate.
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurProperties to fetch.
+     */
+    orderBy?: ArthurPropertyOrderByWithRelationInput | ArthurPropertyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ArthurPropertyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurProperties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurProperties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ArthurProperties
+    **/
+    _count?: true | ArthurPropertyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArthurPropertyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArthurPropertyMaxAggregateInputType
+  }
+
+  export type GetArthurPropertyAggregateType<T extends ArthurPropertyAggregateArgs> = {
+        [P in keyof T & keyof AggregateArthurProperty]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateArthurProperty[P]>
+      : GetScalarType<T[P], AggregateArthurProperty[P]>
+  }
+
+
+
+
+  export type ArthurPropertyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArthurPropertyWhereInput
+    orderBy?: ArthurPropertyOrderByWithAggregationInput | ArthurPropertyOrderByWithAggregationInput[]
+    by: ArthurPropertyScalarFieldEnum[] | ArthurPropertyScalarFieldEnum
+    having?: ArthurPropertyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ArthurPropertyCountAggregateInputType | true
+    _min?: ArthurPropertyMinAggregateInputType
+    _max?: ArthurPropertyMaxAggregateInputType
+  }
+
+  export type ArthurPropertyGroupByOutputType = {
+    id: string
+    name: string
+    address: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ArthurPropertyCountAggregateOutputType | null
+    _min: ArthurPropertyMinAggregateOutputType | null
+    _max: ArthurPropertyMaxAggregateOutputType | null
+  }
+
+  type GetArthurPropertyGroupByPayload<T extends ArthurPropertyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ArthurPropertyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ArthurPropertyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ArthurPropertyGroupByOutputType[P]>
+            : GetScalarType<T[P], ArthurPropertyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ArthurPropertySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    address?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    units?: boolean | ArthurProperty$unitsArgs<ExtArgs>
+    _count?: boolean | ArthurPropertyCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurProperty"]>
+
+  export type ArthurPropertySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    address?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["arthurProperty"]>
+
+  export type ArthurPropertySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    address?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["arthurProperty"]>
+
+  export type ArthurPropertySelectScalar = {
+    id?: boolean
+    name?: boolean
+    address?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ArthurPropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "address" | "createdAt" | "updatedAt", ExtArgs["result"]["arthurProperty"]>
+  export type ArthurPropertyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    units?: boolean | ArthurProperty$unitsArgs<ExtArgs>
+    _count?: boolean | ArthurPropertyCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ArthurPropertyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ArthurPropertyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ArthurPropertyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ArthurProperty"
+    objects: {
+      units: Prisma.$ArthurUnitPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      address: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["arthurProperty"]>
+    composites: {}
+  }
+
+  type ArthurPropertyGetPayload<S extends boolean | null | undefined | ArthurPropertyDefaultArgs> = $Result.GetResult<Prisma.$ArthurPropertyPayload, S>
+
+  type ArthurPropertyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ArthurPropertyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ArthurPropertyCountAggregateInputType | true
+    }
+
+  export interface ArthurPropertyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ArthurProperty'], meta: { name: 'ArthurProperty' } }
+    /**
+     * Find zero or one ArthurProperty that matches the filter.
+     * @param {ArthurPropertyFindUniqueArgs} args - Arguments to find a ArthurProperty
+     * @example
+     * // Get one ArthurProperty
+     * const arthurProperty = await prisma.arthurProperty.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ArthurPropertyFindUniqueArgs>(args: SelectSubset<T, ArthurPropertyFindUniqueArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ArthurProperty that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ArthurPropertyFindUniqueOrThrowArgs} args - Arguments to find a ArthurProperty
+     * @example
+     * // Get one ArthurProperty
+     * const arthurProperty = await prisma.arthurProperty.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ArthurPropertyFindUniqueOrThrowArgs>(args: SelectSubset<T, ArthurPropertyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurProperty that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyFindFirstArgs} args - Arguments to find a ArthurProperty
+     * @example
+     * // Get one ArthurProperty
+     * const arthurProperty = await prisma.arthurProperty.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ArthurPropertyFindFirstArgs>(args?: SelectSubset<T, ArthurPropertyFindFirstArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurProperty that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyFindFirstOrThrowArgs} args - Arguments to find a ArthurProperty
+     * @example
+     * // Get one ArthurProperty
+     * const arthurProperty = await prisma.arthurProperty.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ArthurPropertyFindFirstOrThrowArgs>(args?: SelectSubset<T, ArthurPropertyFindFirstOrThrowArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ArthurProperties that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ArthurProperties
+     * const arthurProperties = await prisma.arthurProperty.findMany()
+     * 
+     * // Get first 10 ArthurProperties
+     * const arthurProperties = await prisma.arthurProperty.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const arthurPropertyWithIdOnly = await prisma.arthurProperty.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ArthurPropertyFindManyArgs>(args?: SelectSubset<T, ArthurPropertyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ArthurProperty.
+     * @param {ArthurPropertyCreateArgs} args - Arguments to create a ArthurProperty.
+     * @example
+     * // Create one ArthurProperty
+     * const ArthurProperty = await prisma.arthurProperty.create({
+     *   data: {
+     *     // ... data to create a ArthurProperty
+     *   }
+     * })
+     * 
+     */
+    create<T extends ArthurPropertyCreateArgs>(args: SelectSubset<T, ArthurPropertyCreateArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ArthurProperties.
+     * @param {ArthurPropertyCreateManyArgs} args - Arguments to create many ArthurProperties.
+     * @example
+     * // Create many ArthurProperties
+     * const arthurProperty = await prisma.arthurProperty.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ArthurPropertyCreateManyArgs>(args?: SelectSubset<T, ArthurPropertyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ArthurProperties and returns the data saved in the database.
+     * @param {ArthurPropertyCreateManyAndReturnArgs} args - Arguments to create many ArthurProperties.
+     * @example
+     * // Create many ArthurProperties
+     * const arthurProperty = await prisma.arthurProperty.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ArthurProperties and only return the `id`
+     * const arthurPropertyWithIdOnly = await prisma.arthurProperty.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ArthurPropertyCreateManyAndReturnArgs>(args?: SelectSubset<T, ArthurPropertyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ArthurProperty.
+     * @param {ArthurPropertyDeleteArgs} args - Arguments to delete one ArthurProperty.
+     * @example
+     * // Delete one ArthurProperty
+     * const ArthurProperty = await prisma.arthurProperty.delete({
+     *   where: {
+     *     // ... filter to delete one ArthurProperty
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ArthurPropertyDeleteArgs>(args: SelectSubset<T, ArthurPropertyDeleteArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ArthurProperty.
+     * @param {ArthurPropertyUpdateArgs} args - Arguments to update one ArthurProperty.
+     * @example
+     * // Update one ArthurProperty
+     * const arthurProperty = await prisma.arthurProperty.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ArthurPropertyUpdateArgs>(args: SelectSubset<T, ArthurPropertyUpdateArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ArthurProperties.
+     * @param {ArthurPropertyDeleteManyArgs} args - Arguments to filter ArthurProperties to delete.
+     * @example
+     * // Delete a few ArthurProperties
+     * const { count } = await prisma.arthurProperty.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ArthurPropertyDeleteManyArgs>(args?: SelectSubset<T, ArthurPropertyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurProperties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ArthurProperties
+     * const arthurProperty = await prisma.arthurProperty.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ArthurPropertyUpdateManyArgs>(args: SelectSubset<T, ArthurPropertyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurProperties and returns the data updated in the database.
+     * @param {ArthurPropertyUpdateManyAndReturnArgs} args - Arguments to update many ArthurProperties.
+     * @example
+     * // Update many ArthurProperties
+     * const arthurProperty = await prisma.arthurProperty.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ArthurProperties and only return the `id`
+     * const arthurPropertyWithIdOnly = await prisma.arthurProperty.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ArthurPropertyUpdateManyAndReturnArgs>(args: SelectSubset<T, ArthurPropertyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ArthurProperty.
+     * @param {ArthurPropertyUpsertArgs} args - Arguments to update or create a ArthurProperty.
+     * @example
+     * // Update or create a ArthurProperty
+     * const arthurProperty = await prisma.arthurProperty.upsert({
+     *   create: {
+     *     // ... data to create a ArthurProperty
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ArthurProperty we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ArthurPropertyUpsertArgs>(args: SelectSubset<T, ArthurPropertyUpsertArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ArthurProperties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyCountArgs} args - Arguments to filter ArthurProperties to count.
+     * @example
+     * // Count the number of ArthurProperties
+     * const count = await prisma.arthurProperty.count({
+     *   where: {
+     *     // ... the filter for the ArthurProperties we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArthurPropertyCountArgs>(
+      args?: Subset<T, ArthurPropertyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ArthurPropertyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ArthurProperty.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArthurPropertyAggregateArgs>(args: Subset<T, ArthurPropertyAggregateArgs>): Prisma.PrismaPromise<GetArthurPropertyAggregateType<T>>
+
+    /**
+     * Group by ArthurProperty.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurPropertyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ArthurPropertyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ArthurPropertyGroupByArgs['orderBy'] }
+        : { orderBy?: ArthurPropertyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ArthurPropertyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArthurPropertyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ArthurProperty model
+   */
+  readonly fields: ArthurPropertyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ArthurProperty.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ArthurPropertyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    units<T extends ArthurProperty$unitsArgs<ExtArgs> = {}>(args?: Subset<T, ArthurProperty$unitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ArthurProperty model
+   */
+  interface ArthurPropertyFieldRefs {
+    readonly id: FieldRef<"ArthurProperty", 'String'>
+    readonly name: FieldRef<"ArthurProperty", 'String'>
+    readonly address: FieldRef<"ArthurProperty", 'String'>
+    readonly createdAt: FieldRef<"ArthurProperty", 'DateTime'>
+    readonly updatedAt: FieldRef<"ArthurProperty", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ArthurProperty findUnique
+   */
+  export type ArthurPropertyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurProperty to fetch.
+     */
+    where: ArthurPropertyWhereUniqueInput
+  }
+
+  /**
+   * ArthurProperty findUniqueOrThrow
+   */
+  export type ArthurPropertyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurProperty to fetch.
+     */
+    where: ArthurPropertyWhereUniqueInput
+  }
+
+  /**
+   * ArthurProperty findFirst
+   */
+  export type ArthurPropertyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurProperty to fetch.
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurProperties to fetch.
+     */
+    orderBy?: ArthurPropertyOrderByWithRelationInput | ArthurPropertyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurProperties.
+     */
+    cursor?: ArthurPropertyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurProperties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurProperties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurProperties.
+     */
+    distinct?: ArthurPropertyScalarFieldEnum | ArthurPropertyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurProperty findFirstOrThrow
+   */
+  export type ArthurPropertyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurProperty to fetch.
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurProperties to fetch.
+     */
+    orderBy?: ArthurPropertyOrderByWithRelationInput | ArthurPropertyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurProperties.
+     */
+    cursor?: ArthurPropertyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurProperties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurProperties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurProperties.
+     */
+    distinct?: ArthurPropertyScalarFieldEnum | ArthurPropertyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurProperty findMany
+   */
+  export type ArthurPropertyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurProperties to fetch.
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurProperties to fetch.
+     */
+    orderBy?: ArthurPropertyOrderByWithRelationInput | ArthurPropertyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ArthurProperties.
+     */
+    cursor?: ArthurPropertyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurProperties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurProperties.
+     */
+    skip?: number
+    distinct?: ArthurPropertyScalarFieldEnum | ArthurPropertyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurProperty create
+   */
+  export type ArthurPropertyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ArthurProperty.
+     */
+    data: XOR<ArthurPropertyCreateInput, ArthurPropertyUncheckedCreateInput>
+  }
+
+  /**
+   * ArthurProperty createMany
+   */
+  export type ArthurPropertyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ArthurProperties.
+     */
+    data: ArthurPropertyCreateManyInput | ArthurPropertyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ArthurProperty createManyAndReturn
+   */
+  export type ArthurPropertyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * The data used to create many ArthurProperties.
+     */
+    data: ArthurPropertyCreateManyInput | ArthurPropertyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ArthurProperty update
+   */
+  export type ArthurPropertyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ArthurProperty.
+     */
+    data: XOR<ArthurPropertyUpdateInput, ArthurPropertyUncheckedUpdateInput>
+    /**
+     * Choose, which ArthurProperty to update.
+     */
+    where: ArthurPropertyWhereUniqueInput
+  }
+
+  /**
+   * ArthurProperty updateMany
+   */
+  export type ArthurPropertyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ArthurProperties.
+     */
+    data: XOR<ArthurPropertyUpdateManyMutationInput, ArthurPropertyUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurProperties to update
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * Limit how many ArthurProperties to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurProperty updateManyAndReturn
+   */
+  export type ArthurPropertyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * The data used to update ArthurProperties.
+     */
+    data: XOR<ArthurPropertyUpdateManyMutationInput, ArthurPropertyUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurProperties to update
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * Limit how many ArthurProperties to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurProperty upsert
+   */
+  export type ArthurPropertyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ArthurProperty to update in case it exists.
+     */
+    where: ArthurPropertyWhereUniqueInput
+    /**
+     * In case the ArthurProperty found by the `where` argument doesn't exist, create a new ArthurProperty with this data.
+     */
+    create: XOR<ArthurPropertyCreateInput, ArthurPropertyUncheckedCreateInput>
+    /**
+     * In case the ArthurProperty was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ArthurPropertyUpdateInput, ArthurPropertyUncheckedUpdateInput>
+  }
+
+  /**
+   * ArthurProperty delete
+   */
+  export type ArthurPropertyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+    /**
+     * Filter which ArthurProperty to delete.
+     */
+    where: ArthurPropertyWhereUniqueInput
+  }
+
+  /**
+   * ArthurProperty deleteMany
+   */
+  export type ArthurPropertyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurProperties to delete
+     */
+    where?: ArthurPropertyWhereInput
+    /**
+     * Limit how many ArthurProperties to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurProperty.units
+   */
+  export type ArthurProperty$unitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    where?: ArthurUnitWhereInput
+    orderBy?: ArthurUnitOrderByWithRelationInput | ArthurUnitOrderByWithRelationInput[]
+    cursor?: ArthurUnitWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ArthurUnitScalarFieldEnum | ArthurUnitScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurProperty without action
+   */
+  export type ArthurPropertyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurProperty
+     */
+    select?: ArthurPropertySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurProperty
+     */
+    omit?: ArthurPropertyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurPropertyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ArthurUnit
+   */
+
+  export type AggregateArthurUnit = {
+    _count: ArthurUnitCountAggregateOutputType | null
+    _min: ArthurUnitMinAggregateOutputType | null
+    _max: ArthurUnitMaxAggregateOutputType | null
+  }
+
+  export type ArthurUnitMinAggregateOutputType = {
+    id: string | null
+    propertyId: string | null
+    name: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurUnitMaxAggregateOutputType = {
+    id: string | null
+    propertyId: string | null
+    name: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurUnitCountAggregateOutputType = {
+    id: number
+    propertyId: number
+    name: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ArthurUnitMinAggregateInputType = {
+    id?: true
+    propertyId?: true
+    name?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurUnitMaxAggregateInputType = {
+    id?: true
+    propertyId?: true
+    name?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurUnitCountAggregateInputType = {
+    id?: true
+    propertyId?: true
+    name?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ArthurUnitAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurUnit to aggregate.
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurUnits to fetch.
+     */
+    orderBy?: ArthurUnitOrderByWithRelationInput | ArthurUnitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ArthurUnitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurUnits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurUnits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ArthurUnits
+    **/
+    _count?: true | ArthurUnitCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArthurUnitMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArthurUnitMaxAggregateInputType
+  }
+
+  export type GetArthurUnitAggregateType<T extends ArthurUnitAggregateArgs> = {
+        [P in keyof T & keyof AggregateArthurUnit]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateArthurUnit[P]>
+      : GetScalarType<T[P], AggregateArthurUnit[P]>
+  }
+
+
+
+
+  export type ArthurUnitGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArthurUnitWhereInput
+    orderBy?: ArthurUnitOrderByWithAggregationInput | ArthurUnitOrderByWithAggregationInput[]
+    by: ArthurUnitScalarFieldEnum[] | ArthurUnitScalarFieldEnum
+    having?: ArthurUnitScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ArthurUnitCountAggregateInputType | true
+    _min?: ArthurUnitMinAggregateInputType
+    _max?: ArthurUnitMaxAggregateInputType
+  }
+
+  export type ArthurUnitGroupByOutputType = {
+    id: string
+    propertyId: string
+    name: string
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ArthurUnitCountAggregateOutputType | null
+    _min: ArthurUnitMinAggregateOutputType | null
+    _max: ArthurUnitMaxAggregateOutputType | null
+  }
+
+  type GetArthurUnitGroupByPayload<T extends ArthurUnitGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ArthurUnitGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ArthurUnitGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ArthurUnitGroupByOutputType[P]>
+            : GetScalarType<T[P], ArthurUnitGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ArthurUnitSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    propertyId?: boolean
+    name?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
+    tenancies?: boolean | ArthurUnit$tenanciesArgs<ExtArgs>
+    _count?: boolean | ArthurUnitCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurUnit"]>
+
+  export type ArthurUnitSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    propertyId?: boolean
+    name?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurUnit"]>
+
+  export type ArthurUnitSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    propertyId?: boolean
+    name?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurUnit"]>
+
+  export type ArthurUnitSelectScalar = {
+    id?: boolean
+    propertyId?: boolean
+    name?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ArthurUnitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "propertyId" | "name" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["arthurUnit"]>
+  export type ArthurUnitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
+    tenancies?: boolean | ArthurUnit$tenanciesArgs<ExtArgs>
+    _count?: boolean | ArthurUnitCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ArthurUnitIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
+  }
+  export type ArthurUnitIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
+  }
+
+  export type $ArthurUnitPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ArthurUnit"
+    objects: {
+      property: Prisma.$ArthurPropertyPayload<ExtArgs>
+      tenancies: Prisma.$ArthurTenancyPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      propertyId: string
+      name: string
+      status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["arthurUnit"]>
+    composites: {}
+  }
+
+  type ArthurUnitGetPayload<S extends boolean | null | undefined | ArthurUnitDefaultArgs> = $Result.GetResult<Prisma.$ArthurUnitPayload, S>
+
+  type ArthurUnitCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ArthurUnitFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ArthurUnitCountAggregateInputType | true
+    }
+
+  export interface ArthurUnitDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ArthurUnit'], meta: { name: 'ArthurUnit' } }
+    /**
+     * Find zero or one ArthurUnit that matches the filter.
+     * @param {ArthurUnitFindUniqueArgs} args - Arguments to find a ArthurUnit
+     * @example
+     * // Get one ArthurUnit
+     * const arthurUnit = await prisma.arthurUnit.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ArthurUnitFindUniqueArgs>(args: SelectSubset<T, ArthurUnitFindUniqueArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ArthurUnit that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ArthurUnitFindUniqueOrThrowArgs} args - Arguments to find a ArthurUnit
+     * @example
+     * // Get one ArthurUnit
+     * const arthurUnit = await prisma.arthurUnit.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ArthurUnitFindUniqueOrThrowArgs>(args: SelectSubset<T, ArthurUnitFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurUnit that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitFindFirstArgs} args - Arguments to find a ArthurUnit
+     * @example
+     * // Get one ArthurUnit
+     * const arthurUnit = await prisma.arthurUnit.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ArthurUnitFindFirstArgs>(args?: SelectSubset<T, ArthurUnitFindFirstArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurUnit that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitFindFirstOrThrowArgs} args - Arguments to find a ArthurUnit
+     * @example
+     * // Get one ArthurUnit
+     * const arthurUnit = await prisma.arthurUnit.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ArthurUnitFindFirstOrThrowArgs>(args?: SelectSubset<T, ArthurUnitFindFirstOrThrowArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ArthurUnits that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ArthurUnits
+     * const arthurUnits = await prisma.arthurUnit.findMany()
+     * 
+     * // Get first 10 ArthurUnits
+     * const arthurUnits = await prisma.arthurUnit.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const arthurUnitWithIdOnly = await prisma.arthurUnit.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ArthurUnitFindManyArgs>(args?: SelectSubset<T, ArthurUnitFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ArthurUnit.
+     * @param {ArthurUnitCreateArgs} args - Arguments to create a ArthurUnit.
+     * @example
+     * // Create one ArthurUnit
+     * const ArthurUnit = await prisma.arthurUnit.create({
+     *   data: {
+     *     // ... data to create a ArthurUnit
+     *   }
+     * })
+     * 
+     */
+    create<T extends ArthurUnitCreateArgs>(args: SelectSubset<T, ArthurUnitCreateArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ArthurUnits.
+     * @param {ArthurUnitCreateManyArgs} args - Arguments to create many ArthurUnits.
+     * @example
+     * // Create many ArthurUnits
+     * const arthurUnit = await prisma.arthurUnit.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ArthurUnitCreateManyArgs>(args?: SelectSubset<T, ArthurUnitCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ArthurUnits and returns the data saved in the database.
+     * @param {ArthurUnitCreateManyAndReturnArgs} args - Arguments to create many ArthurUnits.
+     * @example
+     * // Create many ArthurUnits
+     * const arthurUnit = await prisma.arthurUnit.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ArthurUnits and only return the `id`
+     * const arthurUnitWithIdOnly = await prisma.arthurUnit.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ArthurUnitCreateManyAndReturnArgs>(args?: SelectSubset<T, ArthurUnitCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ArthurUnit.
+     * @param {ArthurUnitDeleteArgs} args - Arguments to delete one ArthurUnit.
+     * @example
+     * // Delete one ArthurUnit
+     * const ArthurUnit = await prisma.arthurUnit.delete({
+     *   where: {
+     *     // ... filter to delete one ArthurUnit
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ArthurUnitDeleteArgs>(args: SelectSubset<T, ArthurUnitDeleteArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ArthurUnit.
+     * @param {ArthurUnitUpdateArgs} args - Arguments to update one ArthurUnit.
+     * @example
+     * // Update one ArthurUnit
+     * const arthurUnit = await prisma.arthurUnit.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ArthurUnitUpdateArgs>(args: SelectSubset<T, ArthurUnitUpdateArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ArthurUnits.
+     * @param {ArthurUnitDeleteManyArgs} args - Arguments to filter ArthurUnits to delete.
+     * @example
+     * // Delete a few ArthurUnits
+     * const { count } = await prisma.arthurUnit.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ArthurUnitDeleteManyArgs>(args?: SelectSubset<T, ArthurUnitDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurUnits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ArthurUnits
+     * const arthurUnit = await prisma.arthurUnit.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ArthurUnitUpdateManyArgs>(args: SelectSubset<T, ArthurUnitUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurUnits and returns the data updated in the database.
+     * @param {ArthurUnitUpdateManyAndReturnArgs} args - Arguments to update many ArthurUnits.
+     * @example
+     * // Update many ArthurUnits
+     * const arthurUnit = await prisma.arthurUnit.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ArthurUnits and only return the `id`
+     * const arthurUnitWithIdOnly = await prisma.arthurUnit.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ArthurUnitUpdateManyAndReturnArgs>(args: SelectSubset<T, ArthurUnitUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ArthurUnit.
+     * @param {ArthurUnitUpsertArgs} args - Arguments to update or create a ArthurUnit.
+     * @example
+     * // Update or create a ArthurUnit
+     * const arthurUnit = await prisma.arthurUnit.upsert({
+     *   create: {
+     *     // ... data to create a ArthurUnit
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ArthurUnit we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ArthurUnitUpsertArgs>(args: SelectSubset<T, ArthurUnitUpsertArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ArthurUnits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitCountArgs} args - Arguments to filter ArthurUnits to count.
+     * @example
+     * // Count the number of ArthurUnits
+     * const count = await prisma.arthurUnit.count({
+     *   where: {
+     *     // ... the filter for the ArthurUnits we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArthurUnitCountArgs>(
+      args?: Subset<T, ArthurUnitCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ArthurUnitCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ArthurUnit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArthurUnitAggregateArgs>(args: Subset<T, ArthurUnitAggregateArgs>): Prisma.PrismaPromise<GetArthurUnitAggregateType<T>>
+
+    /**
+     * Group by ArthurUnit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurUnitGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ArthurUnitGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ArthurUnitGroupByArgs['orderBy'] }
+        : { orderBy?: ArthurUnitGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ArthurUnitGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArthurUnitGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ArthurUnit model
+   */
+  readonly fields: ArthurUnitFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ArthurUnit.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ArthurUnitClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    property<T extends ArthurPropertyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArthurPropertyDefaultArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    tenancies<T extends ArthurUnit$tenanciesArgs<ExtArgs> = {}>(args?: Subset<T, ArthurUnit$tenanciesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ArthurUnit model
+   */
+  interface ArthurUnitFieldRefs {
+    readonly id: FieldRef<"ArthurUnit", 'String'>
+    readonly propertyId: FieldRef<"ArthurUnit", 'String'>
+    readonly name: FieldRef<"ArthurUnit", 'String'>
+    readonly status: FieldRef<"ArthurUnit", 'String'>
+    readonly createdAt: FieldRef<"ArthurUnit", 'DateTime'>
+    readonly updatedAt: FieldRef<"ArthurUnit", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ArthurUnit findUnique
+   */
+  export type ArthurUnitFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurUnit to fetch.
+     */
+    where: ArthurUnitWhereUniqueInput
+  }
+
+  /**
+   * ArthurUnit findUniqueOrThrow
+   */
+  export type ArthurUnitFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurUnit to fetch.
+     */
+    where: ArthurUnitWhereUniqueInput
+  }
+
+  /**
+   * ArthurUnit findFirst
+   */
+  export type ArthurUnitFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurUnit to fetch.
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurUnits to fetch.
+     */
+    orderBy?: ArthurUnitOrderByWithRelationInput | ArthurUnitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurUnits.
+     */
+    cursor?: ArthurUnitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurUnits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurUnits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurUnits.
+     */
+    distinct?: ArthurUnitScalarFieldEnum | ArthurUnitScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurUnit findFirstOrThrow
+   */
+  export type ArthurUnitFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurUnit to fetch.
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurUnits to fetch.
+     */
+    orderBy?: ArthurUnitOrderByWithRelationInput | ArthurUnitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurUnits.
+     */
+    cursor?: ArthurUnitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurUnits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurUnits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurUnits.
+     */
+    distinct?: ArthurUnitScalarFieldEnum | ArthurUnitScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurUnit findMany
+   */
+  export type ArthurUnitFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurUnits to fetch.
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurUnits to fetch.
+     */
+    orderBy?: ArthurUnitOrderByWithRelationInput | ArthurUnitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ArthurUnits.
+     */
+    cursor?: ArthurUnitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurUnits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurUnits.
+     */
+    skip?: number
+    distinct?: ArthurUnitScalarFieldEnum | ArthurUnitScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurUnit create
+   */
+  export type ArthurUnitCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ArthurUnit.
+     */
+    data: XOR<ArthurUnitCreateInput, ArthurUnitUncheckedCreateInput>
+  }
+
+  /**
+   * ArthurUnit createMany
+   */
+  export type ArthurUnitCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ArthurUnits.
+     */
+    data: ArthurUnitCreateManyInput | ArthurUnitCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ArthurUnit createManyAndReturn
+   */
+  export type ArthurUnitCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * The data used to create many ArthurUnits.
+     */
+    data: ArthurUnitCreateManyInput | ArthurUnitCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ArthurUnit update
+   */
+  export type ArthurUnitUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ArthurUnit.
+     */
+    data: XOR<ArthurUnitUpdateInput, ArthurUnitUncheckedUpdateInput>
+    /**
+     * Choose, which ArthurUnit to update.
+     */
+    where: ArthurUnitWhereUniqueInput
+  }
+
+  /**
+   * ArthurUnit updateMany
+   */
+  export type ArthurUnitUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ArthurUnits.
+     */
+    data: XOR<ArthurUnitUpdateManyMutationInput, ArthurUnitUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurUnits to update
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * Limit how many ArthurUnits to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurUnit updateManyAndReturn
+   */
+  export type ArthurUnitUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * The data used to update ArthurUnits.
+     */
+    data: XOR<ArthurUnitUpdateManyMutationInput, ArthurUnitUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurUnits to update
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * Limit how many ArthurUnits to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ArthurUnit upsert
+   */
+  export type ArthurUnitUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ArthurUnit to update in case it exists.
+     */
+    where: ArthurUnitWhereUniqueInput
+    /**
+     * In case the ArthurUnit found by the `where` argument doesn't exist, create a new ArthurUnit with this data.
+     */
+    create: XOR<ArthurUnitCreateInput, ArthurUnitUncheckedCreateInput>
+    /**
+     * In case the ArthurUnit was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ArthurUnitUpdateInput, ArthurUnitUncheckedUpdateInput>
+  }
+
+  /**
+   * ArthurUnit delete
+   */
+  export type ArthurUnitDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+    /**
+     * Filter which ArthurUnit to delete.
+     */
+    where: ArthurUnitWhereUniqueInput
+  }
+
+  /**
+   * ArthurUnit deleteMany
+   */
+  export type ArthurUnitDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurUnits to delete
+     */
+    where?: ArthurUnitWhereInput
+    /**
+     * Limit how many ArthurUnits to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurUnit.tenancies
+   */
+  export type ArthurUnit$tenanciesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    where?: ArthurTenancyWhereInput
+    orderBy?: ArthurTenancyOrderByWithRelationInput | ArthurTenancyOrderByWithRelationInput[]
+    cursor?: ArthurTenancyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ArthurTenancyScalarFieldEnum | ArthurTenancyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurUnit without action
+   */
+  export type ArthurUnitDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurUnit
+     */
+    select?: ArthurUnitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurUnit
+     */
+    omit?: ArthurUnitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurUnitInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ArthurTenancy
+   */
+
+  export type AggregateArthurTenancy = {
+    _count: ArthurTenancyCountAggregateOutputType | null
+    _avg: ArthurTenancyAvgAggregateOutputType | null
+    _sum: ArthurTenancySumAggregateOutputType | null
+    _min: ArthurTenancyMinAggregateOutputType | null
+    _max: ArthurTenancyMaxAggregateOutputType | null
+  }
+
+  export type ArthurTenancyAvgAggregateOutputType = {
+    rentVal: number | null
+    depositVal: number | null
+  }
+
+  export type ArthurTenancySumAggregateOutputType = {
+    rentVal: number | null
+    depositVal: number | null
+  }
+
+  export type ArthurTenancyMinAggregateOutputType = {
+    id: string | null
+    unitId: string | null
+    status: string | null
+    startDate: string | null
+    endDate: string | null
+    rent: string | null
+    rentVal: number | null
+    deposit: string | null
+    depositVal: number | null
+    lodged: string | null
+    received: string | null
+    lettingType: string | null
+    rentStatus: string | null
+    commentary: string | null
+    address: string | null
+    code: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurTenancyMaxAggregateOutputType = {
+    id: string | null
+    unitId: string | null
+    status: string | null
+    startDate: string | null
+    endDate: string | null
+    rent: string | null
+    rentVal: number | null
+    deposit: string | null
+    depositVal: number | null
+    lodged: string | null
+    received: string | null
+    lettingType: string | null
+    rentStatus: string | null
+    commentary: string | null
+    address: string | null
+    code: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ArthurTenancyCountAggregateOutputType = {
+    id: number
+    unitId: number
+    status: number
+    startDate: number
+    endDate: number
+    rent: number
+    rentVal: number
+    deposit: number
+    depositVal: number
+    lodged: number
+    received: number
+    tenants: number
+    phone: number
+    email: number
+    lettingType: number
+    rentStatus: number
+    commentary: number
+    address: number
+    code: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ArthurTenancyAvgAggregateInputType = {
+    rentVal?: true
+    depositVal?: true
+  }
+
+  export type ArthurTenancySumAggregateInputType = {
+    rentVal?: true
+    depositVal?: true
+  }
+
+  export type ArthurTenancyMinAggregateInputType = {
+    id?: true
+    unitId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    rent?: true
+    rentVal?: true
+    deposit?: true
+    depositVal?: true
+    lodged?: true
+    received?: true
+    lettingType?: true
+    rentStatus?: true
+    commentary?: true
+    address?: true
+    code?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurTenancyMaxAggregateInputType = {
+    id?: true
+    unitId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    rent?: true
+    rentVal?: true
+    deposit?: true
+    depositVal?: true
+    lodged?: true
+    received?: true
+    lettingType?: true
+    rentStatus?: true
+    commentary?: true
+    address?: true
+    code?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ArthurTenancyCountAggregateInputType = {
+    id?: true
+    unitId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    rent?: true
+    rentVal?: true
+    deposit?: true
+    depositVal?: true
+    lodged?: true
+    received?: true
+    tenants?: true
+    phone?: true
+    email?: true
+    lettingType?: true
+    rentStatus?: true
+    commentary?: true
+    address?: true
+    code?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ArthurTenancyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurTenancy to aggregate.
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTenancies to fetch.
+     */
+    orderBy?: ArthurTenancyOrderByWithRelationInput | ArthurTenancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ArthurTenancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTenancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTenancies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ArthurTenancies
+    **/
+    _count?: true | ArthurTenancyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ArthurTenancyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ArthurTenancySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArthurTenancyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArthurTenancyMaxAggregateInputType
+  }
+
+  export type GetArthurTenancyAggregateType<T extends ArthurTenancyAggregateArgs> = {
+        [P in keyof T & keyof AggregateArthurTenancy]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateArthurTenancy[P]>
+      : GetScalarType<T[P], AggregateArthurTenancy[P]>
+  }
+
+
+
+
+  export type ArthurTenancyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArthurTenancyWhereInput
+    orderBy?: ArthurTenancyOrderByWithAggregationInput | ArthurTenancyOrderByWithAggregationInput[]
+    by: ArthurTenancyScalarFieldEnum[] | ArthurTenancyScalarFieldEnum
+    having?: ArthurTenancyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ArthurTenancyCountAggregateInputType | true
+    _avg?: ArthurTenancyAvgAggregateInputType
+    _sum?: ArthurTenancySumAggregateInputType
+    _min?: ArthurTenancyMinAggregateInputType
+    _max?: ArthurTenancyMaxAggregateInputType
+  }
+
+  export type ArthurTenancyGroupByOutputType = {
+    id: string
+    unitId: string
+    status: string
+    startDate: string | null
+    endDate: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged: string | null
+    received: string | null
+    tenants: string[]
+    phone: string[]
+    email: string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address: string | null
+    code: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ArthurTenancyCountAggregateOutputType | null
+    _avg: ArthurTenancyAvgAggregateOutputType | null
+    _sum: ArthurTenancySumAggregateOutputType | null
+    _min: ArthurTenancyMinAggregateOutputType | null
+    _max: ArthurTenancyMaxAggregateOutputType | null
+  }
+
+  type GetArthurTenancyGroupByPayload<T extends ArthurTenancyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ArthurTenancyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ArthurTenancyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ArthurTenancyGroupByOutputType[P]>
+            : GetScalarType<T[P], ArthurTenancyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ArthurTenancySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    unitId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    rent?: boolean
+    rentVal?: boolean
+    deposit?: boolean
+    depositVal?: boolean
+    lodged?: boolean
+    received?: boolean
+    tenants?: boolean
+    phone?: boolean
+    email?: boolean
+    lettingType?: boolean
+    rentStatus?: boolean
+    commentary?: boolean
+    address?: boolean
+    code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurTenancy"]>
+
+  export type ArthurTenancySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    unitId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    rent?: boolean
+    rentVal?: boolean
+    deposit?: boolean
+    depositVal?: boolean
+    lodged?: boolean
+    received?: boolean
+    tenants?: boolean
+    phone?: boolean
+    email?: boolean
+    lettingType?: boolean
+    rentStatus?: boolean
+    commentary?: boolean
+    address?: boolean
+    code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurTenancy"]>
+
+  export type ArthurTenancySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    unitId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    rent?: boolean
+    rentVal?: boolean
+    deposit?: boolean
+    depositVal?: boolean
+    lodged?: boolean
+    received?: boolean
+    tenants?: boolean
+    phone?: boolean
+    email?: boolean
+    lettingType?: boolean
+    rentStatus?: boolean
+    commentary?: boolean
+    address?: boolean
+    code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["arthurTenancy"]>
+
+  export type ArthurTenancySelectScalar = {
+    id?: boolean
+    unitId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    rent?: boolean
+    rentVal?: boolean
+    deposit?: boolean
+    depositVal?: boolean
+    lodged?: boolean
+    received?: boolean
+    tenants?: boolean
+    phone?: boolean
+    email?: boolean
+    lettingType?: boolean
+    rentStatus?: boolean
+    commentary?: boolean
+    address?: boolean
+    code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ArthurTenancyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitId" | "status" | "startDate" | "endDate" | "rent" | "rentVal" | "deposit" | "depositVal" | "lodged" | "received" | "tenants" | "phone" | "email" | "lettingType" | "rentStatus" | "commentary" | "address" | "code" | "createdAt" | "updatedAt", ExtArgs["result"]["arthurTenancy"]>
+  export type ArthurTenancyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
+  }
+  export type ArthurTenancyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
+  }
+  export type ArthurTenancyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
+  }
+
+  export type $ArthurTenancyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ArthurTenancy"
+    objects: {
+      unit: Prisma.$ArthurUnitPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      unitId: string
+      status: string
+      startDate: string | null
+      endDate: string | null
+      rent: string
+      rentVal: number
+      deposit: string
+      depositVal: number
+      lodged: string | null
+      received: string | null
+      tenants: string[]
+      phone: string[]
+      email: string[]
+      lettingType: string
+      rentStatus: string
+      commentary: string
+      address: string | null
+      code: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["arthurTenancy"]>
+    composites: {}
+  }
+
+  type ArthurTenancyGetPayload<S extends boolean | null | undefined | ArthurTenancyDefaultArgs> = $Result.GetResult<Prisma.$ArthurTenancyPayload, S>
+
+  type ArthurTenancyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ArthurTenancyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ArthurTenancyCountAggregateInputType | true
+    }
+
+  export interface ArthurTenancyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ArthurTenancy'], meta: { name: 'ArthurTenancy' } }
+    /**
+     * Find zero or one ArthurTenancy that matches the filter.
+     * @param {ArthurTenancyFindUniqueArgs} args - Arguments to find a ArthurTenancy
+     * @example
+     * // Get one ArthurTenancy
+     * const arthurTenancy = await prisma.arthurTenancy.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ArthurTenancyFindUniqueArgs>(args: SelectSubset<T, ArthurTenancyFindUniqueArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ArthurTenancy that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ArthurTenancyFindUniqueOrThrowArgs} args - Arguments to find a ArthurTenancy
+     * @example
+     * // Get one ArthurTenancy
+     * const arthurTenancy = await prisma.arthurTenancy.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ArthurTenancyFindUniqueOrThrowArgs>(args: SelectSubset<T, ArthurTenancyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurTenancy that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyFindFirstArgs} args - Arguments to find a ArthurTenancy
+     * @example
+     * // Get one ArthurTenancy
+     * const arthurTenancy = await prisma.arthurTenancy.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ArthurTenancyFindFirstArgs>(args?: SelectSubset<T, ArthurTenancyFindFirstArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ArthurTenancy that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyFindFirstOrThrowArgs} args - Arguments to find a ArthurTenancy
+     * @example
+     * // Get one ArthurTenancy
+     * const arthurTenancy = await prisma.arthurTenancy.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ArthurTenancyFindFirstOrThrowArgs>(args?: SelectSubset<T, ArthurTenancyFindFirstOrThrowArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ArthurTenancies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ArthurTenancies
+     * const arthurTenancies = await prisma.arthurTenancy.findMany()
+     * 
+     * // Get first 10 ArthurTenancies
+     * const arthurTenancies = await prisma.arthurTenancy.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const arthurTenancyWithIdOnly = await prisma.arthurTenancy.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ArthurTenancyFindManyArgs>(args?: SelectSubset<T, ArthurTenancyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ArthurTenancy.
+     * @param {ArthurTenancyCreateArgs} args - Arguments to create a ArthurTenancy.
+     * @example
+     * // Create one ArthurTenancy
+     * const ArthurTenancy = await prisma.arthurTenancy.create({
+     *   data: {
+     *     // ... data to create a ArthurTenancy
+     *   }
+     * })
+     * 
+     */
+    create<T extends ArthurTenancyCreateArgs>(args: SelectSubset<T, ArthurTenancyCreateArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ArthurTenancies.
+     * @param {ArthurTenancyCreateManyArgs} args - Arguments to create many ArthurTenancies.
+     * @example
+     * // Create many ArthurTenancies
+     * const arthurTenancy = await prisma.arthurTenancy.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ArthurTenancyCreateManyArgs>(args?: SelectSubset<T, ArthurTenancyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ArthurTenancies and returns the data saved in the database.
+     * @param {ArthurTenancyCreateManyAndReturnArgs} args - Arguments to create many ArthurTenancies.
+     * @example
+     * // Create many ArthurTenancies
+     * const arthurTenancy = await prisma.arthurTenancy.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ArthurTenancies and only return the `id`
+     * const arthurTenancyWithIdOnly = await prisma.arthurTenancy.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ArthurTenancyCreateManyAndReturnArgs>(args?: SelectSubset<T, ArthurTenancyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ArthurTenancy.
+     * @param {ArthurTenancyDeleteArgs} args - Arguments to delete one ArthurTenancy.
+     * @example
+     * // Delete one ArthurTenancy
+     * const ArthurTenancy = await prisma.arthurTenancy.delete({
+     *   where: {
+     *     // ... filter to delete one ArthurTenancy
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ArthurTenancyDeleteArgs>(args: SelectSubset<T, ArthurTenancyDeleteArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ArthurTenancy.
+     * @param {ArthurTenancyUpdateArgs} args - Arguments to update one ArthurTenancy.
+     * @example
+     * // Update one ArthurTenancy
+     * const arthurTenancy = await prisma.arthurTenancy.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ArthurTenancyUpdateArgs>(args: SelectSubset<T, ArthurTenancyUpdateArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ArthurTenancies.
+     * @param {ArthurTenancyDeleteManyArgs} args - Arguments to filter ArthurTenancies to delete.
+     * @example
+     * // Delete a few ArthurTenancies
+     * const { count } = await prisma.arthurTenancy.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ArthurTenancyDeleteManyArgs>(args?: SelectSubset<T, ArthurTenancyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurTenancies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ArthurTenancies
+     * const arthurTenancy = await prisma.arthurTenancy.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ArthurTenancyUpdateManyArgs>(args: SelectSubset<T, ArthurTenancyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArthurTenancies and returns the data updated in the database.
+     * @param {ArthurTenancyUpdateManyAndReturnArgs} args - Arguments to update many ArthurTenancies.
+     * @example
+     * // Update many ArthurTenancies
+     * const arthurTenancy = await prisma.arthurTenancy.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ArthurTenancies and only return the `id`
+     * const arthurTenancyWithIdOnly = await prisma.arthurTenancy.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ArthurTenancyUpdateManyAndReturnArgs>(args: SelectSubset<T, ArthurTenancyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ArthurTenancy.
+     * @param {ArthurTenancyUpsertArgs} args - Arguments to update or create a ArthurTenancy.
+     * @example
+     * // Update or create a ArthurTenancy
+     * const arthurTenancy = await prisma.arthurTenancy.upsert({
+     *   create: {
+     *     // ... data to create a ArthurTenancy
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ArthurTenancy we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ArthurTenancyUpsertArgs>(args: SelectSubset<T, ArthurTenancyUpsertArgs<ExtArgs>>): Prisma__ArthurTenancyClient<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ArthurTenancies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyCountArgs} args - Arguments to filter ArthurTenancies to count.
+     * @example
+     * // Count the number of ArthurTenancies
+     * const count = await prisma.arthurTenancy.count({
+     *   where: {
+     *     // ... the filter for the ArthurTenancies we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArthurTenancyCountArgs>(
+      args?: Subset<T, ArthurTenancyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ArthurTenancyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ArthurTenancy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArthurTenancyAggregateArgs>(args: Subset<T, ArthurTenancyAggregateArgs>): Prisma.PrismaPromise<GetArthurTenancyAggregateType<T>>
+
+    /**
+     * Group by ArthurTenancy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArthurTenancyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ArthurTenancyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ArthurTenancyGroupByArgs['orderBy'] }
+        : { orderBy?: ArthurTenancyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ArthurTenancyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArthurTenancyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ArthurTenancy model
+   */
+  readonly fields: ArthurTenancyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ArthurTenancy.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ArthurTenancyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    unit<T extends ArthurUnitDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArthurUnitDefaultArgs<ExtArgs>>): Prisma__ArthurUnitClient<$Result.GetResult<Prisma.$ArthurUnitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ArthurTenancy model
+   */
+  interface ArthurTenancyFieldRefs {
+    readonly id: FieldRef<"ArthurTenancy", 'String'>
+    readonly unitId: FieldRef<"ArthurTenancy", 'String'>
+    readonly status: FieldRef<"ArthurTenancy", 'String'>
+    readonly startDate: FieldRef<"ArthurTenancy", 'String'>
+    readonly endDate: FieldRef<"ArthurTenancy", 'String'>
+    readonly rent: FieldRef<"ArthurTenancy", 'String'>
+    readonly rentVal: FieldRef<"ArthurTenancy", 'Float'>
+    readonly deposit: FieldRef<"ArthurTenancy", 'String'>
+    readonly depositVal: FieldRef<"ArthurTenancy", 'Float'>
+    readonly lodged: FieldRef<"ArthurTenancy", 'String'>
+    readonly received: FieldRef<"ArthurTenancy", 'String'>
+    readonly tenants: FieldRef<"ArthurTenancy", 'String[]'>
+    readonly phone: FieldRef<"ArthurTenancy", 'String[]'>
+    readonly email: FieldRef<"ArthurTenancy", 'String[]'>
+    readonly lettingType: FieldRef<"ArthurTenancy", 'String'>
+    readonly rentStatus: FieldRef<"ArthurTenancy", 'String'>
+    readonly commentary: FieldRef<"ArthurTenancy", 'String'>
+    readonly address: FieldRef<"ArthurTenancy", 'String'>
+    readonly code: FieldRef<"ArthurTenancy", 'String'>
+    readonly createdAt: FieldRef<"ArthurTenancy", 'DateTime'>
+    readonly updatedAt: FieldRef<"ArthurTenancy", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ArthurTenancy findUnique
+   */
+  export type ArthurTenancyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurTenancy to fetch.
+     */
+    where: ArthurTenancyWhereUniqueInput
+  }
+
+  /**
+   * ArthurTenancy findUniqueOrThrow
+   */
+  export type ArthurTenancyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurTenancy to fetch.
+     */
+    where: ArthurTenancyWhereUniqueInput
+  }
+
+  /**
+   * ArthurTenancy findFirst
+   */
+  export type ArthurTenancyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurTenancy to fetch.
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTenancies to fetch.
+     */
+    orderBy?: ArthurTenancyOrderByWithRelationInput | ArthurTenancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurTenancies.
+     */
+    cursor?: ArthurTenancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTenancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTenancies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurTenancies.
+     */
+    distinct?: ArthurTenancyScalarFieldEnum | ArthurTenancyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurTenancy findFirstOrThrow
+   */
+  export type ArthurTenancyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurTenancy to fetch.
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTenancies to fetch.
+     */
+    orderBy?: ArthurTenancyOrderByWithRelationInput | ArthurTenancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArthurTenancies.
+     */
+    cursor?: ArthurTenancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTenancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTenancies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArthurTenancies.
+     */
+    distinct?: ArthurTenancyScalarFieldEnum | ArthurTenancyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurTenancy findMany
+   */
+  export type ArthurTenancyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * Filter, which ArthurTenancies to fetch.
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArthurTenancies to fetch.
+     */
+    orderBy?: ArthurTenancyOrderByWithRelationInput | ArthurTenancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ArthurTenancies.
+     */
+    cursor?: ArthurTenancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArthurTenancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArthurTenancies.
+     */
+    skip?: number
+    distinct?: ArthurTenancyScalarFieldEnum | ArthurTenancyScalarFieldEnum[]
+  }
+
+  /**
+   * ArthurTenancy create
+   */
+  export type ArthurTenancyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ArthurTenancy.
+     */
+    data: XOR<ArthurTenancyCreateInput, ArthurTenancyUncheckedCreateInput>
+  }
+
+  /**
+   * ArthurTenancy createMany
+   */
+  export type ArthurTenancyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ArthurTenancies.
+     */
+    data: ArthurTenancyCreateManyInput | ArthurTenancyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ArthurTenancy createManyAndReturn
+   */
+  export type ArthurTenancyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * The data used to create many ArthurTenancies.
+     */
+    data: ArthurTenancyCreateManyInput | ArthurTenancyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ArthurTenancy update
+   */
+  export type ArthurTenancyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ArthurTenancy.
+     */
+    data: XOR<ArthurTenancyUpdateInput, ArthurTenancyUncheckedUpdateInput>
+    /**
+     * Choose, which ArthurTenancy to update.
+     */
+    where: ArthurTenancyWhereUniqueInput
+  }
+
+  /**
+   * ArthurTenancy updateMany
+   */
+  export type ArthurTenancyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ArthurTenancies.
+     */
+    data: XOR<ArthurTenancyUpdateManyMutationInput, ArthurTenancyUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurTenancies to update
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * Limit how many ArthurTenancies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurTenancy updateManyAndReturn
+   */
+  export type ArthurTenancyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * The data used to update ArthurTenancies.
+     */
+    data: XOR<ArthurTenancyUpdateManyMutationInput, ArthurTenancyUncheckedUpdateManyInput>
+    /**
+     * Filter which ArthurTenancies to update
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * Limit how many ArthurTenancies to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ArthurTenancy upsert
+   */
+  export type ArthurTenancyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ArthurTenancy to update in case it exists.
+     */
+    where: ArthurTenancyWhereUniqueInput
+    /**
+     * In case the ArthurTenancy found by the `where` argument doesn't exist, create a new ArthurTenancy with this data.
+     */
+    create: XOR<ArthurTenancyCreateInput, ArthurTenancyUncheckedCreateInput>
+    /**
+     * In case the ArthurTenancy was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ArthurTenancyUpdateInput, ArthurTenancyUncheckedUpdateInput>
+  }
+
+  /**
+   * ArthurTenancy delete
+   */
+  export type ArthurTenancyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+    /**
+     * Filter which ArthurTenancy to delete.
+     */
+    where: ArthurTenancyWhereUniqueInput
+  }
+
+  /**
+   * ArthurTenancy deleteMany
+   */
+  export type ArthurTenancyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArthurTenancies to delete
+     */
+    where?: ArthurTenancyWhereInput
+    /**
+     * Limit how many ArthurTenancies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ArthurTenancy without action
+   */
+  export type ArthurTenancyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArthurTenancy
+     */
+    select?: ArthurTenancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ArthurTenancy
+     */
+    omit?: ArthurTenancyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArthurTenancyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AdminProfile
+   */
+
+  export type AggregateAdminProfile = {
+    _count: AdminProfileCountAggregateOutputType | null
+    _min: AdminProfileMinAggregateOutputType | null
+    _max: AdminProfileMaxAggregateOutputType | null
+  }
+
+  export type AdminProfileMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    phone: string | null
+    role: string | null
+    updatedAt: Date | null
+  }
+
+  export type AdminProfileMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    phone: string | null
+    role: string | null
+    updatedAt: Date | null
+  }
+
+  export type AdminProfileCountAggregateOutputType = {
+    id: number
+    name: number
+    email: number
+    phone: number
+    role: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AdminProfileMinAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    phone?: true
+    role?: true
+    updatedAt?: true
+  }
+
+  export type AdminProfileMaxAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    phone?: true
+    role?: true
+    updatedAt?: true
+  }
+
+  export type AdminProfileCountAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    phone?: true
+    role?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AdminProfileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdminProfile to aggregate.
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdminProfiles to fetch.
+     */
+    orderBy?: AdminProfileOrderByWithRelationInput | AdminProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdminProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdminProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdminProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdminProfiles
+    **/
+    _count?: true | AdminProfileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdminProfileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdminProfileMaxAggregateInputType
+  }
+
+  export type GetAdminProfileAggregateType<T extends AdminProfileAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdminProfile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdminProfile[P]>
+      : GetScalarType<T[P], AggregateAdminProfile[P]>
+  }
+
+
+
+
+  export type AdminProfileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdminProfileWhereInput
+    orderBy?: AdminProfileOrderByWithAggregationInput | AdminProfileOrderByWithAggregationInput[]
+    by: AdminProfileScalarFieldEnum[] | AdminProfileScalarFieldEnum
+    having?: AdminProfileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdminProfileCountAggregateInputType | true
+    _min?: AdminProfileMinAggregateInputType
+    _max?: AdminProfileMaxAggregateInputType
+  }
+
+  export type AdminProfileGroupByOutputType = {
+    id: string
+    name: string
+    email: string
+    phone: string
+    role: string
+    updatedAt: Date
+    _count: AdminProfileCountAggregateOutputType | null
+    _min: AdminProfileMinAggregateOutputType | null
+    _max: AdminProfileMaxAggregateOutputType | null
+  }
+
+  type GetAdminProfileGroupByPayload<T extends AdminProfileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdminProfileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdminProfileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdminProfileGroupByOutputType[P]>
+            : GetScalarType<T[P], AdminProfileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdminProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    role?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["adminProfile"]>
+
+  export type AdminProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    role?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["adminProfile"]>
+
+  export type AdminProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    role?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["adminProfile"]>
+
+  export type AdminProfileSelectScalar = {
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    role?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AdminProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "role" | "updatedAt", ExtArgs["result"]["adminProfile"]>
+
+  export type $AdminProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdminProfile"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      email: string
+      phone: string
+      role: string
+      updatedAt: Date
+    }, ExtArgs["result"]["adminProfile"]>
+    composites: {}
+  }
+
+  type AdminProfileGetPayload<S extends boolean | null | undefined | AdminProfileDefaultArgs> = $Result.GetResult<Prisma.$AdminProfilePayload, S>
+
+  type AdminProfileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdminProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdminProfileCountAggregateInputType | true
+    }
+
+  export interface AdminProfileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdminProfile'], meta: { name: 'AdminProfile' } }
+    /**
+     * Find zero or one AdminProfile that matches the filter.
+     * @param {AdminProfileFindUniqueArgs} args - Arguments to find a AdminProfile
+     * @example
+     * // Get one AdminProfile
+     * const adminProfile = await prisma.adminProfile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdminProfileFindUniqueArgs>(args: SelectSubset<T, AdminProfileFindUniqueArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AdminProfile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdminProfileFindUniqueOrThrowArgs} args - Arguments to find a AdminProfile
+     * @example
+     * // Get one AdminProfile
+     * const adminProfile = await prisma.adminProfile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdminProfileFindUniqueOrThrowArgs>(args: SelectSubset<T, AdminProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdminProfile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileFindFirstArgs} args - Arguments to find a AdminProfile
+     * @example
+     * // Get one AdminProfile
+     * const adminProfile = await prisma.adminProfile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdminProfileFindFirstArgs>(args?: SelectSubset<T, AdminProfileFindFirstArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdminProfile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileFindFirstOrThrowArgs} args - Arguments to find a AdminProfile
+     * @example
+     * // Get one AdminProfile
+     * const adminProfile = await prisma.adminProfile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdminProfileFindFirstOrThrowArgs>(args?: SelectSubset<T, AdminProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdminProfiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdminProfiles
+     * const adminProfiles = await prisma.adminProfile.findMany()
+     * 
+     * // Get first 10 AdminProfiles
+     * const adminProfiles = await prisma.adminProfile.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const adminProfileWithIdOnly = await prisma.adminProfile.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdminProfileFindManyArgs>(args?: SelectSubset<T, AdminProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AdminProfile.
+     * @param {AdminProfileCreateArgs} args - Arguments to create a AdminProfile.
+     * @example
+     * // Create one AdminProfile
+     * const AdminProfile = await prisma.adminProfile.create({
+     *   data: {
+     *     // ... data to create a AdminProfile
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdminProfileCreateArgs>(args: SelectSubset<T, AdminProfileCreateArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AdminProfiles.
+     * @param {AdminProfileCreateManyArgs} args - Arguments to create many AdminProfiles.
+     * @example
+     * // Create many AdminProfiles
+     * const adminProfile = await prisma.adminProfile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdminProfileCreateManyArgs>(args?: SelectSubset<T, AdminProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AdminProfiles and returns the data saved in the database.
+     * @param {AdminProfileCreateManyAndReturnArgs} args - Arguments to create many AdminProfiles.
+     * @example
+     * // Create many AdminProfiles
+     * const adminProfile = await prisma.adminProfile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AdminProfiles and only return the `id`
+     * const adminProfileWithIdOnly = await prisma.adminProfile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AdminProfileCreateManyAndReturnArgs>(args?: SelectSubset<T, AdminProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AdminProfile.
+     * @param {AdminProfileDeleteArgs} args - Arguments to delete one AdminProfile.
+     * @example
+     * // Delete one AdminProfile
+     * const AdminProfile = await prisma.adminProfile.delete({
+     *   where: {
+     *     // ... filter to delete one AdminProfile
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdminProfileDeleteArgs>(args: SelectSubset<T, AdminProfileDeleteArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AdminProfile.
+     * @param {AdminProfileUpdateArgs} args - Arguments to update one AdminProfile.
+     * @example
+     * // Update one AdminProfile
+     * const adminProfile = await prisma.adminProfile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdminProfileUpdateArgs>(args: SelectSubset<T, AdminProfileUpdateArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AdminProfiles.
+     * @param {AdminProfileDeleteManyArgs} args - Arguments to filter AdminProfiles to delete.
+     * @example
+     * // Delete a few AdminProfiles
+     * const { count } = await prisma.adminProfile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdminProfileDeleteManyArgs>(args?: SelectSubset<T, AdminProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdminProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdminProfiles
+     * const adminProfile = await prisma.adminProfile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdminProfileUpdateManyArgs>(args: SelectSubset<T, AdminProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdminProfiles and returns the data updated in the database.
+     * @param {AdminProfileUpdateManyAndReturnArgs} args - Arguments to update many AdminProfiles.
+     * @example
+     * // Update many AdminProfiles
+     * const adminProfile = await prisma.adminProfile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AdminProfiles and only return the `id`
+     * const adminProfileWithIdOnly = await prisma.adminProfile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AdminProfileUpdateManyAndReturnArgs>(args: SelectSubset<T, AdminProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AdminProfile.
+     * @param {AdminProfileUpsertArgs} args - Arguments to update or create a AdminProfile.
+     * @example
+     * // Update or create a AdminProfile
+     * const adminProfile = await prisma.adminProfile.upsert({
+     *   create: {
+     *     // ... data to create a AdminProfile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdminProfile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdminProfileUpsertArgs>(args: SelectSubset<T, AdminProfileUpsertArgs<ExtArgs>>): Prisma__AdminProfileClient<$Result.GetResult<Prisma.$AdminProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AdminProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileCountArgs} args - Arguments to filter AdminProfiles to count.
+     * @example
+     * // Count the number of AdminProfiles
+     * const count = await prisma.adminProfile.count({
+     *   where: {
+     *     // ... the filter for the AdminProfiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdminProfileCountArgs>(
+      args?: Subset<T, AdminProfileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdminProfileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdminProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdminProfileAggregateArgs>(args: Subset<T, AdminProfileAggregateArgs>): Prisma.PrismaPromise<GetAdminProfileAggregateType<T>>
+
+    /**
+     * Group by AdminProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminProfileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdminProfileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdminProfileGroupByArgs['orderBy'] }
+        : { orderBy?: AdminProfileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdminProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdminProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdminProfile model
+   */
+  readonly fields: AdminProfileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdminProfile.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdminProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdminProfile model
+   */
+  interface AdminProfileFieldRefs {
+    readonly id: FieldRef<"AdminProfile", 'String'>
+    readonly name: FieldRef<"AdminProfile", 'String'>
+    readonly email: FieldRef<"AdminProfile", 'String'>
+    readonly phone: FieldRef<"AdminProfile", 'String'>
+    readonly role: FieldRef<"AdminProfile", 'String'>
+    readonly updatedAt: FieldRef<"AdminProfile", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdminProfile findUnique
+   */
+  export type AdminProfileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * Filter, which AdminProfile to fetch.
+     */
+    where: AdminProfileWhereUniqueInput
+  }
+
+  /**
+   * AdminProfile findUniqueOrThrow
+   */
+  export type AdminProfileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * Filter, which AdminProfile to fetch.
+     */
+    where: AdminProfileWhereUniqueInput
+  }
+
+  /**
+   * AdminProfile findFirst
+   */
+  export type AdminProfileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * Filter, which AdminProfile to fetch.
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdminProfiles to fetch.
+     */
+    orderBy?: AdminProfileOrderByWithRelationInput | AdminProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdminProfiles.
+     */
+    cursor?: AdminProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdminProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdminProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdminProfiles.
+     */
+    distinct?: AdminProfileScalarFieldEnum | AdminProfileScalarFieldEnum[]
+  }
+
+  /**
+   * AdminProfile findFirstOrThrow
+   */
+  export type AdminProfileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * Filter, which AdminProfile to fetch.
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdminProfiles to fetch.
+     */
+    orderBy?: AdminProfileOrderByWithRelationInput | AdminProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdminProfiles.
+     */
+    cursor?: AdminProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdminProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdminProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdminProfiles.
+     */
+    distinct?: AdminProfileScalarFieldEnum | AdminProfileScalarFieldEnum[]
+  }
+
+  /**
+   * AdminProfile findMany
+   */
+  export type AdminProfileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * Filter, which AdminProfiles to fetch.
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdminProfiles to fetch.
+     */
+    orderBy?: AdminProfileOrderByWithRelationInput | AdminProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdminProfiles.
+     */
+    cursor?: AdminProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdminProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdminProfiles.
+     */
+    skip?: number
+    distinct?: AdminProfileScalarFieldEnum | AdminProfileScalarFieldEnum[]
+  }
+
+  /**
+   * AdminProfile create
+   */
+  export type AdminProfileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * The data needed to create a AdminProfile.
+     */
+    data: XOR<AdminProfileCreateInput, AdminProfileUncheckedCreateInput>
+  }
+
+  /**
+   * AdminProfile createMany
+   */
+  export type AdminProfileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdminProfiles.
+     */
+    data: AdminProfileCreateManyInput | AdminProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AdminProfile createManyAndReturn
+   */
+  export type AdminProfileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * The data used to create many AdminProfiles.
+     */
+    data: AdminProfileCreateManyInput | AdminProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AdminProfile update
+   */
+  export type AdminProfileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * The data needed to update a AdminProfile.
+     */
+    data: XOR<AdminProfileUpdateInput, AdminProfileUncheckedUpdateInput>
+    /**
+     * Choose, which AdminProfile to update.
+     */
+    where: AdminProfileWhereUniqueInput
+  }
+
+  /**
+   * AdminProfile updateMany
+   */
+  export type AdminProfileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdminProfiles.
+     */
+    data: XOR<AdminProfileUpdateManyMutationInput, AdminProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which AdminProfiles to update
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * Limit how many AdminProfiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdminProfile updateManyAndReturn
+   */
+  export type AdminProfileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * The data used to update AdminProfiles.
+     */
+    data: XOR<AdminProfileUpdateManyMutationInput, AdminProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which AdminProfiles to update
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * Limit how many AdminProfiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdminProfile upsert
+   */
+  export type AdminProfileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * The filter to search for the AdminProfile to update in case it exists.
+     */
+    where: AdminProfileWhereUniqueInput
+    /**
+     * In case the AdminProfile found by the `where` argument doesn't exist, create a new AdminProfile with this data.
+     */
+    create: XOR<AdminProfileCreateInput, AdminProfileUncheckedCreateInput>
+    /**
+     * In case the AdminProfile was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdminProfileUpdateInput, AdminProfileUncheckedUpdateInput>
+  }
+
+  /**
+   * AdminProfile delete
+   */
+  export type AdminProfileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+    /**
+     * Filter which AdminProfile to delete.
+     */
+    where: AdminProfileWhereUniqueInput
+  }
+
+  /**
+   * AdminProfile deleteMany
+   */
+  export type AdminProfileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdminProfiles to delete
+     */
+    where?: AdminProfileWhereInput
+    /**
+     * Limit how many AdminProfiles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdminProfile without action
+   */
+  export type AdminProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminProfile
+     */
+    select?: AdminProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdminProfile
+     */
+    omit?: AdminProfileOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6777,6 +12760,79 @@ export namespace Prisma {
   };
 
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
+
+
+  export const ArthurTokenScalarFieldEnum: {
+    id: 'id',
+    accessToken: 'accessToken',
+    refreshToken: 'refreshToken',
+    expiresAt: 'expiresAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ArthurTokenScalarFieldEnum = (typeof ArthurTokenScalarFieldEnum)[keyof typeof ArthurTokenScalarFieldEnum]
+
+
+  export const ArthurPropertyScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    address: 'address',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ArthurPropertyScalarFieldEnum = (typeof ArthurPropertyScalarFieldEnum)[keyof typeof ArthurPropertyScalarFieldEnum]
+
+
+  export const ArthurUnitScalarFieldEnum: {
+    id: 'id',
+    propertyId: 'propertyId',
+    name: 'name',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ArthurUnitScalarFieldEnum = (typeof ArthurUnitScalarFieldEnum)[keyof typeof ArthurUnitScalarFieldEnum]
+
+
+  export const ArthurTenancyScalarFieldEnum: {
+    id: 'id',
+    unitId: 'unitId',
+    status: 'status',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    rent: 'rent',
+    rentVal: 'rentVal',
+    deposit: 'deposit',
+    depositVal: 'depositVal',
+    lodged: 'lodged',
+    received: 'received',
+    tenants: 'tenants',
+    phone: 'phone',
+    email: 'email',
+    lettingType: 'lettingType',
+    rentStatus: 'rentStatus',
+    commentary: 'commentary',
+    address: 'address',
+    code: 'code',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ArthurTenancyScalarFieldEnum = (typeof ArthurTenancyScalarFieldEnum)[keyof typeof ArthurTenancyScalarFieldEnum]
+
+
+  export const AdminProfileScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    phone: 'phone',
+    role: 'role',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AdminProfileScalarFieldEnum = (typeof AdminProfileScalarFieldEnum)[keyof typeof AdminProfileScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7176,6 +13232,370 @@ export namespace Prisma {
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
   }
 
+  export type ArthurTokenWhereInput = {
+    AND?: ArthurTokenWhereInput | ArthurTokenWhereInput[]
+    OR?: ArthurTokenWhereInput[]
+    NOT?: ArthurTokenWhereInput | ArthurTokenWhereInput[]
+    id?: StringFilter<"ArthurToken"> | string
+    accessToken?: StringFilter<"ArthurToken"> | string
+    refreshToken?: StringFilter<"ArthurToken"> | string
+    expiresAt?: DateTimeFilter<"ArthurToken"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurToken"> | Date | string
+  }
+
+  export type ArthurTokenOrderByWithRelationInput = {
+    id?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    expiresAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurTokenWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ArthurTokenWhereInput | ArthurTokenWhereInput[]
+    OR?: ArthurTokenWhereInput[]
+    NOT?: ArthurTokenWhereInput | ArthurTokenWhereInput[]
+    accessToken?: StringFilter<"ArthurToken"> | string
+    refreshToken?: StringFilter<"ArthurToken"> | string
+    expiresAt?: DateTimeFilter<"ArthurToken"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurToken"> | Date | string
+  }, "id">
+
+  export type ArthurTokenOrderByWithAggregationInput = {
+    id?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    expiresAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ArthurTokenCountOrderByAggregateInput
+    _max?: ArthurTokenMaxOrderByAggregateInput
+    _min?: ArthurTokenMinOrderByAggregateInput
+  }
+
+  export type ArthurTokenScalarWhereWithAggregatesInput = {
+    AND?: ArthurTokenScalarWhereWithAggregatesInput | ArthurTokenScalarWhereWithAggregatesInput[]
+    OR?: ArthurTokenScalarWhereWithAggregatesInput[]
+    NOT?: ArthurTokenScalarWhereWithAggregatesInput | ArthurTokenScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ArthurToken"> | string
+    accessToken?: StringWithAggregatesFilter<"ArthurToken"> | string
+    refreshToken?: StringWithAggregatesFilter<"ArthurToken"> | string
+    expiresAt?: DateTimeWithAggregatesFilter<"ArthurToken"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ArthurToken"> | Date | string
+  }
+
+  export type ArthurPropertyWhereInput = {
+    AND?: ArthurPropertyWhereInput | ArthurPropertyWhereInput[]
+    OR?: ArthurPropertyWhereInput[]
+    NOT?: ArthurPropertyWhereInput | ArthurPropertyWhereInput[]
+    id?: StringFilter<"ArthurProperty"> | string
+    name?: StringFilter<"ArthurProperty"> | string
+    address?: StringFilter<"ArthurProperty"> | string
+    createdAt?: DateTimeFilter<"ArthurProperty"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurProperty"> | Date | string
+    units?: ArthurUnitListRelationFilter
+  }
+
+  export type ArthurPropertyOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    units?: ArthurUnitOrderByRelationAggregateInput
+  }
+
+  export type ArthurPropertyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ArthurPropertyWhereInput | ArthurPropertyWhereInput[]
+    OR?: ArthurPropertyWhereInput[]
+    NOT?: ArthurPropertyWhereInput | ArthurPropertyWhereInput[]
+    name?: StringFilter<"ArthurProperty"> | string
+    address?: StringFilter<"ArthurProperty"> | string
+    createdAt?: DateTimeFilter<"ArthurProperty"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurProperty"> | Date | string
+    units?: ArthurUnitListRelationFilter
+  }, "id">
+
+  export type ArthurPropertyOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ArthurPropertyCountOrderByAggregateInput
+    _max?: ArthurPropertyMaxOrderByAggregateInput
+    _min?: ArthurPropertyMinOrderByAggregateInput
+  }
+
+  export type ArthurPropertyScalarWhereWithAggregatesInput = {
+    AND?: ArthurPropertyScalarWhereWithAggregatesInput | ArthurPropertyScalarWhereWithAggregatesInput[]
+    OR?: ArthurPropertyScalarWhereWithAggregatesInput[]
+    NOT?: ArthurPropertyScalarWhereWithAggregatesInput | ArthurPropertyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ArthurProperty"> | string
+    name?: StringWithAggregatesFilter<"ArthurProperty"> | string
+    address?: StringWithAggregatesFilter<"ArthurProperty"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ArthurProperty"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ArthurProperty"> | Date | string
+  }
+
+  export type ArthurUnitWhereInput = {
+    AND?: ArthurUnitWhereInput | ArthurUnitWhereInput[]
+    OR?: ArthurUnitWhereInput[]
+    NOT?: ArthurUnitWhereInput | ArthurUnitWhereInput[]
+    id?: StringFilter<"ArthurUnit"> | string
+    propertyId?: StringFilter<"ArthurUnit"> | string
+    name?: StringFilter<"ArthurUnit"> | string
+    status?: StringFilter<"ArthurUnit"> | string
+    createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
+    property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
+    tenancies?: ArthurTenancyListRelationFilter
+  }
+
+  export type ArthurUnitOrderByWithRelationInput = {
+    id?: SortOrder
+    propertyId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    property?: ArthurPropertyOrderByWithRelationInput
+    tenancies?: ArthurTenancyOrderByRelationAggregateInput
+  }
+
+  export type ArthurUnitWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ArthurUnitWhereInput | ArthurUnitWhereInput[]
+    OR?: ArthurUnitWhereInput[]
+    NOT?: ArthurUnitWhereInput | ArthurUnitWhereInput[]
+    propertyId?: StringFilter<"ArthurUnit"> | string
+    name?: StringFilter<"ArthurUnit"> | string
+    status?: StringFilter<"ArthurUnit"> | string
+    createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
+    property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
+    tenancies?: ArthurTenancyListRelationFilter
+  }, "id">
+
+  export type ArthurUnitOrderByWithAggregationInput = {
+    id?: SortOrder
+    propertyId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ArthurUnitCountOrderByAggregateInput
+    _max?: ArthurUnitMaxOrderByAggregateInput
+    _min?: ArthurUnitMinOrderByAggregateInput
+  }
+
+  export type ArthurUnitScalarWhereWithAggregatesInput = {
+    AND?: ArthurUnitScalarWhereWithAggregatesInput | ArthurUnitScalarWhereWithAggregatesInput[]
+    OR?: ArthurUnitScalarWhereWithAggregatesInput[]
+    NOT?: ArthurUnitScalarWhereWithAggregatesInput | ArthurUnitScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ArthurUnit"> | string
+    propertyId?: StringWithAggregatesFilter<"ArthurUnit"> | string
+    name?: StringWithAggregatesFilter<"ArthurUnit"> | string
+    status?: StringWithAggregatesFilter<"ArthurUnit"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ArthurUnit"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ArthurUnit"> | Date | string
+  }
+
+  export type ArthurTenancyWhereInput = {
+    AND?: ArthurTenancyWhereInput | ArthurTenancyWhereInput[]
+    OR?: ArthurTenancyWhereInput[]
+    NOT?: ArthurTenancyWhereInput | ArthurTenancyWhereInput[]
+    id?: StringFilter<"ArthurTenancy"> | string
+    unitId?: StringFilter<"ArthurTenancy"> | string
+    status?: StringFilter<"ArthurTenancy"> | string
+    startDate?: StringNullableFilter<"ArthurTenancy"> | string | null
+    endDate?: StringNullableFilter<"ArthurTenancy"> | string | null
+    rent?: StringFilter<"ArthurTenancy"> | string
+    rentVal?: FloatFilter<"ArthurTenancy"> | number
+    deposit?: StringFilter<"ArthurTenancy"> | string
+    depositVal?: FloatFilter<"ArthurTenancy"> | number
+    lodged?: StringNullableFilter<"ArthurTenancy"> | string | null
+    received?: StringNullableFilter<"ArthurTenancy"> | string | null
+    tenants?: StringNullableListFilter<"ArthurTenancy">
+    phone?: StringNullableListFilter<"ArthurTenancy">
+    email?: StringNullableListFilter<"ArthurTenancy">
+    lettingType?: StringFilter<"ArthurTenancy"> | string
+    rentStatus?: StringFilter<"ArthurTenancy"> | string
+    commentary?: StringFilter<"ArthurTenancy"> | string
+    address?: StringNullableFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    unit?: XOR<ArthurUnitScalarRelationFilter, ArthurUnitWhereInput>
+  }
+
+  export type ArthurTenancyOrderByWithRelationInput = {
+    id?: SortOrder
+    unitId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    rent?: SortOrder
+    rentVal?: SortOrder
+    deposit?: SortOrder
+    depositVal?: SortOrder
+    lodged?: SortOrderInput | SortOrder
+    received?: SortOrderInput | SortOrder
+    tenants?: SortOrder
+    phone?: SortOrder
+    email?: SortOrder
+    lettingType?: SortOrder
+    rentStatus?: SortOrder
+    commentary?: SortOrder
+    address?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    unit?: ArthurUnitOrderByWithRelationInput
+  }
+
+  export type ArthurTenancyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ArthurTenancyWhereInput | ArthurTenancyWhereInput[]
+    OR?: ArthurTenancyWhereInput[]
+    NOT?: ArthurTenancyWhereInput | ArthurTenancyWhereInput[]
+    unitId?: StringFilter<"ArthurTenancy"> | string
+    status?: StringFilter<"ArthurTenancy"> | string
+    startDate?: StringNullableFilter<"ArthurTenancy"> | string | null
+    endDate?: StringNullableFilter<"ArthurTenancy"> | string | null
+    rent?: StringFilter<"ArthurTenancy"> | string
+    rentVal?: FloatFilter<"ArthurTenancy"> | number
+    deposit?: StringFilter<"ArthurTenancy"> | string
+    depositVal?: FloatFilter<"ArthurTenancy"> | number
+    lodged?: StringNullableFilter<"ArthurTenancy"> | string | null
+    received?: StringNullableFilter<"ArthurTenancy"> | string | null
+    tenants?: StringNullableListFilter<"ArthurTenancy">
+    phone?: StringNullableListFilter<"ArthurTenancy">
+    email?: StringNullableListFilter<"ArthurTenancy">
+    lettingType?: StringFilter<"ArthurTenancy"> | string
+    rentStatus?: StringFilter<"ArthurTenancy"> | string
+    commentary?: StringFilter<"ArthurTenancy"> | string
+    address?: StringNullableFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    unit?: XOR<ArthurUnitScalarRelationFilter, ArthurUnitWhereInput>
+  }, "id">
+
+  export type ArthurTenancyOrderByWithAggregationInput = {
+    id?: SortOrder
+    unitId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    rent?: SortOrder
+    rentVal?: SortOrder
+    deposit?: SortOrder
+    depositVal?: SortOrder
+    lodged?: SortOrderInput | SortOrder
+    received?: SortOrderInput | SortOrder
+    tenants?: SortOrder
+    phone?: SortOrder
+    email?: SortOrder
+    lettingType?: SortOrder
+    rentStatus?: SortOrder
+    commentary?: SortOrder
+    address?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ArthurTenancyCountOrderByAggregateInput
+    _avg?: ArthurTenancyAvgOrderByAggregateInput
+    _max?: ArthurTenancyMaxOrderByAggregateInput
+    _min?: ArthurTenancyMinOrderByAggregateInput
+    _sum?: ArthurTenancySumOrderByAggregateInput
+  }
+
+  export type ArthurTenancyScalarWhereWithAggregatesInput = {
+    AND?: ArthurTenancyScalarWhereWithAggregatesInput | ArthurTenancyScalarWhereWithAggregatesInput[]
+    OR?: ArthurTenancyScalarWhereWithAggregatesInput[]
+    NOT?: ArthurTenancyScalarWhereWithAggregatesInput | ArthurTenancyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    unitId?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    status?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    startDate?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    endDate?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    rent?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    rentVal?: FloatWithAggregatesFilter<"ArthurTenancy"> | number
+    deposit?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    depositVal?: FloatWithAggregatesFilter<"ArthurTenancy"> | number
+    lodged?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    received?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    tenants?: StringNullableListFilter<"ArthurTenancy">
+    phone?: StringNullableListFilter<"ArthurTenancy">
+    email?: StringNullableListFilter<"ArthurTenancy">
+    lettingType?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    rentStatus?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    commentary?: StringWithAggregatesFilter<"ArthurTenancy"> | string
+    address?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
+  }
+
+  export type AdminProfileWhereInput = {
+    AND?: AdminProfileWhereInput | AdminProfileWhereInput[]
+    OR?: AdminProfileWhereInput[]
+    NOT?: AdminProfileWhereInput | AdminProfileWhereInput[]
+    id?: StringFilter<"AdminProfile"> | string
+    name?: StringFilter<"AdminProfile"> | string
+    email?: StringFilter<"AdminProfile"> | string
+    phone?: StringFilter<"AdminProfile"> | string
+    role?: StringFilter<"AdminProfile"> | string
+    updatedAt?: DateTimeFilter<"AdminProfile"> | Date | string
+  }
+
+  export type AdminProfileOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    role?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdminProfileWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AdminProfileWhereInput | AdminProfileWhereInput[]
+    OR?: AdminProfileWhereInput[]
+    NOT?: AdminProfileWhereInput | AdminProfileWhereInput[]
+    name?: StringFilter<"AdminProfile"> | string
+    email?: StringFilter<"AdminProfile"> | string
+    phone?: StringFilter<"AdminProfile"> | string
+    role?: StringFilter<"AdminProfile"> | string
+    updatedAt?: DateTimeFilter<"AdminProfile"> | Date | string
+  }, "id">
+
+  export type AdminProfileOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    role?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AdminProfileCountOrderByAggregateInput
+    _max?: AdminProfileMaxOrderByAggregateInput
+    _min?: AdminProfileMinOrderByAggregateInput
+  }
+
+  export type AdminProfileScalarWhereWithAggregatesInput = {
+    AND?: AdminProfileScalarWhereWithAggregatesInput | AdminProfileScalarWhereWithAggregatesInput[]
+    OR?: AdminProfileScalarWhereWithAggregatesInput[]
+    NOT?: AdminProfileScalarWhereWithAggregatesInput | AdminProfileScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AdminProfile"> | string
+    name?: StringWithAggregatesFilter<"AdminProfile"> | string
+    email?: StringWithAggregatesFilter<"AdminProfile"> | string
+    phone?: StringWithAggregatesFilter<"AdminProfile"> | string
+    role?: StringWithAggregatesFilter<"AdminProfile"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AdminProfile"> | Date | string
+  }
+
   export type PostCreateInput = {
     name: string
     createdAt?: Date | string
@@ -7495,6 +13915,418 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     token?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTokenCreateInput = {
+    id?: string
+    accessToken: string
+    refreshToken: string
+    expiresAt: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTokenUncheckedCreateInput = {
+    id?: string
+    accessToken: string
+    refreshToken: string
+    expiresAt: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTokenUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accessToken?: StringFieldUpdateOperationsInput | string
+    refreshToken?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTokenUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accessToken?: StringFieldUpdateOperationsInput | string
+    refreshToken?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTokenCreateManyInput = {
+    id?: string
+    accessToken: string
+    refreshToken: string
+    expiresAt: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTokenUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accessToken?: StringFieldUpdateOperationsInput | string
+    refreshToken?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTokenUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accessToken?: StringFieldUpdateOperationsInput | string
+    refreshToken?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurPropertyCreateInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    units?: ArthurUnitCreateNestedManyWithoutPropertyInput
+  }
+
+  export type ArthurPropertyUncheckedCreateInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    units?: ArthurUnitUncheckedCreateNestedManyWithoutPropertyInput
+  }
+
+  export type ArthurPropertyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    units?: ArthurUnitUpdateManyWithoutPropertyNestedInput
+  }
+
+  export type ArthurPropertyUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    units?: ArthurUnitUncheckedUpdateManyWithoutPropertyNestedInput
+  }
+
+  export type ArthurPropertyCreateManyInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurPropertyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurPropertyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurUnitCreateInput = {
+    id: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    property: ArthurPropertyCreateNestedOneWithoutUnitsInput
+    tenancies?: ArthurTenancyCreateNestedManyWithoutUnitInput
+  }
+
+  export type ArthurUnitUncheckedCreateInput = {
+    id: string
+    propertyId: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenancies?: ArthurTenancyUncheckedCreateNestedManyWithoutUnitInput
+  }
+
+  export type ArthurUnitUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    property?: ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput
+    tenancies?: ArthurTenancyUpdateManyWithoutUnitNestedInput
+  }
+
+  export type ArthurUnitUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    propertyId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenancies?: ArthurTenancyUncheckedUpdateManyWithoutUnitNestedInput
+  }
+
+  export type ArthurUnitCreateManyInput = {
+    id: string
+    propertyId: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurUnitUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurUnitUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    propertyId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyCreateInput = {
+    id: string
+    status: string
+    startDate?: string | null
+    endDate?: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged?: string | null
+    received?: string | null
+    tenants?: ArthurTenancyCreatetenantsInput | string[]
+    phone?: ArthurTenancyCreatephoneInput | string[]
+    email?: ArthurTenancyCreateemailInput | string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address?: string | null
+    code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    unit: ArthurUnitCreateNestedOneWithoutTenanciesInput
+  }
+
+  export type ArthurTenancyUncheckedCreateInput = {
+    id: string
+    unitId: string
+    status: string
+    startDate?: string | null
+    endDate?: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged?: string | null
+    received?: string | null
+    tenants?: ArthurTenancyCreatetenantsInput | string[]
+    phone?: ArthurTenancyCreatephoneInput | string[]
+    email?: ArthurTenancyCreateemailInput | string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address?: string | null
+    code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTenancyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: ArthurUnitUpdateOneRequiredWithoutTenanciesNestedInput
+  }
+
+  export type ArthurTenancyUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    unitId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyCreateManyInput = {
+    id: string
+    unitId: string
+    status: string
+    startDate?: string | null
+    endDate?: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged?: string | null
+    received?: string | null
+    tenants?: ArthurTenancyCreatetenantsInput | string[]
+    phone?: ArthurTenancyCreatephoneInput | string[]
+    email?: ArthurTenancyCreateemailInput | string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address?: string | null
+    code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTenancyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    unitId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdminProfileCreateInput = {
+    id?: string
+    name: string
+    email: string
+    phone: string
+    role: string
+    updatedAt?: Date | string
+  }
+
+  export type AdminProfileUncheckedCreateInput = {
+    id?: string
+    name: string
+    email: string
+    phone: string
+    role: string
+    updatedAt?: Date | string
+  }
+
+  export type AdminProfileUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdminProfileUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdminProfileCreateManyInput = {
+    id?: string
+    name: string
+    email: string
+    phone: string
+    role: string
+    updatedAt?: Date | string
+  }
+
+  export type AdminProfileUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdminProfileUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7870,6 +14702,249 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type ArthurTokenCountOrderByAggregateInput = {
+    id?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    expiresAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurTokenMaxOrderByAggregateInput = {
+    id?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    expiresAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurTokenMinOrderByAggregateInput = {
+    id?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    expiresAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurUnitListRelationFilter = {
+    every?: ArthurUnitWhereInput
+    some?: ArthurUnitWhereInput
+    none?: ArthurUnitWhereInput
+  }
+
+  export type ArthurUnitOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ArthurPropertyCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurPropertyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurPropertyMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurPropertyScalarRelationFilter = {
+    is?: ArthurPropertyWhereInput
+    isNot?: ArthurPropertyWhereInput
+  }
+
+  export type ArthurTenancyListRelationFilter = {
+    every?: ArthurTenancyWhereInput
+    some?: ArthurTenancyWhereInput
+    none?: ArthurTenancyWhereInput
+  }
+
+  export type ArthurTenancyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ArthurUnitCountOrderByAggregateInput = {
+    id?: SortOrder
+    propertyId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurUnitMaxOrderByAggregateInput = {
+    id?: SortOrder
+    propertyId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurUnitMinOrderByAggregateInput = {
+    id?: SortOrder
+    propertyId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type ArthurUnitScalarRelationFilter = {
+    is?: ArthurUnitWhereInput
+    isNot?: ArthurUnitWhereInput
+  }
+
+  export type ArthurTenancyCountOrderByAggregateInput = {
+    id?: SortOrder
+    unitId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    rent?: SortOrder
+    rentVal?: SortOrder
+    deposit?: SortOrder
+    depositVal?: SortOrder
+    lodged?: SortOrder
+    received?: SortOrder
+    tenants?: SortOrder
+    phone?: SortOrder
+    email?: SortOrder
+    lettingType?: SortOrder
+    rentStatus?: SortOrder
+    commentary?: SortOrder
+    address?: SortOrder
+    code?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurTenancyAvgOrderByAggregateInput = {
+    rentVal?: SortOrder
+    depositVal?: SortOrder
+  }
+
+  export type ArthurTenancyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    unitId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    rent?: SortOrder
+    rentVal?: SortOrder
+    deposit?: SortOrder
+    depositVal?: SortOrder
+    lodged?: SortOrder
+    received?: SortOrder
+    lettingType?: SortOrder
+    rentStatus?: SortOrder
+    commentary?: SortOrder
+    address?: SortOrder
+    code?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurTenancyMinOrderByAggregateInput = {
+    id?: SortOrder
+    unitId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    rent?: SortOrder
+    rentVal?: SortOrder
+    deposit?: SortOrder
+    depositVal?: SortOrder
+    lodged?: SortOrder
+    received?: SortOrder
+    lettingType?: SortOrder
+    rentStatus?: SortOrder
+    commentary?: SortOrder
+    address?: SortOrder
+    code?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ArthurTenancySumOrderByAggregateInput = {
+    rentVal?: SortOrder
+    depositVal?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type AdminProfileCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    role?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdminProfileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    role?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdminProfileMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    role?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type UserCreateNestedOneWithoutPostsInput = {
     create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
     connectOrCreate?: UserCreateOrConnectWithoutPostsInput
@@ -8070,6 +15145,153 @@ export namespace Prisma {
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
   }
 
+  export type ArthurUnitCreateNestedManyWithoutPropertyInput = {
+    create?: XOR<ArthurUnitCreateWithoutPropertyInput, ArthurUnitUncheckedCreateWithoutPropertyInput> | ArthurUnitCreateWithoutPropertyInput[] | ArthurUnitUncheckedCreateWithoutPropertyInput[]
+    connectOrCreate?: ArthurUnitCreateOrConnectWithoutPropertyInput | ArthurUnitCreateOrConnectWithoutPropertyInput[]
+    createMany?: ArthurUnitCreateManyPropertyInputEnvelope
+    connect?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+  }
+
+  export type ArthurUnitUncheckedCreateNestedManyWithoutPropertyInput = {
+    create?: XOR<ArthurUnitCreateWithoutPropertyInput, ArthurUnitUncheckedCreateWithoutPropertyInput> | ArthurUnitCreateWithoutPropertyInput[] | ArthurUnitUncheckedCreateWithoutPropertyInput[]
+    connectOrCreate?: ArthurUnitCreateOrConnectWithoutPropertyInput | ArthurUnitCreateOrConnectWithoutPropertyInput[]
+    createMany?: ArthurUnitCreateManyPropertyInputEnvelope
+    connect?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+  }
+
+  export type ArthurUnitUpdateManyWithoutPropertyNestedInput = {
+    create?: XOR<ArthurUnitCreateWithoutPropertyInput, ArthurUnitUncheckedCreateWithoutPropertyInput> | ArthurUnitCreateWithoutPropertyInput[] | ArthurUnitUncheckedCreateWithoutPropertyInput[]
+    connectOrCreate?: ArthurUnitCreateOrConnectWithoutPropertyInput | ArthurUnitCreateOrConnectWithoutPropertyInput[]
+    upsert?: ArthurUnitUpsertWithWhereUniqueWithoutPropertyInput | ArthurUnitUpsertWithWhereUniqueWithoutPropertyInput[]
+    createMany?: ArthurUnitCreateManyPropertyInputEnvelope
+    set?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    disconnect?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    delete?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    connect?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    update?: ArthurUnitUpdateWithWhereUniqueWithoutPropertyInput | ArthurUnitUpdateWithWhereUniqueWithoutPropertyInput[]
+    updateMany?: ArthurUnitUpdateManyWithWhereWithoutPropertyInput | ArthurUnitUpdateManyWithWhereWithoutPropertyInput[]
+    deleteMany?: ArthurUnitScalarWhereInput | ArthurUnitScalarWhereInput[]
+  }
+
+  export type ArthurUnitUncheckedUpdateManyWithoutPropertyNestedInput = {
+    create?: XOR<ArthurUnitCreateWithoutPropertyInput, ArthurUnitUncheckedCreateWithoutPropertyInput> | ArthurUnitCreateWithoutPropertyInput[] | ArthurUnitUncheckedCreateWithoutPropertyInput[]
+    connectOrCreate?: ArthurUnitCreateOrConnectWithoutPropertyInput | ArthurUnitCreateOrConnectWithoutPropertyInput[]
+    upsert?: ArthurUnitUpsertWithWhereUniqueWithoutPropertyInput | ArthurUnitUpsertWithWhereUniqueWithoutPropertyInput[]
+    createMany?: ArthurUnitCreateManyPropertyInputEnvelope
+    set?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    disconnect?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    delete?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    connect?: ArthurUnitWhereUniqueInput | ArthurUnitWhereUniqueInput[]
+    update?: ArthurUnitUpdateWithWhereUniqueWithoutPropertyInput | ArthurUnitUpdateWithWhereUniqueWithoutPropertyInput[]
+    updateMany?: ArthurUnitUpdateManyWithWhereWithoutPropertyInput | ArthurUnitUpdateManyWithWhereWithoutPropertyInput[]
+    deleteMany?: ArthurUnitScalarWhereInput | ArthurUnitScalarWhereInput[]
+  }
+
+  export type ArthurPropertyCreateNestedOneWithoutUnitsInput = {
+    create?: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+    connectOrCreate?: ArthurPropertyCreateOrConnectWithoutUnitsInput
+    connect?: ArthurPropertyWhereUniqueInput
+  }
+
+  export type ArthurTenancyCreateNestedManyWithoutUnitInput = {
+    create?: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput> | ArthurTenancyCreateWithoutUnitInput[] | ArthurTenancyUncheckedCreateWithoutUnitInput[]
+    connectOrCreate?: ArthurTenancyCreateOrConnectWithoutUnitInput | ArthurTenancyCreateOrConnectWithoutUnitInput[]
+    createMany?: ArthurTenancyCreateManyUnitInputEnvelope
+    connect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+  }
+
+  export type ArthurTenancyUncheckedCreateNestedManyWithoutUnitInput = {
+    create?: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput> | ArthurTenancyCreateWithoutUnitInput[] | ArthurTenancyUncheckedCreateWithoutUnitInput[]
+    connectOrCreate?: ArthurTenancyCreateOrConnectWithoutUnitInput | ArthurTenancyCreateOrConnectWithoutUnitInput[]
+    createMany?: ArthurTenancyCreateManyUnitInputEnvelope
+    connect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+  }
+
+  export type ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput = {
+    create?: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+    connectOrCreate?: ArthurPropertyCreateOrConnectWithoutUnitsInput
+    upsert?: ArthurPropertyUpsertWithoutUnitsInput
+    connect?: ArthurPropertyWhereUniqueInput
+    update?: XOR<XOR<ArthurPropertyUpdateToOneWithWhereWithoutUnitsInput, ArthurPropertyUpdateWithoutUnitsInput>, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
+  }
+
+  export type ArthurTenancyUpdateManyWithoutUnitNestedInput = {
+    create?: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput> | ArthurTenancyCreateWithoutUnitInput[] | ArthurTenancyUncheckedCreateWithoutUnitInput[]
+    connectOrCreate?: ArthurTenancyCreateOrConnectWithoutUnitInput | ArthurTenancyCreateOrConnectWithoutUnitInput[]
+    upsert?: ArthurTenancyUpsertWithWhereUniqueWithoutUnitInput | ArthurTenancyUpsertWithWhereUniqueWithoutUnitInput[]
+    createMany?: ArthurTenancyCreateManyUnitInputEnvelope
+    set?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    disconnect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    delete?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    connect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    update?: ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput | ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput[]
+    updateMany?: ArthurTenancyUpdateManyWithWhereWithoutUnitInput | ArthurTenancyUpdateManyWithWhereWithoutUnitInput[]
+    deleteMany?: ArthurTenancyScalarWhereInput | ArthurTenancyScalarWhereInput[]
+  }
+
+  export type ArthurTenancyUncheckedUpdateManyWithoutUnitNestedInput = {
+    create?: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput> | ArthurTenancyCreateWithoutUnitInput[] | ArthurTenancyUncheckedCreateWithoutUnitInput[]
+    connectOrCreate?: ArthurTenancyCreateOrConnectWithoutUnitInput | ArthurTenancyCreateOrConnectWithoutUnitInput[]
+    upsert?: ArthurTenancyUpsertWithWhereUniqueWithoutUnitInput | ArthurTenancyUpsertWithWhereUniqueWithoutUnitInput[]
+    createMany?: ArthurTenancyCreateManyUnitInputEnvelope
+    set?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    disconnect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    delete?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    connect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
+    update?: ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput | ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput[]
+    updateMany?: ArthurTenancyUpdateManyWithWhereWithoutUnitInput | ArthurTenancyUpdateManyWithWhereWithoutUnitInput[]
+    deleteMany?: ArthurTenancyScalarWhereInput | ArthurTenancyScalarWhereInput[]
+  }
+
+  export type ArthurTenancyCreatetenantsInput = {
+    set: string[]
+  }
+
+  export type ArthurTenancyCreatephoneInput = {
+    set: string[]
+  }
+
+  export type ArthurTenancyCreateemailInput = {
+    set: string[]
+  }
+
+  export type ArthurUnitCreateNestedOneWithoutTenanciesInput = {
+    create?: XOR<ArthurUnitCreateWithoutTenanciesInput, ArthurUnitUncheckedCreateWithoutTenanciesInput>
+    connectOrCreate?: ArthurUnitCreateOrConnectWithoutTenanciesInput
+    connect?: ArthurUnitWhereUniqueInput
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ArthurTenancyUpdatetenantsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type ArthurTenancyUpdatephoneInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type ArthurTenancyUpdateemailInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type ArthurUnitUpdateOneRequiredWithoutTenanciesNestedInput = {
+    create?: XOR<ArthurUnitCreateWithoutTenanciesInput, ArthurUnitUncheckedCreateWithoutTenanciesInput>
+    connectOrCreate?: ArthurUnitCreateOrConnectWithoutTenanciesInput
+    upsert?: ArthurUnitUpsertWithoutTenanciesInput
+    connect?: ArthurUnitWhereUniqueInput
+    update?: XOR<XOR<ArthurUnitUpdateToOneWithWhereWithoutTenanciesInput, ArthurUnitUpdateWithoutTenanciesInput>, ArthurUnitUncheckedUpdateWithoutTenanciesInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -8256,6 +15478,22 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutPostsInput = {
@@ -8599,6 +15837,261 @@ export namespace Prisma {
     createdById?: StringFilter<"Post"> | string
   }
 
+  export type ArthurUnitCreateWithoutPropertyInput = {
+    id: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenancies?: ArthurTenancyCreateNestedManyWithoutUnitInput
+  }
+
+  export type ArthurUnitUncheckedCreateWithoutPropertyInput = {
+    id: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenancies?: ArthurTenancyUncheckedCreateNestedManyWithoutUnitInput
+  }
+
+  export type ArthurUnitCreateOrConnectWithoutPropertyInput = {
+    where: ArthurUnitWhereUniqueInput
+    create: XOR<ArthurUnitCreateWithoutPropertyInput, ArthurUnitUncheckedCreateWithoutPropertyInput>
+  }
+
+  export type ArthurUnitCreateManyPropertyInputEnvelope = {
+    data: ArthurUnitCreateManyPropertyInput | ArthurUnitCreateManyPropertyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ArthurUnitUpsertWithWhereUniqueWithoutPropertyInput = {
+    where: ArthurUnitWhereUniqueInput
+    update: XOR<ArthurUnitUpdateWithoutPropertyInput, ArthurUnitUncheckedUpdateWithoutPropertyInput>
+    create: XOR<ArthurUnitCreateWithoutPropertyInput, ArthurUnitUncheckedCreateWithoutPropertyInput>
+  }
+
+  export type ArthurUnitUpdateWithWhereUniqueWithoutPropertyInput = {
+    where: ArthurUnitWhereUniqueInput
+    data: XOR<ArthurUnitUpdateWithoutPropertyInput, ArthurUnitUncheckedUpdateWithoutPropertyInput>
+  }
+
+  export type ArthurUnitUpdateManyWithWhereWithoutPropertyInput = {
+    where: ArthurUnitScalarWhereInput
+    data: XOR<ArthurUnitUpdateManyMutationInput, ArthurUnitUncheckedUpdateManyWithoutPropertyInput>
+  }
+
+  export type ArthurUnitScalarWhereInput = {
+    AND?: ArthurUnitScalarWhereInput | ArthurUnitScalarWhereInput[]
+    OR?: ArthurUnitScalarWhereInput[]
+    NOT?: ArthurUnitScalarWhereInput | ArthurUnitScalarWhereInput[]
+    id?: StringFilter<"ArthurUnit"> | string
+    propertyId?: StringFilter<"ArthurUnit"> | string
+    name?: StringFilter<"ArthurUnit"> | string
+    status?: StringFilter<"ArthurUnit"> | string
+    createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
+  }
+
+  export type ArthurPropertyCreateWithoutUnitsInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurPropertyUncheckedCreateWithoutUnitsInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurPropertyCreateOrConnectWithoutUnitsInput = {
+    where: ArthurPropertyWhereUniqueInput
+    create: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+  }
+
+  export type ArthurTenancyCreateWithoutUnitInput = {
+    id: string
+    status: string
+    startDate?: string | null
+    endDate?: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged?: string | null
+    received?: string | null
+    tenants?: ArthurTenancyCreatetenantsInput | string[]
+    phone?: ArthurTenancyCreatephoneInput | string[]
+    email?: ArthurTenancyCreateemailInput | string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address?: string | null
+    code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTenancyUncheckedCreateWithoutUnitInput = {
+    id: string
+    status: string
+    startDate?: string | null
+    endDate?: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged?: string | null
+    received?: string | null
+    tenants?: ArthurTenancyCreatetenantsInput | string[]
+    phone?: ArthurTenancyCreatephoneInput | string[]
+    email?: ArthurTenancyCreateemailInput | string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address?: string | null
+    code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTenancyCreateOrConnectWithoutUnitInput = {
+    where: ArthurTenancyWhereUniqueInput
+    create: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput>
+  }
+
+  export type ArthurTenancyCreateManyUnitInputEnvelope = {
+    data: ArthurTenancyCreateManyUnitInput | ArthurTenancyCreateManyUnitInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ArthurPropertyUpsertWithoutUnitsInput = {
+    update: XOR<ArthurPropertyUpdateWithoutUnitsInput, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
+    create: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+    where?: ArthurPropertyWhereInput
+  }
+
+  export type ArthurPropertyUpdateToOneWithWhereWithoutUnitsInput = {
+    where?: ArthurPropertyWhereInput
+    data: XOR<ArthurPropertyUpdateWithoutUnitsInput, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
+  }
+
+  export type ArthurPropertyUpdateWithoutUnitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurPropertyUncheckedUpdateWithoutUnitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyUpsertWithWhereUniqueWithoutUnitInput = {
+    where: ArthurTenancyWhereUniqueInput
+    update: XOR<ArthurTenancyUpdateWithoutUnitInput, ArthurTenancyUncheckedUpdateWithoutUnitInput>
+    create: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput>
+  }
+
+  export type ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput = {
+    where: ArthurTenancyWhereUniqueInput
+    data: XOR<ArthurTenancyUpdateWithoutUnitInput, ArthurTenancyUncheckedUpdateWithoutUnitInput>
+  }
+
+  export type ArthurTenancyUpdateManyWithWhereWithoutUnitInput = {
+    where: ArthurTenancyScalarWhereInput
+    data: XOR<ArthurTenancyUpdateManyMutationInput, ArthurTenancyUncheckedUpdateManyWithoutUnitInput>
+  }
+
+  export type ArthurTenancyScalarWhereInput = {
+    AND?: ArthurTenancyScalarWhereInput | ArthurTenancyScalarWhereInput[]
+    OR?: ArthurTenancyScalarWhereInput[]
+    NOT?: ArthurTenancyScalarWhereInput | ArthurTenancyScalarWhereInput[]
+    id?: StringFilter<"ArthurTenancy"> | string
+    unitId?: StringFilter<"ArthurTenancy"> | string
+    status?: StringFilter<"ArthurTenancy"> | string
+    startDate?: StringNullableFilter<"ArthurTenancy"> | string | null
+    endDate?: StringNullableFilter<"ArthurTenancy"> | string | null
+    rent?: StringFilter<"ArthurTenancy"> | string
+    rentVal?: FloatFilter<"ArthurTenancy"> | number
+    deposit?: StringFilter<"ArthurTenancy"> | string
+    depositVal?: FloatFilter<"ArthurTenancy"> | number
+    lodged?: StringNullableFilter<"ArthurTenancy"> | string | null
+    received?: StringNullableFilter<"ArthurTenancy"> | string | null
+    tenants?: StringNullableListFilter<"ArthurTenancy">
+    phone?: StringNullableListFilter<"ArthurTenancy">
+    email?: StringNullableListFilter<"ArthurTenancy">
+    lettingType?: StringFilter<"ArthurTenancy"> | string
+    rentStatus?: StringFilter<"ArthurTenancy"> | string
+    commentary?: StringFilter<"ArthurTenancy"> | string
+    address?: StringNullableFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+  }
+
+  export type ArthurUnitCreateWithoutTenanciesInput = {
+    id: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    property: ArthurPropertyCreateNestedOneWithoutUnitsInput
+  }
+
+  export type ArthurUnitUncheckedCreateWithoutTenanciesInput = {
+    id: string
+    propertyId: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurUnitCreateOrConnectWithoutTenanciesInput = {
+    where: ArthurUnitWhereUniqueInput
+    create: XOR<ArthurUnitCreateWithoutTenanciesInput, ArthurUnitUncheckedCreateWithoutTenanciesInput>
+  }
+
+  export type ArthurUnitUpsertWithoutTenanciesInput = {
+    update: XOR<ArthurUnitUpdateWithoutTenanciesInput, ArthurUnitUncheckedUpdateWithoutTenanciesInput>
+    create: XOR<ArthurUnitCreateWithoutTenanciesInput, ArthurUnitUncheckedCreateWithoutTenanciesInput>
+    where?: ArthurUnitWhereInput
+  }
+
+  export type ArthurUnitUpdateToOneWithWhereWithoutTenanciesInput = {
+    where?: ArthurUnitWhereInput
+    data: XOR<ArthurUnitUpdateWithoutTenanciesInput, ArthurUnitUncheckedUpdateWithoutTenanciesInput>
+  }
+
+  export type ArthurUnitUpdateWithoutTenanciesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    property?: ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput
+  }
+
+  export type ArthurUnitUncheckedUpdateWithoutTenanciesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    propertyId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AccountCreateManyUserInput = {
     id?: string
     type: string
@@ -8706,6 +16199,132 @@ export namespace Prisma {
   export type PostUncheckedUpdateManyWithoutCreatedByInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurUnitCreateManyPropertyInput = {
+    id: string
+    name: string
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurUnitUpdateWithoutPropertyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenancies?: ArthurTenancyUpdateManyWithoutUnitNestedInput
+  }
+
+  export type ArthurUnitUncheckedUpdateWithoutPropertyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenancies?: ArthurTenancyUncheckedUpdateManyWithoutUnitNestedInput
+  }
+
+  export type ArthurUnitUncheckedUpdateManyWithoutPropertyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyCreateManyUnitInput = {
+    id: string
+    status: string
+    startDate?: string | null
+    endDate?: string | null
+    rent: string
+    rentVal: number
+    deposit: string
+    depositVal: number
+    lodged?: string | null
+    received?: string | null
+    tenants?: ArthurTenancyCreatetenantsInput | string[]
+    phone?: ArthurTenancyCreatephoneInput | string[]
+    email?: ArthurTenancyCreateemailInput | string[]
+    lettingType: string
+    rentStatus: string
+    commentary: string
+    address?: string | null
+    code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurTenancyUpdateWithoutUnitInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyUncheckedUpdateWithoutUnitInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurTenancyUncheckedUpdateManyWithoutUnitInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    rent?: StringFieldUpdateOperationsInput | string
+    rentVal?: FloatFieldUpdateOperationsInput | number
+    deposit?: StringFieldUpdateOperationsInput | string
+    depositVal?: FloatFieldUpdateOperationsInput | number
+    lodged?: NullableStringFieldUpdateOperationsInput | string | null
+    received?: NullableStringFieldUpdateOperationsInput | string | null
+    tenants?: ArthurTenancyUpdatetenantsInput | string[]
+    phone?: ArthurTenancyUpdatephoneInput | string[]
+    email?: ArthurTenancyUpdateemailInput | string[]
+    lettingType?: StringFieldUpdateOperationsInput | string
+    rentStatus?: StringFieldUpdateOperationsInput | string
+    commentary?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

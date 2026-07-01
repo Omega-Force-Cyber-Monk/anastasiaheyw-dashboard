@@ -1,31 +1,29 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { api } from "~/trpc/react";
 
 export default function ProfilePage() {
+  const { data: dbProfile, refetch } = api.profile.getProfile.useQuery();
+  const updateProfile = api.profile.updateProfile.useMutation();
+
   const [name, setName] = useState("System Admin");
   const [email, setEmail] = useState("admin@alltheyards.com");
   const [phone, setPhone] = useState("+44 7902 734616");
   const [role, setRole] = useState("Global Portfolio Administrator");
   const [avatarInitials, setAvatarInitials] = useState("SA");
 
-  const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // Load from localStorage on mount
+  // Sync state when database profile is fetched
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedName = localStorage.getItem("admin_name") ?? "System Admin";
-      const storedEmail = localStorage.getItem("admin_email") ?? "admin@alltheyards.com";
-      const storedPhone = localStorage.getItem("admin_phone") ?? "+44 7902 734616";
-      const storedRole = localStorage.getItem("admin_role") ?? "Global Portfolio Administrator";
+    if (dbProfile) {
+      setName(dbProfile.name);
+      setEmail(dbProfile.email);
+      setPhone(dbProfile.phone);
+      setRole(dbProfile.role);
 
-      setName(storedName);
-      setEmail(storedEmail);
-      setPhone(storedPhone);
-      setRole(storedRole);
-
-      const initials = storedName
+      const initials = dbProfile.name
         .split(" ")
         .map((n) => n[0])
         .join("")
@@ -33,21 +31,26 @@ export default function ProfilePage() {
         .slice(0, 2);
       setAvatarInitials(initials || "SA");
     }
-  }, []);
+  }, [dbProfile]);
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSaving(true);
     setSuccess(false);
 
-    setTimeout(() => {
+    try {
+      await updateProfile.mutateAsync({
+        name,
+        email,
+        phone,
+        role,
+      });
+
+      // Synchronize with localStorage for backwards-compatible local event-based updates
       if (typeof window !== "undefined") {
         localStorage.setItem("admin_name", name);
         localStorage.setItem("admin_email", email);
         localStorage.setItem("admin_phone", phone);
         localStorage.setItem("admin_role", role);
-
-        // Dispatches event so Navbar updates instantly
         window.dispatchEvent(new Event("admin_profile_updated"));
       }
 
@@ -59,9 +62,11 @@ export default function ProfilePage() {
         .slice(0, 2);
       setAvatarInitials(initials || "SA");
 
-      setSaving(false);
       setSuccess(true);
-    }, 600); // Quick 600ms save simulation
+      await refetch();
+    } catch (err) {
+      console.error("Failed to save profile:", err);
+    }
   };
 
   return (
@@ -197,10 +202,10 @@ export default function ProfilePage() {
                 </button>
                 <button
                   type="submit"
-                  disabled={saving}
+                  disabled={updateProfile.isPending}
                   className="px-5 py-2.5 bg-[#062c1a] hover:bg-[#0c472c] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md cursor-pointer disabled:opacity-50"
                 >
-                  {saving ? "Saving Changes..." : "Save Profile Details"}
+                  {updateProfile.isPending ? "Saving Changes..." : "Save Profile Details"}
                 </button>
               </div>
             </form>

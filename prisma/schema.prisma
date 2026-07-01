@@ -73,3 +73,65 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model ArthurToken {
+    id           String   @id @default("singleton")
+    accessToken  String   @db.Text
+    refreshToken String   @db.Text
+    expiresAt    DateTime
+    updatedAt    DateTime @updatedAt
+}
+
+model ArthurProperty {
+    id        String       @id
+    name      String
+    address   String
+    units     ArthurUnit[]
+    createdAt DateTime     @default(now())
+    updatedAt DateTime     @updatedAt
+}
+
+model ArthurUnit {
+    id         String           @id
+    propertyId String
+    property   ArthurProperty   @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+    name       String
+    status     String
+    tenancies  ArthurTenancy[]
+    createdAt  DateTime         @default(now())
+    updatedAt  DateTime         @updatedAt
+}
+
+model ArthurTenancy {
+    id          String     @id
+    unitId      String
+    unit        ArthurUnit @relation(fields: [unitId], references: [id], onDelete: Cascade)
+    status      String
+    startDate   String?
+    endDate     String?
+    rent        String
+    rentVal     Float
+    deposit     String
+    depositVal  Float
+    lodged      String?
+    received    String?
+    tenants     String[]
+    phone       String[]
+    email       String[]
+    lettingType String
+    rentStatus  String
+    commentary  String
+    address     String?
+    code        String?
+    createdAt   DateTime   @default(now())
+    updatedAt   DateTime   @updatedAt
+}
+
+model AdminProfile {
+    id        String   @id @default("singleton")
+    name      String
+    email     String
+    phone     String
+    role      String
+    updatedAt DateTime @updatedAt
+}

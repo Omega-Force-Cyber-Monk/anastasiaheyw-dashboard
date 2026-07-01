@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { arthurTenancies } from "~/app/_components/admin/arthurData";
 import type { TenancyRecord } from "~/app/_components/admin/arthurData";
+import { api } from "~/trpc/react";
 
 export default function AdminDashboard() {
   const [search, setSearch] = useState("");
@@ -22,54 +23,42 @@ export default function AdminDashboard() {
     setCurrentPage(1);
   }, [search, statusFilter, lettingFilter]);
 
-  // Sync Simulation State
+  // Sync State
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncStep, setSyncStep] = useState(0);
   const [syncLog, setSyncLog] = useState<string[]>([]);
   const [lastSyncTime, setLastSyncTime] = useState<string>(
-    "June 29, 2026 at 11:30 AM",
+    "Not synced yet",
   );
   const [showSyncModal, setShowSyncModal] = useState(false);
 
-  // Localized Tenancies state
-  const [tenancies, setTenancies] = useState<TenancyRecord[]>(arthurTenancies);
+  // Fetch real/cached Arthur data
+  const utils = api.useUtils();
+  const { data: arthurData } = api.arthur.getTenancies.useQuery();
+
+  const tenancies = useMemo(() => {
+    return arthurData?.tenancies ?? arthurTenancies;
+  }, [arthurData]);
+
   const [editingTenancyId, setEditingTenancyId] = useState<string | null>(null);
   const [editCommentary, setEditCommentary] = useState("");
   const [editRentStatus, setEditRentStatus] = useState("");
 
-  // Start Sync Simulation
-  const handleStartSync = () => {
-    setIsSyncing(true);
-    setSyncStep(1);
-    setSyncLog(["Initializing secure connection to Arthur Online API..."]);
-
-    setTimeout(() => {
-      setSyncStep(2);
-      setSyncLog((prev) => [
-        ...prev,
-        "Authorized credentials for 'All The Yards' organization.",
-        "Fetching latest unit ledgers for Ashford, Jevington, and Longstone Yard estates...",
-      ]);
-    }, 1200);
-
-    setTimeout(() => {
-      setSyncStep(3);
-      setSyncLog((prev) => [
-        ...prev,
-        "Retrieving lease agreements and tenant details...",
-        "Mapped 34 property units.",
-        "Synced active tenancy timelines and rent status reports.",
-        "Detected 3 alerts (1 tenant swap, 2 rental arrears warnings).",
-      ]);
-    }, 2500);
-
-    setTimeout(() => {
-      setSyncStep(4);
-      setSyncLog((prev) => [
-        ...prev,
-        "Writing synced entities to local database...",
-        "Sync completed successfully!",
-      ]);
+  // Sync Mutation
+  const syncArthur = api.arthur.syncArthur.useMutation({
+    onMutate: () => {
+      setIsSyncing(true);
+      setSyncStep(1);
+      setSyncLog(["Initializing sync with Arthur Online API..."]);
+    },
+    onSuccess: (data) => {
+      if (data.success) {
+        setSyncStep(4);
+        setSyncLog(data.logs);
+      } else {
+        setSyncStep(1);
+        setSyncLog(data.logs);
+      }
       setIsSyncing(false);
       const now = new Date();
       setLastSyncTime(
@@ -82,7 +71,18 @@ export default function AdminDashboard() {
           second: "2-digit",
         }),
       );
-    }, 4000);
+      void utils.arthur.getTenancies.invalidate();
+    },
+    onError: (err) => {
+      setSyncStep(1);
+      setSyncLog((prev) => [...prev, `Sync failed: ${err.message}`]);
+      setIsSyncing(false);
+    },
+  });
+
+  const handleStartSync = () => {
+    setShowSyncModal(true);
+    syncArthur.mutate();
   };
 
   // Calculations
@@ -101,7 +101,8 @@ export default function AdminDashboard() {
     const arrearsTenancies = active.filter(
       (t) =>
         t.rentStatus.toLowerCase().includes("owed") ||
-        t.rentStatus.toLowerCase().includes("missing"),
+        t.rentStatus.toLowerCase().includes("missing") ||
+        t.rentStatus.toLowerCase().includes("arrears"),
     );
 
     // Total distinct units
@@ -206,19 +207,18 @@ export default function AdminDashboard() {
     setEditRentStatus(t.rentStatus);
   };
 
+  const updateNotes = api.arthur.updateTenancyNotes.useMutation({
+    onSuccess: () => {
+      void utils.arthur.getTenancies.invalidate();
+    },
+  });
+
   const handleSaveEdit = (id: string) => {
-    setTenancies((prev) =>
-      prev.map((t) => {
-        if (t.id === id) {
-          return {
-            ...t,
-            commentary: editCommentary,
-            rentStatus: editRentStatus,
-          };
-        }
-        return t;
-      }),
-    );
+    updateNotes.mutate({
+      id,
+      commentary: editCommentary,
+      rentStatus: editRentStatus,
+    });
     setEditingTenancyId(null);
   };
 

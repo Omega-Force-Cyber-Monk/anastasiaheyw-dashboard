@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { arthurTenancies } from "~/app/_components/admin/arthurData";
+import { api } from "~/trpc/react";
 
 export default function PropertiesPage() {
   const [filter, setFilter] = useState("All");
@@ -13,12 +14,18 @@ export default function PropertiesPage() {
     setVisibleCount(6);
   }, [filter, search]);
 
+  const { data: arthurData } = api.arthur.getTenancies.useQuery();
+
+  const tenancies = useMemo(() => {
+    return arthurData?.tenancies ?? arthurTenancies;
+  }, [arthurData]);
+
   // Extract unique active units and map properties
   const properties = useMemo(() => {
-    const uniqueUnits = Array.from(new Set(arthurTenancies.map(t => t.unit))).sort();
+    const uniqueUnits = Array.from(new Set(tenancies.map(t => t.unit))).sort();
     
     return uniqueUnits.map((unitId, index) => {
-      const history = arthurTenancies.filter(t => t.unit === unitId);
+      const history = tenancies.filter(t => t.unit === unitId);
       const active = history.find(t => t.status === "Occupied");
       const refRecord = active ?? history[0];
       
