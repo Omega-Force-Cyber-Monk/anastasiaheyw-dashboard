@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { arthurTenancies } from "~/app/_components/admin/arthurData";
 import { api } from "~/trpc/react";
 
 export default function PropertiesPage() {
@@ -14,55 +13,115 @@ export default function PropertiesPage() {
     setVisibleCount(6);
   }, [filter, search]);
 
-  const { data: arthurData } = api.arthur.getTenancies.useQuery();
-
-  const tenancies = useMemo(() => {
-    return arthurData?.tenancies ?? arthurTenancies;
-  }, [arthurData]);
+  const { data: propertiesAndUnits, isLoading } = api.arthur.getPropertiesAndUnits.useQuery();
 
   // Extract unique active units and map properties
   const properties = useMemo(() => {
-    const uniqueUnits = Array.from(new Set(tenancies.map(t => t.unit))).sort();
-    
-    return uniqueUnits.map((unitId, index) => {
-      const history = tenancies.filter(t => t.unit === unitId);
-      const active = history.find(t => t.status === "Occupied");
-      const refRecord = active ?? history[0];
-      
-      const address = refRecord?.address ?? "Ashford Yard, Eastbourne BN21 3UA";
-      let yardName = "Ashford Yard";
-      if (address.toLowerCase().includes("jevington")) {
-        yardName = "Jevington Yard";
-      } else if (address.toLowerCase().includes("longstone")) {
-        yardName = "Longstone Yard";
-      }
-      
-      // Specs
-      const beds = (index % 3 === 0) ? "1 Bed" : (index % 3 === 1) ? "2 Bed" : "3 Bed";
-      const baths = (index % 2 === 0) ? "1 Bath" : "2 Bath";
-      const type = (index % 4 === 0) ? "Mews House" : (index % 4 === 1) ? "Apartment" : "Townhouse";
-      const image = (index % 3 === 0) ? "🏡" : (index % 3 === 1) ? "🏢" : "🏠";
-      const landlord = (index % 3 === 0) ? "Landlord A (Apex)" : (index % 3 === 1) ? "Landlord B (Golden)" : "Landlord C (River)";
+    if (!propertiesAndUnits) return [];
 
-      return {
-        id: index + 1,
-        unit: unitId,
-        name: `${unitId} ${yardName}`,
-        location: address,
-        rent: active?.rent ?? refRecord?.rent ?? "£0.00",
-        deposit: active?.deposit ?? refRecord?.deposit ?? "£0.00",
-        beds,
-        baths,
-        type,
-        status: active ? "Occupied" : "Vacant",
-        tenant: active ? active.tenants.join(" & ") : "None",
-        lettingType: active?.lettingType ?? refRecord?.lettingType ?? "N/A",
-        landlord,
-        image,
-        code: active?.code ?? refRecord?.code ?? ""
-      };
-    });
-  }, []);
+    const list: any[] = [];
+    let index = 0;
+    
+    for (const prop of propertiesAndUnits) {
+      for (const unit of prop.units) {
+        const history = unit.tenancies;
+        const active = history.find(t => t.status === "Occupied");
+        const refRecord = active ?? history[0];
+        
+        const address = prop.address ?? "Ashford Yard, Eastbourne";
+        const propertyName = prop.name;
+
+        // Dynamic specs based on property name
+        let beds = "1 Bed";
+        let baths = "1 Bath";
+        let type = "Apartment";
+        let image = "🏢";
+        let landlord = "Landlord A (Apex)";
+
+        const lowerPropName = propertyName.toLowerCase();
+        if (lowerPropName.includes("ashford")) {
+          beds = (index % 2 === 0) ? "1 Bed" : "2 Bed";
+          baths = "1 Bath";
+          type = "Apartment";
+          image = "🏢";
+          landlord = "Landlord A (Apex)";
+        } else if (lowerPropName.includes("jevington")) {
+          beds = (index % 2 === 0) ? "2 Bed" : "3 Bed";
+          baths = "2 Bath";
+          type = "Townhouse";
+          image = "🏠";
+          landlord = "Landlord B (Golden)";
+        } else if (lowerPropName.includes("longstone")) {
+          beds = (index % 2 === 0) ? "2 Bed" : "3 Bed";
+          baths = "1.5 Bath";
+          type = "Mews House";
+          image = "🏡";
+          landlord = "Landlord C (River)";
+        } else if (lowerPropName.includes("watts")) {
+          beds = "Commercial Space";
+          baths = "1 Bath";
+          type = "Commercial";
+          image = "🏬";
+          landlord = "Landlord C (River)";
+        } else if (lowerPropName.includes("gavin") || lowerPropName.includes("marquez")) {
+          beds = "1 Bed";
+          baths = "1 Bath";
+          type = "Studio";
+          image = "🔑";
+          landlord = "Landlord A (Apex)";
+        } else if (lowerPropName.includes("janna") || lowerPropName.includes("meyer")) {
+          beds = "1 Bed";
+          baths = "1 Bath";
+          type = "Studio";
+          image = "🔑";
+          landlord = "Landlord B (Golden)";
+        }
+
+        const rent = active ? active.rent : refRecord ? refRecord.rent : "£0.00";
+        const deposit = active ? active.deposit : refRecord ? refRecord.deposit : "£0.00";
+        
+        let tenant = "None";
+        if (active && Array.isArray(active.tenants)) {
+          tenant = active.tenants.join(" & ");
+        } else if (active && typeof active.tenants === "string") {
+          tenant = active.tenants;
+        } else if (refRecord && Array.isArray(refRecord.tenants)) {
+          tenant = refRecord.tenants.join(" & ");
+        }
+
+        const lettingType = active?.lettingType ?? refRecord?.lettingType ?? "N/A";
+        const code = active?.code ?? refRecord?.code ?? "";
+
+        list.push({
+          id: index + 1,
+          unit: unit.name,
+          name: `${unit.name} - ${propertyName}`,
+          propertyName,
+          location: address,
+          rent,
+          deposit,
+          beds,
+          baths,
+          type,
+          status: unit.status === "Occupied" ? "Occupied" : "Vacant",
+          tenant,
+          lettingType,
+          landlord,
+          image,
+          code
+        });
+        index++;
+      }
+    }
+
+    return list;
+  }, [propertiesAndUnits]);
+
+  // Dynamically extract unique property names for filters
+  const propertyFilters = useMemo(() => {
+    const names = Array.from(new Set(properties.map(p => p.propertyName))).filter(Boolean) as string[];
+    return [{ label: "All Yards", value: "All" }, ...names.map(name => ({ label: name, value: name }))];
+  }, [properties]);
 
   const filteredProperties = useMemo(() => {
     return properties.filter((p) => {
@@ -70,13 +129,11 @@ export default function PropertiesPage() {
         p.unit.toLowerCase().includes(search.toLowerCase()) ||
         p.tenant.toLowerCase().includes(search.toLowerCase()) ||
         p.location.toLowerCase().includes(search.toLowerCase()) ||
-        p.lettingType.toLowerCase().includes(search.toLowerCase());
+        p.lettingType.toLowerCase().includes(search.toLowerCase()) ||
+        p.propertyName.toLowerCase().includes(search.toLowerCase());
       
       const matchesFilter = 
-        filter === "All" || 
-        (filter === "Ashford" && p.unit.startsWith("A")) ||
-        (filter === "Jevington" && p.unit.startsWith("J")) ||
-        (filter === "Longstone" && p.unit.startsWith("L"));
+        filter === "All" || p.propertyName === filter;
 
       return matchesSearch && matchesFilter;
     });
@@ -85,6 +142,15 @@ export default function PropertiesPage() {
   const displayedProperties = useMemo(() => {
     return filteredProperties.slice(0, visibleCount);
   }, [filteredProperties, visibleCount]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
+        <div className="w-12 h-12 border-4 border-[#062c1a] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-slate-500 font-bold text-sm uppercase tracking-wider animate-pulse">Loading dynamic portfolio...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8 w-full mx-auto pb-12 animate-in fade-in duration-300">

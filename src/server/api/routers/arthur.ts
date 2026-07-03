@@ -1,7 +1,7 @@
 import { z } from "zod";
+import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { arthurFetch } from "~/server/arthur/client";
-import { arthurTenancies } from "~/app/_components/admin/arthurData";
 
 export interface ArthurPropertyApi {
   id: number | string;
@@ -70,6 +70,39 @@ export const arthurRouter = createTRPCRouter({
   }),
 
   /**
+   * Get all properties, units, and tenancies from the database.
+   */
+  getPropertiesAndUnits: publicProcedure.query(async ({ ctx }) => {
+    try {
+      return await ctx.db.arthurProperty.findMany({
+        include: {
+          units: {
+            include: {
+              tenancies: {
+                orderBy: {
+                  startDate: "desc"
+                }
+              }
+            },
+            orderBy: {
+              name: "asc"
+            }
+          }
+        },
+        orderBy: {
+          name: "asc"
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching properties and units:", error);
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Failed to fetch properties and units from database",
+      });
+    }
+  }),
+
+  /**
    * Get Arthur OAuth authorization URL.
    */
   getAuthUrl: publicProcedure.query(() => {
@@ -116,14 +149,6 @@ export const arthurRouter = createTRPCRouter({
         },
       });
 
-      if (dbTenancies.length === 0) {
-        // Return fallback mock data
-        return {
-          tenancies: arthurTenancies,
-          isMock: true,
-        };
-      }
-
       // Map DB schema to UI expected format (TenancyRecord)
       const mapped = dbTenancies.map((t) => {
         let address = t.address ?? t.unit.property.address;
@@ -151,6 +176,7 @@ export const arthurRouter = createTRPCRouter({
           commentary: t.commentary,
           address: address ?? "",
           code: t.code ?? "",
+          property: t.unit.property.name,
         };
       });
 
@@ -160,10 +186,10 @@ export const arthurRouter = createTRPCRouter({
       };
     } catch (error) {
       console.error("Error fetching tenancies:", error);
-      return {
-        tenancies: arthurTenancies,
-        isMock: true,
-      };
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Failed to fetch tenancies from database",
+      });
     }
   }),
 

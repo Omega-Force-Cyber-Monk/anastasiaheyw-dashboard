@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { arthurTenancies } from "~/app/_components/admin/arthurData";
+import { api } from "~/trpc/react";
 
 export default function TenantsPage() {
   const [search, setSearch] = useState("");
@@ -16,21 +16,35 @@ export default function TenantsPage() {
     setCurrentPage(1);
   }, [search, filterType]);
 
+  const { data: arthurData, isLoading } = api.arthur.getTenancies.useQuery();
+
   const tenants = useMemo(() => {
-    return arthurTenancies.map((t, idx) => {
+    const list = arthurData?.tenancies ?? [];
+    return list.map((t, idx) => {
       let yardName = "Ashford Yard";
       if (t.address.toLowerCase().includes("jevington")) {
         yardName = "Jevington Yard";
       } else if (t.address.toLowerCase().includes("longstone")) {
         yardName = "Longstone Yard";
+      } else if (t.address.toLowerCase().includes("watts")) {
+        yardName = "Watts Yard";
+      } else if (t.address.toLowerCase().includes("gavin")) {
+        yardName = "Gavin Marquez-AN";
+      } else if (t.address.toLowerCase().includes("janna")) {
+        yardName = "Janna Meyer_SN";
       }
+
+      const tenantsArray = Array.isArray(t.tenants) ? t.tenants : typeof t.tenants === "string" ? [t.tenants] : [];
+      const emailArray = Array.isArray(t.email) ? t.email : typeof t.email === "string" ? [t.email] : [];
+      const phoneArray = Array.isArray(t.phone) ? t.phone : typeof t.phone === "string" ? [t.phone] : [];
+
       return {
         id: idx + 1,
-        name: t.tenants.length > 0 ? t.tenants.join(" & ") : "Vacant/No Tenant Logged",
-        email: t.email.length > 0 ? t.email.join(", ") : "no-email@arthur.com",
-        phone: t.phone.length > 0 ? t.phone.join(", ") : "no-phone",
+        name: tenantsArray.length > 0 ? tenantsArray.join(" & ") : "Vacant/No Tenant Logged",
+        email: emailArray.length > 0 ? emailArray.join(", ") : "no-email@arthur.com",
+        phone: phoneArray.length > 0 ? phoneArray.join(", ") : "no-phone",
         unit: t.unit,
-        yard: yardName.split(" ")[0] ?? "Ashford", // Ashford, Jevington, Longstone
+        yard: yardName.split(" ")[0] ?? "Ashford", // Ashford, Jevington, Longstone, etc.
         rent: t.rent,
         deposit: t.deposit,
         status: t.status,
@@ -41,7 +55,16 @@ export default function TenantsPage() {
         rentStatus: t.rentStatus
       };
     });
-  }, []);
+  }, [arthurData]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
+        <div className="w-12 h-12 border-4 border-[#062c1a] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-slate-500 font-bold text-sm uppercase tracking-wider animate-pulse">Loading dynamic tenants...</p>
+      </div>
+    );
+  }
 
   const filteredTenants = useMemo(() => {
     return tenants.filter((t) => {

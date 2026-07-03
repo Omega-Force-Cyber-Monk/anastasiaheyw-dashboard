@@ -18,6 +18,7 @@ export interface TenancyRecord {
   commentary: string;
   address: string;
   code: string;
+  property?: string;
 }
 
 export const arthurTenancies: TenancyRecord[] = [

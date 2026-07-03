@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { arthurTenancies } from "~/app/_components/admin/arthurData";
 import type { TenancyRecord } from "~/app/_components/admin/arthurData";
 import { api } from "~/trpc/react";
 
@@ -34,10 +33,10 @@ export default function AdminDashboard() {
 
   // Fetch real/cached Arthur data
   const utils = api.useUtils();
-  const { data: arthurData } = api.arthur.getTenancies.useQuery();
+  const { data: arthurData, isLoading } = api.arthur.getTenancies.useQuery();
 
   const tenancies = useMemo(() => {
-    return arthurData?.tenancies ?? arthurTenancies;
+    return arthurData?.tenancies ?? [];
   }, [arthurData]);
 
   const [editingTenancyId, setEditingTenancyId] = useState<string | null>(null);
@@ -140,16 +139,50 @@ export default function AdminDashboard() {
     return groups;
   }, [tenancies]);
 
+  // Dynamically extract unique property names and counts for unit groups
+  const gridTabs = useMemo(() => {
+    const propertiesMap = new Map<string, number>();
+    
+    Object.entries(unitGroups).forEach(([unitId, group]) => {
+      const propName = group[0]?.property;
+      if (propName) {
+        propertiesMap.set(propName, (propertiesMap.get(propName) ?? 0) + 1);
+      }
+    });
+
+    const list = Array.from(propertiesMap.entries()).map(([name, count]) => {
+      let shortName = name.split(" ")[0] ?? name;
+      if (shortName.toLowerCase().includes("gavin") || shortName.toLowerCase().includes("janna") || shortName.toLowerCase().includes("watts")) {
+        shortName = name;
+      }
+      return {
+        label: name,
+        value: name,
+        shortValue: shortName,
+        count,
+      };
+    });
+
+    return [
+      {
+        label: "All Yards",
+        value: "All",
+        shortValue: "All",
+        count: Object.keys(unitGroups).length,
+      },
+      ...list,
+    ];
+  }, [unitGroups]);
+
   // Filtered unit keys based on Grid Tab selection
   const filteredUnitKeys = useMemo(() => {
     const keys = Object.keys(unitGroups).sort();
     if (gridYardTab === "All") return keys;
-    if (gridYardTab === "Ashford") return keys.filter((k) => k.startsWith("A"));
-    if (gridYardTab === "Jevington")
-      return keys.filter((k) => k.startsWith("J"));
-    if (gridYardTab === "Longstone")
-      return keys.filter((k) => k.startsWith("L"));
-    return keys;
+    
+    return keys.filter((k) => {
+      const group = unitGroups[k];
+      return group?.some((t) => t.property === gridYardTab);
+    });
   }, [unitGroups, gridYardTab]);
 
   // Filtered tenancies for the table listing
@@ -222,6 +255,15 @@ export default function AdminDashboard() {
     setEditingTenancyId(null);
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
+        <div className="w-12 h-12 border-4 border-[#062c1a] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-slate-500 font-bold text-sm uppercase tracking-wider animate-pulse">Loading dynamic dashboard...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="animate-in fade-in mx-auto w-full space-y-6 pb-12 duration-300">
       {/* Header and Sync Panel */}
@@ -272,7 +314,7 @@ export default function AdminDashboard() {
             </svg>
             Sync Portfolio Data
           </button>
-          <button
+          {/* <button
             id="export-sheet-btn"
             onClick={() => {
               alert("Exported updated tenant records to Excel format.");
@@ -280,7 +322,7 @@ export default function AdminDashboard() {
             className="cursor-pointer rounded-xl border border-[#0d4d2d] bg-[#0a3d25] px-4 py-3 text-sm font-bold tracking-wider text-emerald-100 uppercase transition-all hover:bg-[#0c4a2c]"
           >
             Export Sheet (.xlsx)
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -430,31 +472,7 @@ export default function AdminDashboard() {
           </div>
 
           <div className="flex flex-wrap gap-1.5 rounded-xl bg-slate-100/80 p-1">
-            {[
-              {
-                label: "All Yards",
-                value: "All",
-                count: Object.keys(unitGroups).length,
-              },
-              {
-                label: "Ashford Yard",
-                value: "Ashford",
-                count: Object.keys(unitGroups).filter((k) => k.startsWith("A"))
-                  .length,
-              },
-              {
-                label: "Jevington Yard",
-                value: "Jevington",
-                count: Object.keys(unitGroups).filter((k) => k.startsWith("J"))
-                  .length,
-              },
-              {
-                label: "Longstone Yard",
-                value: "Longstone",
-                count: Object.keys(unitGroups).filter((k) => k.startsWith("L"))
-                  .length,
-              },
-            ].map((tab) => (
+            {gridTabs.map((tab) => (
               <button
                 key={tab.value}
                 onClick={() => setGridYardTab(tab.value)}
@@ -464,7 +482,7 @@ export default function AdminDashboard() {
                     : "text-slate-500 hover:text-slate-800"
                 }`}
               >
-                {tab.label}{" "}
+                {tab.shortValue}{" "}
                 <span className="ml-0.5 text-xs opacity-60">({tab.count})</span>
               </button>
             ))}
