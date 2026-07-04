@@ -8,8 +8,19 @@ import { db } from "~/server/db";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-  const session = await auth();
+  let hello = null;
+  try {
+    hello = await api.post.hello({ text: "from tRPC" });
+  } catch (error) {
+    console.error("tRPC hello query failed:", error);
+  }
+
+  let session = null;
+  try {
+    session = await auth();
+  } catch (error) {
+    console.error("Auth session check failed:", error);
+  }
 
   if (session?.user) {
     const email = session.user.email ?? "";
