@@ -57,15 +57,6 @@ export default function TenantsPage() {
     });
   }, [arthurData]);
 
-  if (isLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
-        <div className="w-12 h-12 border-4 border-[#062c1a] border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-slate-500 font-bold text-sm uppercase tracking-wider animate-pulse">Loading dynamic tenants...</p>
-      </div>
-    );
-  }
-
   const filteredTenants = useMemo(() => {
     return tenants.filter((t) => {
       const matchesSearch = 
@@ -91,6 +82,15 @@ export default function TenantsPage() {
   }, [filteredTenants, currentPage, itemsPerPage]);
 
   const totalPages = Math.ceil(filteredTenants.length / itemsPerPage);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
+        <div className="w-12 h-12 border-4 border-[#062c1a] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-slate-500 font-bold text-sm uppercase tracking-wider animate-pulse">Loading dynamic tenants...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8 w-full w-full mx-auto pb-12 animate-in fade-in duration-300">

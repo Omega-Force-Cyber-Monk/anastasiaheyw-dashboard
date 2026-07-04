@@ -143,7 +143,7 @@ export default function AdminDashboard() {
   const gridTabs = useMemo(() => {
     const propertiesMap = new Map<string, number>();
     
-    Object.entries(unitGroups).forEach(([unitId, group]) => {
+    Object.entries(unitGroups).forEach(([_unitId, group]) => {
       const propName = group[0]?.property;
       if (propName) {
         propertiesMap.set(propName, (propertiesMap.get(propName) ?? 0) + 1);
@@ -1132,7 +1132,7 @@ export default function AdminDashboard() {
       {/* Sync Status Animation Modal */}
       {showSyncModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-xs">
-          <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xl">
+          <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-[#062c1a] bg-white shadow-xl">
             {/* Header */}
             <div className="flex items-center justify-between bg-[#062c1a] p-5 text-white">
               <h3 className="flex items-center gap-2 font-serif text-base font-bold">

@@ -1,21 +1,73 @@
 import Image from "next/image";
 import { LatestPost } from "~/app/_components/post";
-import { LoginForm } from "~/app/_components/login-form";
+import { AuthContainer } from "~/app/_components/auth-container";
 import { auth, signIn, signOut } from "~/server/auth";
 import { api, HydrateClient } from "~/trpc/server";
+import { db } from "~/server/db";
+
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
   const session = await auth();
 
   if (session?.user) {
-    void api.post.getLatest.prefetch();
+    const email = session.user.email ?? "";
+    if (email.toLowerCase().includes("admin")) {
+      redirect("/admin/dashboard");
+    } else {
+      redirect("/tanent/dashboard");
+    }
   }
 
   // Server Actions for Authentication
   const handleDiscordSignIn = async () => {
     "use server";
     await signIn("discord");
+  };
+
+  const handleCredentialsSignIn = async (formData: FormData) => {
+    "use server";
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirectTo: email.toLowerCase().includes("admin") ? "/admin/dashboard" : "/tanent/dashboard",
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message.includes("NEXT_REDIRECT")) {
+        throw error;
+      }
+      throw new Error("Invalid email or password");
+    }
+  };
+
+  const handleSignupSubmit = async (formData: FormData) => {
+    "use server";
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const role = formData.get("role") as string;
+
+    const existingUser = await db.user.findUnique({
+      where: { email },
+    });
+
+    if (existingUser) {
+      throw new Error("Email already registered");
+    }
+
+    await db.user.create({
+      data: {
+        name,
+        email,
+        password,
+        role,
+      },
+    });
   };
 
   const handleSignOut = async () => {
@@ -51,7 +103,11 @@ export default async function Home() {
 
           {/* Right Column: Form Component */}
           <div className="w-full md:w-1/2 flex justify-center items-center">
-            <LoginForm onDiscordSignIn={handleDiscordSignIn} />
+            <AuthContainer 
+              onDiscordSignIn={handleDiscordSignIn} 
+              onCredentialsSignIn={handleCredentialsSignIn}
+              onSignupSubmit={handleSignupSubmit}
+            />
           </div>
         </div>
       </div>

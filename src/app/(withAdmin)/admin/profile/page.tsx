@@ -70,38 +70,53 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="space-y-8 w-full mx-auto pb-12 animate-in fade-in duration-300">
+    <div className="animate-in fade-in mx-auto w-full space-y-8 pb-12 duration-300">
       {/* Page Title */}
       <div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight font-serif">Account Profile</h1>
-        <p className="text-slate-500 text-sm sm:text-base mt-1">Manage your administrator account credentials, credentials security, and system preferences.</p>
+        <h1 className="font-serif text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">
+          Account Profile
+        </h1>
+        <p className="mt-1 text-sm text-slate-500 sm:text-base">
+          Manage your administrator account credentials, credentials security,
+          and system preferences.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         {/* Left Column - Card Overview */}
-        <div className="md:col-span-1 space-y-6">
-          <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-xs text-center flex flex-col items-center">
+        <div className="space-y-6 md:col-span-1">
+          <div className="flex flex-col items-center rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-xs">
             {/* Avatar Badge */}
-            <div className="w-24 h-24 rounded-full bg-[#062c1a] text-white flex items-center justify-center text-3xl font-bold border-2 border-[#c8a270] shadow-md mb-4 select-none">
+            <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#c8a270] bg-[#062c1a] text-3xl font-bold text-white shadow-md select-none">
               {avatarInitials}
             </div>
-            
-            <h2 className="text-xl font-bold text-slate-800">{name}</h2>
-            <p className="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1">{role}</p>
 
-            <div className="w-full border-t border-slate-100 my-6 pt-4 space-y-3 text-left text-sm text-slate-600">
+            <h2 className="text-xl font-bold text-slate-800">{name}</h2>
+            <p className="mt-1 text-xs font-bold tracking-wider text-slate-400 uppercase">
+              {role}
+            </p>
+
+            <div className="my-6 w-full space-y-3 border-t border-slate-100 pt-4 text-left text-sm text-slate-600">
               <div>
-                <span className="block text-xs text-slate-400 uppercase font-bold tracking-wider">Email Address</span>
+                <span className="block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Email Address
+                </span>
                 <span className="font-semibold text-slate-800">{email}</span>
               </div>
               <div>
-                <span className="block text-xs text-slate-400 uppercase font-bold tracking-wider">Access Scope</span>
-                <span className="font-semibold text-slate-800">All The Yards (A, J, L)</span>
+                <span className="block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Access Scope
+                </span>
+                <span className="font-semibold text-slate-800">
+                  All The Yards (A, J, L)
+                </span>
               </div>
               <div>
-                <span className="block text-xs text-slate-400 uppercase font-bold tracking-wider">Account Status</span>
-                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-100 mt-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span className="block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Account Status
+                </span>
+                <span className="mt-1 inline-flex items-center gap-1.5 rounded-full border border-emerald-100 bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-800">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
                   Verified Admin
                 </span>
               </div>
@@ -109,12 +124,16 @@ export default function ProfilePage() {
           </div>
 
           {/* Quick Stats/Metadata info */}
-          <div className="bg-gradient-to-br from-[#062c1a] to-[#041e12] rounded-2xl p-6 shadow-xs border border-[#0d4d2d] text-white">
-            <h3 className="text-base font-bold font-serif text-[#c8a270] uppercase tracking-wider mb-3">Portfolio Mapping</h3>
-            <p className="text-xs text-emerald-100/70 leading-relaxed">
-              Your profile is currently linked with the Arthur Online API integration mapping. All edits dynamically sync to property ledgers for:
+          <div className="rounded-2xl border border-[#0d4d2d] bg-gradient-to-br from-[#062c1a] to-[#041e12] p-6 text-white shadow-xs">
+            <h3 className="mb-3 font-serif text-base font-bold tracking-wider text-[#c8a270] uppercase">
+              Portfolio Mapping
+            </h3>
+            <p className="text-xs leading-relaxed text-emerald-100/70">
+              Your profile is currently linked with the Arthur Online API
+              integration mapping. All edits dynamically sync to property
+              ledgers for:
             </p>
-            <ul className="mt-4 space-y-2 text-xs font-semibold text-emerald-50/90 list-disc list-inside">
+            <ul className="mt-4 list-inside list-disc space-y-2 text-xs font-semibold text-emerald-50/90">
               <li>Ashford Yard (A01 - A20)</li>
               <li>Jevington Yard (J01 - J08)</li>
               <li>Longstone Yard (L01 - L06)</li>
@@ -123,69 +142,90 @@ export default function ProfilePage() {
         </div>
 
         {/* Right Column - Detailed Form Settings */}
-        <div className="md:col-span-2 space-y-6">
-          <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-xs">
-            <h3 className="text-xl font-bold text-slate-800 border-b border-slate-100 pb-4 mb-6">Profile Settings</h3>
-            
+        <div className="space-y-6 md:col-span-2">
+          <div className="rounded-2xl border border-slate-100 bg-white p-8 shadow-xs">
+            <h3 className="mb-6 border-b border-slate-100 pb-4 text-xl font-bold text-slate-800">
+              Profile Settings
+            </h3>
+
             {success && (
-              <div className="mb-6 p-4 bg-emerald-50 border border-emerald-100 text-emerald-800 rounded-xl text-sm font-semibold flex items-center gap-2 animate-in fade-in duration-300">
-                <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <div className="animate-in fade-in mb-6 flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50 p-4 text-sm font-semibold text-emerald-800 duration-300">
+                <svg
+                  className="h-5 w-5 text-emerald-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
-                Changes successfully saved and synced to the secure server database!
+                Changes successfully saved and synced to the secure server
+                database!
               </div>
             )}
 
             <form onSubmit={handleSave} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs text-slate-400 uppercase font-bold tracking-wider mb-2">Display Name</label>
+                  <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                    Display Name
+                  </label>
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#062c1a] bg-white transition-all shadow-xs"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs text-slate-400 uppercase font-bold tracking-wider mb-2">Role Title</label>
+                  <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                    Role Title
+                  </label>
                   <input
                     type="text"
                     required
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#062c1a] bg-white transition-all shadow-xs"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs text-slate-400 uppercase font-bold tracking-wider mb-2">Email Address</label>
+                  <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#062c1a] bg-white transition-all shadow-xs"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs text-slate-400 uppercase font-bold tracking-wider mb-2">Phone Number</label>
+                  <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                    Phone Number
+                  </label>
                   <input
                     type="text"
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#062c1a] bg-white transition-all shadow-xs"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
                   />
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex justify-end gap-3">
+              <div className="flex justify-end gap-3 border-t border-slate-100 pt-4">
                 <button
                   type="button"
                   onClick={() => {
@@ -196,33 +236,43 @@ export default function ProfilePage() {
                     setAvatarInitials("SA");
                     setSuccess(false);
                   }}
-                  className="px-5 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                  className="cursor-pointer rounded-xl border border-slate-200 px-5 py-2.5 text-xs font-bold tracking-wider text-slate-700 uppercase transition-all hover:bg-slate-50"
                 >
                   Reset Defaults
                 </button>
                 <button
                   type="submit"
                   disabled={updateProfile.isPending}
-                  className="px-5 py-2.5 bg-[#062c1a] hover:bg-[#0c472c] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md cursor-pointer disabled:opacity-50"
+                  className="cursor-pointer rounded-xl bg-[#062c1a] px-5 py-2.5 text-xs font-bold tracking-wider text-white uppercase shadow-md transition-all hover:bg-[#0c472c] disabled:opacity-50"
                 >
-                  {updateProfile.isPending ? "Saving Changes..." : "Save Profile Details"}
+                  {updateProfile.isPending
+                    ? "Saving Changes..."
+                    : "Save Profile Details"}
                 </button>
               </div>
             </form>
           </div>
 
           {/* Security & System Info Details block */}
-          <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-xs">
-            <h3 className="text-xl font-bold text-slate-800 border-b border-slate-100 pb-4 mb-4">Credentials & Security</h3>
-            <p className="text-xs text-slate-400 leading-relaxed mb-6">
-              Passwords are authentication-managed by NextAuth using OAuth. To update authentication provider configurations, contact system operations.
+          <div className="rounded-2xl border border-slate-100 bg-white p-8 shadow-xs">
+            <h3 className="mb-4 border-b border-slate-100 pb-4 text-xl font-bold text-slate-800">
+              Credentials & Security
+            </h3>
+            <p className="mb-6 text-xs leading-relaxed text-slate-400">
+              Passwords are authentication-managed by NextAuth using OAuth. To
+              update authentication provider configurations, contact system
+              operations.
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-y border-slate-50">
+            <div className="flex flex-col justify-between gap-4 border-y border-slate-50 py-4 sm:flex-row sm:items-center">
               <div>
-                <span className="block text-sm font-bold text-slate-800">Two-Factor Authentication</span>
-                <span className="block text-xs text-slate-400 mt-0.5">Enforced globally for all administration access.</span>
+                <span className="block text-sm font-bold text-slate-800">
+                  Two-Factor Authentication
+                </span>
+                <span className="mt-0.5 block text-xs text-slate-400">
+                  Enforced globally for all administration access.
+                </span>
               </div>
-              <span className="px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-100 rounded-full text-xs font-bold uppercase tracking-wider">
+              <span className="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold tracking-wider text-emerald-800 uppercase">
                 Active & Enforced
               </span>
             </div>

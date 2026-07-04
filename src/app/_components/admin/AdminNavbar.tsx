@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 interface AdminNavbarProps {
   onToggleSidebar: () => void;
@@ -9,7 +9,6 @@ interface AdminNavbarProps {
 
 export function AdminNavbar({ onToggleSidebar }: AdminNavbarProps) {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const nav = useRouter();
 
   const [name, setName] = useState("System Admin");
   const [email, setEmail] = useState("admin@alltheyards.com");
@@ -78,8 +77,8 @@ export function AdminNavbar({ onToggleSidebar }: AdminNavbarProps) {
 
               <hr className="my-1 border-slate-100" />
               <button
-                onClick={() => {
-                  nav.push("/");
+                onClick={async () => {
+                  await signOut({ redirectTo: "/" });
                 }}
                 className="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-red-50 cursor-pointer"
               >

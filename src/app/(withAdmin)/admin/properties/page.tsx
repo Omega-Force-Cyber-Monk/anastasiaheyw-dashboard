@@ -3,23 +3,68 @@
 import React, { useState, useMemo } from "react";
 import { api } from "~/trpc/react";
 
+interface PropertyItem {
+  id: number;
+  unit: string;
+  name: string;
+  propertyName: string;
+  location: string;
+  rent: string;
+  deposit: string;
+  beds: string;
+  baths: string;
+  type: string;
+  status: "Occupied" | "Vacant";
+  tenant: string;
+  lettingType: string;
+  landlord: string;
+  image: string;
+  code: string;
+}
+
 export default function PropertiesPage() {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(6);
+  const [isSyncing, setIsSyncing] = useState(false);
 
   // Reset pagination when filter/search changes
   React.useEffect(() => {
     setVisibleCount(6);
   }, [filter, search]);
 
+  const utils = api.useUtils();
   const { data: propertiesAndUnits, isLoading } = api.arthur.getPropertiesAndUnits.useQuery();
 
+  // Sync Mutation
+  const syncArthur = api.arthur.syncArthur.useMutation({
+    onMutate: () => {
+      setIsSyncing(true);
+    },
+    onSuccess: (data) => {
+      setIsSyncing(false);
+      if (data.success) {
+        alert("Properties & Units successfully synchronized with Arthur Online!");
+        void utils.arthur.getPropertiesAndUnits.invalidate();
+      } else {
+        alert("Sync finished with errors. Please check Dashboard logs.");
+      }
+    },
+    onError: (err) => {
+      setIsSyncing(false);
+      alert(`Sync failed: ${err.message}`);
+    },
+  });
+
+  const handleSync = () => {
+    syncArthur.mutate();
+  };
+
   // Extract unique active units and map properties
-  const properties = useMemo(() => {
+  const properties = useMemo<PropertyItem[]>(() => {
     if (!propertiesAndUnits) return [];
 
-    const list: any[] = [];
+    const list: PropertyItem[] = [];
     let index = 0;
     
     for (const prop of propertiesAndUnits) {
@@ -119,8 +164,17 @@ export default function PropertiesPage() {
 
   // Dynamically extract unique property names for filters
   const propertyFilters = useMemo(() => {
-    const names = Array.from(new Set(properties.map(p => p.propertyName))).filter(Boolean) as string[];
-    return [{ label: "All Yards", value: "All" }, ...names.map(name => ({ label: name, value: name }))];
+    const names = Array.from(new Set(properties.map(p => p.propertyName))).filter(Boolean);
+    return [
+      { label: "All Yards", value: "All" },
+      ...names.map(name => {
+        let label = name;
+        if (!label.toLowerCase().includes("yard") && !label.toLowerCase().includes("space")) {
+          label = `${label} Yard`;
+        }
+        return { label, value: name };
+      })
+    ];
   }, [properties]);
 
   const filteredProperties = useMemo(() => {
@@ -155,21 +209,38 @@ export default function PropertiesPage() {
   return (
     <div className="space-y-8 w-full mx-auto pb-12 animate-in fade-in duration-300">
       {/* Header Section */}
-      <div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight font-serif">Properties & Units</h1>
-        <p className="text-slate-500 text-sm sm:text-base mt-1">Manage and monitor portfolio units synced from Arthur Online.</p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight font-serif">Properties & Units</h1>
+          <p className="text-slate-500 text-sm sm:text-base mt-1">Manage and monitor portfolio units synced from Arthur Online.</p>
+        </div>
+        <button
+          onClick={handleSync}
+          disabled={isSyncing}
+          className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[#c8a270]/20 bg-gradient-to-r from-[#c8a270] to-[#bfa075] px-5 py-3 text-sm font-extrabold tracking-wider text-[#062c1a] uppercase shadow-md transition-all hover:from-[#d9b380] hover:to-[#c8a270] active:scale-95 disabled:opacity-50"
+        >
+          <svg
+            className={`h-4 w-4 ${isSyncing ? "animate-spin" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89H18.235"
+            />
+          </svg>
+          {isSyncing ? "Syncing..." : "Sync Portfolio Data"}
+        </button>
       </div>
 
       {/* Filter Tabs & Search Bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         {/* Sleek, professional tabs */}
         <div className="flex flex-wrap gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200/50">
-          {[
-            { label: "All Yards", value: "All" },
-            { label: "Ashford Yard", value: "Ashford" },
-            { label: "Jevington Yard", value: "Jevington" },
-            { label: "Longstone Yard", value: "Longstone" }
-          ].map((tab) => (
+          {propertyFilters.map((tab) => (
             <button
               key={tab.value}
               onClick={() => setFilter(tab.value)}
@@ -285,8 +356,9 @@ export default function PropertiesPage() {
                   View History
                 </button>
                 <button 
-                  onClick={() => alert(`Syncing Unit ${p.unit} directly with Arthur...`)}
-                  className="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                  onClick={handleSync}
+                  disabled={isSyncing}
+                  className="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer disabled:opacity-50"
                 >
                   Sync
                 </button>
