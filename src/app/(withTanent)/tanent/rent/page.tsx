@@ -115,11 +115,25 @@ export default function TenantRentPage() {
       </div>
 
       {/* Payment Instruction box */}
-      <div className="rounded-2xl border border-[#e2e8f0] bg-slate-50 p-6 shadow-2xs">
-        <h3 className="font-serif text-base font-bold text-slate-900 mb-2">Standing Order Reference & Details</h3>
+      <div className="rounded-2xl border border-[#e2e8f0] bg-slate-50 p-6 shadow-2xs space-y-4">
+        <h3 className="font-serif text-base font-bold text-slate-900">Standing Order Reference & Details</h3>
         <p className="text-sm text-slate-650 leading-relaxed max-w-4xl">
           Standing orders must be configured to process 2 days prior to the 29th to ensure clearance by the rent due date. To configure or modify payment setups, please contact <span className="font-semibold text-emerald-800">Anastasia@AlltheYards.com</span>. Always reference payments with <strong className="font-mono text-[#062c1a] bg-[#062c1a]/5 px-1 py-0.5 rounded-sm">ASHFORD-01</strong>.
         </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-[#e2e8f0] pt-4 text-sm">
+          <div>
+            <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Bank Name</span>
+            <span className="font-semibold text-slate-800">Habib Bank</span>
+          </div>
+          <div>
+            <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Account Details</span>
+            <span className="font-semibold text-slate-800">Hemnani Estates</span>
+          </div>
+          <div>
+            <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Sort Code & Account No</span>
+            <span className="font-semibold text-slate-850">60-95-11 | 70028947</span>
+          </div>
+        </div>
       </div>
     </div>
   );

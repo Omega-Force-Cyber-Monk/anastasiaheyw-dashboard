@@ -16,27 +16,27 @@ export default function TenantDocumentsPage() {
     {
       title: "Inventory Check-in Document",
       category: "Condition Report",
-      date: "29 April 2025",
+      date: "29 April 2026",
       status: "Approved",
-      description: "Check-in inventory detailing initial flat condition and electricity & water meter readings.",
+      description: "Check-in inventory detailing initial flat condition and electricity (11967 kWh) & water (94 m³) meter readings.",
       icon: "📋",
       accent: "border-l-4 border-l-[#c8a270]"
     },
     {
       title: "EIC Electrical Certificate",
       category: "Compliance Safety",
-      date: "28 June 2023",
+      date: "21 June 2023",
       status: "Certified",
-      description: "Electrical Installation Safety certificate check (completed on 21 June 2023).",
+      description: "Electrical Installation Safety certificate check. Serial: 27527814. Next inspection recommended by June 2028.",
       icon: "⚡",
       accent: "border-l-4 border-l-sky-600"
     },
     {
       title: "EPC Energy Performance Certificate",
       category: "Compliance Rating",
-      date: "9 August 2023",
+      date: "10 August 2023",
       status: "Rating: C",
-      description: "Flat energy efficiency check rating certificate. Valid till 9 August 2033.",
+      description: "Flat energy efficiency check rating certificate (Score 74, Certificate 9057-7907-4762-8798-8302). Valid till 9 August 2033.",
       icon: "🔥",
       accent: "border-l-4 border-l-amber-600"
     },
@@ -45,7 +45,7 @@ export default function TenantDocumentsPage() {
       category: "Landlord Coverage",
       date: "15 April 2025",
       status: "Active",
-      description: "Premium building coverage under residential landlord liability portfolio.",
+      description: "Ageas 'HomeGuard Let' building insurance, arranged via Sequence/Ageas.",
       icon: "🛡️",
       accent: "border-l-4 border-l-indigo-600"
     },

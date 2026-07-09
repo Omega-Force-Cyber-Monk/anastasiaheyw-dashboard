@@ -36,7 +36,7 @@ export default function TenantDashboardOverview() {
       lettingType: "PERIODIC",
       rentStatus: "paid up to date",
       commentary: "tv to be removed",
-      address: "1 ASHFORD YARD, 145A ASHFORD ROAD, EASTBOURNE BN21 3UA",
+      address: "Flat 1, Ashford Yard, 145a Ashford Road, Eastbourne, East Sussex, BN21 3UA",
       code: "A01-KEY"
     };
   }, [dbData]);
@@ -175,9 +175,9 @@ export default function TenantDashboardOverview() {
                 🏡
               </div>
               <div className="text-sm">
-                <p className="font-bold text-slate-850">1 ASHFORD YARD, 145A ASHFORD ROAD</p>
+                <p className="font-bold text-slate-850">FLAT 1, ASHFORD YARD, 145A ASHFORD ROAD</p>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  2-storey detached apartment building. Fully compliant energy efficiency guidelines, certified electrical routing installations, and comprehensive floorplans.
+                  Two-storey mews house / ground-floor maisonette. Fully compliant energy efficiency guidelines, certified electrical routing installations, and comprehensive floorplans.
                 </p>
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function TenantDashboardOverview() {
                 <p className="text-xs text-slate-500">Manager: <strong className="text-slate-700">Anastasia Heywood</strong></p>
                 <p className="text-xs text-slate-500">Emergency: <strong>07957 614594</strong></p>
                 <a
-                  href="mailto:anastasia@alltheyards.com"
+                  href="mailto:Anastasia@AlltheYards.com"
                   className="block text-xs font-bold text-[#062c1a] hover:underline mt-2"
                 >
                   Anastasia@AlltheYards.com
@@ -215,12 +215,12 @@ export default function TenantDashboardOverview() {
             {/* Landlord Entity card */}
             <div className="p-4 rounded-xl border border-[#e2e8f0] bg-slate-50/50 hover:bg-slate-50 transition-colors space-y-2">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                Landlord SPV
+                Landlord Entity
               </span>
               <div className="text-sm space-y-1">
                 <p className="font-bold text-slate-800">Hemnani Estates SPV1</p>
-                <p className="text-xs text-slate-500">Company: Hemnani Estates</p>
-                <p className="text-xs text-slate-500">Registered Office Account</p>
+                <p className="text-xs text-slate-500">Registered: Hemnani Estates Limited & IQRA Asset Management Limited</p>
+                <p className="text-xs text-slate-500">Office: The Old Court House, New Road Avenue, Chatham, Kent, ME4 6BE</p>
               </div>
             </div>
           </div>

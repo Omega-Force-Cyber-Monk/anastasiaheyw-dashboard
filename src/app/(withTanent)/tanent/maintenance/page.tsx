@@ -29,8 +29,8 @@ export default function TenantMaintenancePage() {
 
   // Meter Reading State
   const [meterReadings, setMeterReadings] = useState([
-    { type: "Electricity", value: "45,920 kWh", date: "30 April 2025 (Check-in)" },
-    { type: "Water", value: "1,234 m³", date: "30 April 2025 (Check-in)" },
+    { type: "Electricity", value: "11,967 kWh (serial 22E5195089)", date: "29 April 2026 (Check-in)" },
+    { type: "Water", value: "94 m³ (serial 23LU028300)", date: "29 April 2026 (Check-in)" },
   ]);
   const [elecRead, setElecRead] = useState("");
   const [waterRead, setWaterRead] = useState("");
