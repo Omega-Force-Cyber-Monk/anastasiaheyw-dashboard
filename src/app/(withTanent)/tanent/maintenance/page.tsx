@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useTenant } from "~/app/(withTanent)/tanent/TenantClientLayout";
 
 export default function TenantMaintenancePage() {
+  const { metadata } = useTenant();
+
   // Maintenance logs state
   const [maintenanceReports, setMaintenanceReports] = useState([
     {
@@ -28,10 +31,24 @@ export default function TenantMaintenancePage() {
   const [reportSuccess, setReportSuccess] = useState(false);
 
   // Meter Reading State
-  const [meterReadings, setMeterReadings] = useState([
-    { type: "Electricity", value: "11,967 kWh (serial 22E5195089)", date: "29 April 2026 (Check-in)" },
-    { type: "Water", value: "94 m³ (serial 23LU028300)", date: "29 April 2026 (Check-in)" },
-  ]);
+  const [meterReadings, setMeterReadings] = useState<Array<{ type: string; value: string; date: string }>>([]);
+
+  useEffect(() => {
+    if (metadata) {
+      setMeterReadings([
+        {
+          type: "Electricity",
+          value: `${metadata.elecMeterCheckInValue} kWh (serial ${metadata.elecMeterSerial})`,
+          date: `${metadata.elecMeterCheckInDate} (Check-in)`,
+        },
+        {
+          type: "Water",
+          value: `${metadata.waterMeterCheckInValue} m³ (serial ${metadata.waterMeterSerial})`,
+          date: `${metadata.waterMeterCheckInDate} (Check-in)`,
+        },
+      ]);
+    }
+  }, [metadata]);
   const [elecRead, setElecRead] = useState("");
   const [waterRead, setWaterRead] = useState("");
   const [meterSuccess, setMeterSuccess] = useState(false);

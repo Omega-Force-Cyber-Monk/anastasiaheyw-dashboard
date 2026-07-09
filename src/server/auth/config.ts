@@ -43,7 +43,7 @@ export const authConfig = {
           return null;
         }
 
-        const email = credentials.email as string;
+        const email = (credentials.email as string).trim().toLowerCase();
         const password = credentials.password as string;
 
         // 1. Check PostgreSQL User table first (enables dynamic database accounts)
@@ -60,16 +60,13 @@ export const authConfig = {
           };
         }
 
-        // 2. Check ArthurTenancy table for synced tenants (password is tenant123)
-        const tenancy = await db.arthurTenancy.findFirst({
-          where: {
-            email: {
-              has: email,
-            },
-          },
-        });
+        // 2. Check ArthurTenancy table for synced tenants (password is tenant123 or tanent123)
+        const tenancies = await db.arthurTenancy.findMany();
+        const tenancy = tenancies.find((t) =>
+          t.email.some((e) => e.trim().toLowerCase() === email)
+        );
 
-        if (tenancy && password === "tenant123") {
+        if (tenancy && (password === "tenant123" || password === "tanent123")) {
           return {
             id: tenancy.id,
             name: tenancy.tenants[0] ?? "Tenant",
@@ -89,7 +86,7 @@ export const authConfig = {
         }
 
         // 4. Fallback Tenant Demo User
-        if (email.startsWith("tenant") && password === "tenant123") {
+        if (email.startsWith("tenant") && (password === "tenant123" || password === "tanent123")) {
           return {
             id: "tenant-demo-singleton-id",
             name: "Demo Tenant",
@@ -110,6 +107,9 @@ export const authConfig = {
     jwt: ({ token, user }) => {
       if (user) {
         token.role = user.role;
+        token.email = user.email;
+        token.name = user.name;
+        token.sub = user.id;
       }
       return token;
     },
@@ -119,6 +119,8 @@ export const authConfig = {
         ...session.user,
         id: token.sub,
         role: token.role as string | undefined,
+        email: token.email ?? session.user.email,
+        name: token.name ?? session.user.name,
       },
     }),
   },

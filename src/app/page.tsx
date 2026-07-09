@@ -23,8 +23,7 @@ export default async function Home() {
   }
 
   if (session?.user) {
-    const email = session.user.email ?? "";
-    if (email.toLowerCase().includes("admin")) {
+    if (session.user.role === "admin") {
       redirect("/admin/dashboard");
     } else {
       redirect("/tanent/dashboard");

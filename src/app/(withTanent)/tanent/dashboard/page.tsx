@@ -1,45 +1,41 @@
 "use client";
 
-import React, { useMemo } from "react";
-import { api } from "~/trpc/react";
+import React from "react";
+import { useTenant } from "~/app/(withTanent)/tanent/TenantClientLayout";
 
 export default function TenantDashboardOverview() {
-  const { data: dbData } = api.arthur.getTenancies.useQuery();
+  const { tenantDetails, metadata } = useTenant();
 
-  const tenantDetails = useMemo(() => {
-    if (dbData?.tenancies) {
-      const found = dbData.tenancies.find(
-        (t) =>
-          t.unit === "A01" ||
-          t.tenants.some((name) =>
-            name.toLowerCase().includes("verghese") ||
-            name.toLowerCase().includes("neha")
-          )
-      );
-      if (found) return found;
+  // Helper to format Date strings (e.g. 2025-04-30 -> 30 April 2025)
+  const formatDate = (dateStr: string) => {
+    if (!dateStr || dateStr === "—") return "—";
+    try {
+      const parts = dateStr.split("-");
+      if (parts.length === 3) {
+        const date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        return date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+      }
+      return dateStr;
+    } catch {
+      return dateStr;
     }
-    return {
-      id: "A01-1",
-      unit: "A01",
-      rent: "£ 1,150.00",
-      rentVal: 1150,
-      deposit: "£ 1,325.00",
-      depositVal: 1325,
-      lodged: "TBC",
-      received: "TBC",
-      tenants: ["Verghese Kurien", "Neha Zacharias"],
-      phone: [],
-      email: ["neha.zacharias@email.com"],
-      startDate: "30/04/2025",
-      endDate: "Periodic (No End Date)",
-      status: "Occupied",
-      lettingType: "PERIODIC",
-      rentStatus: "paid up to date",
-      commentary: "tv to be removed",
-      address: "Flat 1, Ashford Yard, 145a Ashford Road, Eastbourne, East Sussex, BN21 3UA",
-      code: "A01-KEY"
-    };
-  }, [dbData]);
+  };
+
+  const getOrdinal = (d: number) => {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+      case 1:  return "st";
+      case 2:  return "nd";
+      case 3:  return "rd";
+      default: return "th";
+    }
+  };
+
+  const dueDay = tenantDetails.startDate
+    ? new Date(tenantDetails.startDate).getDate() || 29
+    : 29;
+
+  const isRolling = tenantDetails.lettingType === "AST ROLLING";
 
   return (
     <div className="animate-in fade-in space-y-6 duration-300">
@@ -47,7 +43,7 @@ export default function TenantDashboardOverview() {
       <div className="relative flex flex-col justify-between gap-6 overflow-hidden rounded-2xl border border-[#e2e8f0] bg-gradient-to-br from-[#062c1a] to-[#041e12] p-8 text-white shadow-xl lg:flex-row lg:items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,162,112,0.15),transparent_65%)] pointer-events-none" />
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-[#e2e8f0] text-xs font-semibold text-[#c8a270]">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-[#e2e8f0]/15 text-xs font-semibold text-[#c8a270]">
             <span className="h-2 w-2 rounded-full bg-[#c8a270] animate-pulse"></span>
             ACTIVE PORTFOLIO TENANT
           </div>
@@ -70,7 +66,7 @@ export default function TenantDashboardOverview() {
           <div className="mt-4 flex items-center gap-2">
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             <span className="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">
-              Due 29th of Month
+              Due {dueDay}{getOrdinal(dueDay)} of Month
             </span>
           </div>
         </div>
@@ -79,11 +75,13 @@ export default function TenantDashboardOverview() {
         <div className="relative rounded-xl border border-[#e2e8f0] bg-white p-6 shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[3px] bg-[#062c1a]" />
           <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">Tenancy Model</span>
-          <h3 className="mt-2 text-2xl font-black text-slate-900 tracking-tight">Periodic</h3>
+          <h3 className="mt-2 text-2xl font-black text-slate-900 tracking-tight">
+            {isRolling ? "AST Rolling" : "Fixed Term"}
+          </h3>
           <div className="mt-4 flex items-center gap-2">
             <span className="inline-flex h-2 w-2 rounded-full bg-amber-500" />
             <span className="text-xs text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded-full">
-              2 Months notice to leave
+              {isRolling ? "2 Months notice to leave" : "Fixed term agreement"}
             </span>
           </div>
         </div>
@@ -96,7 +94,7 @@ export default function TenantDashboardOverview() {
           <div className="mt-4 flex items-center gap-2">
             <span className="inline-flex h-2 w-2 rounded-full bg-sky-500" />
             <span className="text-xs text-sky-700 font-semibold bg-sky-50 px-2 py-0.5 rounded-full">
-              Lodged & Secured
+              {tenantDetails.lodged === "Lodged" ? "Lodged & Secured" : "Received & Processing"}
             </span>
           </div>
         </div>
@@ -105,7 +103,9 @@ export default function TenantDashboardOverview() {
         <div className="relative rounded-xl border border-[#e2e8f0] bg-white p-6 shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[3px] bg-indigo-600" />
           <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">Tenancy Start Date</span>
-          <h3 className="mt-2 text-xl font-bold text-slate-900 tracking-tight">30 April 2025</h3>
+          <h3 className="mt-2 text-xl font-bold text-slate-900 tracking-tight">
+            {formatDate(tenantDetails.startDate)}
+          </h3>
           <div className="mt-4 flex items-center gap-2">
             <span className="inline-flex h-2 w-2 rounded-full bg-indigo-500" />
             <span className="text-xs text-indigo-750 font-semibold bg-indigo-50 px-2 py-0.5 rounded-full">
@@ -135,15 +135,23 @@ export default function TenantDashboardOverview() {
               <div className="divide-y divide-[#e2e8f0] text-sm">
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">Monthly Rent</span>
-                  <span className="font-semibold text-slate-900">£1,150.00</span>
+                  <span className="font-semibold text-slate-900">{tenantDetails.rent}</span>
                 </div>
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">Rent Due Date</span>
-                  <span className="font-semibold text-[#062c1a]">29th of the Month</span>
+                  <span className="font-semibold text-[#062c1a]">
+                    {dueDay}{getOrdinal(dueDay)} of the Month
+                  </span>
                 </div>
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">Rent status</span>
-                  <span className="font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Paid Up to Date</span>
+                  <span className={`font-semibold px-2 py-0.5 rounded-md ${
+                    tenantDetails.rentStatus?.toLowerCase()?.includes("arrear")
+                      ? "text-red-600 bg-red-50"
+                      : "text-emerald-600 bg-emerald-50"
+                  }`}>
+                    {tenantDetails.rentStatus || "Paid Up to Date"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -153,11 +161,15 @@ export default function TenantDashboardOverview() {
               <div className="divide-y divide-[#e2e8f0] text-sm">
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">AST Agreement</span>
-                  <span className="font-semibold text-slate-800">Signed (Periodic)</span>
+                  <span className="font-semibold text-slate-800">
+                    {isRolling ? "Signed (Rolling)" : "Signed (Fixed)"}
+                  </span>
                 </div>
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">Notice to leave</span>
-                  <span className="font-semibold text-slate-800">2 Calendar Months</span>
+                  <span className="font-semibold text-slate-800">
+                    {isRolling ? "2 Calendar Months" : "Till Term End"}
+                  </span>
                 </div>
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">Inventory Status</span>
@@ -175,9 +187,11 @@ export default function TenantDashboardOverview() {
                 🏡
               </div>
               <div className="text-sm">
-                <p className="font-bold text-slate-850">FLAT 1, ASHFORD YARD, 145A ASHFORD ROAD</p>
+                <p className="font-bold text-slate-800">
+                  FLAT {tenantDetails.unit}, {tenantDetails.property.toUpperCase()}
+                </p>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Two-storey mews house / ground-floor maisonette. Fully compliant energy efficiency guidelines, certified electrical routing installations, and comprehensive floorplans.
+                  {tenantDetails.commentary || "Two-storey mews house / ground-floor maisonette. Fully compliant energy efficiency guidelines, certified electrical routing installations, and comprehensive floorplans."}
                 </p>
               </div>
             </div>
@@ -218,8 +232,8 @@ export default function TenantDashboardOverview() {
                 Landlord Entity
               </span>
               <div className="text-sm space-y-1">
-                <p className="font-bold text-slate-800">Hemnani Estates SPV1</p>
-                <p className="text-xs text-slate-500">Registered: Hemnani Estates Limited & IQRA Asset Management Limited</p>
+                <p className="font-bold text-slate-800">{metadata.landlordEntity}</p>
+                <p className="text-xs text-slate-500">Registered: {metadata.landlordEntity}</p>
                 <p className="text-xs text-slate-500">Office: The Old Court House, New Road Avenue, Chatham, Kent, ME4 6BE</p>
               </div>
             </div>

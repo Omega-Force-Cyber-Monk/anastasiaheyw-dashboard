@@ -211,10 +211,10 @@ exports.Prisma.ArthurTenancyScalarFieldEnum = {
   lettingType: 'lettingType',
   rentStatus: 'rentStatus',
   commentary: 'commentary',
-  address: 'address',
-  code: 'code',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  address: 'address',
+  code: 'code'
 };
 
 exports.Prisma.AdminProfileScalarFieldEnum = {

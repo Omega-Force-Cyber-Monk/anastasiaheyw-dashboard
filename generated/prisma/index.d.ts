@@ -1681,14 +1681,14 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     accounts: number
-    sessions: number
     posts: number
+    sessions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
-    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     posts?: boolean | UserCountOutputTypeCountPostsArgs
+    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
   }
 
   // Custom InputTypes
@@ -1712,15 +1712,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SessionWhereInput
+  export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PostWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
   }
 
 
@@ -5308,8 +5308,8 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
     posts?: boolean | User$postsArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -5346,8 +5346,8 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "password" | "role", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
     posts?: boolean | User$postsArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5357,8 +5357,8 @@ export namespace Prisma {
     name: "User"
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
-      sessions: Prisma.$SessionPayload<ExtArgs>[]
       posts: Prisma.$PostPayload<ExtArgs>[]
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5763,8 +5763,8 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6213,30 +6213,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.sessions
-   */
-  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Session
-     */
-    select?: SessionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Session
-     */
-    omit?: SessionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SessionInclude<ExtArgs> | null
-    where?: SessionWhereInput
-    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
-    cursor?: SessionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
-  }
-
-  /**
    * User.posts
    */
   export type User$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6258,6 +6234,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+  }
+
+  /**
+   * User.sessions
+   */
+  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    cursor?: SessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
   }
 
   /**
@@ -9485,8 +9485,8 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
     tenancies?: boolean | ArthurUnit$tenanciesArgs<ExtArgs>
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
     _count?: boolean | ArthurUnitCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurUnit"]>
 
@@ -9521,8 +9521,8 @@ export namespace Prisma {
 
   export type ArthurUnitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "propertyId" | "name" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["arthurUnit"]>
   export type ArthurUnitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
     tenancies?: boolean | ArthurUnit$tenanciesArgs<ExtArgs>
+    property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
     _count?: boolean | ArthurUnitCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ArthurUnitIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9535,8 +9535,8 @@ export namespace Prisma {
   export type $ArthurUnitPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ArthurUnit"
     objects: {
-      property: Prisma.$ArthurPropertyPayload<ExtArgs>
       tenancies: Prisma.$ArthurTenancyPayload<ExtArgs>[]
+      property: Prisma.$ArthurPropertyPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9939,8 +9939,8 @@ export namespace Prisma {
    */
   export interface Prisma__ArthurUnitClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    property<T extends ArthurPropertyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArthurPropertyDefaultArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     tenancies<T extends ArthurUnit$tenanciesArgs<ExtArgs> = {}>(args?: Subset<T, ArthurUnit$tenanciesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArthurTenancyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    property<T extends ArthurPropertyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArthurPropertyDefaultArgs<ExtArgs>>): Prisma__ArthurPropertyClient<$Result.GetResult<Prisma.$ArthurPropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10451,10 +10451,10 @@ export namespace Prisma {
     lettingType: string | null
     rentStatus: string | null
     commentary: string | null
-    address: string | null
-    code: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    address: string | null
+    code: string | null
   }
 
   export type ArthurTenancyMaxAggregateOutputType = {
@@ -10472,10 +10472,10 @@ export namespace Prisma {
     lettingType: string | null
     rentStatus: string | null
     commentary: string | null
-    address: string | null
-    code: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    address: string | null
+    code: string | null
   }
 
   export type ArthurTenancyCountAggregateOutputType = {
@@ -10496,10 +10496,10 @@ export namespace Prisma {
     lettingType: number
     rentStatus: number
     commentary: number
-    address: number
-    code: number
     createdAt: number
     updatedAt: number
+    address: number
+    code: number
     _all: number
   }
 
@@ -10529,10 +10529,10 @@ export namespace Prisma {
     lettingType?: true
     rentStatus?: true
     commentary?: true
-    address?: true
-    code?: true
     createdAt?: true
     updatedAt?: true
+    address?: true
+    code?: true
   }
 
   export type ArthurTenancyMaxAggregateInputType = {
@@ -10550,10 +10550,10 @@ export namespace Prisma {
     lettingType?: true
     rentStatus?: true
     commentary?: true
-    address?: true
-    code?: true
     createdAt?: true
     updatedAt?: true
+    address?: true
+    code?: true
   }
 
   export type ArthurTenancyCountAggregateInputType = {
@@ -10574,10 +10574,10 @@ export namespace Prisma {
     lettingType?: true
     rentStatus?: true
     commentary?: true
-    address?: true
-    code?: true
     createdAt?: true
     updatedAt?: true
+    address?: true
+    code?: true
     _all?: true
   }
 
@@ -10685,10 +10685,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address: string | null
-    code: string | null
     createdAt: Date
     updatedAt: Date
+    address: string | null
+    code: string | null
     _count: ArthurTenancyCountAggregateOutputType | null
     _avg: ArthurTenancyAvgAggregateOutputType | null
     _sum: ArthurTenancySumAggregateOutputType | null
@@ -10728,10 +10728,10 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    address?: boolean
-    code?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    address?: boolean
+    code?: boolean
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurTenancy"]>
 
@@ -10753,10 +10753,10 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    address?: boolean
-    code?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    address?: boolean
+    code?: boolean
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurTenancy"]>
 
@@ -10778,10 +10778,10 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    address?: boolean
-    code?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    address?: boolean
+    code?: boolean
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurTenancy"]>
 
@@ -10803,13 +10803,13 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    address?: boolean
-    code?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    address?: boolean
+    code?: boolean
   }
 
-  export type ArthurTenancyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitId" | "status" | "startDate" | "endDate" | "rent" | "rentVal" | "deposit" | "depositVal" | "lodged" | "received" | "tenants" | "phone" | "email" | "lettingType" | "rentStatus" | "commentary" | "address" | "code" | "createdAt" | "updatedAt", ExtArgs["result"]["arthurTenancy"]>
+  export type ArthurTenancyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitId" | "status" | "startDate" | "endDate" | "rent" | "rentVal" | "deposit" | "depositVal" | "lodged" | "received" | "tenants" | "phone" | "email" | "lettingType" | "rentStatus" | "commentary" | "createdAt" | "updatedAt" | "address" | "code", ExtArgs["result"]["arthurTenancy"]>
   export type ArthurTenancyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }
@@ -10843,10 +10843,10 @@ export namespace Prisma {
       lettingType: string
       rentStatus: string
       commentary: string
-      address: string | null
-      code: string | null
       createdAt: Date
       updatedAt: Date
+      address: string | null
+      code: string | null
     }, ExtArgs["result"]["arthurTenancy"]>
     composites: {}
   }
@@ -11288,10 +11288,10 @@ export namespace Prisma {
     readonly lettingType: FieldRef<"ArthurTenancy", 'String'>
     readonly rentStatus: FieldRef<"ArthurTenancy", 'String'>
     readonly commentary: FieldRef<"ArthurTenancy", 'String'>
-    readonly address: FieldRef<"ArthurTenancy", 'String'>
-    readonly code: FieldRef<"ArthurTenancy", 'String'>
     readonly createdAt: FieldRef<"ArthurTenancy", 'DateTime'>
     readonly updatedAt: FieldRef<"ArthurTenancy", 'DateTime'>
+    readonly address: FieldRef<"ArthurTenancy", 'String'>
+    readonly code: FieldRef<"ArthurTenancy", 'String'>
   }
     
 
@@ -12842,10 +12842,10 @@ export namespace Prisma {
     lettingType: 'lettingType',
     rentStatus: 'rentStatus',
     commentary: 'commentary',
-    address: 'address',
-    code: 'code',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    address: 'address',
+    code: 'code'
   };
 
   export type ArthurTenancyScalarFieldEnum = (typeof ArthurTenancyScalarFieldEnum)[keyof typeof ArthurTenancyScalarFieldEnum]
@@ -13168,8 +13168,8 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     role?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
-    sessions?: SessionListRelationFilter
     posts?: PostListRelationFilter
+    sessions?: SessionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -13181,8 +13181,8 @@ export namespace Prisma {
     password?: SortOrderInput | SortOrder
     role?: SortOrderInput | SortOrder
     accounts?: AccountOrderByRelationAggregateInput
-    sessions?: SessionOrderByRelationAggregateInput
     posts?: PostOrderByRelationAggregateInput
+    sessions?: SessionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -13197,8 +13197,8 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     role?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
-    sessions?: SessionListRelationFilter
     posts?: PostListRelationFilter
+    sessions?: SessionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -13387,8 +13387,8 @@ export namespace Prisma {
     status?: StringFilter<"ArthurUnit"> | string
     createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
-    property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
     tenancies?: ArthurTenancyListRelationFilter
+    property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
   }
 
   export type ArthurUnitOrderByWithRelationInput = {
@@ -13398,8 +13398,8 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    property?: ArthurPropertyOrderByWithRelationInput
     tenancies?: ArthurTenancyOrderByRelationAggregateInput
+    property?: ArthurPropertyOrderByWithRelationInput
   }
 
   export type ArthurUnitWhereUniqueInput = Prisma.AtLeast<{
@@ -13412,8 +13412,8 @@ export namespace Prisma {
     status?: StringFilter<"ArthurUnit"> | string
     createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
-    property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
     tenancies?: ArthurTenancyListRelationFilter
+    property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
   }, "id">
 
   export type ArthurUnitOrderByWithAggregationInput = {
@@ -13461,10 +13461,10 @@ export namespace Prisma {
     lettingType?: StringFilter<"ArthurTenancy"> | string
     rentStatus?: StringFilter<"ArthurTenancy"> | string
     commentary?: StringFilter<"ArthurTenancy"> | string
-    address?: StringNullableFilter<"ArthurTenancy"> | string | null
-    code?: StringNullableFilter<"ArthurTenancy"> | string | null
     createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    address?: StringNullableFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableFilter<"ArthurTenancy"> | string | null
     unit?: XOR<ArthurUnitScalarRelationFilter, ArthurUnitWhereInput>
   }
 
@@ -13486,10 +13486,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    address?: SortOrderInput | SortOrder
-    code?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    address?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
     unit?: ArthurUnitOrderByWithRelationInput
   }
 
@@ -13514,10 +13514,10 @@ export namespace Prisma {
     lettingType?: StringFilter<"ArthurTenancy"> | string
     rentStatus?: StringFilter<"ArthurTenancy"> | string
     commentary?: StringFilter<"ArthurTenancy"> | string
-    address?: StringNullableFilter<"ArthurTenancy"> | string | null
-    code?: StringNullableFilter<"ArthurTenancy"> | string | null
     createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    address?: StringNullableFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableFilter<"ArthurTenancy"> | string | null
     unit?: XOR<ArthurUnitScalarRelationFilter, ArthurUnitWhereInput>
   }, "id">
 
@@ -13539,10 +13539,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    address?: SortOrderInput | SortOrder
-    code?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    address?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
     _count?: ArthurTenancyCountOrderByAggregateInput
     _avg?: ArthurTenancyAvgOrderByAggregateInput
     _max?: ArthurTenancyMaxOrderByAggregateInput
@@ -13571,10 +13571,10 @@ export namespace Prisma {
     lettingType?: StringWithAggregatesFilter<"ArthurTenancy"> | string
     rentStatus?: StringWithAggregatesFilter<"ArthurTenancy"> | string
     commentary?: StringWithAggregatesFilter<"ArthurTenancy"> | string
-    address?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
-    code?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
+    address?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
   }
 
   export type AdminProfileWhereInput = {
@@ -13854,8 +13854,8 @@ export namespace Prisma {
     password?: string | null
     role?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutCreatedByInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -13867,8 +13867,8 @@ export namespace Prisma {
     password?: string | null
     role?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -13880,8 +13880,8 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutCreatedByNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -13893,8 +13893,8 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -14091,8 +14091,8 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    property: ArthurPropertyCreateNestedOneWithoutUnitsInput
     tenancies?: ArthurTenancyCreateNestedManyWithoutUnitInput
+    property: ArthurPropertyCreateNestedOneWithoutUnitsInput
   }
 
   export type ArthurUnitUncheckedCreateInput = {
@@ -14111,8 +14111,8 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    property?: ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput
     tenancies?: ArthurTenancyUpdateManyWithoutUnitNestedInput
+    property?: ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput
   }
 
   export type ArthurUnitUncheckedUpdateInput = {
@@ -14168,10 +14168,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address?: string | null
-    code?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    address?: string | null
+    code?: string | null
     unit: ArthurUnitCreateNestedOneWithoutTenanciesInput
   }
 
@@ -14193,10 +14193,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address?: string | null
-    code?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    address?: string | null
+    code?: string | null
   }
 
   export type ArthurTenancyUpdateInput = {
@@ -14216,10 +14216,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
     unit?: ArthurUnitUpdateOneRequiredWithoutTenanciesNestedInput
   }
 
@@ -14241,10 +14241,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurTenancyCreateManyInput = {
@@ -14265,10 +14265,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address?: string | null
-    code?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    address?: string | null
+    code?: string | null
   }
 
   export type ArthurTenancyUpdateManyMutationInput = {
@@ -14288,10 +14288,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurTenancyUncheckedUpdateManyInput = {
@@ -14312,10 +14312,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminProfileCreateInput = {
@@ -14669,27 +14669,27 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
-  export type SessionListRelationFilter = {
-    every?: SessionWhereInput
-    some?: SessionWhereInput
-    none?: SessionWhereInput
-  }
-
   export type PostListRelationFilter = {
     every?: PostWhereInput
     some?: PostWhereInput
     none?: PostWhereInput
   }
 
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type SessionOrderByRelationAggregateInput = {
+  export type PostOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type PostOrderByRelationAggregateInput = {
+  export type SessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14818,15 +14818,15 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type ArthurPropertyScalarRelationFilter = {
-    is?: ArthurPropertyWhereInput
-    isNot?: ArthurPropertyWhereInput
-  }
-
   export type ArthurTenancyListRelationFilter = {
     every?: ArthurTenancyWhereInput
     some?: ArthurTenancyWhereInput
     none?: ArthurTenancyWhereInput
+  }
+
+  export type ArthurPropertyScalarRelationFilter = {
+    is?: ArthurPropertyWhereInput
+    isNot?: ArthurPropertyWhereInput
   }
 
   export type ArthurTenancyOrderByRelationAggregateInput = {
@@ -14902,10 +14902,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    address?: SortOrder
-    code?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    address?: SortOrder
+    code?: SortOrder
   }
 
   export type ArthurTenancyAvgOrderByAggregateInput = {
@@ -14928,10 +14928,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    address?: SortOrder
-    code?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    address?: SortOrder
+    code?: SortOrder
   }
 
   export type ArthurTenancyMinOrderByAggregateInput = {
@@ -14949,10 +14949,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    address?: SortOrder
-    code?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    address?: SortOrder
+    code?: SortOrder
   }
 
   export type ArthurTenancySumOrderByAggregateInput = {
@@ -15080,18 +15080,18 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type SessionCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-  }
-
   export type PostCreateNestedManyWithoutCreatedByInput = {
     create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
     connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
     createMany?: PostCreateManyCreatedByInputEnvelope
     connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  }
+
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -15101,18 +15101,18 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-  }
-
   export type PostUncheckedCreateNestedManyWithoutCreatedByInput = {
     create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
     connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
     createMany?: PostCreateManyCreatedByInputEnvelope
     connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  }
+
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -15133,20 +15133,6 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type SessionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
-  }
-
   export type PostUpdateManyWithoutCreatedByNestedInput = {
     create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
     connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
@@ -15159,6 +15145,20 @@ export namespace Prisma {
     update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
     updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  }
+
+  export type SessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -15175,20 +15175,6 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
-  }
-
   export type PostUncheckedUpdateManyWithoutCreatedByNestedInput = {
     create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
     connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
@@ -15201,6 +15187,20 @@ export namespace Prisma {
     update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
     updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
   export type ArthurUnitCreateNestedManyWithoutPropertyInput = {
@@ -15245,12 +15245,6 @@ export namespace Prisma {
     deleteMany?: ArthurUnitScalarWhereInput | ArthurUnitScalarWhereInput[]
   }
 
-  export type ArthurPropertyCreateNestedOneWithoutUnitsInput = {
-    create?: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
-    connectOrCreate?: ArthurPropertyCreateOrConnectWithoutUnitsInput
-    connect?: ArthurPropertyWhereUniqueInput
-  }
-
   export type ArthurTenancyCreateNestedManyWithoutUnitInput = {
     create?: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput> | ArthurTenancyCreateWithoutUnitInput[] | ArthurTenancyUncheckedCreateWithoutUnitInput[]
     connectOrCreate?: ArthurTenancyCreateOrConnectWithoutUnitInput | ArthurTenancyCreateOrConnectWithoutUnitInput[]
@@ -15258,19 +15252,17 @@ export namespace Prisma {
     connect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
   }
 
+  export type ArthurPropertyCreateNestedOneWithoutUnitsInput = {
+    create?: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+    connectOrCreate?: ArthurPropertyCreateOrConnectWithoutUnitsInput
+    connect?: ArthurPropertyWhereUniqueInput
+  }
+
   export type ArthurTenancyUncheckedCreateNestedManyWithoutUnitInput = {
     create?: XOR<ArthurTenancyCreateWithoutUnitInput, ArthurTenancyUncheckedCreateWithoutUnitInput> | ArthurTenancyCreateWithoutUnitInput[] | ArthurTenancyUncheckedCreateWithoutUnitInput[]
     connectOrCreate?: ArthurTenancyCreateOrConnectWithoutUnitInput | ArthurTenancyCreateOrConnectWithoutUnitInput[]
     createMany?: ArthurTenancyCreateManyUnitInputEnvelope
     connect?: ArthurTenancyWhereUniqueInput | ArthurTenancyWhereUniqueInput[]
-  }
-
-  export type ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput = {
-    create?: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
-    connectOrCreate?: ArthurPropertyCreateOrConnectWithoutUnitsInput
-    upsert?: ArthurPropertyUpsertWithoutUnitsInput
-    connect?: ArthurPropertyWhereUniqueInput
-    update?: XOR<XOR<ArthurPropertyUpdateToOneWithWhereWithoutUnitsInput, ArthurPropertyUpdateWithoutUnitsInput>, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
   }
 
   export type ArthurTenancyUpdateManyWithoutUnitNestedInput = {
@@ -15285,6 +15277,14 @@ export namespace Prisma {
     update?: ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput | ArthurTenancyUpdateWithWhereUniqueWithoutUnitInput[]
     updateMany?: ArthurTenancyUpdateManyWithWhereWithoutUnitInput | ArthurTenancyUpdateManyWithWhereWithoutUnitInput[]
     deleteMany?: ArthurTenancyScalarWhereInput | ArthurTenancyScalarWhereInput[]
+  }
+
+  export type ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput = {
+    create?: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+    connectOrCreate?: ArthurPropertyCreateOrConnectWithoutUnitsInput
+    upsert?: ArthurPropertyUpsertWithoutUnitsInput
+    connect?: ArthurPropertyWhereUniqueInput
+    update?: XOR<XOR<ArthurPropertyUpdateToOneWithWhereWithoutUnitsInput, ArthurPropertyUpdateWithoutUnitsInput>, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
   }
 
   export type ArthurTenancyUncheckedUpdateManyWithoutUnitNestedInput = {
@@ -15626,8 +15626,8 @@ export namespace Prisma {
     image?: string | null
     password?: string | null
     role?: string | null
-    sessions?: SessionCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutCreatedByInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -15638,8 +15638,8 @@ export namespace Prisma {
     image?: string | null
     password?: string | null
     role?: string | null
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -15666,8 +15666,8 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableStringFieldUpdateOperationsInput | string | null
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutCreatedByNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -15678,8 +15678,8 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableStringFieldUpdateOperationsInput | string | null
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -15786,28 +15786,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type SessionCreateWithoutUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
-  export type SessionUncheckedCreateWithoutUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
-  export type SessionCreateOrConnectWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
-  }
-
-  export type SessionCreateManyUserInputEnvelope = {
-    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type PostCreateWithoutCreatedByInput = {
     name: string
     createdAt?: Date | string
@@ -15828,6 +15806,28 @@ export namespace Prisma {
 
   export type PostCreateManyCreatedByInputEnvelope = {
     data: PostCreateManyCreatedByInput | PostCreateManyCreatedByInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SessionCreateWithoutUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
+  }
+
+  export type SessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
+  }
+
+  export type SessionCreateOrConnectWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionCreateManyUserInputEnvelope = {
+    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -15866,32 +15866,6 @@ export namespace Prisma {
     refresh_token_expires_in?: IntNullableFilter<"Account"> | number | null
   }
 
-  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
-  }
-
-  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type SessionUpdateManyWithWhereWithoutUserInput = {
-    where: SessionScalarWhereInput
-    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type SessionScalarWhereInput = {
-    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    OR?: SessionScalarWhereInput[]
-    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    id?: StringFilter<"Session"> | string
-    sessionToken?: StringFilter<"Session"> | string
-    userId?: StringFilter<"Session"> | string
-    expires?: DateTimeFilter<"Session"> | Date | string
-  }
-
   export type PostUpsertWithWhereUniqueWithoutCreatedByInput = {
     where: PostWhereUniqueInput
     update: XOR<PostUpdateWithoutCreatedByInput, PostUncheckedUpdateWithoutCreatedByInput>
@@ -15917,6 +15891,32 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     createdById?: StringFilter<"Post"> | string
+  }
+
+  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionUpdateManyWithWhereWithoutUserInput = {
+    where: SessionScalarWhereInput
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SessionScalarWhereInput = {
+    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    OR?: SessionScalarWhereInput[]
+    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    id?: StringFilter<"Session"> | string
+    sessionToken?: StringFilter<"Session"> | string
+    userId?: StringFilter<"Session"> | string
+    expires?: DateTimeFilter<"Session"> | Date | string
   }
 
   export type ArthurUnitCreateWithoutPropertyInput = {
@@ -15975,27 +15975,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
   }
 
-  export type ArthurPropertyCreateWithoutUnitsInput = {
-    id: string
-    name: string
-    address: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ArthurPropertyUncheckedCreateWithoutUnitsInput = {
-    id: string
-    name: string
-    address: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ArthurPropertyCreateOrConnectWithoutUnitsInput = {
-    where: ArthurPropertyWhereUniqueInput
-    create: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
-  }
-
   export type ArthurTenancyCreateWithoutUnitInput = {
     id: string
     status: string
@@ -16013,10 +15992,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address?: string | null
-    code?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    address?: string | null
+    code?: string | null
   }
 
   export type ArthurTenancyUncheckedCreateWithoutUnitInput = {
@@ -16036,10 +16015,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address?: string | null
-    code?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    address?: string | null
+    code?: string | null
   }
 
   export type ArthurTenancyCreateOrConnectWithoutUnitInput = {
@@ -16052,31 +16031,25 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ArthurPropertyUpsertWithoutUnitsInput = {
-    update: XOR<ArthurPropertyUpdateWithoutUnitsInput, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
+  export type ArthurPropertyCreateWithoutUnitsInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurPropertyUncheckedCreateWithoutUnitsInput = {
+    id: string
+    name: string
+    address: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ArthurPropertyCreateOrConnectWithoutUnitsInput = {
+    where: ArthurPropertyWhereUniqueInput
     create: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
-    where?: ArthurPropertyWhereInput
-  }
-
-  export type ArthurPropertyUpdateToOneWithWhereWithoutUnitsInput = {
-    where?: ArthurPropertyWhereInput
-    data: XOR<ArthurPropertyUpdateWithoutUnitsInput, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
-  }
-
-  export type ArthurPropertyUpdateWithoutUnitsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ArthurPropertyUncheckedUpdateWithoutUnitsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurTenancyUpsertWithWhereUniqueWithoutUnitInput = {
@@ -16116,10 +16089,37 @@ export namespace Prisma {
     lettingType?: StringFilter<"ArthurTenancy"> | string
     rentStatus?: StringFilter<"ArthurTenancy"> | string
     commentary?: StringFilter<"ArthurTenancy"> | string
-    address?: StringNullableFilter<"ArthurTenancy"> | string | null
-    code?: StringNullableFilter<"ArthurTenancy"> | string | null
     createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    address?: StringNullableFilter<"ArthurTenancy"> | string | null
+    code?: StringNullableFilter<"ArthurTenancy"> | string | null
+  }
+
+  export type ArthurPropertyUpsertWithoutUnitsInput = {
+    update: XOR<ArthurPropertyUpdateWithoutUnitsInput, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
+    create: XOR<ArthurPropertyCreateWithoutUnitsInput, ArthurPropertyUncheckedCreateWithoutUnitsInput>
+    where?: ArthurPropertyWhereInput
+  }
+
+  export type ArthurPropertyUpdateToOneWithWhereWithoutUnitsInput = {
+    where?: ArthurPropertyWhereInput
+    data: XOR<ArthurPropertyUpdateWithoutUnitsInput, ArthurPropertyUncheckedUpdateWithoutUnitsInput>
+  }
+
+  export type ArthurPropertyUpdateWithoutUnitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArthurPropertyUncheckedUpdateWithoutUnitsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurUnitCreateWithoutTenanciesInput = {
@@ -16189,17 +16189,17 @@ export namespace Prisma {
     refresh_token_expires_in?: number | null
   }
 
-  export type SessionCreateManyUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
   export type PostCreateManyCreatedByInput = {
     id?: number
     name: string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type SessionCreateManyUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -16247,24 +16247,6 @@ export namespace Prisma {
     refresh_token_expires_in?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type SessionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SessionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SessionUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type PostUpdateWithoutCreatedByInput = {
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16283,6 +16265,24 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurUnitCreateManyPropertyInput = {
@@ -16336,10 +16336,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    address?: string | null
-    code?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    address?: string | null
+    code?: string | null
   }
 
   export type ArthurTenancyUpdateWithoutUnitInput = {
@@ -16359,10 +16359,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurTenancyUncheckedUpdateWithoutUnitInput = {
@@ -16382,10 +16382,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurTenancyUncheckedUpdateManyWithoutUnitInput = {
@@ -16405,10 +16405,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    code?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

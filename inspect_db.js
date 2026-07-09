@@ -16,9 +16,11 @@ async function main() {
   console.log(`Units: ${totalUnits}`);
   console.log(`Tenancies: ${totalTenancies}`);
 
-  // Let's also print properties and units
-  const props = await prisma.arthurProperty.findMany();
-  console.log("\nProperties stored in DB:", props);
+  const tenancies = await prisma.arthurTenancy.findMany();
+  console.log("\nTenancies stored in DB:");
+  tenancies.forEach(t => {
+    console.log(`ID: ${t.id}, Tenants: ${t.tenants.join(', ')}, Emails: ${t.email.join(', ')}, Status: ${t.status}`);
+  });
 }
 
 main()

@@ -1,82 +1,103 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
+import { useTenant } from "~/app/(withTanent)/tanent/TenantClientLayout";
 
 export default function TenantDocumentsPage() {
-  const complianceDocs = [
-    {
-      title: "Periodic Tenancy Agreement",
-      category: "Agreement Contract",
-      date: "30 April 2025",
-      status: "Signed",
-      description: "AST replacement. Initial starts 30 April 2025, periodic tenancy rolling. 2 months notice period.",
-      icon: "📄",
-      accent: "border-l-4 border-l-emerald-600"
-    },
-    {
-      title: "Inventory Check-in Document",
-      category: "Condition Report",
-      date: "29 April 2026",
-      status: "Approved",
-      description: "Check-in inventory detailing initial flat condition and electricity (11967 kWh) & water (94 m³) meter readings.",
-      icon: "📋",
-      accent: "border-l-4 border-l-[#c8a270]"
-    },
-    {
-      title: "EIC Electrical Certificate",
-      category: "Compliance Safety",
-      date: "21 June 2023",
-      status: "Certified",
-      description: "Electrical Installation Safety certificate check. Serial: 27527814. Next inspection recommended by June 2028.",
-      icon: "⚡",
-      accent: "border-l-4 border-l-sky-600"
-    },
-    {
-      title: "EPC Energy Performance Certificate",
-      category: "Compliance Rating",
-      date: "10 August 2023",
-      status: "Rating: C",
-      description: "Flat energy efficiency check rating certificate (Score 74, Certificate 9057-7907-4762-8798-8302). Valid till 9 August 2033.",
-      icon: "🔥",
-      accent: "border-l-4 border-l-amber-600"
-    },
-    {
-      title: "Building Insurance Certificate",
-      category: "Landlord Coverage",
-      date: "15 April 2025",
-      status: "Active",
-      description: "Ageas 'HomeGuard Let' building insurance, arranged via Sequence/Ageas.",
-      icon: "🛡️",
-      accent: "border-l-4 border-l-indigo-600"
-    },
-    {
-      title: "Tenant Reference Checks",
-      category: "Background Check",
-      date: "25 April 2025",
-      status: "Passed",
-      description: "Tenant screening & referencing report profiles completed for Verghese & Neha.",
-      icon: "📇",
-      accent: "border-l-4 border-l-teal-600"
-    },
-    {
-      title: "Orchard Accountants Invoice",
-      category: "Financial Statement",
-      date: "30 April 2025",
-      status: "Paid",
-      description: "Tenant-find invoice and payment receipt billing details.",
-      icon: "💰",
-      accent: "border-l-4 border-l-yellow-600"
-    },
-    {
-      title: "Landlord Terms of Business (TOB)",
-      category: "Landlord Doc",
-      date: "10 April 2025",
-      status: "Signed",
-      description: "TOB and Landlord Indemnity agreement parameters.",
-      icon: "🖋️",
-      accent: "border-l-4 border-l-purple-600"
+  const { tenantDetails, metadata } = useTenant();
+
+  const formatDate = (dateStr: string) => {
+    if (!dateStr || dateStr === "—") return "—";
+    try {
+      const parts = dateStr.split("-");
+      if (parts.length === 3) {
+        const date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        return date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+      }
+      return dateStr;
+    } catch {
+      return dateStr;
     }
-  ];
+  };
+
+  const complianceDocs = useMemo(() => {
+    const isRolling = tenantDetails.lettingType === "AST ROLLING";
+    
+    return [
+      {
+        title: `${isRolling ? "Periodic" : "Fixed Term"} Tenancy Agreement`,
+        category: "Agreement Contract",
+        date: formatDate(tenantDetails.startDate),
+        status: "Signed",
+        description: `AST agreement. Initial starts ${formatDate(tenantDetails.startDate)}, ${isRolling ? "periodic tenancy rolling. 2 months notice period." : "fixed term tenancy."}`,
+        icon: "📄",
+        accent: "border-l-4 border-l-emerald-600"
+      },
+      {
+        title: "Inventory Check-in Document",
+        category: "Condition Report",
+        date: formatDate(tenantDetails.startDate),
+        status: "Approved",
+        description: `Check-in inventory detailing initial flat condition and electricity (${metadata.elecMeterCheckInValue} kWh) & water (${metadata.waterMeterCheckInValue} m³) meter readings.`,
+        icon: "📋",
+        accent: "border-l-4 border-l-[#c8a270]"
+      },
+      {
+        title: "EIC Electrical Certificate",
+        category: "Compliance Safety",
+        date: formatDate(metadata.eicInspectedDate),
+        status: "Certified",
+        description: `Electrical Installation Safety certificate check. Serial: ${metadata.eicSerial}. Next inspection recommended by ${formatDate(metadata.eicExpiryDate)}.`,
+        icon: "⚡",
+        accent: "border-l-4 border-l-sky-600"
+      },
+      {
+        title: "EPC Energy Performance Certificate",
+        category: "Compliance Rating",
+        date: formatDate(metadata.epcAssessedDate),
+        status: `Rating: ${metadata.epcRating}`,
+        description: `Flat energy efficiency check rating certificate (Score ${metadata.epcScore}, Certificate ${metadata.epcCertificate}). Valid till ${formatDate(metadata.epcExpiryDate)}.`,
+        icon: "🔥",
+        accent: "border-l-4 border-l-amber-600"
+      },
+      {
+        title: "Building Insurance Certificate",
+        category: "Landlord Coverage",
+        date: formatDate(metadata.insuranceStartDate),
+        status: metadata.insuranceStatus,
+        description: `Ageas 'HomeGuard Let' building insurance, arranged via Sequence/Ageas. Policy: ${metadata.insurancePolicy}.`,
+        icon: "🛡️",
+        accent: "border-l-4 border-l-indigo-600"
+      },
+      {
+        title: "Tenant Reference Checks",
+        category: "Background Check",
+        date: formatDate(tenantDetails.startDate),
+        status: "Passed",
+        description: `Tenant screening & referencing report profiles completed for ${tenantDetails.tenants.join(" & ")}.`,
+        icon: "📇",
+        accent: "border-l-4 border-l-teal-600"
+      },
+      {
+        title: "Orchard Accountants Invoice",
+        category: "Financial Statement",
+        date: formatDate(tenantDetails.startDate),
+        status: "Paid",
+        description: "Tenant-find invoice and payment receipt billing details.",
+        icon: "💰",
+        accent: "border-l-4 border-l-yellow-600"
+      },
+      {
+        title: "Landlord Terms of Business (TOB)",
+        category: "Landlord Doc",
+        date: formatDate(tenantDetails.startDate),
+        status: "Signed",
+        description: "TOB and Landlord Indemnity agreement parameters.",
+        icon: "🖋️",
+        accent: "border-l-4 border-l-purple-600"
+      }
+    ];
+  }, [tenantDetails, metadata]);
 
   return (
     <div className="animate-in fade-in space-y-6 duration-300">
