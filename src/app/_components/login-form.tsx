@@ -29,6 +29,13 @@ export function LoginForm({
       formData.append("password", password);
       await onCredentialsSignIn(formData);
     } catch (err) {
+      const errMsg = err instanceof Error ? err.message : String(err);
+      
+      // Ignore NEXT_REDIRECT as it is the framework's redirect handler, not a real error.
+      if (errMsg.includes("NEXT_REDIRECT")) {
+        return;
+      }
+      
       setError(
         err instanceof Error
           ? err.message

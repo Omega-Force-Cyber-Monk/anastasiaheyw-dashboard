@@ -23,6 +23,7 @@ export default async function Home() {
   }
 
   if (session?.user) {
+    // Explicitly check for admin role. Any other role (tenant, undefined) goes to tenant dashboard.
     if (session.user.role === "admin") {
       redirect("/admin/dashboard");
     } else {
@@ -42,13 +43,30 @@ export default async function Home() {
     const password = formData.get("password") as string;
     
     try {
+      // Check the user's role from the database to determine redirect target
+      // Admin check: either exact admin email OR role = "admin" in User table
+      const userRecord = await db.user.findUnique({
+        where: { email: email.trim().toLowerCase() },
+      });
+
+      const isAdmin = userRecord?.role === "admin" || email.trim().toLowerCase() === "admin@heywood.com";
+      const redirectTo = isAdmin ? "/admin/dashboard" : "/tanent/dashboard";
+
       await signIn("credentials", {
         email,
         password,
-        redirectTo: email.toLowerCase().includes("admin") ? "/admin/dashboard" : "/tanent/dashboard",
+        redirectTo,
       });
     } catch (error) {
-      if (error instanceof Error && error.message.includes("NEXT_REDIRECT")) {
+      if (
+        error instanceof Error &&
+        (error.message.includes("NEXT_REDIRECT") ||
+          (typeof error === "object" &&
+            error !== null &&
+            "digest" in error &&
+            typeof (error as Record<string, unknown>).digest === "string" &&
+            String((error as Record<string, unknown>).digest).startsWith("NEXT_REDIRECT")))
+      ) {
         throw error;
       }
       throw new Error("Invalid email or password");

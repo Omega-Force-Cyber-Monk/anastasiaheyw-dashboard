@@ -30,6 +30,9 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authConfig = {
+  pages: {
+    signIn: "/",  // Always redirect to our custom login page, never /api/auth/signin
+  },
   providers: [
     DiscordProvider,
     CredentialsProvider({
@@ -68,7 +71,7 @@ export const authConfig = {
 
         if (tenancy && (password === "tenant123" || password === "tanent123")) {
           return {
-            id: tenancy.id,
+            id: `tenant-${tenancy.id}`,
             name: tenancy.tenants[0] ?? "Tenant",
             email: email,
             role: "tenant",
@@ -101,24 +104,29 @@ export const authConfig = {
   ],
   session: {
     strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   adapter: PrismaAdapter(db),
   callbacks: {
     jwt: ({ token, user }) => {
+      // On initial sign-in, user object is present — persist all fields into JWT
       if (user) {
         token.role = user.role;
         token.email = user.email;
         token.name = user.name;
         token.sub = user.id;
       }
+      // On subsequent requests, user is undefined — preserve existing token values
+      // This is critical: without this, role becomes undefined after the first request
       return token;
     },
     session: ({ session, token }) => ({
       ...session,
       user: {
         ...session.user,
-        id: token.sub,
-        role: token.role as string | undefined,
+        id: token.sub ?? session.user.id,
+        // CRITICAL: always read role from JWT token, not from session.user
+        role: (token.role as string | undefined) ?? "tenant",
         email: token.email ?? session.user.email,
         name: token.name ?? session.user.name,
       },

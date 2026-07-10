@@ -92,7 +92,7 @@ export const profileRouter = createTRPCRouter({
 //       let profile = await ctx.db.adminProfile.findUnique({
 //         where: { id: "singleton" },
 //       });
-      
+
 //       if (!profile) {
 //         profile = await ctx.db.adminProfile.create({
 //           data: {
@@ -104,7 +104,7 @@ export const profileRouter = createTRPCRouter({
 //           },
 //         });
 //       }
-      
+
 //       return {
 //         name: profile.name,
 //         email: profile.email,
@@ -138,7 +138,7 @@ export const profileRouter = createTRPCRouter({
 //       let profile = await ctx.db.adminProfile.findUnique({
 //         where: { id: "singleton" },
 //       });
-      
+
 //       if (profile) {
 //         return await ctx.db.adminProfile.update({
 //           where: { id: "singleton" },

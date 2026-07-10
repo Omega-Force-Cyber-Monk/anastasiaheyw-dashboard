@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, createContext, useContext, useMemo, useEffect } from "react";
-import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import React, { useState, createContext, useContext, useMemo } from "react";
+import { signOut } from "next-auth/react";
 import { TenantSidebar } from "~/app/_components/tanent/TenantSidebar";
 import { TenantNavbar } from "~/app/_components/tanent/TenantNavbar";
-import { api } from "~/trpc/react";
 import { getUnitMetadata, type UnitMetadata } from "~/server/arthur/tenantDataMap";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface TenantDetailsType {
   id: string;
@@ -31,11 +31,20 @@ export interface TenantDetailsType {
   property: string;
 }
 
+export interface SessionUser {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
 export interface TenantContextType {
   tenantDetails: TenantDetailsType;
   metadata: UnitMetadata;
-  isLoading: boolean;
+  sessionUser: SessionUser;
 }
+
+// ─── Context ──────────────────────────────────────────────────────────────────
 
 const TenantContext = createContext<TenantContextType | undefined>(undefined);
 
@@ -47,91 +56,53 @@ export function useTenant() {
   return context;
 }
 
-export default function TenantClientLayout({ children }: { children: React.ReactNode }) {
+// ─── Props ────────────────────────────────────────────────────────────────────
+
+interface TenantClientLayoutProps {
+  children: React.ReactNode;
+  /**
+   * Tenant record matched server-side from the database.
+   * null means this user has no tenancy record in the DB.
+   */
+  initialTenantDetails: TenantDetailsType | null;
+  /**
+   * Authenticated user info passed from the server layout.
+   * We never rely on useSession() here — that avoids the
+   * "unauthenticated" flash caused by JWT cookie hydration delay.
+   */
+  sessionUser: SessionUser;
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+export default function TenantClientLayout({
+  children,
+  initialTenantDetails,
+  sessionUser,
+}: TenantClientLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { data: session, status } = useSession();
-  const router = useRouter();
 
-  // Redirect to home if unauthenticated on client
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.replace("/");
-    }
-  }, [status, router]);
-
-  const { data: dbData, isLoading: dbLoading } = api.arthur.getTenancies.useQuery(undefined, {
-    enabled: status === "authenticated",
-  });
-
-  // Dynamic tenant matching based on authenticated session email
-  const tenantDetails = useMemo<TenantDetailsType | null>(() => {
-    console.log("Tenant matching debug:", {
-      status,
-      sessionEmail: session?.user?.email,
-      hasDbData: !!dbData?.tenancies,
-      tenanciesCount: dbData?.tenancies?.length,
-    });
-
-    if (!dbData?.tenancies || !session?.user?.email) {
-      return null;
-    }
-
-    const email = session.user.email.toLowerCase();
-    console.log("Target email for matching:", email);
-
-    // 1. Try to find precise tenancy record matching logged-in user email
-    const found = dbData.tenancies.find((t) => {
-      const match = t.email.some((e) => e.trim().toLowerCase() === email.trim());
-      console.log(`Checking unit ${t.unit} emails:`, t.email, `Match: ${match}`);
-      return match;
-    });
-
-    console.log("Found tenancy record in DB:", found);
-
-    if (found) {
-      return found;
-    }
-
-    // 2. If it's a fallback demo tenant, return the first available tenancy record
-    if (email.startsWith("tenant") && dbData.tenancies.length > 0) {
-      return dbData.tenancies[0] as TenantDetailsType;
-    }
-
-    return null;
-  }, [dbData, session, status]);
-
-  // Resolve metadata dynamically based on matched unit
+  // Resolve unit metadata from the matched tenancy
   const metadata = useMemo<UnitMetadata | null>(() => {
-    if (!tenantDetails) return null;
-    return getUnitMetadata(tenantDetails.unit);
-  }, [tenantDetails]);
+    if (!initialTenantDetails) return null;
+    return getUnitMetadata(initialTenantDetails.unit);
+  }, [initialTenantDetails]);
 
-  // Show a premium glassmorphic loading screen during loading phase
-  if (status === "loading" || (status === "authenticated" && !dbData)) {
-    return (
-      <div className="flex h-screen w-screen items-center justify-center bg-[#062c1a] text-white">
-        <div className="text-center space-y-4">
-          <div className="relative w-16 h-16 mx-auto">
-            <div className="absolute inset-0 rounded-full border-4 border-emerald-500/20 animate-pulse" />
-            <div className="absolute inset-0 rounded-full border-t-4 border-l-4 border-t-[#c8a270] border-l-[#c8a270] animate-spin" />
-          </div>
-          <p className="font-serif text-lg font-bold tracking-wide text-[#c8a270]">Loading Tenancy Dashboard...</p>
-          <p className="text-xs text-emerald-100/50">Verifying secure credentials & Arthur Online feed</p>
-        </div>
-      </div>
-    );
-  }
-
-  // If no tenancy matches, show a dynamic error message
-  if (status === "authenticated" && !tenantDetails) {
+  // ── No tenancy record found for this user ────────────────────────────────
+  if (!initialTenantDetails || !metadata) {
     return (
       <div className="flex h-screen w-screen items-center justify-center bg-[#062c1a] text-white">
         <div className="text-center space-y-6 max-w-lg p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-emerald-500/25 shadow-xl">
           <div className="text-4xl">⚠️</div>
-          <h2 className="font-serif text-2xl font-bold tracking-wide text-[#c8a270]">Tenancy Record Not Found</h2>
+          <h2 className="font-serif text-2xl font-bold tracking-wide text-[#c8a270]">
+            Tenancy Record Not Found
+          </h2>
           <p className="text-sm text-emerald-100/80 leading-relaxed">
-            We could not find any active tenancy in our database associated with your logged-in email:<br />
-            <strong className="text-white text-base mt-2 block font-mono bg-[#041e12] py-2 px-4 rounded-lg">{session?.user?.email}</strong>
+            We could not find any active tenancy in our database associated with your logged-in email:
+            <br />
+            <strong className="text-white text-base mt-2 block font-mono bg-[#041e12] py-2 px-4 rounded-lg">
+              {sessionUser.email}
+            </strong>
           </p>
           <p className="text-xs text-emerald-100/50">
             Please contact property management to verify that your email is correctly registered on Arthur Online.
@@ -147,15 +118,11 @@ export default function TenantClientLayout({ children }: { children: React.React
     );
   }
 
-  // This will never be hit, but keeps typescript happy
-  if (!tenantDetails || !metadata) {
-    return null;
-  }
-
+  // ── Authenticated + tenancy found — render dashboard ─────────────────────
   const contextValue: TenantContextType = {
-    tenantDetails,
+    tenantDetails: initialTenantDetails,
     metadata,
-    isLoading: dbLoading,
+    sessionUser,
   };
 
   return (
@@ -169,7 +136,7 @@ export default function TenantClientLayout({ children }: { children: React.React
           />
         )}
 
-        {/* Sidebar - Visible on Desktop, toggleable on Mobile */}
+        {/* Sidebar — always visible on desktop, toggled on mobile */}
         <div className="hidden lg:block">
           <TenantSidebar />
         </div>
@@ -180,12 +147,11 @@ export default function TenantClientLayout({ children }: { children: React.React
           </div>
         )}
 
-        {/* Main Layout Area */}
+        {/* Main layout area */}
         <div className="flex-1 flex flex-col h-screen overflow-hidden">
-          {/* Navbar */}
           <TenantNavbar />
 
-          {/* Mobile menu trigger for sidebar */}
+          {/* Mobile sidebar toggle */}
           <div className="lg:hidden p-4 bg-white border-b border-[#e2e8f0] flex items-center">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -199,7 +165,7 @@ export default function TenantClientLayout({ children }: { children: React.React
             <span className="ml-3 font-semibold text-slate-700">Tenant Menu</span>
           </div>
 
-          {/* Page Content */}
+          {/* Page content */}
           <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
             {children}
           </main>
