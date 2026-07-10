@@ -93,6 +93,34 @@ model ArthurUnit {
   updatedAt  DateTime        @updatedAt
   tenancies  ArthurTenancy[]
   property   ArthurProperty  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  // Custom metadata fields
+  landlordEntity         String?
+  referenceCode          String?
+  bankName               String?
+  sortCode               String?
+  accountNumber          String?
+  accountName            String?
+  epcRating              String?
+  epcScore               Int?
+  epcCertificate         String?
+  epcAssessedDate        String?
+  epcExpiryDate          String?
+  epcAssessor            String?
+  eicSerial              String?
+  eicInspectedDate       String?
+  eicExpiryDate          String?
+  insurancePolicy        String?
+  insuranceStartDate     String?
+  insuranceStatus        String?
+  elecMeterSerial        String?
+  elecMeterCheckInValue  String?
+  elecMeterCheckInDate   String?
+  waterMeterSerial       String?
+  waterMeterCheckInValue String?
+  waterMeterCheckInDate  String?
+  outstandingDocs        String[]        @default([])
+  complianceNotes        String?
 }
 
 model ArthurTenancy {

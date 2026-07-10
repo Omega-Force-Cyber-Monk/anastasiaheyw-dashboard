@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { api } from "~/trpc/react";
+import { toast } from "sonner";
 
 export default function TenantsPage() {
   const [search, setSearch] = useState("");
@@ -237,13 +238,13 @@ export default function TenantsPage() {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <button 
-                        onClick={() => alert(`View details of ${t.name} tenancy`)}
+                        onClick={() => toast.info(`View details of ${t.name} tenancy`)}
                         className="text-[#062c1a] hover:text-[#0c472c] font-bold text-sm hover:underline cursor-pointer mr-3"
                       >
                         Profile
                       </button>
                       <button 
-                        onClick={() => alert(`Syncing tenancy records directly to Arthur API...`)}
+                        onClick={() => toast.info(`Syncing tenancy records directly to Arthur API...`)}
                         className="text-[#c8a270] hover:text-[#bfa075] font-bold text-sm hover:underline cursor-pointer"
                       >
                         Sync

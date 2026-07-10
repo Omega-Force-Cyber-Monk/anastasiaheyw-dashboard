@@ -1,4 +1,5 @@
 import { PrismaClient } from "../generated/prisma";
+import { getUnitMetadata } from "../src/server/arthur/tenantDataMap";
 
 const prisma = new PrismaClient();
 
@@ -83,10 +84,17 @@ async function main() {
   ];
 
   for (const unit of units) {
+    const meta = getUnitMetadata(unit.name);
     await prisma.arthurUnit.upsert({
       where: { id: unit.id },
-      update: unit,
-      create: unit,
+      update: {
+        ...unit,
+        ...meta,
+      },
+      create: {
+        ...unit,
+        ...meta,
+      },
     });
   }
   console.log("Arthur Units seeded successfully!");

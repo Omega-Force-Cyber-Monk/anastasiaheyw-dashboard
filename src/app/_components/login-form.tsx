@@ -9,9 +9,9 @@ interface LoginFormProps {
 }
 
 export function LoginForm({
-  onDiscordSignIn,
+  // onDiscordSignIn,
   onCredentialsSignIn,
-  onToggleToSignup,
+  // onToggleToSignup,
 }: LoginFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -143,7 +143,7 @@ export function LoginForm({
         </button>
       </form>
 
-      <div className="relative my-6">
+      {/* <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-slate-200"></div>
         </div>
@@ -172,7 +172,7 @@ export function LoginForm({
         >
           Sign Up
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -2,18 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
+import { toast } from "sonner";
 
 export default function ProfilePage() {
-  const { data: dbProfile, refetch } = api.profile.getProfile.useQuery();
+  const {
+    data: dbProfile,
+    refetch,
+    isLoading,
+  } = api.profile.getProfile.useQuery();
   const updateProfile = api.profile.updateProfile.useMutation();
 
-  const [name, setName] = useState("System Admin");
-  const [email, setEmail] = useState("admin@alltheyards.com");
-  const [phone, setPhone] = useState("+44 7902 734616");
-  const [role, setRole] = useState("Global Portfolio Administrator");
-  const [avatarInitials, setAvatarInitials] = useState("SA");
-
-  const [success, setSuccess] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [role, setRole] = useState("");
+  const [avatarInitials, setAvatarInitials] = useState("");
 
   // Sync state when database profile is fetched
   useEffect(() => {
@@ -35,7 +38,6 @@ export default function ProfilePage() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSuccess(false);
 
     try {
       await updateProfile.mutateAsync({
@@ -62,12 +64,26 @@ export default function ProfilePage() {
         .slice(0, 2);
       setAvatarInitials(initials || "SA");
 
-      setSuccess(true);
+      toast.success(
+        "Changes successfully saved and synced to the secure server database!",
+      );
       await refetch();
     } catch (err) {
       console.error("Failed to save profile:", err);
+      toast.error("Failed to save profile changes.");
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-[400px] flex-col items-center justify-center space-y-4">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#062c1a] border-t-transparent"></div>
+        <p className="animate-pulse text-sm font-bold tracking-wider text-slate-500 uppercase">
+          Loading Profile...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="animate-in fade-in mx-auto w-full space-y-8 pb-12 duration-300">
@@ -148,26 +164,6 @@ export default function ProfilePage() {
               Profile Settings
             </h3>
 
-            {success && (
-              <div className="animate-in fade-in mb-6 flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50 p-4 text-sm font-semibold text-emerald-800 duration-300">
-                <svg
-                  className="h-5 w-5 text-emerald-600"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                Changes successfully saved and synced to the secure server
-                database!
-              </div>
-            )}
-
             <form onSubmit={handleSave} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
@@ -229,12 +225,20 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => {
-                    setName("System Admin");
-                    setEmail("admin@alltheyards.com");
-                    setPhone("+44 7902 734616");
-                    setRole("Global Portfolio Administrator");
-                    setAvatarInitials("SA");
-                    setSuccess(false);
+                    if (dbProfile) {
+                      setName(dbProfile.name);
+                      setEmail(dbProfile.email);
+                      setPhone(dbProfile.phone);
+                      setRole(dbProfile.role);
+                      const initials = dbProfile.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")
+                        .toUpperCase()
+                        .slice(0, 2);
+                      setAvatarInitials(initials || "SA");
+                      toast.info("Profile reset to saved database values.");
+                    }
                   }}
                   className="cursor-pointer rounded-xl border border-slate-200 px-5 py-2.5 text-xs font-bold tracking-wider text-slate-700 uppercase transition-all hover:bg-slate-50"
                 >

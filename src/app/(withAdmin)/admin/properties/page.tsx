@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { api } from "~/trpc/react";
+import { toast } from "sonner";
 
 interface PropertyItem {
   id: number;
@@ -44,15 +45,15 @@ export default function PropertiesPage() {
     onSuccess: (data) => {
       setIsSyncing(false);
       if (data.success) {
-        alert("Properties & Units successfully synchronized with Arthur Online!");
+        toast.success("Properties & Units successfully synchronized with Arthur Online!");
         void utils.arthur.getPropertiesAndUnits.invalidate();
       } else {
-        alert("Sync finished with errors. Please check Dashboard logs.");
+        toast.error("Sync finished with errors. Please check Dashboard logs.");
       }
     },
     onError: (err) => {
       setIsSyncing(false);
-      alert(`Sync failed: ${err.message}`);
+      toast.error(`Sync failed: ${err.message}`);
     },
   });
 
@@ -349,19 +350,19 @@ export default function PropertiesPage() {
               </div>
               
               <div className="mt-5 flex gap-2">
-                <button 
+                {/* <button 
                   onClick={() => alert(`Opening details view for Unit ${p.unit}`)}
                   className="flex-1 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-center"
                 >
                   View History
-                </button>
-                <button 
+                </button> */}
+                {/* <button 
                   onClick={handleSync}
                   disabled={isSyncing}
-                  className="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer disabled:opacity-50"
                 >
                   Sync
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
