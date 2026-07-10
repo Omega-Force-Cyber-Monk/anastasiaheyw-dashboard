@@ -150,6 +150,7 @@ function getDeveloperMockApiResponse(endpoint: string) {
         { id: 210, property_id: 101, name: "A07", unit_number: "Flat 7", status: "Occupied" },
         { id: 211, property_id: 101, name: "A08", unit_number: "Flat 8", status: "Occupied" },
         { id: 212, property_id: 101, name: "A09", unit_number: "Flat 9", status: "Occupied" },
+        { id: 220, property_id: 101, name: "A10", unit_number: "Flat 10", status: "Occupied" },
         { id: 213, property_id: 101, name: "A11", unit_number: "Flat 11", status: "Occupied" },
         { id: 215, property_id: 101, name: "A12", unit_number: "Flat 12", status: "Vacant" },
         { id: 216, property_id: 101, name: "A13", unit_number: "Flat 13", status: "Occupied" },
@@ -314,6 +315,21 @@ function getDeveloperMockApiResponse(endpoint: string) {
             { first_name: "Wisdom Okechukwu", last_name: "Oturi", mobile_phone: "", email: "wisdom.o@example.com" },
             { first_name: "Grace", last_name: "Okechukwu", mobile_phone: "", email: "" }
           ]
+        },
+        {
+          id: 320,
+          unit_id: 220,
+          status: "active",
+          start_date: "2025-09-25",
+          end_date: "2026-09-24",
+          rent_amount: "1150.00",
+          deposit_amount: "1325.00",
+          deposit_lodged: "TBC",
+          deposit_received: "TBC",
+          letting_type: "FIXED TERM",
+          notes: "",
+          financial_status: "paid up to date as at 9/1/2026",
+          tenant: { first_name: "Jin Un", last_name: "Kim", mobile_phone: "07401223229", email: "j.kim1992@yahoo.com" }
         },
         {
           id: 313,

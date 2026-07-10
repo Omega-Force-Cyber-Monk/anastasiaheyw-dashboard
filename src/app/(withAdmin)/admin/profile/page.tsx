@@ -18,6 +18,46 @@ export default function ProfilePage() {
   const [role, setRole] = useState("");
   const [avatarInitials, setAvatarInitials] = useState("");
 
+  // Change Password State
+  const changePasswordMutation = api.profile.changePassword.useMutation();
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleChangePasswordSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (newPassword.length < 6) {
+      toast.error("New password must be at least 6 characters long.");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast.error("New password and confirm password do not match.");
+      return;
+    }
+
+    try {
+      const response = await changePasswordMutation.mutateAsync({
+        currentPassword,
+        newPassword,
+      });
+
+      if (response.success) {
+        toast.success(response.message ?? "Password updated successfully!");
+        setCurrentPassword("");
+        setNewPassword("");
+        setConfirmPassword("");
+      } else {
+        toast.error("Failed to update password.");
+      }
+    } catch (err) {
+      console.error("Change password error:", err);
+      const errMsg = err instanceof Error ? err.message : "An unexpected error occurred.";
+      toast.error(errMsg);
+    }
+  };
+
   // Sync state when database profile is fetched
   useEffect(() => {
     if (dbProfile) {
@@ -262,24 +302,67 @@ export default function ProfilePage() {
             <h3 className="mb-4 border-b border-slate-100 pb-4 text-xl font-bold text-slate-800">
               Credentials & Security
             </h3>
-            <p className="mb-6 text-xs leading-relaxed text-slate-400">
-              Passwords are authentication-managed by NextAuth using OAuth. To
-              update authentication provider configurations, contact system
-              operations.
-            </p>
-            <div className="flex flex-col justify-between gap-4 border-y border-slate-50 py-4 sm:flex-row sm:items-center">
+            
+            <form onSubmit={handleChangePasswordSubmit} className="space-y-4">
               <div>
-                <span className="block text-sm font-bold text-slate-800">
-                  Two-Factor Authentication
-                </span>
-                <span className="mt-0.5 block text-xs text-slate-400">
-                  Enforced globally for all administration access.
-                </span>
+                <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Current Password
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  placeholder="Enter your current password"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
+                />
               </div>
-              <span className="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold tracking-wider text-emerald-800 uppercase">
-                Active & Enforced
-              </span>
-            </div>
+
+              <div>
+                <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  New Password
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Minimum 6 characters"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-xs font-bold tracking-wider text-slate-400 uppercase">
+                  Confirm New Password
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm your new password"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 shadow-xs transition-all focus:ring-2 focus:ring-[#062c1a] focus:outline-none"
+                />
+              </div>
+
+              <div className="flex justify-end pt-3">
+                <button
+                  type="submit"
+                  disabled={changePasswordMutation.isPending}
+                  className="cursor-pointer rounded-xl bg-[#062c1a] px-5 py-2.5 text-xs font-bold tracking-wider text-white uppercase shadow-md transition-all hover:bg-[#0c472c] disabled:opacity-50 flex items-center gap-2"
+                >
+                  {changePasswordMutation.isPending ? (
+                    <>
+                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                      Updating...
+                    </>
+                  ) : (
+                    "Update Password"
+                  )}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
