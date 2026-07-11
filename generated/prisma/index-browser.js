@@ -252,6 +252,31 @@ exports.Prisma.AdminProfileScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.MaintenanceReportScalarFieldEnum = {
+  id: 'id',
+  userEmail: 'userEmail',
+  userName: 'userName',
+  unitName: 'unitName',
+  propertyName: 'propertyName',
+  issue: 'issue',
+  priority: 'priority',
+  status: 'status',
+  reportedDate: 'reportedDate',
+  adminDescription: 'adminDescription',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MeterReadingScalarFieldEnum = {
+  id: 'id',
+  userEmail: 'userEmail',
+  userName: 'userName',
+  unitName: 'unitName',
+  propertyName: 'propertyName',
+  type: 'type',
+  value: 'value',
+  loggedDate: 'loggedDate'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -278,7 +303,9 @@ exports.Prisma.ModelName = {
   ArthurProperty: 'ArthurProperty',
   ArthurUnit: 'ArthurUnit',
   ArthurTenancy: 'ArthurTenancy',
-  AdminProfile: 'AdminProfile'
+  AdminProfile: 'AdminProfile',
+  MaintenanceReport: 'MaintenanceReport',
+  MeterReading: 'MeterReading'
 };
 
 /**

@@ -21,6 +21,29 @@ interface PropertyItem {
   landlord: string;
   image: string;
   code: string;
+  history: Array<{
+    id: string;
+    unitId: string;
+    status: string;
+    startDate: string | null;
+    endDate: string | null;
+    rent: string;
+    rentVal: number;
+    deposit: string;
+    depositVal: number;
+    lodged: string | null;
+    received: string | null;
+    tenants: string[];
+    phone: string[];
+    email: string[];
+    lettingType: string;
+    rentStatus: string;
+    commentary: string;
+    createdAt: Date;
+    updatedAt: Date;
+    address: string | null;
+    code: string | null;
+  }>;
 }
 
 export default function PropertiesPage() {
@@ -28,6 +51,10 @@ export default function PropertiesPage() {
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(6);
   const [isSyncing, setIsSyncing] = useState(false);
+
+  // Modal State
+  const [selectedProperty, setSelectedProperty] = useState<PropertyItem | null>(null);
+  const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 
   // Reset pagination when filter/search changes
   React.useEffect(() => {
@@ -154,7 +181,12 @@ export default function PropertiesPage() {
           lettingType,
           landlord,
           image,
-          code
+          code,
+          history: history.map((h) => ({
+            ...h,
+            createdAt: new Date(h.createdAt),
+            updatedAt: new Date(h.updatedAt),
+          })),
         });
         index++;
       }
@@ -197,6 +229,16 @@ export default function PropertiesPage() {
   const displayedProperties = useMemo(() => {
     return filteredProperties.slice(0, visibleCount);
   }, [filteredProperties, visibleCount]);
+
+  const handleOpenHistory = (property: PropertyItem) => {
+    setSelectedProperty(property);
+    setIsHistoryModalOpen(true);
+  };
+
+  const handleCloseHistory = () => {
+    setIsHistoryModalOpen(false);
+    setSelectedProperty(null);
+  };
 
   if (isLoading) {
     return (
@@ -350,19 +392,19 @@ export default function PropertiesPage() {
               </div>
               
               <div className="mt-5 flex gap-2">
-                {/* <button 
-                  onClick={() => alert(`Opening details view for Unit ${p.unit}`)}
+                 <button 
+                  onClick={() => handleOpenHistory(p)}
                   className="flex-1 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-center"
                 >
                   View History
-                </button> */}
-                {/* <button 
+                </button> 
+                <button 
                   onClick={handleSync}
                   disabled={isSyncing}
-                  className="w-full px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer disabled:opacity-50"
+                  className="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer disabled:opacity-50"
                 >
                   Sync
-                </button> */}
+                </button> 
               </div>
             </div>
           </div>
@@ -384,6 +426,174 @@ export default function PropertiesPage() {
       {filteredProperties.length === 0 && (
         <div className="text-center py-16 bg-white border border-slate-100 rounded-2xl">
           <p className="text-slate-400 font-bold text-base">No units found matching search criteria.</p>
+        </div>
+      )}
+
+      {/* Tenancy History Details Modal */}
+      {isHistoryModalOpen && selectedProperty && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div
+            className="bg-white rounded-3xl p-6 md:p-8 max-w-[800px] w-full shadow-2xl relative space-y-6 font-sans animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={handleCloseHistory}
+              className="absolute top-6 right-6 p-1.5 text-gray-400 hover:text-red-500 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+            >
+              <svg className="w-5 h-5 text-red-500 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Modal Header */}
+            <div className="border-b border-gray-100 pb-4 pr-8">
+              <div className="flex flex-wrap items-center gap-3">
+                <h2 className="text-2xl font-bold text-slate-800">
+                  {selectedProperty.propertyName} — {selectedProperty.unit}
+                </h2>
+                <span className={`text-xs font-bold px-2.5 py-1 rounded-full uppercase ${
+                  selectedProperty.status === "Occupied"
+                    ? "text-emerald-700 bg-emerald-50"
+                    : "text-slate-500 bg-slate-50 border border-slate-200"
+                }`}>
+                  {selectedProperty.status}
+                </span>
+              </div>
+              <p className="text-sm text-slate-500 mt-1">{selectedProperty.location}</p>
+            </div>
+
+            {/* Specifications Details Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-sm">
+              <div className="space-y-2.5">
+                <h3 className="text-xs font-extrabold text-[#c8a270] uppercase tracking-wider">Unit Information</h3>
+                <div className="grid grid-cols-2 gap-y-2 text-slate-700">
+                  <span className="font-semibold text-slate-400">Beds:</span>
+                  <span className="font-bold text-slate-800">{selectedProperty.beds}</span>
+                  
+                  <span className="font-semibold text-slate-400">Baths:</span>
+                  <span className="font-bold text-slate-800">{selectedProperty.baths}</span>
+                  
+                  <span className="font-semibold text-slate-400">Type:</span>
+                  <span className="font-bold text-slate-800">{selectedProperty.type}</span>
+
+                  <span className="font-semibold text-slate-400">Landlord:</span>
+                  <span className="font-bold text-[#062c1a]">{selectedProperty.landlord}</span>
+                </div>
+              </div>
+
+              <div className="space-y-2.5">
+                <h3 className="text-xs font-extrabold text-[#c8a270] uppercase tracking-wider">Financial Overview</h3>
+                <div className="grid grid-cols-2 gap-y-2 text-slate-700">
+                  <span className="font-semibold text-slate-400">Rent:</span>
+                  <span className="font-bold text-[#062c1a] text-[15px]">{selectedProperty.rent}</span>
+                  
+                  <span className="font-semibold text-slate-400">Deposit:</span>
+                  <span className="font-bold text-slate-800">{selectedProperty.deposit}</span>
+
+                  {selectedProperty.code && (
+                    <>
+                      <span className="font-semibold text-slate-400">Arthur Code:</span>
+                      <span className="font-mono font-bold text-slate-800">{selectedProperty.code}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Tenancy History Section */}
+            <div className="space-y-3.5">
+              <div>
+                <h3 className="text-base font-bold text-slate-800">Tenancy Logs & History</h3>
+                <p className="text-xs text-slate-400">Comprehensive logs retrieved from Arthur Online API.</p>
+              </div>
+
+              <div className="w-full overflow-x-auto border border-[#E0E0E0] rounded-xl bg-white">
+                <table className="min-w-[650px] w-full text-left text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-[#EAEAEA] border-b border-[#DCDCDC]">
+                      <th className="px-4 py-3 font-semibold text-gray-700">Tenants</th>
+                      <th className="px-4 py-3 font-semibold text-gray-700 whitespace-nowrap">Start Date</th>
+                      <th className="px-4 py-3 font-semibold text-gray-700">End Date</th>
+                      <th className="px-4 py-3 font-semibold text-gray-700">Rent</th>
+                      <th className="px-4 py-3 font-semibold text-gray-700">Type</th>
+                      <th className="px-4 py-3 font-semibold text-gray-700 text-center">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#EAEAEA]">
+                    {selectedProperty.history.length === 0 ? (
+                      <tr>
+                        <td colSpan={6} className="px-4 py-8 text-center text-slate-400">
+                          No history logs available for this unit.
+                        </td>
+                      </tr>
+                    ) : (
+                      selectedProperty.history.map((record) => (
+                        <tr key={record.id} className="hover:bg-slate-50/50 transition-colors">
+                          <td className="px-4 py-3.5 whitespace-nowrap font-bold text-slate-800">
+                            {record.tenants.length > 0 ? record.tenants.join(" & ") : "—"}
+                          </td>
+                          <td className="px-4 py-3.5 whitespace-nowrap text-slate-600">
+                            {record.startDate ?? "—"}
+                          </td>
+                          <td className="px-4 py-3.5 whitespace-nowrap text-slate-600">
+                            {record.endDate ?? "—"}
+                          </td>
+                          <td className="px-4 py-3.5 whitespace-nowrap font-mono text-[#062c1a] font-bold">
+                            {record.rent}
+                          </td>
+                          <td className="px-4 py-3.5 whitespace-nowrap text-[11px] font-bold text-slate-500 uppercase">
+                            {record.lettingType}
+                          </td>
+                          <td className="px-4 py-3.5 whitespace-nowrap text-center">
+                            <span className={`inline-block px-2.5 py-0.5 text-[10px] font-bold rounded-full uppercase border ${
+                              record.status === "Occupied"
+                                ? "bg-emerald-50 text-emerald-800 border-emerald-100"
+                                : record.status === "Moved out" || record.status === "Past"
+                                ? "bg-amber-50 text-amber-800 border-amber-100"
+                                : "bg-slate-50 text-slate-500 border-slate-200"
+                            }`}>
+                              {record.status}
+                            </span>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Commentary / Notes Section */}
+            {selectedProperty.history.some(h => h.commentary) && (
+              <div className="space-y-2 bg-[#062c1a]/5 p-4 rounded-xl border border-[#062c1a]/10">
+                <h4 className="text-xs font-bold text-[#062c1a] uppercase tracking-wider">Arthur System Commentary / Notes</h4>
+                <div className="space-y-2 divide-y divide-[#062c1a]/10">
+                  {selectedProperty.history.filter(h => h.commentary).map((record) => (
+                    <div key={record.id} className="pt-2 first:pt-0">
+                      <div className="flex justify-between text-[10px] text-slate-400 font-bold mb-1">
+                        <span>Tenant: {record.tenants.join(", ") || "Unknown"}</span>
+                        <span>Period: {record.startDate ?? "N/A"} to {record.endDate ?? "N/A"}</span>
+                      </div>
+                      <p className="text-xs text-slate-700 italic leading-relaxed">
+                        &ldquo;{record.commentary}&rdquo;
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Close Actions */}
+            <div className="flex justify-end pt-3">
+              <button
+                onClick={handleCloseHistory}
+                className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-bold uppercase transition-all cursor-pointer shadow-sm"
+              >
+                Close Details
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

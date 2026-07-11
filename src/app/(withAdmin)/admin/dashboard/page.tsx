@@ -655,7 +655,7 @@ export default function AdminDashboard() {
                 <th className="px-4 py-3.5">Term Dates</th>
                 <th className="px-4 py-3.5">Type / Status</th>
                 <th className="px-4 py-3.5">Rent Status</th>
-                <th className="px-4 py-3.5">Commentary / Notes</th>
+                <th className="px-4 py-3.5">Notes</th>
                 <th className="px-4 py-3.5 text-right">Action</th>
               </tr>
             </thead>

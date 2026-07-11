@@ -2,7 +2,23 @@
 
 import React, { useState, useMemo } from "react";
 import { api } from "~/trpc/react";
-import { toast } from "sonner";
+
+interface TenantItem {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  unit: string;
+  yard: string;
+  rent: string;
+  deposit: string;
+  status: string;
+  lettingType: string;
+  leaseStart: string;
+  leaseEnd: string;
+  commentary: string;
+  rentStatus: string;
+}
 
 export default function TenantsPage() {
   const [search, setSearch] = useState("");
@@ -12,6 +28,10 @@ export default function TenantsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(8);
 
+  // Tenant Profile Modal State
+  const [selectedTenant, setSelectedTenant] = useState<TenantItem | null>(null);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
   // Reset pagination when filters change
   React.useEffect(() => {
     setCurrentPage(1);
@@ -19,7 +39,7 @@ export default function TenantsPage() {
 
   const { data: arthurData, isLoading } = api.arthur.getTenancies.useQuery();
 
-  const tenants = useMemo(() => {
+  const tenants = useMemo<TenantItem[]>(() => {
     const list = arthurData?.tenancies ?? [];
     return list.map((t, idx) => {
       let yardName = "Ashford Yard";
@@ -45,7 +65,7 @@ export default function TenantsPage() {
         email: emailArray.length > 0 ? emailArray.join(", ") : "no-email@arthur.com",
         phone: phoneArray.length > 0 ? phoneArray.join(", ") : "no-phone",
         unit: t.unit,
-        yard: yardName.split(" ")[0] ?? "Ashford", // Ashford, Jevington, Longstone, etc.
+        yard: yardName.split(" ")[0] ?? "Ashford",
         rent: t.rent,
         deposit: t.deposit,
         status: t.status,
@@ -84,6 +104,16 @@ export default function TenantsPage() {
 
   const totalPages = Math.ceil(filteredTenants.length / itemsPerPage);
 
+  const handleOpenProfile = (tenant: TenantItem) => {
+    setSelectedTenant(tenant);
+    setIsProfileModalOpen(true);
+  };
+
+  const handleCloseProfile = () => {
+    setIsProfileModalOpen(false);
+    setSelectedTenant(null);
+  };
+
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
@@ -94,7 +124,7 @@ export default function TenantsPage() {
   }
 
   return (
-    <div className="space-y-8 w-full w-full mx-auto pb-12 animate-in fade-in duration-300">
+    <div className="space-y-8 w-full mx-auto pb-12 animate-in fade-in duration-300">
       {/* Header Section */}
       <div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight font-serif">Tenants & Leases</h1>
@@ -171,7 +201,7 @@ export default function TenantsPage() {
                 <th className="px-6 py-4">Rent / Deposit</th>
                 <th className="px-6 py-4">Status & Type</th>
                 <th className="px-6 py-4">Lease Term</th>
-                <th className="px-6 py-4">Commentary / Warnings</th>
+                <th className="px-6 py-4 whitespace-nowrap">Commentary / Warnings</th>
                 <th className="px-6 py-4 text-right">Actions</th>
               </tr>
             </thead>
@@ -236,19 +266,29 @@ export default function TenantsPage() {
                         {t.commentary || t.rentStatus || "—"}
                       </p>
                     </td>
-                    <td className="px-6 py-4 text-right">
-                      <button 
-                        onClick={() => toast.info(`View details of ${t.name} tenancy`)}
-                        className="text-[#062c1a] hover:text-[#0c472c] font-bold text-sm hover:underline cursor-pointer mr-3"
+                    <td className="px-6 py-4 text-right whitespace-nowrap">
+                      {/* <button 
+                        onClick={() => handleOpenProfile(t)}
+                        className="text-[#062c1a] hover:text-[#0c472c] font-bold text-sm cursor-pointer mr-3"
                       >
-                        Profile
-                      </button>
-                      <button 
-                        onClick={() => toast.info(`Syncing tenancy records directly to Arthur API...`)}
-                        className="text-[#c8a270] hover:text-[#bfa075] font-bold text-sm hover:underline cursor-pointer"
+                        View Details
+                      </button> */}
+                      <button
+                          onClick={() => handleOpenProfile(t)}
+                          className="p-1.5 hover:bg-blue-50 rounded-lg text-[#062c1a] transition-colors cursor-pointer"
+                          title="View Details"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                     {/* <button
+                        onClick={() => toast.info("Syncing tenancy records directly to Arthur API...")}
+                        className="text-[#c8a270] hover:text-[#8B6B3F] font-bold text-sm cursor-pointer transition-colors duration-200"
                       >
                         Sync
-                      </button>
+                      </button> */}
                     </td>
                   </tr>
                 );
@@ -349,6 +389,115 @@ export default function TenantsPage() {
       {filteredTenants.length === 0 && (
         <div className="text-center py-16 bg-white border border-slate-100 rounded-2xl">
           <p className="text-slate-400 font-bold text-base">No tenant records found matching search criteria.</p>
+        </div>
+      )}
+
+      {/* Tenant Profile Details Modal */}
+      {isProfileModalOpen && selectedTenant && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div
+            className="bg-white rounded-3xl p-6 md:p-8 max-w-[650px] w-full shadow-2xl relative space-y-6 font-sans animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={handleCloseProfile}
+              className="absolute top-6 right-6 p-1.5 text-gray-400 hover:text-red-500 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+            >
+              <svg className="w-5 h-5 text-red-500 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Modal Header */}
+            <div className="border-b border-gray-100 pb-4 pr-8">
+              <div className="flex flex-wrap items-center gap-3">
+                <h2 className="text-2xl font-bold text-slate-800">
+                  {selectedTenant.name}
+                </h2>
+                <span className={`text-xs font-bold px-2.5 py-1 rounded-full uppercase ${
+                  selectedTenant.status === "Occupied"
+                    ? "text-emerald-700 bg-emerald-50"
+                    : "text-slate-500 bg-slate-50 border border-slate-200"
+                }`}>
+                  {selectedTenant.status}
+                </span>
+              </div>
+              <p className="text-sm text-slate-500 mt-1">Unit {selectedTenant.unit} — {selectedTenant.yard} Yard</p>
+            </div>
+
+            {/* Contact Details Card */}
+            <div className="space-y-3">
+              <h3 className="text-xs font-extrabold text-[#c8a270] uppercase tracking-wider">Contact Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 text-sm">
+                <div>
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px]">Email Addresses</span>
+                  <span className="font-bold text-slate-800 text-[13.5px] break-all">{selectedTenant.email}</span>
+                </div>
+                <div>
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px]">Phone Numbers</span>
+                  <span className="font-bold text-slate-800 text-[13.5px]">{selectedTenant.phone}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Lease & Financial Details */}
+            <div className="space-y-3">
+              <h3 className="text-xs font-extrabold text-[#c8a270] uppercase tracking-wider">Lease & Agreement Specifications</h3>
+              <div className="grid grid-cols-2 gap-y-4 gap-x-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-sm">
+                <div>
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px] mb-0.5">Lease Term Dates</span>
+                  <span className="font-bold text-slate-800">{selectedTenant.leaseStart} to {selectedTenant.leaseEnd}</span>
+                </div>
+                
+                <div>
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px] mb-0.5">Letting Agreement Type</span>
+                  <span className="font-bold text-slate-800 uppercase">{selectedTenant.lettingType}</span>
+                </div>
+
+                <div>
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px] mb-0.5">Monthly Rent Ledger</span>
+                  <span className="font-bold text-[#062c1a] text-[16px]">{selectedTenant.rent}</span>
+                </div>
+
+                <div>
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px] mb-0.5">Security Deposit Held</span>
+                  <span className="font-bold text-slate-800">{selectedTenant.deposit}</span>
+                </div>
+
+                <div className="col-span-2">
+                  <span className="block font-semibold text-slate-400 uppercase tracking-wide text-[10px] mb-0.5">Financial & Rent Status</span>
+                  <span className={`inline-flex px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider ${
+                    selectedTenant.rentStatus.toLowerCase().includes("owed") || selectedTenant.rentStatus.toLowerCase().includes("missing")
+                      ? "bg-rose-50 text-rose-800 border border-rose-100"
+                      : "bg-slate-100 text-slate-700"
+                  }`}>
+                    {selectedTenant.rentStatus || "No outstanding balances / verified"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Notes & Commentary */}
+            {selectedTenant.commentary && (
+              <div className="space-y-2 bg-[#062c1a]/5 p-4 rounded-xl border border-[#062c1a]/10">
+                <h4 className="text-xs font-bold text-[#062c1a] uppercase tracking-wider">Arthur Online Commentary & Warnings</h4>
+                <p className="text-xs text-slate-700 italic leading-relaxed">
+                  &ldquo;{selectedTenant.commentary}&rdquo;
+                </p>
+              </div>
+            )}
+
+            {/* Action Footer */}
+            <div className="flex justify-end pt-3">
+              <button
+                onClick={handleCloseProfile}
+                className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-bold uppercase transition-all cursor-pointer shadow-sm"
+              >
+                Close Profile
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

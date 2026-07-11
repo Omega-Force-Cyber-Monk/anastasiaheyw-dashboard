@@ -1,106 +1,166 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { useTenant } from "~/app/(withTanent)/tanent/TenantClientLayout";
+import { api } from "~/trpc/react";
+import { toast } from "sonner";
 
 export default function TenantMaintenancePage() {
-  const { metadata } = useTenant();
+  const { tenantDetails, metadata } = useTenant();
 
-  // Maintenance logs state
-  const [maintenanceReports, setMaintenanceReports] = useState([
-    {
-      id: "M01",
-      issue: "Remove TV from living room wall",
-      priority: "Low",
-      status: "Scheduled",
-      reportedDate: "2025-05-02",
-      notes: "Tenant requested TV bracket & unit to be removed. Handyman assigned.",
-    },
-    {
-      id: "M02",
-      issue: "Boiler annual certificate inspection check",
-      priority: "Medium",
-      status: "Completed",
-      reportedDate: "2025-04-12",
-      notes: "Completed by GasSafe engineer. Certificate uploaded.",
-    }
-  ]);
+  // Queries
+  const { data: dbReports, refetch: refetchReports } =
+    api.maintenance.getTenantReports.useQuery();
+  const { data: dbReadings, refetch: refetchReadings } =
+    api.maintenance.getTenantReadings.useQuery();
+
+  // Mutations
+  const createReportMutation = api.maintenance.createReport.useMutation();
+  const createReadingMutation = api.maintenance.createReading.useMutation();
 
   const [newIssue, setNewIssue] = useState("");
   const [newPriority, setNewPriority] = useState("Medium");
   const [reportSuccess, setReportSuccess] = useState(false);
 
-  // Meter Reading State
-  const [meterReadings, setMeterReadings] = useState<Array<{ type: string; value: string; date: string }>>([]);
-
-  useEffect(() => {
-    if (metadata) {
-      setMeterReadings([
-        {
-          type: "Electricity",
-          value: `${metadata.elecMeterCheckInValue} kWh (serial ${metadata.elecMeterSerial})`,
-          date: `${metadata.elecMeterCheckInDate} (Check-in)`,
-        },
-        {
-          type: "Water",
-          value: `${metadata.waterMeterCheckInValue} m³ (serial ${metadata.waterMeterSerial})`,
-          date: `${metadata.waterMeterCheckInDate} (Check-in)`,
-        },
-      ]);
-    }
-  }, [metadata]);
   const [elecRead, setElecRead] = useState("");
   const [waterRead, setWaterRead] = useState("");
   const [meterSuccess, setMeterSuccess] = useState(false);
 
-  const handleReportMaintenance = (e: React.FormEvent) => {
+  // Combine database reports and mock fallback
+  const reportsList = useMemo(() => {
+    if (!dbReports) return [];
+    
+    const list = dbReports.map((r) => ({
+      id: r.id.substring(0, 8).toUpperCase(),
+      issue: r.issue,
+      priority: r.priority,
+      status: r.status === "RESOLVED" ? "Completed" : "Submitted",
+      reportedDate: new Date(r.reportedDate).toISOString().split("T")[0]!,
+      notes: r.adminDescription ?? "Awaiting property manager review.",
+    }));
+
+    if (list.length === 0) {
+      return [
+        {
+          id: "M01",
+          issue: "Remove TV from living room wall",
+          priority: "Low",
+          status: "Scheduled",
+          reportedDate: "2025-05-02",
+          notes: "Tenant requested TV bracket & unit to be removed. Handyman assigned.",
+        },
+        {
+          id: "M02",
+          issue: "Boiler annual certificate inspection check",
+          priority: "Medium",
+          status: "Completed",
+          reportedDate: "2025-04-12",
+          notes: "Completed by GasSafe engineer. Certificate uploaded.",
+        },
+      ];
+    }
+    return list;
+  }, [dbReports]);
+
+  // Combine metadata check-in readings with dynamic DB readings
+  const combinedReadings = useMemo(() => {
+    const list: Array<{ type: string; value: string; date: string }> = [];
+
+    // Add check-in readings from Arthur metadata
+    if (metadata) {
+      if (metadata.elecMeterCheckInValue) {
+        list.push({
+          type: "Electricity",
+          value: `${metadata.elecMeterCheckInValue} kWh (serial ${metadata.elecMeterSerial})`,
+          date: `${metadata.elecMeterCheckInDate} (Check-in)`,
+        });
+      }
+      if (metadata.waterMeterCheckInValue) {
+        list.push({
+          type: "Water",
+          value: `${metadata.waterMeterCheckInValue} m³ (serial ${metadata.waterMeterSerial})`,
+          date: `${metadata.waterMeterCheckInDate} (Check-in)`,
+        });
+      }
+    }
+
+    // Add dynamic DB readings
+    if (dbReadings) {
+      dbReadings.forEach((reading) => {
+        list.push({
+          type: reading.type,
+          value: `${reading.value}`,
+          date: new Date(reading.loggedDate).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }),
+        });
+      });
+    }
+
+    return list;
+  }, [metadata, dbReadings]);
+
+  const handleReportMaintenance = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newIssue.trim()) return;
 
-    const newReport = {
-      id: `M0${maintenanceReports.length + 1}`,
-      issue: newIssue,
-      priority: newPriority,
-      status: "Submitted",
-      reportedDate: new Date().toISOString().split("T")[0]!,
-      notes: "Awaiting property manager review.",
-    };
+    try {
+      await createReportMutation.mutateAsync({
+        issue: newIssue,
+        priority: newPriority,
+        unitName: tenantDetails.unit,
+        propertyName: tenantDetails.property,
+      });
 
-    setMaintenanceReports([newReport, ...maintenanceReports]);
-    setNewIssue("");
-    setReportSuccess(true);
-    setTimeout(() => setReportSuccess(false), 4000);
+      setNewIssue("");
+      setReportSuccess(true);
+      await refetchReports();
+      toast.success("Maintenance ticket submitted successfully.");
+      setTimeout(() => setReportSuccess(false), 4000);
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to submit maintenance ticket.");
+    }
   };
 
-  const handleUpdateMeters = (e: React.FormEvent) => {
+  const handleUpdateMeters = async (e: React.FormEvent) => {
     e.preventDefault();
-    const updated = [...meterReadings];
     let changed = false;
 
-    if (elecRead.trim()) {
-      updated.push({
-        type: "Electricity",
-        value: `${elecRead} kWh`,
-        date: `${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}`
-      });
-      setElecRead("");
-      changed = true;
-    }
+    try {
+      if (elecRead.trim()) {
+        await createReadingMutation.mutateAsync({
+          type: "Electricity",
+          value: `${elecRead} kWh`,
+          unitName: tenantDetails.unit,
+          propertyName: tenantDetails.property,
+        });
+        setElecRead("");
+        changed = true;
+      }
 
-    if (waterRead.trim()) {
-      updated.push({
-        type: "Water",
-        value: `${waterRead} m³`,
-        date: `${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}`
-      });
-      setWaterRead("");
-      changed = true;
-    }
+      if (waterRead.trim()) {
+        await createReadingMutation.mutateAsync({
+          type: "Water",
+          value: `${waterRead} m³`,
+          unitName: tenantDetails.unit,
+          propertyName: tenantDetails.property,
+        });
+        setWaterRead("");
+        changed = true;
+      }
 
-    if (changed) {
-      setMeterReadings(updated);
-      setMeterSuccess(true);
-      setTimeout(() => setMeterSuccess(false), 4000);
+      if (changed) {
+        await refetchReadings();
+        setMeterSuccess(true);
+        toast.success("Meter readings updated successfully.");
+        setTimeout(() => setMeterSuccess(false), 4000);
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to save meter readings.");
     }
   };
 
@@ -108,30 +168,40 @@ export default function TenantMaintenancePage() {
     <div className="animate-in fade-in space-y-8 duration-300">
       {/* Header Panel */}
       <div className="border-b border-[#e2e8f0] pb-5">
-        <h1 className="font-serif text-3xl font-bold text-slate-900 tracking-tight">Maintenance & Utilities</h1>
-        <p className="text-sm text-slate-500 mt-1">Submit repair requests, track scheduled handymen, and report meter logs.</p>
+        <h1 className="font-serif text-3xl font-bold text-slate-900 tracking-tight">
+          Maintenance & Utilities
+        </h1>
+        <p className="text-sm text-slate-500 mt-1">
+          Submit repair requests, track scheduled handymen, and report meter logs.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Ticket list panel */}
         <div className="space-y-4">
           <div className="border-b border-[#e2e8f0] pb-2">
-            <h3 className="font-serif text-lg font-bold text-slate-900">Active Requests</h3>
-            <p className="text-xs text-slate-500">Track resolution status of your maintenance claims</p>
+            <h3 className="font-serif text-lg font-bold text-slate-900">
+              Active Requests
+            </h3>
+            <p className="text-xs text-slate-500">
+              Track resolution status of your maintenance claims
+            </p>
           </div>
 
           <div className="space-y-4">
-            {maintenanceReports.map((report) => (
+            {reportsList.map((report) => (
               <div
                 key={report.id}
                 className="p-5 rounded-xl border border-[#e2e8f0] bg-white hover:shadow-sm transition-all flex flex-col justify-between gap-4 text-sm"
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <span className="text-[10px] font-bold text-[#c8a270] uppercase bg-[#062c1a]/5 px-2 py-0.5 rounded-sm">
+                    <span className="text-[10px] font-bold text-[#c8a270] uppercase bg-[#062c1a]/5 px-2.5 py-0.5 rounded-sm">
                       Ticket {report.id}
                     </span>
-                    <h4 className="font-semibold text-slate-900 mt-1.5">{report.issue}</h4>
+                    <h4 className="font-semibold text-slate-900 mt-1.5">
+                      {report.issue}
+                    </h4>
                   </div>
                   <span
                     className={`text-[10px] font-bold uppercase px-2.5 py-1 rounded-md border ${
@@ -145,10 +215,19 @@ export default function TenantMaintenancePage() {
                     {report.status}
                   </span>
                 </div>
-                <p className="text-xs text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-lg border border-[#e2e8f0]">{report.notes}</p>
+                <p className="text-xs text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-lg border border-[#e2e8f0]">
+                  {report.notes}
+                </p>
                 <div className="flex justify-between items-center text-[10px] text-slate-400 border-t border-[#e2e8f0] pt-3">
-                  <span>Reported Date: <strong>{report.reportedDate}</strong></span>
-                  <span>Priority Level: <strong className="text-slate-700 uppercase">{report.priority}</strong></span>
+                  <span>
+                    Reported Date: <strong>{report.reportedDate}</strong>
+                  </span>
+                  <span>
+                    Priority Level:{" "}
+                    <strong className="text-slate-700 uppercase">
+                      {report.priority}
+                    </strong>
+                  </span>
                 </div>
               </div>
             ))}
@@ -158,14 +237,19 @@ export default function TenantMaintenancePage() {
         {/* Submit Form */}
         <div className="p-6 rounded-2xl border border-[#e2e8f0] bg-white shadow-sm space-y-5">
           <div className="border-b border-[#e2e8f0] pb-3">
-            <h3 className="font-serif text-lg font-bold text-slate-900">Report an Issue</h3>
-            <p className="text-xs text-slate-500">Provide details instantly to Heywood Property Services management</p>
+            <h3 className="font-serif text-lg font-bold text-slate-900">
+              Report an Issue
+            </h3>
+            <p className="text-xs text-slate-500">
+              Provide details instantly to Heywood Property Services management
+            </p>
           </div>
 
           <form onSubmit={handleReportMaintenance} className="space-y-4">
             {reportSuccess && (
               <div className="p-3 bg-emerald-50 border border-emerald-250 text-emerald-800 text-xs rounded-lg font-bold">
-                ✓ Maintenance ticket successfully submitted to Heywood Property Services!
+                ✓ Maintenance ticket successfully submitted to Heywood Property
+                Services!
               </div>
             )}
 
@@ -207,9 +291,10 @@ export default function TenantMaintenancePage() {
 
             <button
               type="submit"
-              className="w-full py-3 text-xs font-bold text-white bg-[#062c1a] hover:bg-[#0c472c] rounded-lg transition-all shadow-md cursor-pointer uppercase tracking-widest"
+              disabled={createReportMutation.isPending}
+              className="w-full py-3 text-xs font-bold text-white bg-[#062c1a] hover:bg-[#0c472c] rounded-lg transition-all shadow-md cursor-pointer uppercase tracking-widest disabled:opacity-50"
             >
-              Submit Ticket
+              {createReportMutation.isPending ? "Submitting..." : "Submit Ticket"}
             </button>
           </form>
         </div>
@@ -219,22 +304,37 @@ export default function TenantMaintenancePage() {
       <div className="border-t border-[#e2e8f0] pt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-4">
           <div className="border-b border-[#e2e8f0] pb-2">
-            <h3 className="font-serif text-lg font-bold text-slate-900 whitespace-nowrap ">Utility Registry</h3>
-            <p className="text-xs text-slate-500">Official meter logs used for tenant utility validations.</p>
+            <h3 className="font-serif text-lg font-bold text-slate-900 whitespace-nowrap ">
+              Utility Registry
+            </h3>
+            <p className="text-xs text-slate-500">
+              Official meter logs used for tenant utility validations.
+            </p>
           </div>
           <div className="w-full overflow-x-auto bg-white rounded-xl shadow-sm border border-[#E3E3E4]">
             <table className="min-w-[500px] w-full text-sm">
               <thead className="border-b border-[#DBE0E5] bg-gray-50">
                 <tr className="border-b border-[#e2e8f0] text-slate-455 font-bold bg-slate-50 text-xs uppercase tracking-wider">
-                  <th className="py-3 px-4 text-left whitespace-nowrap ">Utility Type</th>
-                  <th className="py-3 px-4 text-left whitespace-nowrap ">Reading Value</th>
-                  <th className="py-3 px-4 text-left whitespace-nowrap ">Logged Date</th>
+                  <th className="py-3 px-4 text-left whitespace-nowrap ">
+                    Utility Type
+                  </th>
+                  <th className="py-3 px-4 text-left whitespace-nowrap ">
+                    Reading Value
+                  </th>
+                  <th className="py-3 px-4 text-left whitespace-nowrap ">
+                    Logged Date
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e2e8f0]">
-                {meterReadings.map((reading, index) => (
-                  <tr key={index} className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-4 font-semibold text-slate-800">{reading.type}</td>
+                {combinedReadings.map((reading, index) => (
+                  <tr
+                    key={index}
+                    className="hover:bg-slate-50/50 transition-colors"
+                  >
+                    <td className="py-3.5 px-4 font-semibold text-slate-800">
+                      {reading.type}
+                    </td>
                     <td className="py-3.5 px-4">
                       <span className="font-mono font-bold text-[#062c1a] bg-[#062c1a]/5 px-2.5 py-1 rounded-md">
                         {reading.value}
@@ -246,14 +346,17 @@ export default function TenantMaintenancePage() {
               </tbody>
             </table>
           </div>
-
         </div>
 
         {/* Submit Readings */}
         <div className="p-6 rounded-2xl border border-[#e2e8f0] bg-white shadow-sm space-y-4">
           <div className="border-b border-[#e2e8f0] pb-2">
-            <h3 className="font-serif text-base font-bold text-slate-900">Update Readings</h3>
-            <p className="text-xs text-slate-500">Submit latest electricity or water figures to management.</p>
+            <h3 className="font-serif text-base font-bold text-slate-900">
+              Update Readings
+            </h3>
+            <p className="text-xs text-slate-500">
+              Submit latest electricity or water figures to management.
+            </p>
           </div>
 
           <form onSubmit={handleUpdateMeters} className="space-y-4">
@@ -292,9 +395,10 @@ export default function TenantMaintenancePage() {
 
             <button
               type="submit"
-              className="w-full py-2.5 text-xs font-bold text-[#062c1a] bg-white border border-[#e2e8f0] hover:bg-slate-50 rounded-lg transition-all cursor-pointer uppercase tracking-widest font-semibold"
+              disabled={createReadingMutation.isPending}
+              className="w-full py-2.5 text-xs font-bold text-[#062c1a] bg-white border border-[#e2e8f0] hover:bg-slate-50 rounded-lg transition-all cursor-pointer uppercase tracking-widest font-semibold disabled:opacity-50"
             >
-              Save Readings
+              {createReadingMutation.isPending ? "Saving..." : "Save Readings"}
             </button>
           </form>
         </div>

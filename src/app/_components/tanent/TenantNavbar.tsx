@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useTenant } from "~/app/(withTanent)/tanent/TenantClientLayout";
 
@@ -80,6 +81,14 @@ export function TenantNavbar() {
 
           {userMenuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-[#e2e8f0] rounded-xl shadow-xl py-2 z-30">
+              <Link
+                href="/tanent/profile"
+                onClick={() => setUserMenuOpen(false)}
+                className="w-full text-left block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 cursor-pointer font-bold transition-colors"
+              >
+                Profile
+              </Link>
+              <hr className="border-t border-[#e2e8f0]/60 my-1" />
               <button
                 onClick={async () => {
                   if (typeof window !== "undefined") {

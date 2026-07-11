@@ -156,3 +156,28 @@ model AdminProfile {
   role      String
   updatedAt DateTime @updatedAt
 }
+
+model MaintenanceReport {
+  id               String   @id @default(cuid())
+  userEmail        String
+  userName         String
+  unitName         String // flat unit name/number
+  propertyName     String // property name
+  issue            String // the description of the issue
+  priority         String // "Low" | "Medium" | "High"
+  status           String   @default("PENDING") // "PENDING" | "RESOLVED"
+  reportedDate     DateTime @default(now())
+  adminDescription String? // admin reply/resolution notes
+  updatedAt        DateTime @updatedAt
+}
+
+model MeterReading {
+  id           String   @id @default(cuid())
+  userEmail    String
+  userName     String
+  unitName     String
+  propertyName String
+  type         String // "Electricity" | "Water" | "Gas"
+  value        String // e.g. "45980 kWh"
+  loggedDate   DateTime @default(now())
+}

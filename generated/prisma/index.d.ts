@@ -63,6 +63,16 @@ export type ArthurTenancy = $Result.DefaultSelection<Prisma.$ArthurTenancyPayloa
  * 
  */
 export type AdminProfile = $Result.DefaultSelection<Prisma.$AdminProfilePayload>
+/**
+ * Model MaintenanceReport
+ * 
+ */
+export type MaintenanceReport = $Result.DefaultSelection<Prisma.$MaintenanceReportPayload>
+/**
+ * Model MeterReading
+ * 
+ */
+export type MeterReading = $Result.DefaultSelection<Prisma.$MeterReadingPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -281,6 +291,26 @@ export class PrismaClient<
     * ```
     */
   get adminProfile(): Prisma.AdminProfileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.maintenanceReport`: Exposes CRUD operations for the **MaintenanceReport** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MaintenanceReports
+    * const maintenanceReports = await prisma.maintenanceReport.findMany()
+    * ```
+    */
+  get maintenanceReport(): Prisma.MaintenanceReportDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.meterReading`: Exposes CRUD operations for the **MeterReading** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MeterReadings
+    * const meterReadings = await prisma.meterReading.findMany()
+    * ```
+    */
+  get meterReading(): Prisma.MeterReadingDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -731,7 +761,9 @@ export namespace Prisma {
     ArthurProperty: 'ArthurProperty',
     ArthurUnit: 'ArthurUnit',
     ArthurTenancy: 'ArthurTenancy',
-    AdminProfile: 'AdminProfile'
+    AdminProfile: 'AdminProfile',
+    MaintenanceReport: 'MaintenanceReport',
+    MeterReading: 'MeterReading'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -750,7 +782,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "account" | "session" | "user" | "verificationToken" | "arthurToken" | "arthurProperty" | "arthurUnit" | "arthurTenancy" | "adminProfile"
+      modelProps: "post" | "account" | "session" | "user" | "verificationToken" | "arthurToken" | "arthurProperty" | "arthurUnit" | "arthurTenancy" | "adminProfile" | "maintenanceReport" | "meterReading"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1494,6 +1526,154 @@ export namespace Prisma {
           }
         }
       }
+      MaintenanceReport: {
+        payload: Prisma.$MaintenanceReportPayload<ExtArgs>
+        fields: Prisma.MaintenanceReportFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MaintenanceReportFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MaintenanceReportFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>
+          }
+          findFirst: {
+            args: Prisma.MaintenanceReportFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MaintenanceReportFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>
+          }
+          findMany: {
+            args: Prisma.MaintenanceReportFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>[]
+          }
+          create: {
+            args: Prisma.MaintenanceReportCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>
+          }
+          createMany: {
+            args: Prisma.MaintenanceReportCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MaintenanceReportCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>[]
+          }
+          delete: {
+            args: Prisma.MaintenanceReportDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>
+          }
+          update: {
+            args: Prisma.MaintenanceReportUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>
+          }
+          deleteMany: {
+            args: Prisma.MaintenanceReportDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MaintenanceReportUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MaintenanceReportUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>[]
+          }
+          upsert: {
+            args: Prisma.MaintenanceReportUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MaintenanceReportPayload>
+          }
+          aggregate: {
+            args: Prisma.MaintenanceReportAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMaintenanceReport>
+          }
+          groupBy: {
+            args: Prisma.MaintenanceReportGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MaintenanceReportGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MaintenanceReportCountArgs<ExtArgs>
+            result: $Utils.Optional<MaintenanceReportCountAggregateOutputType> | number
+          }
+        }
+      }
+      MeterReading: {
+        payload: Prisma.$MeterReadingPayload<ExtArgs>
+        fields: Prisma.MeterReadingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MeterReadingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MeterReadingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>
+          }
+          findFirst: {
+            args: Prisma.MeterReadingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MeterReadingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>
+          }
+          findMany: {
+            args: Prisma.MeterReadingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>[]
+          }
+          create: {
+            args: Prisma.MeterReadingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>
+          }
+          createMany: {
+            args: Prisma.MeterReadingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MeterReadingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>[]
+          }
+          delete: {
+            args: Prisma.MeterReadingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>
+          }
+          update: {
+            args: Prisma.MeterReadingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>
+          }
+          deleteMany: {
+            args: Prisma.MeterReadingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MeterReadingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MeterReadingUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>[]
+          }
+          upsert: {
+            args: Prisma.MeterReadingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeterReadingPayload>
+          }
+          aggregate: {
+            args: Prisma.MeterReadingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMeterReading>
+          }
+          groupBy: {
+            args: Prisma.MeterReadingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MeterReadingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MeterReadingCountArgs<ExtArgs>
+            result: $Utils.Optional<MeterReadingCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1600,6 +1780,8 @@ export namespace Prisma {
     arthurUnit?: ArthurUnitOmit
     arthurTenancy?: ArthurTenancyOmit
     adminProfile?: AdminProfileOmit
+    maintenanceReport?: MaintenanceReportOmit
+    meterReading?: MeterReadingOmit
   }
 
   /* Types for Logging */
@@ -13083,6 +13265,2113 @@ export namespace Prisma {
 
 
   /**
+   * Model MaintenanceReport
+   */
+
+  export type AggregateMaintenanceReport = {
+    _count: MaintenanceReportCountAggregateOutputType | null
+    _min: MaintenanceReportMinAggregateOutputType | null
+    _max: MaintenanceReportMaxAggregateOutputType | null
+  }
+
+  export type MaintenanceReportMinAggregateOutputType = {
+    id: string | null
+    userEmail: string | null
+    userName: string | null
+    unitName: string | null
+    propertyName: string | null
+    issue: string | null
+    priority: string | null
+    status: string | null
+    reportedDate: Date | null
+    adminDescription: string | null
+    updatedAt: Date | null
+  }
+
+  export type MaintenanceReportMaxAggregateOutputType = {
+    id: string | null
+    userEmail: string | null
+    userName: string | null
+    unitName: string | null
+    propertyName: string | null
+    issue: string | null
+    priority: string | null
+    status: string | null
+    reportedDate: Date | null
+    adminDescription: string | null
+    updatedAt: Date | null
+  }
+
+  export type MaintenanceReportCountAggregateOutputType = {
+    id: number
+    userEmail: number
+    userName: number
+    unitName: number
+    propertyName: number
+    issue: number
+    priority: number
+    status: number
+    reportedDate: number
+    adminDescription: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MaintenanceReportMinAggregateInputType = {
+    id?: true
+    userEmail?: true
+    userName?: true
+    unitName?: true
+    propertyName?: true
+    issue?: true
+    priority?: true
+    status?: true
+    reportedDate?: true
+    adminDescription?: true
+    updatedAt?: true
+  }
+
+  export type MaintenanceReportMaxAggregateInputType = {
+    id?: true
+    userEmail?: true
+    userName?: true
+    unitName?: true
+    propertyName?: true
+    issue?: true
+    priority?: true
+    status?: true
+    reportedDate?: true
+    adminDescription?: true
+    updatedAt?: true
+  }
+
+  export type MaintenanceReportCountAggregateInputType = {
+    id?: true
+    userEmail?: true
+    userName?: true
+    unitName?: true
+    propertyName?: true
+    issue?: true
+    priority?: true
+    status?: true
+    reportedDate?: true
+    adminDescription?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MaintenanceReportAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MaintenanceReport to aggregate.
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MaintenanceReports to fetch.
+     */
+    orderBy?: MaintenanceReportOrderByWithRelationInput | MaintenanceReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MaintenanceReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MaintenanceReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MaintenanceReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MaintenanceReports
+    **/
+    _count?: true | MaintenanceReportCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MaintenanceReportMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MaintenanceReportMaxAggregateInputType
+  }
+
+  export type GetMaintenanceReportAggregateType<T extends MaintenanceReportAggregateArgs> = {
+        [P in keyof T & keyof AggregateMaintenanceReport]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMaintenanceReport[P]>
+      : GetScalarType<T[P], AggregateMaintenanceReport[P]>
+  }
+
+
+
+
+  export type MaintenanceReportGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MaintenanceReportWhereInput
+    orderBy?: MaintenanceReportOrderByWithAggregationInput | MaintenanceReportOrderByWithAggregationInput[]
+    by: MaintenanceReportScalarFieldEnum[] | MaintenanceReportScalarFieldEnum
+    having?: MaintenanceReportScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MaintenanceReportCountAggregateInputType | true
+    _min?: MaintenanceReportMinAggregateInputType
+    _max?: MaintenanceReportMaxAggregateInputType
+  }
+
+  export type MaintenanceReportGroupByOutputType = {
+    id: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    issue: string
+    priority: string
+    status: string
+    reportedDate: Date
+    adminDescription: string | null
+    updatedAt: Date
+    _count: MaintenanceReportCountAggregateOutputType | null
+    _min: MaintenanceReportMinAggregateOutputType | null
+    _max: MaintenanceReportMaxAggregateOutputType | null
+  }
+
+  type GetMaintenanceReportGroupByPayload<T extends MaintenanceReportGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MaintenanceReportGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MaintenanceReportGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MaintenanceReportGroupByOutputType[P]>
+            : GetScalarType<T[P], MaintenanceReportGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MaintenanceReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    issue?: boolean
+    priority?: boolean
+    status?: boolean
+    reportedDate?: boolean
+    adminDescription?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["maintenanceReport"]>
+
+  export type MaintenanceReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    issue?: boolean
+    priority?: boolean
+    status?: boolean
+    reportedDate?: boolean
+    adminDescription?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["maintenanceReport"]>
+
+  export type MaintenanceReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    issue?: boolean
+    priority?: boolean
+    status?: boolean
+    reportedDate?: boolean
+    adminDescription?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["maintenanceReport"]>
+
+  export type MaintenanceReportSelectScalar = {
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    issue?: boolean
+    priority?: boolean
+    status?: boolean
+    reportedDate?: boolean
+    adminDescription?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MaintenanceReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userEmail" | "userName" | "unitName" | "propertyName" | "issue" | "priority" | "status" | "reportedDate" | "adminDescription" | "updatedAt", ExtArgs["result"]["maintenanceReport"]>
+
+  export type $MaintenanceReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MaintenanceReport"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userEmail: string
+      userName: string
+      unitName: string
+      propertyName: string
+      issue: string
+      priority: string
+      status: string
+      reportedDate: Date
+      adminDescription: string | null
+      updatedAt: Date
+    }, ExtArgs["result"]["maintenanceReport"]>
+    composites: {}
+  }
+
+  type MaintenanceReportGetPayload<S extends boolean | null | undefined | MaintenanceReportDefaultArgs> = $Result.GetResult<Prisma.$MaintenanceReportPayload, S>
+
+  type MaintenanceReportCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MaintenanceReportFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MaintenanceReportCountAggregateInputType | true
+    }
+
+  export interface MaintenanceReportDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MaintenanceReport'], meta: { name: 'MaintenanceReport' } }
+    /**
+     * Find zero or one MaintenanceReport that matches the filter.
+     * @param {MaintenanceReportFindUniqueArgs} args - Arguments to find a MaintenanceReport
+     * @example
+     * // Get one MaintenanceReport
+     * const maintenanceReport = await prisma.maintenanceReport.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MaintenanceReportFindUniqueArgs>(args: SelectSubset<T, MaintenanceReportFindUniqueArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MaintenanceReport that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MaintenanceReportFindUniqueOrThrowArgs} args - Arguments to find a MaintenanceReport
+     * @example
+     * // Get one MaintenanceReport
+     * const maintenanceReport = await prisma.maintenanceReport.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MaintenanceReportFindUniqueOrThrowArgs>(args: SelectSubset<T, MaintenanceReportFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MaintenanceReport that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportFindFirstArgs} args - Arguments to find a MaintenanceReport
+     * @example
+     * // Get one MaintenanceReport
+     * const maintenanceReport = await prisma.maintenanceReport.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MaintenanceReportFindFirstArgs>(args?: SelectSubset<T, MaintenanceReportFindFirstArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MaintenanceReport that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportFindFirstOrThrowArgs} args - Arguments to find a MaintenanceReport
+     * @example
+     * // Get one MaintenanceReport
+     * const maintenanceReport = await prisma.maintenanceReport.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MaintenanceReportFindFirstOrThrowArgs>(args?: SelectSubset<T, MaintenanceReportFindFirstOrThrowArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MaintenanceReports that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MaintenanceReports
+     * const maintenanceReports = await prisma.maintenanceReport.findMany()
+     * 
+     * // Get first 10 MaintenanceReports
+     * const maintenanceReports = await prisma.maintenanceReport.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const maintenanceReportWithIdOnly = await prisma.maintenanceReport.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MaintenanceReportFindManyArgs>(args?: SelectSubset<T, MaintenanceReportFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MaintenanceReport.
+     * @param {MaintenanceReportCreateArgs} args - Arguments to create a MaintenanceReport.
+     * @example
+     * // Create one MaintenanceReport
+     * const MaintenanceReport = await prisma.maintenanceReport.create({
+     *   data: {
+     *     // ... data to create a MaintenanceReport
+     *   }
+     * })
+     * 
+     */
+    create<T extends MaintenanceReportCreateArgs>(args: SelectSubset<T, MaintenanceReportCreateArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MaintenanceReports.
+     * @param {MaintenanceReportCreateManyArgs} args - Arguments to create many MaintenanceReports.
+     * @example
+     * // Create many MaintenanceReports
+     * const maintenanceReport = await prisma.maintenanceReport.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MaintenanceReportCreateManyArgs>(args?: SelectSubset<T, MaintenanceReportCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MaintenanceReports and returns the data saved in the database.
+     * @param {MaintenanceReportCreateManyAndReturnArgs} args - Arguments to create many MaintenanceReports.
+     * @example
+     * // Create many MaintenanceReports
+     * const maintenanceReport = await prisma.maintenanceReport.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MaintenanceReports and only return the `id`
+     * const maintenanceReportWithIdOnly = await prisma.maintenanceReport.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MaintenanceReportCreateManyAndReturnArgs>(args?: SelectSubset<T, MaintenanceReportCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MaintenanceReport.
+     * @param {MaintenanceReportDeleteArgs} args - Arguments to delete one MaintenanceReport.
+     * @example
+     * // Delete one MaintenanceReport
+     * const MaintenanceReport = await prisma.maintenanceReport.delete({
+     *   where: {
+     *     // ... filter to delete one MaintenanceReport
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MaintenanceReportDeleteArgs>(args: SelectSubset<T, MaintenanceReportDeleteArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MaintenanceReport.
+     * @param {MaintenanceReportUpdateArgs} args - Arguments to update one MaintenanceReport.
+     * @example
+     * // Update one MaintenanceReport
+     * const maintenanceReport = await prisma.maintenanceReport.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MaintenanceReportUpdateArgs>(args: SelectSubset<T, MaintenanceReportUpdateArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MaintenanceReports.
+     * @param {MaintenanceReportDeleteManyArgs} args - Arguments to filter MaintenanceReports to delete.
+     * @example
+     * // Delete a few MaintenanceReports
+     * const { count } = await prisma.maintenanceReport.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MaintenanceReportDeleteManyArgs>(args?: SelectSubset<T, MaintenanceReportDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MaintenanceReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MaintenanceReports
+     * const maintenanceReport = await prisma.maintenanceReport.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MaintenanceReportUpdateManyArgs>(args: SelectSubset<T, MaintenanceReportUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MaintenanceReports and returns the data updated in the database.
+     * @param {MaintenanceReportUpdateManyAndReturnArgs} args - Arguments to update many MaintenanceReports.
+     * @example
+     * // Update many MaintenanceReports
+     * const maintenanceReport = await prisma.maintenanceReport.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MaintenanceReports and only return the `id`
+     * const maintenanceReportWithIdOnly = await prisma.maintenanceReport.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MaintenanceReportUpdateManyAndReturnArgs>(args: SelectSubset<T, MaintenanceReportUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MaintenanceReport.
+     * @param {MaintenanceReportUpsertArgs} args - Arguments to update or create a MaintenanceReport.
+     * @example
+     * // Update or create a MaintenanceReport
+     * const maintenanceReport = await prisma.maintenanceReport.upsert({
+     *   create: {
+     *     // ... data to create a MaintenanceReport
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MaintenanceReport we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MaintenanceReportUpsertArgs>(args: SelectSubset<T, MaintenanceReportUpsertArgs<ExtArgs>>): Prisma__MaintenanceReportClient<$Result.GetResult<Prisma.$MaintenanceReportPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MaintenanceReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportCountArgs} args - Arguments to filter MaintenanceReports to count.
+     * @example
+     * // Count the number of MaintenanceReports
+     * const count = await prisma.maintenanceReport.count({
+     *   where: {
+     *     // ... the filter for the MaintenanceReports we want to count
+     *   }
+     * })
+    **/
+    count<T extends MaintenanceReportCountArgs>(
+      args?: Subset<T, MaintenanceReportCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MaintenanceReportCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MaintenanceReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MaintenanceReportAggregateArgs>(args: Subset<T, MaintenanceReportAggregateArgs>): Prisma.PrismaPromise<GetMaintenanceReportAggregateType<T>>
+
+    /**
+     * Group by MaintenanceReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MaintenanceReportGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MaintenanceReportGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MaintenanceReportGroupByArgs['orderBy'] }
+        : { orderBy?: MaintenanceReportGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MaintenanceReportGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMaintenanceReportGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MaintenanceReport model
+   */
+  readonly fields: MaintenanceReportFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MaintenanceReport.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MaintenanceReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MaintenanceReport model
+   */
+  interface MaintenanceReportFieldRefs {
+    readonly id: FieldRef<"MaintenanceReport", 'String'>
+    readonly userEmail: FieldRef<"MaintenanceReport", 'String'>
+    readonly userName: FieldRef<"MaintenanceReport", 'String'>
+    readonly unitName: FieldRef<"MaintenanceReport", 'String'>
+    readonly propertyName: FieldRef<"MaintenanceReport", 'String'>
+    readonly issue: FieldRef<"MaintenanceReport", 'String'>
+    readonly priority: FieldRef<"MaintenanceReport", 'String'>
+    readonly status: FieldRef<"MaintenanceReport", 'String'>
+    readonly reportedDate: FieldRef<"MaintenanceReport", 'DateTime'>
+    readonly adminDescription: FieldRef<"MaintenanceReport", 'String'>
+    readonly updatedAt: FieldRef<"MaintenanceReport", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MaintenanceReport findUnique
+   */
+  export type MaintenanceReportFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * Filter, which MaintenanceReport to fetch.
+     */
+    where: MaintenanceReportWhereUniqueInput
+  }
+
+  /**
+   * MaintenanceReport findUniqueOrThrow
+   */
+  export type MaintenanceReportFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * Filter, which MaintenanceReport to fetch.
+     */
+    where: MaintenanceReportWhereUniqueInput
+  }
+
+  /**
+   * MaintenanceReport findFirst
+   */
+  export type MaintenanceReportFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * Filter, which MaintenanceReport to fetch.
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MaintenanceReports to fetch.
+     */
+    orderBy?: MaintenanceReportOrderByWithRelationInput | MaintenanceReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MaintenanceReports.
+     */
+    cursor?: MaintenanceReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MaintenanceReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MaintenanceReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MaintenanceReports.
+     */
+    distinct?: MaintenanceReportScalarFieldEnum | MaintenanceReportScalarFieldEnum[]
+  }
+
+  /**
+   * MaintenanceReport findFirstOrThrow
+   */
+  export type MaintenanceReportFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * Filter, which MaintenanceReport to fetch.
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MaintenanceReports to fetch.
+     */
+    orderBy?: MaintenanceReportOrderByWithRelationInput | MaintenanceReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MaintenanceReports.
+     */
+    cursor?: MaintenanceReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MaintenanceReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MaintenanceReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MaintenanceReports.
+     */
+    distinct?: MaintenanceReportScalarFieldEnum | MaintenanceReportScalarFieldEnum[]
+  }
+
+  /**
+   * MaintenanceReport findMany
+   */
+  export type MaintenanceReportFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * Filter, which MaintenanceReports to fetch.
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MaintenanceReports to fetch.
+     */
+    orderBy?: MaintenanceReportOrderByWithRelationInput | MaintenanceReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MaintenanceReports.
+     */
+    cursor?: MaintenanceReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MaintenanceReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MaintenanceReports.
+     */
+    skip?: number
+    distinct?: MaintenanceReportScalarFieldEnum | MaintenanceReportScalarFieldEnum[]
+  }
+
+  /**
+   * MaintenanceReport create
+   */
+  export type MaintenanceReportCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * The data needed to create a MaintenanceReport.
+     */
+    data: XOR<MaintenanceReportCreateInput, MaintenanceReportUncheckedCreateInput>
+  }
+
+  /**
+   * MaintenanceReport createMany
+   */
+  export type MaintenanceReportCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MaintenanceReports.
+     */
+    data: MaintenanceReportCreateManyInput | MaintenanceReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MaintenanceReport createManyAndReturn
+   */
+  export type MaintenanceReportCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * The data used to create many MaintenanceReports.
+     */
+    data: MaintenanceReportCreateManyInput | MaintenanceReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MaintenanceReport update
+   */
+  export type MaintenanceReportUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * The data needed to update a MaintenanceReport.
+     */
+    data: XOR<MaintenanceReportUpdateInput, MaintenanceReportUncheckedUpdateInput>
+    /**
+     * Choose, which MaintenanceReport to update.
+     */
+    where: MaintenanceReportWhereUniqueInput
+  }
+
+  /**
+   * MaintenanceReport updateMany
+   */
+  export type MaintenanceReportUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MaintenanceReports.
+     */
+    data: XOR<MaintenanceReportUpdateManyMutationInput, MaintenanceReportUncheckedUpdateManyInput>
+    /**
+     * Filter which MaintenanceReports to update
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * Limit how many MaintenanceReports to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MaintenanceReport updateManyAndReturn
+   */
+  export type MaintenanceReportUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * The data used to update MaintenanceReports.
+     */
+    data: XOR<MaintenanceReportUpdateManyMutationInput, MaintenanceReportUncheckedUpdateManyInput>
+    /**
+     * Filter which MaintenanceReports to update
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * Limit how many MaintenanceReports to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MaintenanceReport upsert
+   */
+  export type MaintenanceReportUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * The filter to search for the MaintenanceReport to update in case it exists.
+     */
+    where: MaintenanceReportWhereUniqueInput
+    /**
+     * In case the MaintenanceReport found by the `where` argument doesn't exist, create a new MaintenanceReport with this data.
+     */
+    create: XOR<MaintenanceReportCreateInput, MaintenanceReportUncheckedCreateInput>
+    /**
+     * In case the MaintenanceReport was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MaintenanceReportUpdateInput, MaintenanceReportUncheckedUpdateInput>
+  }
+
+  /**
+   * MaintenanceReport delete
+   */
+  export type MaintenanceReportDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+    /**
+     * Filter which MaintenanceReport to delete.
+     */
+    where: MaintenanceReportWhereUniqueInput
+  }
+
+  /**
+   * MaintenanceReport deleteMany
+   */
+  export type MaintenanceReportDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MaintenanceReports to delete
+     */
+    where?: MaintenanceReportWhereInput
+    /**
+     * Limit how many MaintenanceReports to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MaintenanceReport without action
+   */
+  export type MaintenanceReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaintenanceReport
+     */
+    select?: MaintenanceReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MaintenanceReport
+     */
+    omit?: MaintenanceReportOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MeterReading
+   */
+
+  export type AggregateMeterReading = {
+    _count: MeterReadingCountAggregateOutputType | null
+    _min: MeterReadingMinAggregateOutputType | null
+    _max: MeterReadingMaxAggregateOutputType | null
+  }
+
+  export type MeterReadingMinAggregateOutputType = {
+    id: string | null
+    userEmail: string | null
+    userName: string | null
+    unitName: string | null
+    propertyName: string | null
+    type: string | null
+    value: string | null
+    loggedDate: Date | null
+  }
+
+  export type MeterReadingMaxAggregateOutputType = {
+    id: string | null
+    userEmail: string | null
+    userName: string | null
+    unitName: string | null
+    propertyName: string | null
+    type: string | null
+    value: string | null
+    loggedDate: Date | null
+  }
+
+  export type MeterReadingCountAggregateOutputType = {
+    id: number
+    userEmail: number
+    userName: number
+    unitName: number
+    propertyName: number
+    type: number
+    value: number
+    loggedDate: number
+    _all: number
+  }
+
+
+  export type MeterReadingMinAggregateInputType = {
+    id?: true
+    userEmail?: true
+    userName?: true
+    unitName?: true
+    propertyName?: true
+    type?: true
+    value?: true
+    loggedDate?: true
+  }
+
+  export type MeterReadingMaxAggregateInputType = {
+    id?: true
+    userEmail?: true
+    userName?: true
+    unitName?: true
+    propertyName?: true
+    type?: true
+    value?: true
+    loggedDate?: true
+  }
+
+  export type MeterReadingCountAggregateInputType = {
+    id?: true
+    userEmail?: true
+    userName?: true
+    unitName?: true
+    propertyName?: true
+    type?: true
+    value?: true
+    loggedDate?: true
+    _all?: true
+  }
+
+  export type MeterReadingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MeterReading to aggregate.
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MeterReadings to fetch.
+     */
+    orderBy?: MeterReadingOrderByWithRelationInput | MeterReadingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MeterReadingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MeterReadings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MeterReadings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MeterReadings
+    **/
+    _count?: true | MeterReadingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MeterReadingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MeterReadingMaxAggregateInputType
+  }
+
+  export type GetMeterReadingAggregateType<T extends MeterReadingAggregateArgs> = {
+        [P in keyof T & keyof AggregateMeterReading]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMeterReading[P]>
+      : GetScalarType<T[P], AggregateMeterReading[P]>
+  }
+
+
+
+
+  export type MeterReadingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MeterReadingWhereInput
+    orderBy?: MeterReadingOrderByWithAggregationInput | MeterReadingOrderByWithAggregationInput[]
+    by: MeterReadingScalarFieldEnum[] | MeterReadingScalarFieldEnum
+    having?: MeterReadingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MeterReadingCountAggregateInputType | true
+    _min?: MeterReadingMinAggregateInputType
+    _max?: MeterReadingMaxAggregateInputType
+  }
+
+  export type MeterReadingGroupByOutputType = {
+    id: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    type: string
+    value: string
+    loggedDate: Date
+    _count: MeterReadingCountAggregateOutputType | null
+    _min: MeterReadingMinAggregateOutputType | null
+    _max: MeterReadingMaxAggregateOutputType | null
+  }
+
+  type GetMeterReadingGroupByPayload<T extends MeterReadingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MeterReadingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MeterReadingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MeterReadingGroupByOutputType[P]>
+            : GetScalarType<T[P], MeterReadingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MeterReadingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    type?: boolean
+    value?: boolean
+    loggedDate?: boolean
+  }, ExtArgs["result"]["meterReading"]>
+
+  export type MeterReadingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    type?: boolean
+    value?: boolean
+    loggedDate?: boolean
+  }, ExtArgs["result"]["meterReading"]>
+
+  export type MeterReadingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    type?: boolean
+    value?: boolean
+    loggedDate?: boolean
+  }, ExtArgs["result"]["meterReading"]>
+
+  export type MeterReadingSelectScalar = {
+    id?: boolean
+    userEmail?: boolean
+    userName?: boolean
+    unitName?: boolean
+    propertyName?: boolean
+    type?: boolean
+    value?: boolean
+    loggedDate?: boolean
+  }
+
+  export type MeterReadingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userEmail" | "userName" | "unitName" | "propertyName" | "type" | "value" | "loggedDate", ExtArgs["result"]["meterReading"]>
+
+  export type $MeterReadingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MeterReading"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userEmail: string
+      userName: string
+      unitName: string
+      propertyName: string
+      type: string
+      value: string
+      loggedDate: Date
+    }, ExtArgs["result"]["meterReading"]>
+    composites: {}
+  }
+
+  type MeterReadingGetPayload<S extends boolean | null | undefined | MeterReadingDefaultArgs> = $Result.GetResult<Prisma.$MeterReadingPayload, S>
+
+  type MeterReadingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MeterReadingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MeterReadingCountAggregateInputType | true
+    }
+
+  export interface MeterReadingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MeterReading'], meta: { name: 'MeterReading' } }
+    /**
+     * Find zero or one MeterReading that matches the filter.
+     * @param {MeterReadingFindUniqueArgs} args - Arguments to find a MeterReading
+     * @example
+     * // Get one MeterReading
+     * const meterReading = await prisma.meterReading.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MeterReadingFindUniqueArgs>(args: SelectSubset<T, MeterReadingFindUniqueArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MeterReading that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MeterReadingFindUniqueOrThrowArgs} args - Arguments to find a MeterReading
+     * @example
+     * // Get one MeterReading
+     * const meterReading = await prisma.meterReading.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MeterReadingFindUniqueOrThrowArgs>(args: SelectSubset<T, MeterReadingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MeterReading that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingFindFirstArgs} args - Arguments to find a MeterReading
+     * @example
+     * // Get one MeterReading
+     * const meterReading = await prisma.meterReading.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MeterReadingFindFirstArgs>(args?: SelectSubset<T, MeterReadingFindFirstArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MeterReading that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingFindFirstOrThrowArgs} args - Arguments to find a MeterReading
+     * @example
+     * // Get one MeterReading
+     * const meterReading = await prisma.meterReading.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MeterReadingFindFirstOrThrowArgs>(args?: SelectSubset<T, MeterReadingFindFirstOrThrowArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MeterReadings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MeterReadings
+     * const meterReadings = await prisma.meterReading.findMany()
+     * 
+     * // Get first 10 MeterReadings
+     * const meterReadings = await prisma.meterReading.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const meterReadingWithIdOnly = await prisma.meterReading.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MeterReadingFindManyArgs>(args?: SelectSubset<T, MeterReadingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MeterReading.
+     * @param {MeterReadingCreateArgs} args - Arguments to create a MeterReading.
+     * @example
+     * // Create one MeterReading
+     * const MeterReading = await prisma.meterReading.create({
+     *   data: {
+     *     // ... data to create a MeterReading
+     *   }
+     * })
+     * 
+     */
+    create<T extends MeterReadingCreateArgs>(args: SelectSubset<T, MeterReadingCreateArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MeterReadings.
+     * @param {MeterReadingCreateManyArgs} args - Arguments to create many MeterReadings.
+     * @example
+     * // Create many MeterReadings
+     * const meterReading = await prisma.meterReading.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MeterReadingCreateManyArgs>(args?: SelectSubset<T, MeterReadingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MeterReadings and returns the data saved in the database.
+     * @param {MeterReadingCreateManyAndReturnArgs} args - Arguments to create many MeterReadings.
+     * @example
+     * // Create many MeterReadings
+     * const meterReading = await prisma.meterReading.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MeterReadings and only return the `id`
+     * const meterReadingWithIdOnly = await prisma.meterReading.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MeterReadingCreateManyAndReturnArgs>(args?: SelectSubset<T, MeterReadingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MeterReading.
+     * @param {MeterReadingDeleteArgs} args - Arguments to delete one MeterReading.
+     * @example
+     * // Delete one MeterReading
+     * const MeterReading = await prisma.meterReading.delete({
+     *   where: {
+     *     // ... filter to delete one MeterReading
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MeterReadingDeleteArgs>(args: SelectSubset<T, MeterReadingDeleteArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MeterReading.
+     * @param {MeterReadingUpdateArgs} args - Arguments to update one MeterReading.
+     * @example
+     * // Update one MeterReading
+     * const meterReading = await prisma.meterReading.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MeterReadingUpdateArgs>(args: SelectSubset<T, MeterReadingUpdateArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MeterReadings.
+     * @param {MeterReadingDeleteManyArgs} args - Arguments to filter MeterReadings to delete.
+     * @example
+     * // Delete a few MeterReadings
+     * const { count } = await prisma.meterReading.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MeterReadingDeleteManyArgs>(args?: SelectSubset<T, MeterReadingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MeterReadings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MeterReadings
+     * const meterReading = await prisma.meterReading.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MeterReadingUpdateManyArgs>(args: SelectSubset<T, MeterReadingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MeterReadings and returns the data updated in the database.
+     * @param {MeterReadingUpdateManyAndReturnArgs} args - Arguments to update many MeterReadings.
+     * @example
+     * // Update many MeterReadings
+     * const meterReading = await prisma.meterReading.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MeterReadings and only return the `id`
+     * const meterReadingWithIdOnly = await prisma.meterReading.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MeterReadingUpdateManyAndReturnArgs>(args: SelectSubset<T, MeterReadingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MeterReading.
+     * @param {MeterReadingUpsertArgs} args - Arguments to update or create a MeterReading.
+     * @example
+     * // Update or create a MeterReading
+     * const meterReading = await prisma.meterReading.upsert({
+     *   create: {
+     *     // ... data to create a MeterReading
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MeterReading we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MeterReadingUpsertArgs>(args: SelectSubset<T, MeterReadingUpsertArgs<ExtArgs>>): Prisma__MeterReadingClient<$Result.GetResult<Prisma.$MeterReadingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MeterReadings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingCountArgs} args - Arguments to filter MeterReadings to count.
+     * @example
+     * // Count the number of MeterReadings
+     * const count = await prisma.meterReading.count({
+     *   where: {
+     *     // ... the filter for the MeterReadings we want to count
+     *   }
+     * })
+    **/
+    count<T extends MeterReadingCountArgs>(
+      args?: Subset<T, MeterReadingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MeterReadingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MeterReading.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MeterReadingAggregateArgs>(args: Subset<T, MeterReadingAggregateArgs>): Prisma.PrismaPromise<GetMeterReadingAggregateType<T>>
+
+    /**
+     * Group by MeterReading.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MeterReadingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MeterReadingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MeterReadingGroupByArgs['orderBy'] }
+        : { orderBy?: MeterReadingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MeterReadingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMeterReadingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MeterReading model
+   */
+  readonly fields: MeterReadingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MeterReading.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MeterReadingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MeterReading model
+   */
+  interface MeterReadingFieldRefs {
+    readonly id: FieldRef<"MeterReading", 'String'>
+    readonly userEmail: FieldRef<"MeterReading", 'String'>
+    readonly userName: FieldRef<"MeterReading", 'String'>
+    readonly unitName: FieldRef<"MeterReading", 'String'>
+    readonly propertyName: FieldRef<"MeterReading", 'String'>
+    readonly type: FieldRef<"MeterReading", 'String'>
+    readonly value: FieldRef<"MeterReading", 'String'>
+    readonly loggedDate: FieldRef<"MeterReading", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MeterReading findUnique
+   */
+  export type MeterReadingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * Filter, which MeterReading to fetch.
+     */
+    where: MeterReadingWhereUniqueInput
+  }
+
+  /**
+   * MeterReading findUniqueOrThrow
+   */
+  export type MeterReadingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * Filter, which MeterReading to fetch.
+     */
+    where: MeterReadingWhereUniqueInput
+  }
+
+  /**
+   * MeterReading findFirst
+   */
+  export type MeterReadingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * Filter, which MeterReading to fetch.
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MeterReadings to fetch.
+     */
+    orderBy?: MeterReadingOrderByWithRelationInput | MeterReadingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MeterReadings.
+     */
+    cursor?: MeterReadingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MeterReadings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MeterReadings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MeterReadings.
+     */
+    distinct?: MeterReadingScalarFieldEnum | MeterReadingScalarFieldEnum[]
+  }
+
+  /**
+   * MeterReading findFirstOrThrow
+   */
+  export type MeterReadingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * Filter, which MeterReading to fetch.
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MeterReadings to fetch.
+     */
+    orderBy?: MeterReadingOrderByWithRelationInput | MeterReadingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MeterReadings.
+     */
+    cursor?: MeterReadingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MeterReadings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MeterReadings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MeterReadings.
+     */
+    distinct?: MeterReadingScalarFieldEnum | MeterReadingScalarFieldEnum[]
+  }
+
+  /**
+   * MeterReading findMany
+   */
+  export type MeterReadingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * Filter, which MeterReadings to fetch.
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MeterReadings to fetch.
+     */
+    orderBy?: MeterReadingOrderByWithRelationInput | MeterReadingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MeterReadings.
+     */
+    cursor?: MeterReadingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MeterReadings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MeterReadings.
+     */
+    skip?: number
+    distinct?: MeterReadingScalarFieldEnum | MeterReadingScalarFieldEnum[]
+  }
+
+  /**
+   * MeterReading create
+   */
+  export type MeterReadingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * The data needed to create a MeterReading.
+     */
+    data: XOR<MeterReadingCreateInput, MeterReadingUncheckedCreateInput>
+  }
+
+  /**
+   * MeterReading createMany
+   */
+  export type MeterReadingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MeterReadings.
+     */
+    data: MeterReadingCreateManyInput | MeterReadingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MeterReading createManyAndReturn
+   */
+  export type MeterReadingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * The data used to create many MeterReadings.
+     */
+    data: MeterReadingCreateManyInput | MeterReadingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MeterReading update
+   */
+  export type MeterReadingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * The data needed to update a MeterReading.
+     */
+    data: XOR<MeterReadingUpdateInput, MeterReadingUncheckedUpdateInput>
+    /**
+     * Choose, which MeterReading to update.
+     */
+    where: MeterReadingWhereUniqueInput
+  }
+
+  /**
+   * MeterReading updateMany
+   */
+  export type MeterReadingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MeterReadings.
+     */
+    data: XOR<MeterReadingUpdateManyMutationInput, MeterReadingUncheckedUpdateManyInput>
+    /**
+     * Filter which MeterReadings to update
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * Limit how many MeterReadings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MeterReading updateManyAndReturn
+   */
+  export type MeterReadingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * The data used to update MeterReadings.
+     */
+    data: XOR<MeterReadingUpdateManyMutationInput, MeterReadingUncheckedUpdateManyInput>
+    /**
+     * Filter which MeterReadings to update
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * Limit how many MeterReadings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MeterReading upsert
+   */
+  export type MeterReadingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * The filter to search for the MeterReading to update in case it exists.
+     */
+    where: MeterReadingWhereUniqueInput
+    /**
+     * In case the MeterReading found by the `where` argument doesn't exist, create a new MeterReading with this data.
+     */
+    create: XOR<MeterReadingCreateInput, MeterReadingUncheckedCreateInput>
+    /**
+     * In case the MeterReading was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MeterReadingUpdateInput, MeterReadingUncheckedUpdateInput>
+  }
+
+  /**
+   * MeterReading delete
+   */
+  export type MeterReadingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+    /**
+     * Filter which MeterReading to delete.
+     */
+    where: MeterReadingWhereUniqueInput
+  }
+
+  /**
+   * MeterReading deleteMany
+   */
+  export type MeterReadingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MeterReadings to delete
+     */
+    where?: MeterReadingWhereInput
+    /**
+     * Limit how many MeterReadings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MeterReading without action
+   */
+  export type MeterReadingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MeterReading
+     */
+    select?: MeterReadingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MeterReading
+     */
+    omit?: MeterReadingOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -13255,6 +15544,37 @@ export namespace Prisma {
   };
 
   export type AdminProfileScalarFieldEnum = (typeof AdminProfileScalarFieldEnum)[keyof typeof AdminProfileScalarFieldEnum]
+
+
+  export const MaintenanceReportScalarFieldEnum: {
+    id: 'id',
+    userEmail: 'userEmail',
+    userName: 'userName',
+    unitName: 'unitName',
+    propertyName: 'propertyName',
+    issue: 'issue',
+    priority: 'priority',
+    status: 'status',
+    reportedDate: 'reportedDate',
+    adminDescription: 'adminDescription',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MaintenanceReportScalarFieldEnum = (typeof MaintenanceReportScalarFieldEnum)[keyof typeof MaintenanceReportScalarFieldEnum]
+
+
+  export const MeterReadingScalarFieldEnum: {
+    id: 'id',
+    userEmail: 'userEmail',
+    userName: 'userName',
+    unitName: 'unitName',
+    propertyName: 'propertyName',
+    type: 'type',
+    value: 'value',
+    loggedDate: 'loggedDate'
+  };
+
+  export type MeterReadingScalarFieldEnum = (typeof MeterReadingScalarFieldEnum)[keyof typeof MeterReadingScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -14158,6 +16478,155 @@ export namespace Prisma {
     phone?: StringWithAggregatesFilter<"AdminProfile"> | string
     role?: StringWithAggregatesFilter<"AdminProfile"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"AdminProfile"> | Date | string
+  }
+
+  export type MaintenanceReportWhereInput = {
+    AND?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
+    OR?: MaintenanceReportWhereInput[]
+    NOT?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
+    id?: StringFilter<"MaintenanceReport"> | string
+    userEmail?: StringFilter<"MaintenanceReport"> | string
+    userName?: StringFilter<"MaintenanceReport"> | string
+    unitName?: StringFilter<"MaintenanceReport"> | string
+    propertyName?: StringFilter<"MaintenanceReport"> | string
+    issue?: StringFilter<"MaintenanceReport"> | string
+    priority?: StringFilter<"MaintenanceReport"> | string
+    status?: StringFilter<"MaintenanceReport"> | string
+    reportedDate?: DateTimeFilter<"MaintenanceReport"> | Date | string
+    adminDescription?: StringNullableFilter<"MaintenanceReport"> | string | null
+    updatedAt?: DateTimeFilter<"MaintenanceReport"> | Date | string
+  }
+
+  export type MaintenanceReportOrderByWithRelationInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    issue?: SortOrder
+    priority?: SortOrder
+    status?: SortOrder
+    reportedDate?: SortOrder
+    adminDescription?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MaintenanceReportWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
+    OR?: MaintenanceReportWhereInput[]
+    NOT?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
+    userEmail?: StringFilter<"MaintenanceReport"> | string
+    userName?: StringFilter<"MaintenanceReport"> | string
+    unitName?: StringFilter<"MaintenanceReport"> | string
+    propertyName?: StringFilter<"MaintenanceReport"> | string
+    issue?: StringFilter<"MaintenanceReport"> | string
+    priority?: StringFilter<"MaintenanceReport"> | string
+    status?: StringFilter<"MaintenanceReport"> | string
+    reportedDate?: DateTimeFilter<"MaintenanceReport"> | Date | string
+    adminDescription?: StringNullableFilter<"MaintenanceReport"> | string | null
+    updatedAt?: DateTimeFilter<"MaintenanceReport"> | Date | string
+  }, "id">
+
+  export type MaintenanceReportOrderByWithAggregationInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    issue?: SortOrder
+    priority?: SortOrder
+    status?: SortOrder
+    reportedDate?: SortOrder
+    adminDescription?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    _count?: MaintenanceReportCountOrderByAggregateInput
+    _max?: MaintenanceReportMaxOrderByAggregateInput
+    _min?: MaintenanceReportMinOrderByAggregateInput
+  }
+
+  export type MaintenanceReportScalarWhereWithAggregatesInput = {
+    AND?: MaintenanceReportScalarWhereWithAggregatesInput | MaintenanceReportScalarWhereWithAggregatesInput[]
+    OR?: MaintenanceReportScalarWhereWithAggregatesInput[]
+    NOT?: MaintenanceReportScalarWhereWithAggregatesInput | MaintenanceReportScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    userEmail?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    userName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    unitName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    propertyName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    issue?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    priority?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    status?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    reportedDate?: DateTimeWithAggregatesFilter<"MaintenanceReport"> | Date | string
+    adminDescription?: StringNullableWithAggregatesFilter<"MaintenanceReport"> | string | null
+    updatedAt?: DateTimeWithAggregatesFilter<"MaintenanceReport"> | Date | string
+  }
+
+  export type MeterReadingWhereInput = {
+    AND?: MeterReadingWhereInput | MeterReadingWhereInput[]
+    OR?: MeterReadingWhereInput[]
+    NOT?: MeterReadingWhereInput | MeterReadingWhereInput[]
+    id?: StringFilter<"MeterReading"> | string
+    userEmail?: StringFilter<"MeterReading"> | string
+    userName?: StringFilter<"MeterReading"> | string
+    unitName?: StringFilter<"MeterReading"> | string
+    propertyName?: StringFilter<"MeterReading"> | string
+    type?: StringFilter<"MeterReading"> | string
+    value?: StringFilter<"MeterReading"> | string
+    loggedDate?: DateTimeFilter<"MeterReading"> | Date | string
+  }
+
+  export type MeterReadingOrderByWithRelationInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    loggedDate?: SortOrder
+  }
+
+  export type MeterReadingWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: MeterReadingWhereInput | MeterReadingWhereInput[]
+    OR?: MeterReadingWhereInput[]
+    NOT?: MeterReadingWhereInput | MeterReadingWhereInput[]
+    userEmail?: StringFilter<"MeterReading"> | string
+    userName?: StringFilter<"MeterReading"> | string
+    unitName?: StringFilter<"MeterReading"> | string
+    propertyName?: StringFilter<"MeterReading"> | string
+    type?: StringFilter<"MeterReading"> | string
+    value?: StringFilter<"MeterReading"> | string
+    loggedDate?: DateTimeFilter<"MeterReading"> | Date | string
+  }, "id">
+
+  export type MeterReadingOrderByWithAggregationInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    loggedDate?: SortOrder
+    _count?: MeterReadingCountOrderByAggregateInput
+    _max?: MeterReadingMaxOrderByAggregateInput
+    _min?: MeterReadingMinOrderByAggregateInput
+  }
+
+  export type MeterReadingScalarWhereWithAggregatesInput = {
+    AND?: MeterReadingScalarWhereWithAggregatesInput | MeterReadingScalarWhereWithAggregatesInput[]
+    OR?: MeterReadingScalarWhereWithAggregatesInput[]
+    NOT?: MeterReadingScalarWhereWithAggregatesInput | MeterReadingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"MeterReading"> | string
+    userEmail?: StringWithAggregatesFilter<"MeterReading"> | string
+    userName?: StringWithAggregatesFilter<"MeterReading"> | string
+    unitName?: StringWithAggregatesFilter<"MeterReading"> | string
+    propertyName?: StringWithAggregatesFilter<"MeterReading"> | string
+    type?: StringWithAggregatesFilter<"MeterReading"> | string
+    value?: StringWithAggregatesFilter<"MeterReading"> | string
+    loggedDate?: DateTimeWithAggregatesFilter<"MeterReading"> | Date | string
   }
 
   export type PostCreateInput = {
@@ -15089,6 +17558,181 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type MaintenanceReportCreateInput = {
+    id?: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    issue: string
+    priority: string
+    status?: string
+    reportedDate?: Date | string
+    adminDescription?: string | null
+    updatedAt?: Date | string
+  }
+
+  export type MaintenanceReportUncheckedCreateInput = {
+    id?: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    issue: string
+    priority: string
+    status?: string
+    reportedDate?: Date | string
+    adminDescription?: string | null
+    updatedAt?: Date | string
+  }
+
+  export type MaintenanceReportUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    issue?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MaintenanceReportUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    issue?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MaintenanceReportCreateManyInput = {
+    id?: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    issue: string
+    priority: string
+    status?: string
+    reportedDate?: Date | string
+    adminDescription?: string | null
+    updatedAt?: Date | string
+  }
+
+  export type MaintenanceReportUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    issue?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MaintenanceReportUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    issue?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeterReadingCreateInput = {
+    id?: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    type: string
+    value: string
+    loggedDate?: Date | string
+  }
+
+  export type MeterReadingUncheckedCreateInput = {
+    id?: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    type: string
+    value: string
+    loggedDate?: Date | string
+  }
+
+  export type MeterReadingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeterReadingUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeterReadingCreateManyInput = {
+    id?: string
+    userEmail: string
+    userName: string
+    unitName: string
+    propertyName: string
+    type: string
+    value: string
+    loggedDate?: Date | string
+  }
+
+  export type MeterReadingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeterReadingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    unitName?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -15793,6 +18437,81 @@ export namespace Prisma {
     phone?: SortOrder
     role?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type MaintenanceReportCountOrderByAggregateInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    issue?: SortOrder
+    priority?: SortOrder
+    status?: SortOrder
+    reportedDate?: SortOrder
+    adminDescription?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MaintenanceReportMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    issue?: SortOrder
+    priority?: SortOrder
+    status?: SortOrder
+    reportedDate?: SortOrder
+    adminDescription?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MaintenanceReportMinOrderByAggregateInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    issue?: SortOrder
+    priority?: SortOrder
+    status?: SortOrder
+    reportedDate?: SortOrder
+    adminDescription?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MeterReadingCountOrderByAggregateInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    loggedDate?: SortOrder
+  }
+
+  export type MeterReadingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    loggedDate?: SortOrder
+  }
+
+  export type MeterReadingMinOrderByAggregateInput = {
+    id?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
+    unitName?: SortOrder
+    propertyName?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    loggedDate?: SortOrder
   }
 
   export type UserCreateNestedOneWithoutPostsInput = {

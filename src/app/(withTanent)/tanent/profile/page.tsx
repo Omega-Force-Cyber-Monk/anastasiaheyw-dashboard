@@ -201,7 +201,7 @@ export default function TenantProfilePage() {
           {/* Change Password Form */}
           <div className="rounded-2xl border border-slate-100 bg-white p-8 shadow-xs">
             <h3 className="mb-4 border-b border-slate-100 pb-4 text-xl font-bold text-slate-800">
-              Credentials & Security
+              Change Password
             </h3>
 
             <form onSubmit={handleChangePasswordSubmit} className="space-y-4">
