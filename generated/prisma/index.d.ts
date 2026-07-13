@@ -9522,31 +9522,31 @@ export namespace Prisma {
     status: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    landlordEntity: string | null
-    referenceCode: string | null
-    bankName: string | null
-    sortCode: string | null
-    accountNumber: string | null
     accountName: string | null
+    accountNumber: string | null
+    bankName: string | null
+    complianceNotes: string | null
+    eicExpiryDate: string | null
+    eicInspectedDate: string | null
+    eicSerial: string | null
+    elecMeterCheckInDate: string | null
+    elecMeterCheckInValue: string | null
+    elecMeterSerial: string | null
+    epcAssessedDate: string | null
+    epcAssessor: string | null
+    epcCertificate: string | null
+    epcExpiryDate: string | null
     epcRating: string | null
     epcScore: number | null
-    epcCertificate: string | null
-    epcAssessedDate: string | null
-    epcExpiryDate: string | null
-    epcAssessor: string | null
-    eicSerial: string | null
-    eicInspectedDate: string | null
-    eicExpiryDate: string | null
     insurancePolicy: string | null
     insuranceStartDate: string | null
     insuranceStatus: string | null
-    elecMeterSerial: string | null
-    elecMeterCheckInValue: string | null
-    elecMeterCheckInDate: string | null
-    waterMeterSerial: string | null
-    waterMeterCheckInValue: string | null
+    landlordEntity: string | null
+    referenceCode: string | null
+    sortCode: string | null
     waterMeterCheckInDate: string | null
-    complianceNotes: string | null
+    waterMeterCheckInValue: string | null
+    waterMeterSerial: string | null
   }
 
   export type ArthurUnitMaxAggregateOutputType = {
@@ -9556,31 +9556,31 @@ export namespace Prisma {
     status: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    landlordEntity: string | null
-    referenceCode: string | null
-    bankName: string | null
-    sortCode: string | null
-    accountNumber: string | null
     accountName: string | null
+    accountNumber: string | null
+    bankName: string | null
+    complianceNotes: string | null
+    eicExpiryDate: string | null
+    eicInspectedDate: string | null
+    eicSerial: string | null
+    elecMeterCheckInDate: string | null
+    elecMeterCheckInValue: string | null
+    elecMeterSerial: string | null
+    epcAssessedDate: string | null
+    epcAssessor: string | null
+    epcCertificate: string | null
+    epcExpiryDate: string | null
     epcRating: string | null
     epcScore: number | null
-    epcCertificate: string | null
-    epcAssessedDate: string | null
-    epcExpiryDate: string | null
-    epcAssessor: string | null
-    eicSerial: string | null
-    eicInspectedDate: string | null
-    eicExpiryDate: string | null
     insurancePolicy: string | null
     insuranceStartDate: string | null
     insuranceStatus: string | null
-    elecMeterSerial: string | null
-    elecMeterCheckInValue: string | null
-    elecMeterCheckInDate: string | null
-    waterMeterSerial: string | null
-    waterMeterCheckInValue: string | null
+    landlordEntity: string | null
+    referenceCode: string | null
+    sortCode: string | null
     waterMeterCheckInDate: string | null
-    complianceNotes: string | null
+    waterMeterCheckInValue: string | null
+    waterMeterSerial: string | null
   }
 
   export type ArthurUnitCountAggregateOutputType = {
@@ -9590,32 +9590,32 @@ export namespace Prisma {
     status: number
     createdAt: number
     updatedAt: number
-    landlordEntity: number
-    referenceCode: number
-    bankName: number
-    sortCode: number
-    accountNumber: number
     accountName: number
+    accountNumber: number
+    bankName: number
+    complianceNotes: number
+    eicExpiryDate: number
+    eicInspectedDate: number
+    eicSerial: number
+    elecMeterCheckInDate: number
+    elecMeterCheckInValue: number
+    elecMeterSerial: number
+    epcAssessedDate: number
+    epcAssessor: number
+    epcCertificate: number
+    epcExpiryDate: number
     epcRating: number
     epcScore: number
-    epcCertificate: number
-    epcAssessedDate: number
-    epcExpiryDate: number
-    epcAssessor: number
-    eicSerial: number
-    eicInspectedDate: number
-    eicExpiryDate: number
     insurancePolicy: number
     insuranceStartDate: number
     insuranceStatus: number
-    elecMeterSerial: number
-    elecMeterCheckInValue: number
-    elecMeterCheckInDate: number
-    waterMeterSerial: number
-    waterMeterCheckInValue: number
-    waterMeterCheckInDate: number
+    landlordEntity: number
     outstandingDocs: number
-    complianceNotes: number
+    referenceCode: number
+    sortCode: number
+    waterMeterCheckInDate: number
+    waterMeterCheckInValue: number
+    waterMeterSerial: number
     _all: number
   }
 
@@ -9635,31 +9635,31 @@ export namespace Prisma {
     status?: true
     createdAt?: true
     updatedAt?: true
-    landlordEntity?: true
-    referenceCode?: true
-    bankName?: true
-    sortCode?: true
-    accountNumber?: true
     accountName?: true
+    accountNumber?: true
+    bankName?: true
+    complianceNotes?: true
+    eicExpiryDate?: true
+    eicInspectedDate?: true
+    eicSerial?: true
+    elecMeterCheckInDate?: true
+    elecMeterCheckInValue?: true
+    elecMeterSerial?: true
+    epcAssessedDate?: true
+    epcAssessor?: true
+    epcCertificate?: true
+    epcExpiryDate?: true
     epcRating?: true
     epcScore?: true
-    epcCertificate?: true
-    epcAssessedDate?: true
-    epcExpiryDate?: true
-    epcAssessor?: true
-    eicSerial?: true
-    eicInspectedDate?: true
-    eicExpiryDate?: true
     insurancePolicy?: true
     insuranceStartDate?: true
     insuranceStatus?: true
-    elecMeterSerial?: true
-    elecMeterCheckInValue?: true
-    elecMeterCheckInDate?: true
-    waterMeterSerial?: true
-    waterMeterCheckInValue?: true
+    landlordEntity?: true
+    referenceCode?: true
+    sortCode?: true
     waterMeterCheckInDate?: true
-    complianceNotes?: true
+    waterMeterCheckInValue?: true
+    waterMeterSerial?: true
   }
 
   export type ArthurUnitMaxAggregateInputType = {
@@ -9669,31 +9669,31 @@ export namespace Prisma {
     status?: true
     createdAt?: true
     updatedAt?: true
-    landlordEntity?: true
-    referenceCode?: true
-    bankName?: true
-    sortCode?: true
-    accountNumber?: true
     accountName?: true
+    accountNumber?: true
+    bankName?: true
+    complianceNotes?: true
+    eicExpiryDate?: true
+    eicInspectedDate?: true
+    eicSerial?: true
+    elecMeterCheckInDate?: true
+    elecMeterCheckInValue?: true
+    elecMeterSerial?: true
+    epcAssessedDate?: true
+    epcAssessor?: true
+    epcCertificate?: true
+    epcExpiryDate?: true
     epcRating?: true
     epcScore?: true
-    epcCertificate?: true
-    epcAssessedDate?: true
-    epcExpiryDate?: true
-    epcAssessor?: true
-    eicSerial?: true
-    eicInspectedDate?: true
-    eicExpiryDate?: true
     insurancePolicy?: true
     insuranceStartDate?: true
     insuranceStatus?: true
-    elecMeterSerial?: true
-    elecMeterCheckInValue?: true
-    elecMeterCheckInDate?: true
-    waterMeterSerial?: true
-    waterMeterCheckInValue?: true
+    landlordEntity?: true
+    referenceCode?: true
+    sortCode?: true
     waterMeterCheckInDate?: true
-    complianceNotes?: true
+    waterMeterCheckInValue?: true
+    waterMeterSerial?: true
   }
 
   export type ArthurUnitCountAggregateInputType = {
@@ -9703,32 +9703,32 @@ export namespace Prisma {
     status?: true
     createdAt?: true
     updatedAt?: true
-    landlordEntity?: true
-    referenceCode?: true
-    bankName?: true
-    sortCode?: true
-    accountNumber?: true
     accountName?: true
+    accountNumber?: true
+    bankName?: true
+    complianceNotes?: true
+    eicExpiryDate?: true
+    eicInspectedDate?: true
+    eicSerial?: true
+    elecMeterCheckInDate?: true
+    elecMeterCheckInValue?: true
+    elecMeterSerial?: true
+    epcAssessedDate?: true
+    epcAssessor?: true
+    epcCertificate?: true
+    epcExpiryDate?: true
     epcRating?: true
     epcScore?: true
-    epcCertificate?: true
-    epcAssessedDate?: true
-    epcExpiryDate?: true
-    epcAssessor?: true
-    eicSerial?: true
-    eicInspectedDate?: true
-    eicExpiryDate?: true
     insurancePolicy?: true
     insuranceStartDate?: true
     insuranceStatus?: true
-    elecMeterSerial?: true
-    elecMeterCheckInValue?: true
-    elecMeterCheckInDate?: true
-    waterMeterSerial?: true
-    waterMeterCheckInValue?: true
-    waterMeterCheckInDate?: true
+    landlordEntity?: true
     outstandingDocs?: true
-    complianceNotes?: true
+    referenceCode?: true
+    sortCode?: true
+    waterMeterCheckInDate?: true
+    waterMeterCheckInValue?: true
+    waterMeterSerial?: true
     _all?: true
   }
 
@@ -9825,32 +9825,32 @@ export namespace Prisma {
     status: string
     createdAt: Date
     updatedAt: Date
-    landlordEntity: string | null
-    referenceCode: string | null
-    bankName: string | null
-    sortCode: string | null
-    accountNumber: string | null
     accountName: string | null
+    accountNumber: string | null
+    bankName: string | null
+    complianceNotes: string | null
+    eicExpiryDate: string | null
+    eicInspectedDate: string | null
+    eicSerial: string | null
+    elecMeterCheckInDate: string | null
+    elecMeterCheckInValue: string | null
+    elecMeterSerial: string | null
+    epcAssessedDate: string | null
+    epcAssessor: string | null
+    epcCertificate: string | null
+    epcExpiryDate: string | null
     epcRating: string | null
     epcScore: number | null
-    epcCertificate: string | null
-    epcAssessedDate: string | null
-    epcExpiryDate: string | null
-    epcAssessor: string | null
-    eicSerial: string | null
-    eicInspectedDate: string | null
-    eicExpiryDate: string | null
     insurancePolicy: string | null
     insuranceStartDate: string | null
     insuranceStatus: string | null
-    elecMeterSerial: string | null
-    elecMeterCheckInValue: string | null
-    elecMeterCheckInDate: string | null
-    waterMeterSerial: string | null
-    waterMeterCheckInValue: string | null
-    waterMeterCheckInDate: string | null
+    landlordEntity: string | null
     outstandingDocs: string[]
-    complianceNotes: string | null
+    referenceCode: string | null
+    sortCode: string | null
+    waterMeterCheckInDate: string | null
+    waterMeterCheckInValue: string | null
+    waterMeterSerial: string | null
     _count: ArthurUnitCountAggregateOutputType | null
     _avg: ArthurUnitAvgAggregateOutputType | null
     _sum: ArthurUnitSumAggregateOutputType | null
@@ -9879,32 +9879,32 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    landlordEntity?: boolean
-    referenceCode?: boolean
-    bankName?: boolean
-    sortCode?: boolean
-    accountNumber?: boolean
     accountName?: boolean
+    accountNumber?: boolean
+    bankName?: boolean
+    complianceNotes?: boolean
+    eicExpiryDate?: boolean
+    eicInspectedDate?: boolean
+    eicSerial?: boolean
+    elecMeterCheckInDate?: boolean
+    elecMeterCheckInValue?: boolean
+    elecMeterSerial?: boolean
+    epcAssessedDate?: boolean
+    epcAssessor?: boolean
+    epcCertificate?: boolean
+    epcExpiryDate?: boolean
     epcRating?: boolean
     epcScore?: boolean
-    epcCertificate?: boolean
-    epcAssessedDate?: boolean
-    epcExpiryDate?: boolean
-    epcAssessor?: boolean
-    eicSerial?: boolean
-    eicInspectedDate?: boolean
-    eicExpiryDate?: boolean
     insurancePolicy?: boolean
     insuranceStartDate?: boolean
     insuranceStatus?: boolean
-    elecMeterSerial?: boolean
-    elecMeterCheckInValue?: boolean
-    elecMeterCheckInDate?: boolean
-    waterMeterSerial?: boolean
-    waterMeterCheckInValue?: boolean
-    waterMeterCheckInDate?: boolean
+    landlordEntity?: boolean
     outstandingDocs?: boolean
-    complianceNotes?: boolean
+    referenceCode?: boolean
+    sortCode?: boolean
+    waterMeterCheckInDate?: boolean
+    waterMeterCheckInValue?: boolean
+    waterMeterSerial?: boolean
     tenancies?: boolean | ArthurUnit$tenanciesArgs<ExtArgs>
     property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
     _count?: boolean | ArthurUnitCountOutputTypeDefaultArgs<ExtArgs>
@@ -9917,32 +9917,32 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    landlordEntity?: boolean
-    referenceCode?: boolean
-    bankName?: boolean
-    sortCode?: boolean
-    accountNumber?: boolean
     accountName?: boolean
+    accountNumber?: boolean
+    bankName?: boolean
+    complianceNotes?: boolean
+    eicExpiryDate?: boolean
+    eicInspectedDate?: boolean
+    eicSerial?: boolean
+    elecMeterCheckInDate?: boolean
+    elecMeterCheckInValue?: boolean
+    elecMeterSerial?: boolean
+    epcAssessedDate?: boolean
+    epcAssessor?: boolean
+    epcCertificate?: boolean
+    epcExpiryDate?: boolean
     epcRating?: boolean
     epcScore?: boolean
-    epcCertificate?: boolean
-    epcAssessedDate?: boolean
-    epcExpiryDate?: boolean
-    epcAssessor?: boolean
-    eicSerial?: boolean
-    eicInspectedDate?: boolean
-    eicExpiryDate?: boolean
     insurancePolicy?: boolean
     insuranceStartDate?: boolean
     insuranceStatus?: boolean
-    elecMeterSerial?: boolean
-    elecMeterCheckInValue?: boolean
-    elecMeterCheckInDate?: boolean
-    waterMeterSerial?: boolean
-    waterMeterCheckInValue?: boolean
-    waterMeterCheckInDate?: boolean
+    landlordEntity?: boolean
     outstandingDocs?: boolean
-    complianceNotes?: boolean
+    referenceCode?: boolean
+    sortCode?: boolean
+    waterMeterCheckInDate?: boolean
+    waterMeterCheckInValue?: boolean
+    waterMeterSerial?: boolean
     property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurUnit"]>
 
@@ -9953,32 +9953,32 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    landlordEntity?: boolean
-    referenceCode?: boolean
-    bankName?: boolean
-    sortCode?: boolean
-    accountNumber?: boolean
     accountName?: boolean
+    accountNumber?: boolean
+    bankName?: boolean
+    complianceNotes?: boolean
+    eicExpiryDate?: boolean
+    eicInspectedDate?: boolean
+    eicSerial?: boolean
+    elecMeterCheckInDate?: boolean
+    elecMeterCheckInValue?: boolean
+    elecMeterSerial?: boolean
+    epcAssessedDate?: boolean
+    epcAssessor?: boolean
+    epcCertificate?: boolean
+    epcExpiryDate?: boolean
     epcRating?: boolean
     epcScore?: boolean
-    epcCertificate?: boolean
-    epcAssessedDate?: boolean
-    epcExpiryDate?: boolean
-    epcAssessor?: boolean
-    eicSerial?: boolean
-    eicInspectedDate?: boolean
-    eicExpiryDate?: boolean
     insurancePolicy?: boolean
     insuranceStartDate?: boolean
     insuranceStatus?: boolean
-    elecMeterSerial?: boolean
-    elecMeterCheckInValue?: boolean
-    elecMeterCheckInDate?: boolean
-    waterMeterSerial?: boolean
-    waterMeterCheckInValue?: boolean
-    waterMeterCheckInDate?: boolean
+    landlordEntity?: boolean
     outstandingDocs?: boolean
-    complianceNotes?: boolean
+    referenceCode?: boolean
+    sortCode?: boolean
+    waterMeterCheckInDate?: boolean
+    waterMeterCheckInValue?: boolean
+    waterMeterSerial?: boolean
     property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurUnit"]>
 
@@ -9989,35 +9989,35 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    landlordEntity?: boolean
-    referenceCode?: boolean
-    bankName?: boolean
-    sortCode?: boolean
-    accountNumber?: boolean
     accountName?: boolean
+    accountNumber?: boolean
+    bankName?: boolean
+    complianceNotes?: boolean
+    eicExpiryDate?: boolean
+    eicInspectedDate?: boolean
+    eicSerial?: boolean
+    elecMeterCheckInDate?: boolean
+    elecMeterCheckInValue?: boolean
+    elecMeterSerial?: boolean
+    epcAssessedDate?: boolean
+    epcAssessor?: boolean
+    epcCertificate?: boolean
+    epcExpiryDate?: boolean
     epcRating?: boolean
     epcScore?: boolean
-    epcCertificate?: boolean
-    epcAssessedDate?: boolean
-    epcExpiryDate?: boolean
-    epcAssessor?: boolean
-    eicSerial?: boolean
-    eicInspectedDate?: boolean
-    eicExpiryDate?: boolean
     insurancePolicy?: boolean
     insuranceStartDate?: boolean
     insuranceStatus?: boolean
-    elecMeterSerial?: boolean
-    elecMeterCheckInValue?: boolean
-    elecMeterCheckInDate?: boolean
-    waterMeterSerial?: boolean
-    waterMeterCheckInValue?: boolean
-    waterMeterCheckInDate?: boolean
+    landlordEntity?: boolean
     outstandingDocs?: boolean
-    complianceNotes?: boolean
+    referenceCode?: boolean
+    sortCode?: boolean
+    waterMeterCheckInDate?: boolean
+    waterMeterCheckInValue?: boolean
+    waterMeterSerial?: boolean
   }
 
-  export type ArthurUnitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "propertyId" | "name" | "status" | "createdAt" | "updatedAt" | "landlordEntity" | "referenceCode" | "bankName" | "sortCode" | "accountNumber" | "accountName" | "epcRating" | "epcScore" | "epcCertificate" | "epcAssessedDate" | "epcExpiryDate" | "epcAssessor" | "eicSerial" | "eicInspectedDate" | "eicExpiryDate" | "insurancePolicy" | "insuranceStartDate" | "insuranceStatus" | "elecMeterSerial" | "elecMeterCheckInValue" | "elecMeterCheckInDate" | "waterMeterSerial" | "waterMeterCheckInValue" | "waterMeterCheckInDate" | "outstandingDocs" | "complianceNotes", ExtArgs["result"]["arthurUnit"]>
+  export type ArthurUnitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "propertyId" | "name" | "status" | "createdAt" | "updatedAt" | "accountName" | "accountNumber" | "bankName" | "complianceNotes" | "eicExpiryDate" | "eicInspectedDate" | "eicSerial" | "elecMeterCheckInDate" | "elecMeterCheckInValue" | "elecMeterSerial" | "epcAssessedDate" | "epcAssessor" | "epcCertificate" | "epcExpiryDate" | "epcRating" | "epcScore" | "insurancePolicy" | "insuranceStartDate" | "insuranceStatus" | "landlordEntity" | "outstandingDocs" | "referenceCode" | "sortCode" | "waterMeterCheckInDate" | "waterMeterCheckInValue" | "waterMeterSerial", ExtArgs["result"]["arthurUnit"]>
   export type ArthurUnitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tenancies?: boolean | ArthurUnit$tenanciesArgs<ExtArgs>
     property?: boolean | ArthurPropertyDefaultArgs<ExtArgs>
@@ -10043,32 +10043,32 @@ export namespace Prisma {
       status: string
       createdAt: Date
       updatedAt: Date
-      landlordEntity: string | null
-      referenceCode: string | null
-      bankName: string | null
-      sortCode: string | null
-      accountNumber: string | null
       accountName: string | null
+      accountNumber: string | null
+      bankName: string | null
+      complianceNotes: string | null
+      eicExpiryDate: string | null
+      eicInspectedDate: string | null
+      eicSerial: string | null
+      elecMeterCheckInDate: string | null
+      elecMeterCheckInValue: string | null
+      elecMeterSerial: string | null
+      epcAssessedDate: string | null
+      epcAssessor: string | null
+      epcCertificate: string | null
+      epcExpiryDate: string | null
       epcRating: string | null
       epcScore: number | null
-      epcCertificate: string | null
-      epcAssessedDate: string | null
-      epcExpiryDate: string | null
-      epcAssessor: string | null
-      eicSerial: string | null
-      eicInspectedDate: string | null
-      eicExpiryDate: string | null
       insurancePolicy: string | null
       insuranceStartDate: string | null
       insuranceStatus: string | null
-      elecMeterSerial: string | null
-      elecMeterCheckInValue: string | null
-      elecMeterCheckInDate: string | null
-      waterMeterSerial: string | null
-      waterMeterCheckInValue: string | null
-      waterMeterCheckInDate: string | null
+      landlordEntity: string | null
       outstandingDocs: string[]
-      complianceNotes: string | null
+      referenceCode: string | null
+      sortCode: string | null
+      waterMeterCheckInDate: string | null
+      waterMeterCheckInValue: string | null
+      waterMeterSerial: string | null
     }, ExtArgs["result"]["arthurUnit"]>
     composites: {}
   }
@@ -10500,32 +10500,32 @@ export namespace Prisma {
     readonly status: FieldRef<"ArthurUnit", 'String'>
     readonly createdAt: FieldRef<"ArthurUnit", 'DateTime'>
     readonly updatedAt: FieldRef<"ArthurUnit", 'DateTime'>
-    readonly landlordEntity: FieldRef<"ArthurUnit", 'String'>
-    readonly referenceCode: FieldRef<"ArthurUnit", 'String'>
-    readonly bankName: FieldRef<"ArthurUnit", 'String'>
-    readonly sortCode: FieldRef<"ArthurUnit", 'String'>
-    readonly accountNumber: FieldRef<"ArthurUnit", 'String'>
     readonly accountName: FieldRef<"ArthurUnit", 'String'>
+    readonly accountNumber: FieldRef<"ArthurUnit", 'String'>
+    readonly bankName: FieldRef<"ArthurUnit", 'String'>
+    readonly complianceNotes: FieldRef<"ArthurUnit", 'String'>
+    readonly eicExpiryDate: FieldRef<"ArthurUnit", 'String'>
+    readonly eicInspectedDate: FieldRef<"ArthurUnit", 'String'>
+    readonly eicSerial: FieldRef<"ArthurUnit", 'String'>
+    readonly elecMeterCheckInDate: FieldRef<"ArthurUnit", 'String'>
+    readonly elecMeterCheckInValue: FieldRef<"ArthurUnit", 'String'>
+    readonly elecMeterSerial: FieldRef<"ArthurUnit", 'String'>
+    readonly epcAssessedDate: FieldRef<"ArthurUnit", 'String'>
+    readonly epcAssessor: FieldRef<"ArthurUnit", 'String'>
+    readonly epcCertificate: FieldRef<"ArthurUnit", 'String'>
+    readonly epcExpiryDate: FieldRef<"ArthurUnit", 'String'>
     readonly epcRating: FieldRef<"ArthurUnit", 'String'>
     readonly epcScore: FieldRef<"ArthurUnit", 'Int'>
-    readonly epcCertificate: FieldRef<"ArthurUnit", 'String'>
-    readonly epcAssessedDate: FieldRef<"ArthurUnit", 'String'>
-    readonly epcExpiryDate: FieldRef<"ArthurUnit", 'String'>
-    readonly epcAssessor: FieldRef<"ArthurUnit", 'String'>
-    readonly eicSerial: FieldRef<"ArthurUnit", 'String'>
-    readonly eicInspectedDate: FieldRef<"ArthurUnit", 'String'>
-    readonly eicExpiryDate: FieldRef<"ArthurUnit", 'String'>
     readonly insurancePolicy: FieldRef<"ArthurUnit", 'String'>
     readonly insuranceStartDate: FieldRef<"ArthurUnit", 'String'>
     readonly insuranceStatus: FieldRef<"ArthurUnit", 'String'>
-    readonly elecMeterSerial: FieldRef<"ArthurUnit", 'String'>
-    readonly elecMeterCheckInValue: FieldRef<"ArthurUnit", 'String'>
-    readonly elecMeterCheckInDate: FieldRef<"ArthurUnit", 'String'>
-    readonly waterMeterSerial: FieldRef<"ArthurUnit", 'String'>
-    readonly waterMeterCheckInValue: FieldRef<"ArthurUnit", 'String'>
-    readonly waterMeterCheckInDate: FieldRef<"ArthurUnit", 'String'>
+    readonly landlordEntity: FieldRef<"ArthurUnit", 'String'>
     readonly outstandingDocs: FieldRef<"ArthurUnit", 'String[]'>
-    readonly complianceNotes: FieldRef<"ArthurUnit", 'String'>
+    readonly referenceCode: FieldRef<"ArthurUnit", 'String'>
+    readonly sortCode: FieldRef<"ArthurUnit", 'String'>
+    readonly waterMeterCheckInDate: FieldRef<"ArthurUnit", 'String'>
+    readonly waterMeterCheckInValue: FieldRef<"ArthurUnit", 'String'>
+    readonly waterMeterSerial: FieldRef<"ArthurUnit", 'String'>
   }
     
 
@@ -11001,10 +11001,10 @@ export namespace Prisma {
     lettingType: string | null
     rentStatus: string | null
     commentary: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
     address: string | null
     code: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ArthurTenancyMaxAggregateOutputType = {
@@ -11022,10 +11022,10 @@ export namespace Prisma {
     lettingType: string | null
     rentStatus: string | null
     commentary: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
     address: string | null
     code: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ArthurTenancyCountAggregateOutputType = {
@@ -11046,10 +11046,10 @@ export namespace Prisma {
     lettingType: number
     rentStatus: number
     commentary: number
-    createdAt: number
-    updatedAt: number
     address: number
     code: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -11079,10 +11079,10 @@ export namespace Prisma {
     lettingType?: true
     rentStatus?: true
     commentary?: true
-    createdAt?: true
-    updatedAt?: true
     address?: true
     code?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ArthurTenancyMaxAggregateInputType = {
@@ -11100,10 +11100,10 @@ export namespace Prisma {
     lettingType?: true
     rentStatus?: true
     commentary?: true
-    createdAt?: true
-    updatedAt?: true
     address?: true
     code?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ArthurTenancyCountAggregateInputType = {
@@ -11124,10 +11124,10 @@ export namespace Prisma {
     lettingType?: true
     rentStatus?: true
     commentary?: true
-    createdAt?: true
-    updatedAt?: true
     address?: true
     code?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -11235,10 +11235,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt: Date
-    updatedAt: Date
     address: string | null
     code: string | null
+    createdAt: Date
+    updatedAt: Date
     _count: ArthurTenancyCountAggregateOutputType | null
     _avg: ArthurTenancyAvgAggregateOutputType | null
     _sum: ArthurTenancySumAggregateOutputType | null
@@ -11278,10 +11278,10 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     address?: boolean
     code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurTenancy"]>
 
@@ -11303,10 +11303,10 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     address?: boolean
     code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurTenancy"]>
 
@@ -11328,10 +11328,10 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     address?: boolean
     code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arthurTenancy"]>
 
@@ -11353,13 +11353,13 @@ export namespace Prisma {
     lettingType?: boolean
     rentStatus?: boolean
     commentary?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     address?: boolean
     code?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type ArthurTenancyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitId" | "status" | "startDate" | "endDate" | "rent" | "rentVal" | "deposit" | "depositVal" | "lodged" | "received" | "tenants" | "phone" | "email" | "lettingType" | "rentStatus" | "commentary" | "createdAt" | "updatedAt" | "address" | "code", ExtArgs["result"]["arthurTenancy"]>
+  export type ArthurTenancyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitId" | "status" | "startDate" | "endDate" | "rent" | "rentVal" | "deposit" | "depositVal" | "lodged" | "received" | "tenants" | "phone" | "email" | "lettingType" | "rentStatus" | "commentary" | "address" | "code" | "createdAt" | "updatedAt", ExtArgs["result"]["arthurTenancy"]>
   export type ArthurTenancyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     unit?: boolean | ArthurUnitDefaultArgs<ExtArgs>
   }
@@ -11393,10 +11393,10 @@ export namespace Prisma {
       lettingType: string
       rentStatus: string
       commentary: string
-      createdAt: Date
-      updatedAt: Date
       address: string | null
       code: string | null
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["arthurTenancy"]>
     composites: {}
   }
@@ -11838,10 +11838,10 @@ export namespace Prisma {
     readonly lettingType: FieldRef<"ArthurTenancy", 'String'>
     readonly rentStatus: FieldRef<"ArthurTenancy", 'String'>
     readonly commentary: FieldRef<"ArthurTenancy", 'String'>
-    readonly createdAt: FieldRef<"ArthurTenancy", 'DateTime'>
-    readonly updatedAt: FieldRef<"ArthurTenancy", 'DateTime'>
     readonly address: FieldRef<"ArthurTenancy", 'String'>
     readonly code: FieldRef<"ArthurTenancy", 'String'>
+    readonly createdAt: FieldRef<"ArthurTenancy", 'DateTime'>
+    readonly updatedAt: FieldRef<"ArthurTenancy", 'DateTime'>
   }
     
 
@@ -13276,8 +13276,6 @@ export namespace Prisma {
 
   export type MaintenanceReportMinAggregateOutputType = {
     id: string | null
-    userEmail: string | null
-    userName: string | null
     unitName: string | null
     propertyName: string | null
     issue: string | null
@@ -13286,12 +13284,12 @@ export namespace Prisma {
     reportedDate: Date | null
     adminDescription: string | null
     updatedAt: Date | null
+    userEmail: string | null
+    userName: string | null
   }
 
   export type MaintenanceReportMaxAggregateOutputType = {
     id: string | null
-    userEmail: string | null
-    userName: string | null
     unitName: string | null
     propertyName: string | null
     issue: string | null
@@ -13300,12 +13298,12 @@ export namespace Prisma {
     reportedDate: Date | null
     adminDescription: string | null
     updatedAt: Date | null
+    userEmail: string | null
+    userName: string | null
   }
 
   export type MaintenanceReportCountAggregateOutputType = {
     id: number
-    userEmail: number
-    userName: number
     unitName: number
     propertyName: number
     issue: number
@@ -13314,14 +13312,14 @@ export namespace Prisma {
     reportedDate: number
     adminDescription: number
     updatedAt: number
+    userEmail: number
+    userName: number
     _all: number
   }
 
 
   export type MaintenanceReportMinAggregateInputType = {
     id?: true
-    userEmail?: true
-    userName?: true
     unitName?: true
     propertyName?: true
     issue?: true
@@ -13330,12 +13328,12 @@ export namespace Prisma {
     reportedDate?: true
     adminDescription?: true
     updatedAt?: true
+    userEmail?: true
+    userName?: true
   }
 
   export type MaintenanceReportMaxAggregateInputType = {
     id?: true
-    userEmail?: true
-    userName?: true
     unitName?: true
     propertyName?: true
     issue?: true
@@ -13344,12 +13342,12 @@ export namespace Prisma {
     reportedDate?: true
     adminDescription?: true
     updatedAt?: true
+    userEmail?: true
+    userName?: true
   }
 
   export type MaintenanceReportCountAggregateInputType = {
     id?: true
-    userEmail?: true
-    userName?: true
     unitName?: true
     propertyName?: true
     issue?: true
@@ -13358,6 +13356,8 @@ export namespace Prisma {
     reportedDate?: true
     adminDescription?: true
     updatedAt?: true
+    userEmail?: true
+    userName?: true
     _all?: true
   }
 
@@ -13435,8 +13435,6 @@ export namespace Prisma {
 
   export type MaintenanceReportGroupByOutputType = {
     id: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     issue: string
@@ -13445,6 +13443,8 @@ export namespace Prisma {
     reportedDate: Date
     adminDescription: string | null
     updatedAt: Date
+    userEmail: string
+    userName: string
     _count: MaintenanceReportCountAggregateOutputType | null
     _min: MaintenanceReportMinAggregateOutputType | null
     _max: MaintenanceReportMaxAggregateOutputType | null
@@ -13466,8 +13466,6 @@ export namespace Prisma {
 
   export type MaintenanceReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     issue?: boolean
@@ -13476,12 +13474,12 @@ export namespace Prisma {
     reportedDate?: boolean
     adminDescription?: boolean
     updatedAt?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }, ExtArgs["result"]["maintenanceReport"]>
 
   export type MaintenanceReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     issue?: boolean
@@ -13490,12 +13488,12 @@ export namespace Prisma {
     reportedDate?: boolean
     adminDescription?: boolean
     updatedAt?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }, ExtArgs["result"]["maintenanceReport"]>
 
   export type MaintenanceReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     issue?: boolean
@@ -13504,12 +13502,12 @@ export namespace Prisma {
     reportedDate?: boolean
     adminDescription?: boolean
     updatedAt?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }, ExtArgs["result"]["maintenanceReport"]>
 
   export type MaintenanceReportSelectScalar = {
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     issue?: boolean
@@ -13518,17 +13516,17 @@ export namespace Prisma {
     reportedDate?: boolean
     adminDescription?: boolean
     updatedAt?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }
 
-  export type MaintenanceReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userEmail" | "userName" | "unitName" | "propertyName" | "issue" | "priority" | "status" | "reportedDate" | "adminDescription" | "updatedAt", ExtArgs["result"]["maintenanceReport"]>
+  export type MaintenanceReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitName" | "propertyName" | "issue" | "priority" | "status" | "reportedDate" | "adminDescription" | "updatedAt" | "userEmail" | "userName", ExtArgs["result"]["maintenanceReport"]>
 
   export type $MaintenanceReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "MaintenanceReport"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      userEmail: string
-      userName: string
       unitName: string
       propertyName: string
       issue: string
@@ -13537,6 +13535,8 @@ export namespace Prisma {
       reportedDate: Date
       adminDescription: string | null
       updatedAt: Date
+      userEmail: string
+      userName: string
     }, ExtArgs["result"]["maintenanceReport"]>
     composites: {}
   }
@@ -13961,8 +13961,6 @@ export namespace Prisma {
    */
   interface MaintenanceReportFieldRefs {
     readonly id: FieldRef<"MaintenanceReport", 'String'>
-    readonly userEmail: FieldRef<"MaintenanceReport", 'String'>
-    readonly userName: FieldRef<"MaintenanceReport", 'String'>
     readonly unitName: FieldRef<"MaintenanceReport", 'String'>
     readonly propertyName: FieldRef<"MaintenanceReport", 'String'>
     readonly issue: FieldRef<"MaintenanceReport", 'String'>
@@ -13971,6 +13969,8 @@ export namespace Prisma {
     readonly reportedDate: FieldRef<"MaintenanceReport", 'DateTime'>
     readonly adminDescription: FieldRef<"MaintenanceReport", 'String'>
     readonly updatedAt: FieldRef<"MaintenanceReport", 'DateTime'>
+    readonly userEmail: FieldRef<"MaintenanceReport", 'String'>
+    readonly userName: FieldRef<"MaintenanceReport", 'String'>
   }
     
 
@@ -14349,70 +14349,70 @@ export namespace Prisma {
 
   export type MeterReadingMinAggregateOutputType = {
     id: string | null
-    userEmail: string | null
-    userName: string | null
     unitName: string | null
     propertyName: string | null
     type: string | null
     value: string | null
     loggedDate: Date | null
+    userEmail: string | null
+    userName: string | null
   }
 
   export type MeterReadingMaxAggregateOutputType = {
     id: string | null
-    userEmail: string | null
-    userName: string | null
     unitName: string | null
     propertyName: string | null
     type: string | null
     value: string | null
     loggedDate: Date | null
+    userEmail: string | null
+    userName: string | null
   }
 
   export type MeterReadingCountAggregateOutputType = {
     id: number
-    userEmail: number
-    userName: number
     unitName: number
     propertyName: number
     type: number
     value: number
     loggedDate: number
+    userEmail: number
+    userName: number
     _all: number
   }
 
 
   export type MeterReadingMinAggregateInputType = {
     id?: true
-    userEmail?: true
-    userName?: true
     unitName?: true
     propertyName?: true
     type?: true
     value?: true
     loggedDate?: true
+    userEmail?: true
+    userName?: true
   }
 
   export type MeterReadingMaxAggregateInputType = {
     id?: true
-    userEmail?: true
-    userName?: true
     unitName?: true
     propertyName?: true
     type?: true
     value?: true
     loggedDate?: true
+    userEmail?: true
+    userName?: true
   }
 
   export type MeterReadingCountAggregateInputType = {
     id?: true
-    userEmail?: true
-    userName?: true
     unitName?: true
     propertyName?: true
     type?: true
     value?: true
     loggedDate?: true
+    userEmail?: true
+    userName?: true
     _all?: true
   }
 
@@ -14490,13 +14490,13 @@ export namespace Prisma {
 
   export type MeterReadingGroupByOutputType = {
     id: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     type: string
     value: string
     loggedDate: Date
+    userEmail: string
+    userName: string
     _count: MeterReadingCountAggregateOutputType | null
     _min: MeterReadingMinAggregateOutputType | null
     _max: MeterReadingMaxAggregateOutputType | null
@@ -14518,62 +14518,62 @@ export namespace Prisma {
 
   export type MeterReadingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     type?: boolean
     value?: boolean
     loggedDate?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }, ExtArgs["result"]["meterReading"]>
 
   export type MeterReadingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     type?: boolean
     value?: boolean
     loggedDate?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }, ExtArgs["result"]["meterReading"]>
 
   export type MeterReadingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     type?: boolean
     value?: boolean
     loggedDate?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }, ExtArgs["result"]["meterReading"]>
 
   export type MeterReadingSelectScalar = {
     id?: boolean
-    userEmail?: boolean
-    userName?: boolean
     unitName?: boolean
     propertyName?: boolean
     type?: boolean
     value?: boolean
     loggedDate?: boolean
+    userEmail?: boolean
+    userName?: boolean
   }
 
-  export type MeterReadingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userEmail" | "userName" | "unitName" | "propertyName" | "type" | "value" | "loggedDate", ExtArgs["result"]["meterReading"]>
+  export type MeterReadingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unitName" | "propertyName" | "type" | "value" | "loggedDate" | "userEmail" | "userName", ExtArgs["result"]["meterReading"]>
 
   export type $MeterReadingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "MeterReading"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      userEmail: string
-      userName: string
       unitName: string
       propertyName: string
       type: string
       value: string
       loggedDate: Date
+      userEmail: string
+      userName: string
     }, ExtArgs["result"]["meterReading"]>
     composites: {}
   }
@@ -14998,13 +14998,13 @@ export namespace Prisma {
    */
   interface MeterReadingFieldRefs {
     readonly id: FieldRef<"MeterReading", 'String'>
-    readonly userEmail: FieldRef<"MeterReading", 'String'>
-    readonly userName: FieldRef<"MeterReading", 'String'>
     readonly unitName: FieldRef<"MeterReading", 'String'>
     readonly propertyName: FieldRef<"MeterReading", 'String'>
     readonly type: FieldRef<"MeterReading", 'String'>
     readonly value: FieldRef<"MeterReading", 'String'>
     readonly loggedDate: FieldRef<"MeterReading", 'DateTime'>
+    readonly userEmail: FieldRef<"MeterReading", 'String'>
+    readonly userName: FieldRef<"MeterReading", 'String'>
   }
     
 
@@ -15476,32 +15476,32 @@ export namespace Prisma {
     status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    landlordEntity: 'landlordEntity',
-    referenceCode: 'referenceCode',
-    bankName: 'bankName',
-    sortCode: 'sortCode',
-    accountNumber: 'accountNumber',
     accountName: 'accountName',
+    accountNumber: 'accountNumber',
+    bankName: 'bankName',
+    complianceNotes: 'complianceNotes',
+    eicExpiryDate: 'eicExpiryDate',
+    eicInspectedDate: 'eicInspectedDate',
+    eicSerial: 'eicSerial',
+    elecMeterCheckInDate: 'elecMeterCheckInDate',
+    elecMeterCheckInValue: 'elecMeterCheckInValue',
+    elecMeterSerial: 'elecMeterSerial',
+    epcAssessedDate: 'epcAssessedDate',
+    epcAssessor: 'epcAssessor',
+    epcCertificate: 'epcCertificate',
+    epcExpiryDate: 'epcExpiryDate',
     epcRating: 'epcRating',
     epcScore: 'epcScore',
-    epcCertificate: 'epcCertificate',
-    epcAssessedDate: 'epcAssessedDate',
-    epcExpiryDate: 'epcExpiryDate',
-    epcAssessor: 'epcAssessor',
-    eicSerial: 'eicSerial',
-    eicInspectedDate: 'eicInspectedDate',
-    eicExpiryDate: 'eicExpiryDate',
     insurancePolicy: 'insurancePolicy',
     insuranceStartDate: 'insuranceStartDate',
     insuranceStatus: 'insuranceStatus',
-    elecMeterSerial: 'elecMeterSerial',
-    elecMeterCheckInValue: 'elecMeterCheckInValue',
-    elecMeterCheckInDate: 'elecMeterCheckInDate',
-    waterMeterSerial: 'waterMeterSerial',
-    waterMeterCheckInValue: 'waterMeterCheckInValue',
-    waterMeterCheckInDate: 'waterMeterCheckInDate',
+    landlordEntity: 'landlordEntity',
     outstandingDocs: 'outstandingDocs',
-    complianceNotes: 'complianceNotes'
+    referenceCode: 'referenceCode',
+    sortCode: 'sortCode',
+    waterMeterCheckInDate: 'waterMeterCheckInDate',
+    waterMeterCheckInValue: 'waterMeterCheckInValue',
+    waterMeterSerial: 'waterMeterSerial'
   };
 
   export type ArthurUnitScalarFieldEnum = (typeof ArthurUnitScalarFieldEnum)[keyof typeof ArthurUnitScalarFieldEnum]
@@ -15525,10 +15525,10 @@ export namespace Prisma {
     lettingType: 'lettingType',
     rentStatus: 'rentStatus',
     commentary: 'commentary',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
     address: 'address',
-    code: 'code'
+    code: 'code',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type ArthurTenancyScalarFieldEnum = (typeof ArthurTenancyScalarFieldEnum)[keyof typeof ArthurTenancyScalarFieldEnum]
@@ -15548,8 +15548,6 @@ export namespace Prisma {
 
   export const MaintenanceReportScalarFieldEnum: {
     id: 'id',
-    userEmail: 'userEmail',
-    userName: 'userName',
     unitName: 'unitName',
     propertyName: 'propertyName',
     issue: 'issue',
@@ -15557,7 +15555,9 @@ export namespace Prisma {
     status: 'status',
     reportedDate: 'reportedDate',
     adminDescription: 'adminDescription',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    userEmail: 'userEmail',
+    userName: 'userName'
   };
 
   export type MaintenanceReportScalarFieldEnum = (typeof MaintenanceReportScalarFieldEnum)[keyof typeof MaintenanceReportScalarFieldEnum]
@@ -15565,13 +15565,13 @@ export namespace Prisma {
 
   export const MeterReadingScalarFieldEnum: {
     id: 'id',
-    userEmail: 'userEmail',
-    userName: 'userName',
     unitName: 'unitName',
     propertyName: 'propertyName',
     type: 'type',
     value: 'value',
-    loggedDate: 'loggedDate'
+    loggedDate: 'loggedDate',
+    userEmail: 'userEmail',
+    userName: 'userName'
   };
 
   export type MeterReadingScalarFieldEnum = (typeof MeterReadingScalarFieldEnum)[keyof typeof MeterReadingScalarFieldEnum]
@@ -16101,32 +16101,32 @@ export namespace Prisma {
     status?: StringFilter<"ArthurUnit"> | string
     createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
-    landlordEntity?: StringNullableFilter<"ArthurUnit"> | string | null
-    referenceCode?: StringNullableFilter<"ArthurUnit"> | string | null
-    bankName?: StringNullableFilter<"ArthurUnit"> | string | null
-    sortCode?: StringNullableFilter<"ArthurUnit"> | string | null
-    accountNumber?: StringNullableFilter<"ArthurUnit"> | string | null
     accountName?: StringNullableFilter<"ArthurUnit"> | string | null
+    accountNumber?: StringNullableFilter<"ArthurUnit"> | string | null
+    bankName?: StringNullableFilter<"ArthurUnit"> | string | null
+    complianceNotes?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicInspectedDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicSerial?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcAssessedDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcAssessor?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcCertificate?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
     epcRating?: StringNullableFilter<"ArthurUnit"> | string | null
     epcScore?: IntNullableFilter<"ArthurUnit"> | number | null
-    epcCertificate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcAssessedDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcAssessor?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicInspectedDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
     insurancePolicy?: StringNullableFilter<"ArthurUnit"> | string | null
     insuranceStartDate?: StringNullableFilter<"ArthurUnit"> | string | null
     insuranceStatus?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    landlordEntity?: StringNullableFilter<"ArthurUnit"> | string | null
     outstandingDocs?: StringNullableListFilter<"ArthurUnit">
-    complianceNotes?: StringNullableFilter<"ArthurUnit"> | string | null
+    referenceCode?: StringNullableFilter<"ArthurUnit"> | string | null
+    sortCode?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
     tenancies?: ArthurTenancyListRelationFilter
     property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
   }
@@ -16138,32 +16138,32 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    landlordEntity?: SortOrderInput | SortOrder
-    referenceCode?: SortOrderInput | SortOrder
-    bankName?: SortOrderInput | SortOrder
-    sortCode?: SortOrderInput | SortOrder
-    accountNumber?: SortOrderInput | SortOrder
     accountName?: SortOrderInput | SortOrder
+    accountNumber?: SortOrderInput | SortOrder
+    bankName?: SortOrderInput | SortOrder
+    complianceNotes?: SortOrderInput | SortOrder
+    eicExpiryDate?: SortOrderInput | SortOrder
+    eicInspectedDate?: SortOrderInput | SortOrder
+    eicSerial?: SortOrderInput | SortOrder
+    elecMeterCheckInDate?: SortOrderInput | SortOrder
+    elecMeterCheckInValue?: SortOrderInput | SortOrder
+    elecMeterSerial?: SortOrderInput | SortOrder
+    epcAssessedDate?: SortOrderInput | SortOrder
+    epcAssessor?: SortOrderInput | SortOrder
+    epcCertificate?: SortOrderInput | SortOrder
+    epcExpiryDate?: SortOrderInput | SortOrder
     epcRating?: SortOrderInput | SortOrder
     epcScore?: SortOrderInput | SortOrder
-    epcCertificate?: SortOrderInput | SortOrder
-    epcAssessedDate?: SortOrderInput | SortOrder
-    epcExpiryDate?: SortOrderInput | SortOrder
-    epcAssessor?: SortOrderInput | SortOrder
-    eicSerial?: SortOrderInput | SortOrder
-    eicInspectedDate?: SortOrderInput | SortOrder
-    eicExpiryDate?: SortOrderInput | SortOrder
     insurancePolicy?: SortOrderInput | SortOrder
     insuranceStartDate?: SortOrderInput | SortOrder
     insuranceStatus?: SortOrderInput | SortOrder
-    elecMeterSerial?: SortOrderInput | SortOrder
-    elecMeterCheckInValue?: SortOrderInput | SortOrder
-    elecMeterCheckInDate?: SortOrderInput | SortOrder
-    waterMeterSerial?: SortOrderInput | SortOrder
-    waterMeterCheckInValue?: SortOrderInput | SortOrder
-    waterMeterCheckInDate?: SortOrderInput | SortOrder
+    landlordEntity?: SortOrderInput | SortOrder
     outstandingDocs?: SortOrder
-    complianceNotes?: SortOrderInput | SortOrder
+    referenceCode?: SortOrderInput | SortOrder
+    sortCode?: SortOrderInput | SortOrder
+    waterMeterCheckInDate?: SortOrderInput | SortOrder
+    waterMeterCheckInValue?: SortOrderInput | SortOrder
+    waterMeterSerial?: SortOrderInput | SortOrder
     tenancies?: ArthurTenancyOrderByRelationAggregateInput
     property?: ArthurPropertyOrderByWithRelationInput
   }
@@ -16178,32 +16178,32 @@ export namespace Prisma {
     status?: StringFilter<"ArthurUnit"> | string
     createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
-    landlordEntity?: StringNullableFilter<"ArthurUnit"> | string | null
-    referenceCode?: StringNullableFilter<"ArthurUnit"> | string | null
-    bankName?: StringNullableFilter<"ArthurUnit"> | string | null
-    sortCode?: StringNullableFilter<"ArthurUnit"> | string | null
-    accountNumber?: StringNullableFilter<"ArthurUnit"> | string | null
     accountName?: StringNullableFilter<"ArthurUnit"> | string | null
+    accountNumber?: StringNullableFilter<"ArthurUnit"> | string | null
+    bankName?: StringNullableFilter<"ArthurUnit"> | string | null
+    complianceNotes?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicInspectedDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicSerial?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcAssessedDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcAssessor?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcCertificate?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
     epcRating?: StringNullableFilter<"ArthurUnit"> | string | null
     epcScore?: IntNullableFilter<"ArthurUnit"> | number | null
-    epcCertificate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcAssessedDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcAssessor?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicInspectedDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
     insurancePolicy?: StringNullableFilter<"ArthurUnit"> | string | null
     insuranceStartDate?: StringNullableFilter<"ArthurUnit"> | string | null
     insuranceStatus?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    landlordEntity?: StringNullableFilter<"ArthurUnit"> | string | null
     outstandingDocs?: StringNullableListFilter<"ArthurUnit">
-    complianceNotes?: StringNullableFilter<"ArthurUnit"> | string | null
+    referenceCode?: StringNullableFilter<"ArthurUnit"> | string | null
+    sortCode?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
     tenancies?: ArthurTenancyListRelationFilter
     property?: XOR<ArthurPropertyScalarRelationFilter, ArthurPropertyWhereInput>
   }, "id">
@@ -16215,32 +16215,32 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    landlordEntity?: SortOrderInput | SortOrder
-    referenceCode?: SortOrderInput | SortOrder
-    bankName?: SortOrderInput | SortOrder
-    sortCode?: SortOrderInput | SortOrder
-    accountNumber?: SortOrderInput | SortOrder
     accountName?: SortOrderInput | SortOrder
+    accountNumber?: SortOrderInput | SortOrder
+    bankName?: SortOrderInput | SortOrder
+    complianceNotes?: SortOrderInput | SortOrder
+    eicExpiryDate?: SortOrderInput | SortOrder
+    eicInspectedDate?: SortOrderInput | SortOrder
+    eicSerial?: SortOrderInput | SortOrder
+    elecMeterCheckInDate?: SortOrderInput | SortOrder
+    elecMeterCheckInValue?: SortOrderInput | SortOrder
+    elecMeterSerial?: SortOrderInput | SortOrder
+    epcAssessedDate?: SortOrderInput | SortOrder
+    epcAssessor?: SortOrderInput | SortOrder
+    epcCertificate?: SortOrderInput | SortOrder
+    epcExpiryDate?: SortOrderInput | SortOrder
     epcRating?: SortOrderInput | SortOrder
     epcScore?: SortOrderInput | SortOrder
-    epcCertificate?: SortOrderInput | SortOrder
-    epcAssessedDate?: SortOrderInput | SortOrder
-    epcExpiryDate?: SortOrderInput | SortOrder
-    epcAssessor?: SortOrderInput | SortOrder
-    eicSerial?: SortOrderInput | SortOrder
-    eicInspectedDate?: SortOrderInput | SortOrder
-    eicExpiryDate?: SortOrderInput | SortOrder
     insurancePolicy?: SortOrderInput | SortOrder
     insuranceStartDate?: SortOrderInput | SortOrder
     insuranceStatus?: SortOrderInput | SortOrder
-    elecMeterSerial?: SortOrderInput | SortOrder
-    elecMeterCheckInValue?: SortOrderInput | SortOrder
-    elecMeterCheckInDate?: SortOrderInput | SortOrder
-    waterMeterSerial?: SortOrderInput | SortOrder
-    waterMeterCheckInValue?: SortOrderInput | SortOrder
-    waterMeterCheckInDate?: SortOrderInput | SortOrder
+    landlordEntity?: SortOrderInput | SortOrder
     outstandingDocs?: SortOrder
-    complianceNotes?: SortOrderInput | SortOrder
+    referenceCode?: SortOrderInput | SortOrder
+    sortCode?: SortOrderInput | SortOrder
+    waterMeterCheckInDate?: SortOrderInput | SortOrder
+    waterMeterCheckInValue?: SortOrderInput | SortOrder
+    waterMeterSerial?: SortOrderInput | SortOrder
     _count?: ArthurUnitCountOrderByAggregateInput
     _avg?: ArthurUnitAvgOrderByAggregateInput
     _max?: ArthurUnitMaxOrderByAggregateInput
@@ -16258,32 +16258,32 @@ export namespace Prisma {
     status?: StringWithAggregatesFilter<"ArthurUnit"> | string
     createdAt?: DateTimeWithAggregatesFilter<"ArthurUnit"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ArthurUnit"> | Date | string
-    landlordEntity?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    referenceCode?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    bankName?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    sortCode?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    accountNumber?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     accountName?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    accountNumber?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    bankName?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    complianceNotes?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    eicExpiryDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    eicInspectedDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    eicSerial?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInValue?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    elecMeterSerial?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    epcAssessedDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    epcAssessor?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    epcCertificate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    epcExpiryDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     epcRating?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     epcScore?: IntNullableWithAggregatesFilter<"ArthurUnit"> | number | null
-    epcCertificate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    epcAssessedDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    epcExpiryDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    epcAssessor?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    eicSerial?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    eicInspectedDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    eicExpiryDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     insurancePolicy?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     insuranceStartDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     insuranceStatus?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    elecMeterSerial?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInValue?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    waterMeterSerial?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInValue?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    landlordEntity?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
     outstandingDocs?: StringNullableListFilter<"ArthurUnit">
-    complianceNotes?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    referenceCode?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    sortCode?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInDate?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInValue?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
+    waterMeterSerial?: StringNullableWithAggregatesFilter<"ArthurUnit"> | string | null
   }
 
   export type ArthurTenancyWhereInput = {
@@ -16307,10 +16307,10 @@ export namespace Prisma {
     lettingType?: StringFilter<"ArthurTenancy"> | string
     rentStatus?: StringFilter<"ArthurTenancy"> | string
     commentary?: StringFilter<"ArthurTenancy"> | string
-    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
-    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     address?: StringNullableFilter<"ArthurTenancy"> | string | null
     code?: StringNullableFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     unit?: XOR<ArthurUnitScalarRelationFilter, ArthurUnitWhereInput>
   }
 
@@ -16332,10 +16332,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     address?: SortOrderInput | SortOrder
     code?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     unit?: ArthurUnitOrderByWithRelationInput
   }
 
@@ -16360,10 +16360,10 @@ export namespace Prisma {
     lettingType?: StringFilter<"ArthurTenancy"> | string
     rentStatus?: StringFilter<"ArthurTenancy"> | string
     commentary?: StringFilter<"ArthurTenancy"> | string
-    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
-    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     address?: StringNullableFilter<"ArthurTenancy"> | string | null
     code?: StringNullableFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     unit?: XOR<ArthurUnitScalarRelationFilter, ArthurUnitWhereInput>
   }, "id">
 
@@ -16385,10 +16385,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     address?: SortOrderInput | SortOrder
     code?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: ArthurTenancyCountOrderByAggregateInput
     _avg?: ArthurTenancyAvgOrderByAggregateInput
     _max?: ArthurTenancyMaxOrderByAggregateInput
@@ -16417,10 +16417,10 @@ export namespace Prisma {
     lettingType?: StringWithAggregatesFilter<"ArthurTenancy"> | string
     rentStatus?: StringWithAggregatesFilter<"ArthurTenancy"> | string
     commentary?: StringWithAggregatesFilter<"ArthurTenancy"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
     address?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
     code?: StringNullableWithAggregatesFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ArthurTenancy"> | Date | string
   }
 
   export type AdminProfileWhereInput = {
@@ -16485,8 +16485,6 @@ export namespace Prisma {
     OR?: MaintenanceReportWhereInput[]
     NOT?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
     id?: StringFilter<"MaintenanceReport"> | string
-    userEmail?: StringFilter<"MaintenanceReport"> | string
-    userName?: StringFilter<"MaintenanceReport"> | string
     unitName?: StringFilter<"MaintenanceReport"> | string
     propertyName?: StringFilter<"MaintenanceReport"> | string
     issue?: StringFilter<"MaintenanceReport"> | string
@@ -16495,12 +16493,12 @@ export namespace Prisma {
     reportedDate?: DateTimeFilter<"MaintenanceReport"> | Date | string
     adminDescription?: StringNullableFilter<"MaintenanceReport"> | string | null
     updatedAt?: DateTimeFilter<"MaintenanceReport"> | Date | string
+    userEmail?: StringFilter<"MaintenanceReport"> | string
+    userName?: StringFilter<"MaintenanceReport"> | string
   }
 
   export type MaintenanceReportOrderByWithRelationInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     issue?: SortOrder
@@ -16509,6 +16507,8 @@ export namespace Prisma {
     reportedDate?: SortOrder
     adminDescription?: SortOrderInput | SortOrder
     updatedAt?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MaintenanceReportWhereUniqueInput = Prisma.AtLeast<{
@@ -16516,8 +16516,6 @@ export namespace Prisma {
     AND?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
     OR?: MaintenanceReportWhereInput[]
     NOT?: MaintenanceReportWhereInput | MaintenanceReportWhereInput[]
-    userEmail?: StringFilter<"MaintenanceReport"> | string
-    userName?: StringFilter<"MaintenanceReport"> | string
     unitName?: StringFilter<"MaintenanceReport"> | string
     propertyName?: StringFilter<"MaintenanceReport"> | string
     issue?: StringFilter<"MaintenanceReport"> | string
@@ -16526,12 +16524,12 @@ export namespace Prisma {
     reportedDate?: DateTimeFilter<"MaintenanceReport"> | Date | string
     adminDescription?: StringNullableFilter<"MaintenanceReport"> | string | null
     updatedAt?: DateTimeFilter<"MaintenanceReport"> | Date | string
+    userEmail?: StringFilter<"MaintenanceReport"> | string
+    userName?: StringFilter<"MaintenanceReport"> | string
   }, "id">
 
   export type MaintenanceReportOrderByWithAggregationInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     issue?: SortOrder
@@ -16540,6 +16538,8 @@ export namespace Prisma {
     reportedDate?: SortOrder
     adminDescription?: SortOrderInput | SortOrder
     updatedAt?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
     _count?: MaintenanceReportCountOrderByAggregateInput
     _max?: MaintenanceReportMaxOrderByAggregateInput
     _min?: MaintenanceReportMinOrderByAggregateInput
@@ -16550,8 +16550,6 @@ export namespace Prisma {
     OR?: MaintenanceReportScalarWhereWithAggregatesInput[]
     NOT?: MaintenanceReportScalarWhereWithAggregatesInput | MaintenanceReportScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"MaintenanceReport"> | string
-    userEmail?: StringWithAggregatesFilter<"MaintenanceReport"> | string
-    userName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
     unitName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
     propertyName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
     issue?: StringWithAggregatesFilter<"MaintenanceReport"> | string
@@ -16560,6 +16558,8 @@ export namespace Prisma {
     reportedDate?: DateTimeWithAggregatesFilter<"MaintenanceReport"> | Date | string
     adminDescription?: StringNullableWithAggregatesFilter<"MaintenanceReport"> | string | null
     updatedAt?: DateTimeWithAggregatesFilter<"MaintenanceReport"> | Date | string
+    userEmail?: StringWithAggregatesFilter<"MaintenanceReport"> | string
+    userName?: StringWithAggregatesFilter<"MaintenanceReport"> | string
   }
 
   export type MeterReadingWhereInput = {
@@ -16567,24 +16567,24 @@ export namespace Prisma {
     OR?: MeterReadingWhereInput[]
     NOT?: MeterReadingWhereInput | MeterReadingWhereInput[]
     id?: StringFilter<"MeterReading"> | string
-    userEmail?: StringFilter<"MeterReading"> | string
-    userName?: StringFilter<"MeterReading"> | string
     unitName?: StringFilter<"MeterReading"> | string
     propertyName?: StringFilter<"MeterReading"> | string
     type?: StringFilter<"MeterReading"> | string
     value?: StringFilter<"MeterReading"> | string
     loggedDate?: DateTimeFilter<"MeterReading"> | Date | string
+    userEmail?: StringFilter<"MeterReading"> | string
+    userName?: StringFilter<"MeterReading"> | string
   }
 
   export type MeterReadingOrderByWithRelationInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     type?: SortOrder
     value?: SortOrder
     loggedDate?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MeterReadingWhereUniqueInput = Prisma.AtLeast<{
@@ -16592,24 +16592,24 @@ export namespace Prisma {
     AND?: MeterReadingWhereInput | MeterReadingWhereInput[]
     OR?: MeterReadingWhereInput[]
     NOT?: MeterReadingWhereInput | MeterReadingWhereInput[]
-    userEmail?: StringFilter<"MeterReading"> | string
-    userName?: StringFilter<"MeterReading"> | string
     unitName?: StringFilter<"MeterReading"> | string
     propertyName?: StringFilter<"MeterReading"> | string
     type?: StringFilter<"MeterReading"> | string
     value?: StringFilter<"MeterReading"> | string
     loggedDate?: DateTimeFilter<"MeterReading"> | Date | string
+    userEmail?: StringFilter<"MeterReading"> | string
+    userName?: StringFilter<"MeterReading"> | string
   }, "id">
 
   export type MeterReadingOrderByWithAggregationInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     type?: SortOrder
     value?: SortOrder
     loggedDate?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
     _count?: MeterReadingCountOrderByAggregateInput
     _max?: MeterReadingMaxOrderByAggregateInput
     _min?: MeterReadingMinOrderByAggregateInput
@@ -16620,13 +16620,13 @@ export namespace Prisma {
     OR?: MeterReadingScalarWhereWithAggregatesInput[]
     NOT?: MeterReadingScalarWhereWithAggregatesInput | MeterReadingScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"MeterReading"> | string
-    userEmail?: StringWithAggregatesFilter<"MeterReading"> | string
-    userName?: StringWithAggregatesFilter<"MeterReading"> | string
     unitName?: StringWithAggregatesFilter<"MeterReading"> | string
     propertyName?: StringWithAggregatesFilter<"MeterReading"> | string
     type?: StringWithAggregatesFilter<"MeterReading"> | string
     value?: StringWithAggregatesFilter<"MeterReading"> | string
     loggedDate?: DateTimeWithAggregatesFilter<"MeterReading"> | Date | string
+    userEmail?: StringWithAggregatesFilter<"MeterReading"> | string
+    userName?: StringWithAggregatesFilter<"MeterReading"> | string
   }
 
   export type PostCreateInput = {
@@ -17086,32 +17086,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
     tenancies?: ArthurTenancyCreateNestedManyWithoutUnitInput
     property: ArthurPropertyCreateNestedOneWithoutUnitsInput
   }
@@ -17123,32 +17123,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
     tenancies?: ArthurTenancyUncheckedCreateNestedManyWithoutUnitInput
   }
 
@@ -17158,32 +17158,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
     tenancies?: ArthurTenancyUpdateManyWithoutUnitNestedInput
     property?: ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput
   }
@@ -17195,32 +17195,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
     tenancies?: ArthurTenancyUncheckedUpdateManyWithoutUnitNestedInput
   }
 
@@ -17231,32 +17231,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
   }
 
   export type ArthurUnitUpdateManyMutationInput = {
@@ -17265,32 +17265,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurUnitUncheckedUpdateManyInput = {
@@ -17300,32 +17300,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurTenancyCreateInput = {
@@ -17345,10 +17345,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
     address?: string | null
     code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     unit: ArthurUnitCreateNestedOneWithoutTenanciesInput
   }
 
@@ -17370,10 +17370,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
     address?: string | null
     code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ArthurTenancyUpdateInput = {
@@ -17393,10 +17393,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     unit?: ArthurUnitUpdateOneRequiredWithoutTenanciesNestedInput
   }
 
@@ -17418,10 +17418,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurTenancyCreateManyInput = {
@@ -17442,10 +17442,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
     address?: string | null
     code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ArthurTenancyUpdateManyMutationInput = {
@@ -17465,10 +17465,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurTenancyUncheckedUpdateManyInput = {
@@ -17489,10 +17489,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AdminProfileCreateInput = {
@@ -17560,8 +17560,6 @@ export namespace Prisma {
 
   export type MaintenanceReportCreateInput = {
     id?: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     issue: string
@@ -17570,12 +17568,12 @@ export namespace Prisma {
     reportedDate?: Date | string
     adminDescription?: string | null
     updatedAt?: Date | string
+    userEmail: string
+    userName: string
   }
 
   export type MaintenanceReportUncheckedCreateInput = {
     id?: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     issue: string
@@ -17584,12 +17582,12 @@ export namespace Prisma {
     reportedDate?: Date | string
     adminDescription?: string | null
     updatedAt?: Date | string
+    userEmail: string
+    userName: string
   }
 
   export type MaintenanceReportUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     issue?: StringFieldUpdateOperationsInput | string
@@ -17598,12 +17596,12 @@ export namespace Prisma {
     reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
     adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MaintenanceReportUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     issue?: StringFieldUpdateOperationsInput | string
@@ -17612,12 +17610,12 @@ export namespace Prisma {
     reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
     adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MaintenanceReportCreateManyInput = {
     id?: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     issue: string
@@ -17626,12 +17624,12 @@ export namespace Prisma {
     reportedDate?: Date | string
     adminDescription?: string | null
     updatedAt?: Date | string
+    userEmail: string
+    userName: string
   }
 
   export type MaintenanceReportUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     issue?: StringFieldUpdateOperationsInput | string
@@ -17640,12 +17638,12 @@ export namespace Prisma {
     reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
     adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MaintenanceReportUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     issue?: StringFieldUpdateOperationsInput | string
@@ -17654,83 +17652,85 @@ export namespace Prisma {
     reportedDate?: DateTimeFieldUpdateOperationsInput | Date | string
     adminDescription?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MeterReadingCreateInput = {
     id?: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     type: string
     value: string
     loggedDate?: Date | string
+    userEmail: string
+    userName: string
   }
 
   export type MeterReadingUncheckedCreateInput = {
     id?: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     type: string
     value: string
     loggedDate?: Date | string
+    userEmail: string
+    userName: string
   }
 
   export type MeterReadingUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MeterReadingUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MeterReadingCreateManyInput = {
     id?: string
-    userEmail: string
-    userName: string
     unitName: string
     propertyName: string
     type: string
     value: string
     loggedDate?: Date | string
+    userEmail: string
+    userName: string
   }
 
   export type MeterReadingUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type MeterReadingUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userEmail?: StringFieldUpdateOperationsInput | string
-    userName?: StringFieldUpdateOperationsInput | string
     unitName?: StringFieldUpdateOperationsInput | string
     propertyName?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     loggedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userEmail?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -18200,32 +18200,32 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    landlordEntity?: SortOrder
-    referenceCode?: SortOrder
-    bankName?: SortOrder
-    sortCode?: SortOrder
-    accountNumber?: SortOrder
     accountName?: SortOrder
+    accountNumber?: SortOrder
+    bankName?: SortOrder
+    complianceNotes?: SortOrder
+    eicExpiryDate?: SortOrder
+    eicInspectedDate?: SortOrder
+    eicSerial?: SortOrder
+    elecMeterCheckInDate?: SortOrder
+    elecMeterCheckInValue?: SortOrder
+    elecMeterSerial?: SortOrder
+    epcAssessedDate?: SortOrder
+    epcAssessor?: SortOrder
+    epcCertificate?: SortOrder
+    epcExpiryDate?: SortOrder
     epcRating?: SortOrder
     epcScore?: SortOrder
-    epcCertificate?: SortOrder
-    epcAssessedDate?: SortOrder
-    epcExpiryDate?: SortOrder
-    epcAssessor?: SortOrder
-    eicSerial?: SortOrder
-    eicInspectedDate?: SortOrder
-    eicExpiryDate?: SortOrder
     insurancePolicy?: SortOrder
     insuranceStartDate?: SortOrder
     insuranceStatus?: SortOrder
-    elecMeterSerial?: SortOrder
-    elecMeterCheckInValue?: SortOrder
-    elecMeterCheckInDate?: SortOrder
-    waterMeterSerial?: SortOrder
-    waterMeterCheckInValue?: SortOrder
-    waterMeterCheckInDate?: SortOrder
+    landlordEntity?: SortOrder
     outstandingDocs?: SortOrder
-    complianceNotes?: SortOrder
+    referenceCode?: SortOrder
+    sortCode?: SortOrder
+    waterMeterCheckInDate?: SortOrder
+    waterMeterCheckInValue?: SortOrder
+    waterMeterSerial?: SortOrder
   }
 
   export type ArthurUnitAvgOrderByAggregateInput = {
@@ -18239,31 +18239,31 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    landlordEntity?: SortOrder
-    referenceCode?: SortOrder
-    bankName?: SortOrder
-    sortCode?: SortOrder
-    accountNumber?: SortOrder
     accountName?: SortOrder
+    accountNumber?: SortOrder
+    bankName?: SortOrder
+    complianceNotes?: SortOrder
+    eicExpiryDate?: SortOrder
+    eicInspectedDate?: SortOrder
+    eicSerial?: SortOrder
+    elecMeterCheckInDate?: SortOrder
+    elecMeterCheckInValue?: SortOrder
+    elecMeterSerial?: SortOrder
+    epcAssessedDate?: SortOrder
+    epcAssessor?: SortOrder
+    epcCertificate?: SortOrder
+    epcExpiryDate?: SortOrder
     epcRating?: SortOrder
     epcScore?: SortOrder
-    epcCertificate?: SortOrder
-    epcAssessedDate?: SortOrder
-    epcExpiryDate?: SortOrder
-    epcAssessor?: SortOrder
-    eicSerial?: SortOrder
-    eicInspectedDate?: SortOrder
-    eicExpiryDate?: SortOrder
     insurancePolicy?: SortOrder
     insuranceStartDate?: SortOrder
     insuranceStatus?: SortOrder
-    elecMeterSerial?: SortOrder
-    elecMeterCheckInValue?: SortOrder
-    elecMeterCheckInDate?: SortOrder
-    waterMeterSerial?: SortOrder
-    waterMeterCheckInValue?: SortOrder
+    landlordEntity?: SortOrder
+    referenceCode?: SortOrder
+    sortCode?: SortOrder
     waterMeterCheckInDate?: SortOrder
-    complianceNotes?: SortOrder
+    waterMeterCheckInValue?: SortOrder
+    waterMeterSerial?: SortOrder
   }
 
   export type ArthurUnitMinOrderByAggregateInput = {
@@ -18273,31 +18273,31 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    landlordEntity?: SortOrder
-    referenceCode?: SortOrder
-    bankName?: SortOrder
-    sortCode?: SortOrder
-    accountNumber?: SortOrder
     accountName?: SortOrder
+    accountNumber?: SortOrder
+    bankName?: SortOrder
+    complianceNotes?: SortOrder
+    eicExpiryDate?: SortOrder
+    eicInspectedDate?: SortOrder
+    eicSerial?: SortOrder
+    elecMeterCheckInDate?: SortOrder
+    elecMeterCheckInValue?: SortOrder
+    elecMeterSerial?: SortOrder
+    epcAssessedDate?: SortOrder
+    epcAssessor?: SortOrder
+    epcCertificate?: SortOrder
+    epcExpiryDate?: SortOrder
     epcRating?: SortOrder
     epcScore?: SortOrder
-    epcCertificate?: SortOrder
-    epcAssessedDate?: SortOrder
-    epcExpiryDate?: SortOrder
-    epcAssessor?: SortOrder
-    eicSerial?: SortOrder
-    eicInspectedDate?: SortOrder
-    eicExpiryDate?: SortOrder
     insurancePolicy?: SortOrder
     insuranceStartDate?: SortOrder
     insuranceStatus?: SortOrder
-    elecMeterSerial?: SortOrder
-    elecMeterCheckInValue?: SortOrder
-    elecMeterCheckInDate?: SortOrder
-    waterMeterSerial?: SortOrder
-    waterMeterCheckInValue?: SortOrder
+    landlordEntity?: SortOrder
+    referenceCode?: SortOrder
+    sortCode?: SortOrder
     waterMeterCheckInDate?: SortOrder
-    complianceNotes?: SortOrder
+    waterMeterCheckInValue?: SortOrder
+    waterMeterSerial?: SortOrder
   }
 
   export type ArthurUnitSumOrderByAggregateInput = {
@@ -18338,10 +18338,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     address?: SortOrder
     code?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ArthurTenancyAvgOrderByAggregateInput = {
@@ -18364,10 +18364,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     address?: SortOrder
     code?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ArthurTenancyMinOrderByAggregateInput = {
@@ -18385,10 +18385,10 @@ export namespace Prisma {
     lettingType?: SortOrder
     rentStatus?: SortOrder
     commentary?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     address?: SortOrder
     code?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ArthurTenancySumOrderByAggregateInput = {
@@ -18441,8 +18441,6 @@ export namespace Prisma {
 
   export type MaintenanceReportCountOrderByAggregateInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     issue?: SortOrder
@@ -18451,12 +18449,12 @@ export namespace Prisma {
     reportedDate?: SortOrder
     adminDescription?: SortOrder
     updatedAt?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MaintenanceReportMaxOrderByAggregateInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     issue?: SortOrder
@@ -18465,12 +18463,12 @@ export namespace Prisma {
     reportedDate?: SortOrder
     adminDescription?: SortOrder
     updatedAt?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MaintenanceReportMinOrderByAggregateInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     issue?: SortOrder
@@ -18479,39 +18477,41 @@ export namespace Prisma {
     reportedDate?: SortOrder
     adminDescription?: SortOrder
     updatedAt?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MeterReadingCountOrderByAggregateInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     type?: SortOrder
     value?: SortOrder
     loggedDate?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MeterReadingMaxOrderByAggregateInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     type?: SortOrder
     value?: SortOrder
     loggedDate?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type MeterReadingMinOrderByAggregateInput = {
     id?: SortOrder
-    userEmail?: SortOrder
-    userName?: SortOrder
     unitName?: SortOrder
     propertyName?: SortOrder
     type?: SortOrder
     value?: SortOrder
     loggedDate?: SortOrder
+    userEmail?: SortOrder
+    userName?: SortOrder
   }
 
   export type UserCreateNestedOneWithoutPostsInput = {
@@ -19445,32 +19445,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
     tenancies?: ArthurTenancyCreateNestedManyWithoutUnitInput
   }
 
@@ -19480,32 +19480,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
     tenancies?: ArthurTenancyUncheckedCreateNestedManyWithoutUnitInput
   }
 
@@ -19545,32 +19545,32 @@ export namespace Prisma {
     status?: StringFilter<"ArthurUnit"> | string
     createdAt?: DateTimeFilter<"ArthurUnit"> | Date | string
     updatedAt?: DateTimeFilter<"ArthurUnit"> | Date | string
-    landlordEntity?: StringNullableFilter<"ArthurUnit"> | string | null
-    referenceCode?: StringNullableFilter<"ArthurUnit"> | string | null
-    bankName?: StringNullableFilter<"ArthurUnit"> | string | null
-    sortCode?: StringNullableFilter<"ArthurUnit"> | string | null
-    accountNumber?: StringNullableFilter<"ArthurUnit"> | string | null
     accountName?: StringNullableFilter<"ArthurUnit"> | string | null
+    accountNumber?: StringNullableFilter<"ArthurUnit"> | string | null
+    bankName?: StringNullableFilter<"ArthurUnit"> | string | null
+    complianceNotes?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicInspectedDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    eicSerial?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
+    elecMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcAssessedDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcAssessor?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcCertificate?: StringNullableFilter<"ArthurUnit"> | string | null
+    epcExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
     epcRating?: StringNullableFilter<"ArthurUnit"> | string | null
     epcScore?: IntNullableFilter<"ArthurUnit"> | number | null
-    epcCertificate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcAssessedDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    epcAssessor?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicInspectedDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    eicExpiryDate?: StringNullableFilter<"ArthurUnit"> | string | null
     insurancePolicy?: StringNullableFilter<"ArthurUnit"> | string | null
     insuranceStartDate?: StringNullableFilter<"ArthurUnit"> | string | null
     insuranceStatus?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
-    elecMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
-    waterMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    landlordEntity?: StringNullableFilter<"ArthurUnit"> | string | null
     outstandingDocs?: StringNullableListFilter<"ArthurUnit">
-    complianceNotes?: StringNullableFilter<"ArthurUnit"> | string | null
+    referenceCode?: StringNullableFilter<"ArthurUnit"> | string | null
+    sortCode?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInDate?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterCheckInValue?: StringNullableFilter<"ArthurUnit"> | string | null
+    waterMeterSerial?: StringNullableFilter<"ArthurUnit"> | string | null
   }
 
   export type ArthurTenancyCreateWithoutUnitInput = {
@@ -19590,10 +19590,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
     address?: string | null
     code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ArthurTenancyUncheckedCreateWithoutUnitInput = {
@@ -19613,10 +19613,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
     address?: string | null
     code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ArthurTenancyCreateOrConnectWithoutUnitInput = {
@@ -19687,10 +19687,10 @@ export namespace Prisma {
     lettingType?: StringFilter<"ArthurTenancy"> | string
     rentStatus?: StringFilter<"ArthurTenancy"> | string
     commentary?: StringFilter<"ArthurTenancy"> | string
-    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
-    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
     address?: StringNullableFilter<"ArthurTenancy"> | string | null
     code?: StringNullableFilter<"ArthurTenancy"> | string | null
+    createdAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
+    updatedAt?: DateTimeFilter<"ArthurTenancy"> | Date | string
   }
 
   export type ArthurPropertyUpsertWithoutUnitsInput = {
@@ -19726,32 +19726,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
     property: ArthurPropertyCreateNestedOneWithoutUnitsInput
   }
 
@@ -19762,32 +19762,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
   }
 
   export type ArthurUnitCreateOrConnectWithoutTenanciesInput = {
@@ -19812,32 +19812,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
     property?: ArthurPropertyUpdateOneRequiredWithoutUnitsNestedInput
   }
 
@@ -19848,32 +19848,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AccountCreateManyUserInput = {
@@ -19993,32 +19993,32 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    landlordEntity?: string | null
-    referenceCode?: string | null
-    bankName?: string | null
-    sortCode?: string | null
-    accountNumber?: string | null
     accountName?: string | null
+    accountNumber?: string | null
+    bankName?: string | null
+    complianceNotes?: string | null
+    eicExpiryDate?: string | null
+    eicInspectedDate?: string | null
+    eicSerial?: string | null
+    elecMeterCheckInDate?: string | null
+    elecMeterCheckInValue?: string | null
+    elecMeterSerial?: string | null
+    epcAssessedDate?: string | null
+    epcAssessor?: string | null
+    epcCertificate?: string | null
+    epcExpiryDate?: string | null
     epcRating?: string | null
     epcScore?: number | null
-    epcCertificate?: string | null
-    epcAssessedDate?: string | null
-    epcExpiryDate?: string | null
-    epcAssessor?: string | null
-    eicSerial?: string | null
-    eicInspectedDate?: string | null
-    eicExpiryDate?: string | null
     insurancePolicy?: string | null
     insuranceStartDate?: string | null
     insuranceStatus?: string | null
-    elecMeterSerial?: string | null
-    elecMeterCheckInValue?: string | null
-    elecMeterCheckInDate?: string | null
-    waterMeterSerial?: string | null
-    waterMeterCheckInValue?: string | null
-    waterMeterCheckInDate?: string | null
+    landlordEntity?: string | null
     outstandingDocs?: ArthurUnitCreateoutstandingDocsInput | string[]
-    complianceNotes?: string | null
+    referenceCode?: string | null
+    sortCode?: string | null
+    waterMeterCheckInDate?: string | null
+    waterMeterCheckInValue?: string | null
+    waterMeterSerial?: string | null
   }
 
   export type ArthurUnitUpdateWithoutPropertyInput = {
@@ -20027,32 +20027,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
     tenancies?: ArthurTenancyUpdateManyWithoutUnitNestedInput
   }
 
@@ -20062,32 +20062,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
     tenancies?: ArthurTenancyUncheckedUpdateManyWithoutUnitNestedInput
   }
 
@@ -20097,32 +20097,32 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
-    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
     accountName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
+    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
+    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     epcRating?: NullableStringFieldUpdateOperationsInput | string | null
     epcScore?: NullableIntFieldUpdateOperationsInput | number | null
-    epcCertificate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
-    epcAssessor?: NullableStringFieldUpdateOperationsInput | string | null
-    eicSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    eicInspectedDate?: NullableStringFieldUpdateOperationsInput | string | null
-    eicExpiryDate?: NullableStringFieldUpdateOperationsInput | string | null
     insurancePolicy?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStartDate?: NullableStringFieldUpdateOperationsInput | string | null
     insuranceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    elecMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
-    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    landlordEntity?: NullableStringFieldUpdateOperationsInput | string | null
     outstandingDocs?: ArthurUnitUpdateoutstandingDocsInput | string[]
-    complianceNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    referenceCode?: NullableStringFieldUpdateOperationsInput | string | null
+    sortCode?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInDate?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterCheckInValue?: NullableStringFieldUpdateOperationsInput | string | null
+    waterMeterSerial?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArthurTenancyCreateManyUnitInput = {
@@ -20142,10 +20142,10 @@ export namespace Prisma {
     lettingType: string
     rentStatus: string
     commentary: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
     address?: string | null
     code?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ArthurTenancyUpdateWithoutUnitInput = {
@@ -20165,10 +20165,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurTenancyUncheckedUpdateWithoutUnitInput = {
@@ -20188,10 +20188,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArthurTenancyUncheckedUpdateManyWithoutUnitInput = {
@@ -20211,10 +20211,10 @@ export namespace Prisma {
     lettingType?: StringFieldUpdateOperationsInput | string
     rentStatus?: StringFieldUpdateOperationsInput | string
     commentary?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     code?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

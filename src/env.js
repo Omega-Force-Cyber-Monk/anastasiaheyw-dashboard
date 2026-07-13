@@ -21,6 +21,7 @@ export const env = createEnv({
     ARTHUR_CLIENT_SECRET: z.string(),
     ARTHUR_ENTITY_ID: z.string(),
     ARTHUR_REDIRECT_URI: z.string(),
+    ARTHUR_TENANT_SLUG: z.string().default("anastasiahey"),
   },
 
   /**
@@ -46,6 +47,7 @@ export const env = createEnv({
     ARTHUR_CLIENT_SECRET: process.env.ARTHUR_CLIENT_SECRET,
     ARTHUR_ENTITY_ID: process.env.ARTHUR_ENTITY_ID,
     ARTHUR_REDIRECT_URI: process.env.ARTHUR_REDIRECT_URI,
+    ARTHUR_TENANT_SLUG: process.env.ARTHUR_TENANT_SLUG,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -32,10 +32,10 @@ export interface ArthurTenancyApi {
   deposit_received?: string;
   letting_type?: string;
   tenancy_type?: string;
-  notes?: string;
-  commentary?: string;
-  financial_status?: string;
-  rent_status?: string;
+  notes?: string | unknown[];
+  commentary?: string | unknown[];
+  financial_status?: string | unknown[];
+  rent_status?: string | unknown[];
   address?: string;
   code?: string;
   tenant_name?: string;
@@ -80,18 +80,18 @@ export const arthurRouter = createTRPCRouter({
             include: {
               tenancies: {
                 orderBy: {
-                  startDate: "desc"
-                }
-              }
+                  startDate: "desc",
+                },
+              },
             },
             orderBy: {
-              name: "asc"
-            }
-          }
+              name: "asc",
+            },
+          },
         },
         orderBy: {
-          name: "asc"
-        }
+          name: "asc",
+        },
       });
     } catch (error) {
       console.error("Error fetching properties and units:", error);
@@ -102,11 +102,18 @@ export const arthurRouter = createTRPCRouter({
     }
   }),
 
-  /**
-   * Get Arthur OAuth authorization URL.
-   */
   getAuthUrl: publicProcedure.query(() => {
-    return `https://system.arthuronline.co.uk/oauth/authorise?client_id=${process.env.ARTHUR_CLIENT_ID}&redirect_uri=${encodeURIComponent(process.env.ARTHUR_REDIRECT_URI!)}&response_type=code`;
+    const clientId = process.env.ARTHUR_CLIENT_ID ?? "";
+    let redirectUri =
+      process.env.ARTHUR_REDIRECT_URI ??
+      "https://anastasiaheyw-dashboard.vercel.app/api/arthur/callback";
+    if (!redirectUri.includes("/api/arthur/callback")) {
+      redirectUri = redirectUri.replace(/\/$/, "") + "/api/arthur/callback";
+    }
+    const state =
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15);
+    return `https://auth.arthuronline.co.uk/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&state=${state}`;
   }),
 
   /**
@@ -202,7 +209,7 @@ export const arthurRouter = createTRPCRouter({
         id: z.string(),
         commentary: z.string(),
         rentStatus: z.string(),
-      })
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       return await ctx.db.arthurTenancy.update({
@@ -219,25 +226,43 @@ export const arthurRouter = createTRPCRouter({
    */
   syncArthur: publicProcedure.mutation(async ({ ctx }) => {
     const logs: string[] = ["Initializing connection to Arthur Online API..."];
-    
+
     try {
       // 1. Fetch properties
       logs.push("Authorized successfully. Fetching properties...");
-      const propertiesRes = (await arthurFetch("v2/properties")) as { data?: ArthurPropertyApi[] } | undefined;
+      const propertiesRes = (await arthurFetch("v2/properties")) as
+        | { data?: ArthurPropertyApi[] }
+        | undefined;
       const properties = propertiesRes?.data ?? [];
       logs.push(`Retrieved ${properties.length} properties from Arthur.`);
 
       // 2. Fetch units
       logs.push("Fetching individual rentable units...");
-      const unitsRes = (await arthurFetch("v2/units")) as { data?: ArthurUnitApi[] } | undefined;
+      const unitsRes = (await arthurFetch("v2/units")) as
+        | { data?: ArthurUnitApi[] }
+        | undefined;
       const units = unitsRes?.data ?? [];
       logs.push(`Retrieved ${units.length} units from Arthur.`);
 
       // 3. Fetch tenancies
       logs.push("Fetching active lease agreements and tenant details...");
-      const tenanciesRes = (await arthurFetch("v2/tenancies")) as { data?: ArthurTenancyApi[] } | undefined;
+      const tenanciesRes = (await arthurFetch("v2/tenancies")) as
+        | { data?: ArthurTenancyApi[] }
+        | undefined;
       const tenancies = tenanciesRes?.data ?? [];
       logs.push(`Retrieved ${tenancies.length} tenancies from Arthur.`);
+
+      // Ensure fallback property exists
+      const fallbackPropertyId = "default_arthur_property";
+      await ctx.db.arthurProperty.upsert({
+        where: { id: fallbackPropertyId },
+        update: {},
+        create: {
+          id: fallbackPropertyId,
+          name: "General Property Block",
+          address: "Arthur Online Registered Units",
+        },
+      });
 
       logs.push("Writing properties to local database...");
       for (const prop of properties) {
@@ -256,25 +281,51 @@ export const arthurRouter = createTRPCRouter({
       }
 
       logs.push("Writing units to local database...");
+      const knownPropIds = new Set(properties.map((p) => String(p.id)));
       for (const unit of units) {
+        const propId = knownPropIds.has(String(unit.property_id))
+          ? String(unit.property_id)
+          : fallbackPropertyId;
+
         await ctx.db.arthurUnit.upsert({
           where: { id: String(unit.id) },
           update: {
-            propertyId: String(unit.property_id),
+            propertyId: propId,
             name: unit.name ?? unit.unit_number ?? "Unit",
             status: unit.status ?? "Vacant",
           },
           create: {
             id: String(unit.id),
-            propertyId: String(unit.property_id),
+            propertyId: propId,
             name: unit.name ?? unit.unit_number ?? "Unit",
             status: unit.status ?? "Vacant",
           },
         });
       }
 
-      logs.push("Writing tenancies to local database & merging custom notes...");
+      logs.push(
+        "Writing tenancies to local database & merging custom notes...",
+      );
       for (const tenancy of tenancies) {
+        const unitId = String(tenancy.unit_id);
+
+        // Ensure unit exists in DB before upserting tenancy
+        const existingUnit = await ctx.db.arthurUnit.findUnique({
+          where: { id: unitId },
+        });
+
+        if (!existingUnit) {
+          await ctx.db.arthurUnit.upsert({
+            where: { id: unitId },
+            update: {},
+            create: {
+              id: unitId,
+              propertyId: fallbackPropertyId,
+              name: tenancy.address ?? `Unit ${unitId}`,
+              status: "Occupied",
+            },
+          });
+        }
         // Extract tenants, email, phone list
         const tenantsList: string[] = [];
         const phonesList: string[] = [];
@@ -297,30 +348,74 @@ export const arthurRouter = createTRPCRouter({
           tenantsList.push(tenancy.tenant_name);
         }
 
-        const rentVal = parseFloat(tenancy.rent_amount ?? tenancy.rent ?? "0.0") || 0.0;
-        const depositVal = parseFloat(tenancy.deposit_amount ?? tenancy.deposit ?? "0.0") || 0.0;
-        const rentStr = tenancy.rent ?? `£ ${rentVal.toLocaleString("en-GB", { minimumFractionDigits: 2 })}`;
-        const depositStr = tenancy.deposit ?? `£ ${depositVal.toLocaleString("en-GB", { minimumFractionDigits: 2 })}`;
+        const rentVal =
+          parseFloat(tenancy.rent_amount ?? tenancy.rent ?? "0.0") || 0.0;
+        const depositVal =
+          parseFloat(tenancy.deposit_amount ?? tenancy.deposit ?? "0.0") || 0.0;
+        const rentStr =
+          tenancy.rent ??
+          `£ ${rentVal.toLocaleString("en-GB", { minimumFractionDigits: 2 })}`;
+        const depositStr =
+          tenancy.deposit ??
+          `£ ${depositVal.toLocaleString("en-GB", { minimumFractionDigits: 2 })}`;
 
         // Check if there are local overrides already
         const existingTenancy = await ctx.db.arthurTenancy.findUnique({
           where: { id: String(tenancy.id) },
         });
 
-        const commentary = existingTenancy?.commentary ?? tenancy.notes ?? tenancy.commentary ?? "";
-        const rentStatus = existingTenancy?.rentStatus ?? tenancy.rent_status ?? tenancy.financial_status ?? "";
+        let commentary = "";
+        if (
+          typeof existingTenancy?.commentary === "string" &&
+          existingTenancy.commentary
+        ) {
+          commentary = existingTenancy.commentary;
+        } else if (typeof tenancy.notes === "string") {
+          commentary = tenancy.notes;
+        } else if (typeof tenancy.commentary === "string") {
+          commentary = tenancy.commentary;
+        } else if (Array.isArray(tenancy.notes)) {
+          commentary = tenancy.notes
+            .filter((n): n is string => typeof n === "string")
+            .join("\n");
+        } else if (Array.isArray(tenancy.commentary)) {
+          commentary = tenancy.commentary
+            .filter((c): c is string => typeof c === "string")
+            .join("\n");
+        }
+
+        let rentStatus = "";
+        if (
+          typeof existingTenancy?.rentStatus === "string" &&
+          existingTenancy.rentStatus
+        ) {
+          rentStatus = existingTenancy.rentStatus;
+        } else if (typeof tenancy.rent_status === "string") {
+          rentStatus = tenancy.rent_status;
+        } else if (typeof tenancy.financial_status === "string") {
+          rentStatus = tenancy.financial_status;
+        }
 
         // Determine occupancy status
         let mappedStatus = "Vacant";
-        if (tenancy.status?.toLowerCase() === "active" || tenancy.status?.toLowerCase() === "occupied") {
+        if (
+          tenancy.status?.toLowerCase() === "active" ||
+          tenancy.status?.toLowerCase() === "occupied"
+        ) {
           mappedStatus = "Occupied";
-        } else if (tenancy.status?.toLowerCase() === "past" || tenancy.status?.toLowerCase() === "moved out") {
+        } else if (
+          tenancy.status?.toLowerCase() === "past" ||
+          tenancy.status?.toLowerCase() === "moved out"
+        ) {
           mappedStatus = "Moved out";
         }
 
         // Letting type mapping
         let lettingType = "FIXED TERM";
-        if (tenancy.letting_type?.toLowerCase()?.includes("rolling") || tenancy.tenancy_type?.toLowerCase()?.includes("rolling")) {
+        if (
+          tenancy.letting_type?.toLowerCase()?.includes("rolling") ||
+          tenancy.tenancy_type?.toLowerCase()?.includes("rolling")
+        ) {
           lettingType = "AST ROLLING";
         } else if (tenancy.status?.toLowerCase() === "past") {
           lettingType = "PREVIOUS TENANT";
@@ -381,6 +476,15 @@ export const arthurRouter = createTRPCRouter({
       console.error("Arthur synchronization failed:", err);
       const errMsg = err instanceof Error ? err.message : "Unknown error";
       logs.push(`Sync failed: ${errMsg}`);
+      if (
+        errMsg.includes("Cloudflare") ||
+        errMsg.includes("403") ||
+        errMsg.includes("401")
+      ) {
+        logs.push(
+          "💡 Solution: Your OAuth session is expired or restricted by Cloudflare. Please click 'Reconnect Arthur Online' in Settings to authenticate a fresh live session, or use 'Mock Connect (Dev)' for instant testing.",
+        );
+      }
       return {
         success: false,
         logs,
