@@ -85,42 +85,40 @@ model ArthurProperty {
 }
 
 model ArthurUnit {
-  id         String          @id
-  propertyId String
-  name       String
-  status     String
-  createdAt  DateTime        @default(now())
-  updatedAt  DateTime        @updatedAt
-  tenancies  ArthurTenancy[]
-  property   ArthurProperty  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
-
-  // Custom metadata fields
-  landlordEntity         String?
-  referenceCode          String?
-  bankName               String?
-  sortCode               String?
-  accountNumber          String?
+  id                     String          @id
+  propertyId             String
+  name                   String
+  status                 String
+  createdAt              DateTime        @default(now())
+  updatedAt              DateTime        @updatedAt
   accountName            String?
+  accountNumber          String?
+  bankName               String?
+  complianceNotes        String?
+  eicExpiryDate          String?
+  eicInspectedDate       String?
+  eicSerial              String?
+  elecMeterCheckInDate   String?
+  elecMeterCheckInValue  String?
+  elecMeterSerial        String?
+  epcAssessedDate        String?
+  epcAssessor            String?
+  epcCertificate         String?
+  epcExpiryDate          String?
   epcRating              String?
   epcScore               Int?
-  epcCertificate         String?
-  epcAssessedDate        String?
-  epcExpiryDate          String?
-  epcAssessor            String?
-  eicSerial              String?
-  eicInspectedDate       String?
-  eicExpiryDate          String?
   insurancePolicy        String?
   insuranceStartDate     String?
   insuranceStatus        String?
-  elecMeterSerial        String?
-  elecMeterCheckInValue  String?
-  elecMeterCheckInDate   String?
-  waterMeterSerial       String?
-  waterMeterCheckInValue String?
+  landlordEntity         String?
+  outstandingDocs        String[]        @default([])
+  referenceCode          String?
+  sortCode               String?
   waterMeterCheckInDate  String?
-  outstandingDocs        String[] @default([])
-  complianceNotes        String?
+  waterMeterCheckInValue String?
+  waterMeterSerial       String?
+  tenancies              ArthurTenancy[]
+  property               ArthurProperty  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 }
 
 model ArthurTenancy {
@@ -141,10 +139,10 @@ model ArthurTenancy {
   lettingType String
   rentStatus  String
   commentary  String
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
   address     String?
   code        String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   unit        ArthurUnit @relation(fields: [unitId], references: [id], onDelete: Cascade)
 }
 
@@ -159,25 +157,25 @@ model AdminProfile {
 
 model MaintenanceReport {
   id               String   @id @default(cuid())
+  unitName         String
+  propertyName     String
+  issue            String
+  priority         String
+  status           String   @default("PENDING")
+  reportedDate     DateTime @default(now())
+  adminDescription String?
+  updatedAt        DateTime @updatedAt
   userEmail        String
   userName         String
-  unitName         String // flat unit name/number
-  propertyName     String // property name
-  issue            String // the description of the issue
-  priority         String // "Low" | "Medium" | "High"
-  status           String   @default("PENDING") // "PENDING" | "RESOLVED"
-  reportedDate     DateTime @default(now())
-  adminDescription String? // admin reply/resolution notes
-  updatedAt        DateTime @updatedAt
 }
 
 model MeterReading {
   id           String   @id @default(cuid())
-  userEmail    String
-  userName     String
   unitName     String
   propertyName String
-  type         String // "Electricity" | "Water" | "Gas"
-  value        String // e.g. "45980 kWh"
+  type         String
+  value        String
   loggedDate   DateTime @default(now())
+  userEmail    String
+  userName     String
 }

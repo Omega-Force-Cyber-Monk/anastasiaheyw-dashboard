@@ -30,12 +30,12 @@ export function LoginForm({
       await onCredentialsSignIn(formData);
     } catch (err) {
       const errMsg = err instanceof Error ? err.message : String(err);
-      
+
       // Ignore NEXT_REDIRECT as it is the framework's redirect handler, not a real error.
       if (errMsg.includes("NEXT_REDIRECT")) {
         return;
       }
-      
+
       setError(
         err instanceof Error
           ? err.message
@@ -46,7 +46,7 @@ export function LoginForm({
   };
 
   return (
-    <div className="w-full max-w-md rounded-2xl border border-slate-100/80 bg-white px-8 py-10 shadow-xl transition-all duration-300 hover:shadow-2xl">
+    <div className="w-full max-w-md rounded-xl border border-slate-200 bg-white px-8 py-10 shadow-xs transition-all duration-300 hover:shadow-2xl">
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-slate-800">
           LOGIN

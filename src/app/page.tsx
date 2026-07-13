@@ -7,6 +7,8 @@ import { db } from "~/server/db";
 
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   let hello = null;
   try {
@@ -117,7 +119,7 @@ export default async function Home() {
         {/* Main Content Area */}
         <div className="container max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
           {/* Left Column: Vector Illustration */}
-          <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="hidden md:flex w-full md:w-1/2 justify-center items-center">
             <div className="relative w-full max-w-[480px] aspect-square transition-all duration-500 hover:scale-[1.02]">
               <Image
                 src="/login-illustration.png"
