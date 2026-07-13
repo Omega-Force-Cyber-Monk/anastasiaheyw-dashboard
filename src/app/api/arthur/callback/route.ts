@@ -25,19 +25,22 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const response = await fetch("https://system.arthuronline.co.uk/oauth/token", {
+    const bodyParams = new URLSearchParams({
+      client_id: env.ARTHUR_CLIENT_ID,
+      client_secret: env.ARTHUR_CLIENT_SECRET,
+      redirect_uri: env.ARTHUR_REDIRECT_URI,
+      code,
+      grant_type: "authorization_code",
+    });
+
+    const response = await fetch("https://auth.arthuronline.co.uk/oauth/token", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cache-Control": "no-cache",
         Accept: "application/json",
       },
-      body: JSON.stringify({
-        client_id: env.ARTHUR_CLIENT_ID,
-        client_secret: env.ARTHUR_CLIENT_SECRET,
-        redirect_uri: env.ARTHUR_REDIRECT_URI,
-        code,
-        grant_type: "authorization_code",
-      }),
+      body: bodyParams.toString(),
     });
 
     if (!response.ok) {
@@ -51,16 +54,27 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const data = (await response.json()) as {
-      access_token: string;
-      refresh_token: string;
-      expires_in: number;
-    };
+    let data: { access_token: string; refresh_token: string; expires_in: number };
+    try {
+      data = (await response.json()) as {
+        access_token: string;
+        refresh_token: string;
+        expires_in: number;
+      };
+    } catch {
+      console.error("Non-JSON response received from Arthur token endpoint");
+      return NextResponse.redirect(
+        new URL(
+          `/admin/settings?error=invalid_response_format&message=${encodeURIComponent("Arthur server returned a non-JSON response.")}`,
+          request.url
+        )
+      );
+    }
 
     await saveArthurToken(data.access_token, data.refresh_token, data.expires_in);
 
     return NextResponse.redirect(
-      new URL("/admin/settings?success=arthur_connected", request.url)
+      new URL("/admin/oauth-success", request.url)
     );
   } catch (err) {
     console.error("Error in Arthur OAuth callback handler:", err);

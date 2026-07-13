@@ -59,18 +59,21 @@ export async function getArthurToken(): Promise<string> {
  */
 async function refreshArthurToken(refreshToken: string): Promise<string> {
   console.log("Refreshing Arthur OAuth token...");
-  const response = await fetch("https://system.arthuronline.co.uk/oauth/token", {
+  const bodyParams = new URLSearchParams({
+    client_id: env.ARTHUR_CLIENT_ID,
+    client_secret: env.ARTHUR_CLIENT_SECRET,
+    refresh_token: refreshToken,
+    grant_type: "refresh_token",
+  });
+
+  const response = await fetch("https://auth.arthuronline.co.uk/oauth/token", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Cache-Control": "no-cache",
       Accept: "application/json",
     },
-    body: JSON.stringify({
-      client_id: env.ARTHUR_CLIENT_ID,
-      client_secret: env.ARTHUR_CLIENT_SECRET,
-      refresh_token: refreshToken,
-      grant_type: "refresh_token",
-    }),
+    body: bodyParams.toString(),
   });
 
   if (!response.ok) {
@@ -108,18 +111,27 @@ export async function arthurFetch(endpoint: string, options: RequestInit = {}) {
     headers: {
       Authorization: `Bearer ${token}`,
       "X-EntityID": env.ARTHUR_ENTITY_ID,
-      Accept: "application/json",
+      Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+      "Accept-Language": "en-US,en;q=0.9",
       ...options.headers,
     },
   });
 
   if (!res.ok) {
     const errorText = await res.text();
-    throw new Error(`Arthur API request failed: ${res.status} - ${errorText}`);
+    if (errorText.includes("Just a moment...") || errorText.includes("challenges.cloudflare.com")) {
+      throw new Error(`Arthur API request was challenged by Cloudflare (403 Forbidden). Re-authenticate via OAuth or verify API credentials.`);
+    }
+    throw new Error(`Arthur API request failed: ${res.status} - ${errorText.slice(0, 150)}`);
   }
 
-  return (await res.json()) as unknown;
+  try {
+    return (await res.json()) as unknown;
+  } catch {
+    throw new Error(`Arthur API response could not be parsed as JSON.`);
+  }
 }
 
 /**

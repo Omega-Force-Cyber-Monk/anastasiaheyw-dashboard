@@ -191,32 +191,32 @@ exports.Prisma.ArthurUnitScalarFieldEnum = {
   status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  landlordEntity: 'landlordEntity',
-  referenceCode: 'referenceCode',
-  bankName: 'bankName',
-  sortCode: 'sortCode',
-  accountNumber: 'accountNumber',
   accountName: 'accountName',
+  accountNumber: 'accountNumber',
+  bankName: 'bankName',
+  complianceNotes: 'complianceNotes',
+  eicExpiryDate: 'eicExpiryDate',
+  eicInspectedDate: 'eicInspectedDate',
+  eicSerial: 'eicSerial',
+  elecMeterCheckInDate: 'elecMeterCheckInDate',
+  elecMeterCheckInValue: 'elecMeterCheckInValue',
+  elecMeterSerial: 'elecMeterSerial',
+  epcAssessedDate: 'epcAssessedDate',
+  epcAssessor: 'epcAssessor',
+  epcCertificate: 'epcCertificate',
+  epcExpiryDate: 'epcExpiryDate',
   epcRating: 'epcRating',
   epcScore: 'epcScore',
-  epcCertificate: 'epcCertificate',
-  epcAssessedDate: 'epcAssessedDate',
-  epcExpiryDate: 'epcExpiryDate',
-  epcAssessor: 'epcAssessor',
-  eicSerial: 'eicSerial',
-  eicInspectedDate: 'eicInspectedDate',
-  eicExpiryDate: 'eicExpiryDate',
   insurancePolicy: 'insurancePolicy',
   insuranceStartDate: 'insuranceStartDate',
   insuranceStatus: 'insuranceStatus',
-  elecMeterSerial: 'elecMeterSerial',
-  elecMeterCheckInValue: 'elecMeterCheckInValue',
-  elecMeterCheckInDate: 'elecMeterCheckInDate',
-  waterMeterSerial: 'waterMeterSerial',
-  waterMeterCheckInValue: 'waterMeterCheckInValue',
-  waterMeterCheckInDate: 'waterMeterCheckInDate',
+  landlordEntity: 'landlordEntity',
   outstandingDocs: 'outstandingDocs',
-  complianceNotes: 'complianceNotes'
+  referenceCode: 'referenceCode',
+  sortCode: 'sortCode',
+  waterMeterCheckInDate: 'waterMeterCheckInDate',
+  waterMeterCheckInValue: 'waterMeterCheckInValue',
+  waterMeterSerial: 'waterMeterSerial'
 };
 
 exports.Prisma.ArthurTenancyScalarFieldEnum = {
@@ -237,10 +237,10 @@ exports.Prisma.ArthurTenancyScalarFieldEnum = {
   lettingType: 'lettingType',
   rentStatus: 'rentStatus',
   commentary: 'commentary',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   address: 'address',
-  code: 'code'
+  code: 'code',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.AdminProfileScalarFieldEnum = {
@@ -254,8 +254,6 @@ exports.Prisma.AdminProfileScalarFieldEnum = {
 
 exports.Prisma.MaintenanceReportScalarFieldEnum = {
   id: 'id',
-  userEmail: 'userEmail',
-  userName: 'userName',
   unitName: 'unitName',
   propertyName: 'propertyName',
   issue: 'issue',
@@ -263,18 +261,20 @@ exports.Prisma.MaintenanceReportScalarFieldEnum = {
   status: 'status',
   reportedDate: 'reportedDate',
   adminDescription: 'adminDescription',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  userEmail: 'userEmail',
+  userName: 'userName'
 };
 
 exports.Prisma.MeterReadingScalarFieldEnum = {
   id: 'id',
-  userEmail: 'userEmail',
-  userName: 'userName',
   unitName: 'unitName',
   propertyName: 'propertyName',
   type: 'type',
   value: 'value',
-  loggedDate: 'loggedDate'
+  loggedDate: 'loggedDate',
+  userEmail: 'userEmail',
+  userName: 'userName'
 };
 
 exports.Prisma.SortOrder = {
